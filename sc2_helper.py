@@ -79,7 +79,7 @@ def is_game_running() -> bool:
 def capture_region(region: list) -> Image.Image:
     """Capture a screen region. region = [left, top, width, height]."""
     left, top, width, height = region
-    with _mss.mss() as sct:
+    with _mss.MSS() as sct:
         monitor = {"left": left, "top": top, "width": width, "height": height}
         raw = sct.grab(monitor)
         return Image.frombytes("RGB", raw.size, raw.rgb)
@@ -248,13 +248,11 @@ def debug_mode() -> None:
 
 def calibrate_mode() -> None:
     """Take a full screenshot and save it for HUD coordinate identification."""
-    import mss
-    from PIL import Image
     print("Capturing full screenshot...")
-    with mss.mss() as sct:
+    with _mss.MSS() as sct:
         monitor = sct.monitors[1]  # primary monitor
         raw = sct.grab(monitor)
-        img = Image.frombytes("RGB", raw.size, raw.bgra, "raw", "BGRX")
+        img = Image.frombytes("RGB", raw.size, raw.rgb)
     path = Path(__file__).parent / "calibration.png"
     img.save(path)
     print(f"Saved: {path}")
