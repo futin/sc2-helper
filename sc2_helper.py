@@ -18,8 +18,10 @@ Calibrate mode (saves full screenshot to calibration.png for coordinate finding)
 """
 
 import json
+import queue
 import subprocess
 import sys
+import threading
 import time
 from pathlib import Path
 from typing import Optional
@@ -47,12 +49,33 @@ def load_config(path: str) -> dict:
 # TTS
 # ---------------------------------------------------------------------------
 
-def speak(message: str, voice: str = "") -> None:
-    """Fire-and-forget macOS TTS. Non-blocking so the poll loop keeps running."""
-    cmd = ["say", message]
-    if voice:
-        cmd = ["say", "-v", voice, message]
-    subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+PRIORITY_SUPPLY = 0
+PRIORITY_MINERALS = 1
+PRIORITY_IDLE_WORKERS = 2
+PRIORITY_GAS = 3
+
+_speech_queue: queue.PriorityQueue = queue.PriorityQueue()
+_speech_counter = 0
+_speech_lock = threading.Lock()
+
+
+def _speech_worker() -> None:
+    while True:
+        _, _, message, voice = _speech_queue.get()
+        cmd = ["say", "-v", voice, message] if voice else ["say", message]
+        subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        _speech_queue.task_done()
+
+
+threading.Thread(target=_speech_worker, daemon=True).start()
+
+
+def speak(message: str, voice: str = "", priority: int = 99) -> None:
+    global _speech_counter
+    with _speech_lock:
+        _speech_counter += 1
+        counter = _speech_counter
+    _speech_queue.put((priority, counter, message, voice))
 
 
 # ---------------------------------------------------------------------------
@@ -181,11 +204,10 @@ def check_resources(state: dict, config: dict, cooldown: CooldownTracker, voice:
     mineral_over = minerals > res_cfg["mineral_threshold"]
     gas_over = gas > res_cfg["gas_threshold"]
 
-    if (mineral_over or gas_over) and cooldown.ready("resources", res_cfg["cooldown"]):
-        if mineral_over:
-            speak(f"Spend resources — minerals at {minerals}", voice)
-        else:
-            speak(f"Spend resources — gas at {gas}", voice)
+    if mineral_over and cooldown.ready("minerals", res_cfg["cooldown"]):
+        speak(f"Spend resources — minerals at {minerals}", voice, PRIORITY_MINERALS)
+    if gas_over and cooldown.ready("gas", res_cfg["cooldown"]):
+        speak(f"Spend resources — gas at {gas}", voice, PRIORITY_GAS)
 
 
 def check_supply(state: dict, config: dict, cooldown: CooldownTracker, voice: str) -> None:
@@ -198,7 +220,7 @@ def check_supply(state: dict, config: dict, cooldown: CooldownTracker, voice: st
     supply_cfg = config["supply"]
     if (supply_used / supply_max >= supply_cfg["threshold_pct"] and
             cooldown.ready("supply", supply_cfg["cooldown"])):
-        speak(f"Supply almost full — {supply_used} of {supply_max}", voice)
+        speak(f"Supply almost full — {supply_used} of {supply_max}", voice, PRIORITY_SUPPLY)
 
 
 def check_idle_workers(
@@ -225,7 +247,7 @@ def check_idle_workers(
 
     elapsed = time.monotonic() - idle_onset
     if elapsed >= workers_cfg["idle_seconds"] and cooldown.ready("workers", workers_cfg["cooldown"]):
-        speak(f"{idle_count} idle workers", voice)
+        speak(f"{idle_count} idle workers", voice, PRIORITY_IDLE_WORKERS)
 
     return idle_onset
 
