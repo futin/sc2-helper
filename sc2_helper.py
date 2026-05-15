@@ -134,7 +134,11 @@ def fetch_game_state(config: dict) -> Optional[dict]:
     gas = ocr_number(capture_region(sc["gas"]), threshold)
     supply_used, supply_max = ocr_supply(capture_region(sc["supply"]), threshold)
     idle_workers = ocr_number(capture_region(sc["idle_workers"]), threshold) or 0
-
+    print("minerals", minerals)
+    print("gas", gas)
+    print("supply_used", supply_used)
+    print("supply_max", supply_max)
+    print("idle_workers", idle_workers)
     # Skip this poll if any critical value failed OCR
     if any(v is None for v in [minerals, gas, supply_used, supply_max]):
         return None
@@ -246,23 +250,73 @@ def debug_mode() -> None:
 # Calibrate mode
 # ---------------------------------------------------------------------------
 
+def _calculate_regions(w: int, h: int) -> dict:
+    """
+    Estimate SC2 HUD region positions from screen dimensions.
+    Based on default UI scale layout ratios (1920x1080 reference).
+    """
+    bar_y = int(h * 0.950)
+    bar_h = int(h * 0.026)
+    reg_w = int(w * 0.047)
+    return {
+        "minerals":     [int(w * 0.711), bar_y, reg_w, bar_h],
+        "gas":          [int(w * 0.759), bar_y, reg_w, bar_h],
+        "supply":       [int(w * 0.807), bar_y, reg_w, bar_h],
+        "idle_workers": [10, int(h * 0.898), 60, int(h * 0.032)],
+        "ocr_threshold": 100,
+    }
+
+
+def _annotate(img: Image.Image, regions: dict) -> Image.Image:
+    """Draw labelled rectangles on screenshot to show detected regions."""
+    from PIL import ImageDraw, ImageFont
+    draw = ImageDraw.Draw(img)
+    colors = {
+        "minerals": "#00BFFF",
+        "gas":      "#00FF88",
+        "supply":   "#FFAA00",
+        "idle_workers": "#FF4444",
+    }
+    for name, region in regions.items():
+        if name == "ocr_threshold":
+            continue
+        l, t, rw, rh = region
+        color = colors.get(name, "#FFFFFF")
+        draw.rectangle([l, t, l + rw, t + rh], outline=color, width=2)
+        draw.text((l, t - 14), name, fill=color)
+    return img
+
+
 def calibrate_mode() -> None:
-    """Take a full screenshot and save it for HUD coordinate identification."""
-    print("Capturing full screenshot...")
+    """Auto-detect SC2 HUD regions from screen resolution and write to config.yaml."""
+    print("Capturing screenshot...")
     with _mss.MSS() as sct:
-        monitor = sct.monitors[1]  # primary monitor
+        monitor = sct.monitors[1]
         raw = sct.grab(monitor)
         img = Image.frombytes("RGB", raw.size, raw.rgb)
-    path = Path(__file__).parent / "calibration.png"
-    img.save(path)
-    print(f"Saved: {path}")
-    print()
-    print("Open calibration.png in Preview (Tools > Show Inspector shows pixel coords).")
-    print("Find each HUD element and update screen_capture regions in config.yaml:")
-    print("  minerals:     [left, top, width, height]")
-    print("  gas:          [left, top, width, height]")
-    print("  supply:       [left, top, width, height]   # shows 'used/max'")
-    print("  idle_workers: [left, top, width, height]   # bottom-left icon area")
+
+    w, h = img.size
+    print(f"Screen: {w}x{h}")
+
+    regions = _calculate_regions(w, h)
+
+    # Save annotated screenshot for verification
+    annotated = _annotate(img.copy(), regions)
+    cal_path = Path(__file__).parent / "calibration.png"
+    annotated.save(cal_path)
+    print(f"Saved annotated screenshot: {cal_path}")
+
+    # Update config.yaml screen_capture section
+    cfg_path = Path(__file__).parent / "config.yaml"
+    config = load_config(cfg_path)
+    config["screen_capture"] = regions
+    with open(cfg_path, "w") as f:
+        yaml.dump(config, f, default_flow_style=None, sort_keys=False)
+
+    print("\nRegions written to config.yaml:")
+    for name, val in regions.items():
+        print(f"  {name}: {val}")
+    print("\nOpen calibration.png to verify. Adjust config.yaml if boxes look off.")
 
 
 # ---------------------------------------------------------------------------
@@ -286,6 +340,7 @@ def main() -> None:
     try:
         while True:
             state = fetch_game_state(config)
+            print(state)
             if state:
                 check_resources(state, config, cooldown, voice)
                 check_supply(state, config, cooldown, voice)
