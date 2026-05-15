@@ -24,8 +24,11 @@ import time
 from pathlib import Path
 from typing import Optional
 
+import mss as _mss
+import pytesseract
 import requests
 import yaml
+from PIL import Image, ImageOps
 
 SC2_BASE = "http://localhost:6119"
 REQUEST_TIMEOUT = 1  # seconds
@@ -73,28 +76,25 @@ def is_game_running() -> bool:
 # Screen capture helpers
 # ---------------------------------------------------------------------------
 
-def capture_region(region: list) -> "PIL.Image.Image":
+def capture_region(region: list) -> Image.Image:
     """Capture a screen region. region = [left, top, width, height]."""
-    import mss
-    from PIL import Image
     left, top, width, height = region
-    with mss.mss() as sct:
+    with _mss.mss() as sct:
         monitor = {"left": left, "top": top, "width": width, "height": height}
         raw = sct.grab(monitor)
-        return Image.frombytes("RGB", raw.size, raw.bgra, "raw", "BGRX")
+        return Image.frombytes("RGB", raw.size, raw.rgb)
 
 
-def ocr_number(img: "PIL.Image.Image") -> Optional[int]:
-    """OCR a single integer from a HUD region. Returns None on failure."""
-    import pytesseract
-    from PIL import Image, ImageOps
-    # Upscale 3x for better accuracy on small HUD text
+def _preprocess(img: Image.Image, threshold: int) -> Image.Image:
     img = img.resize((img.width * 3, img.height * 3), resample=Image.LANCZOS)
     img = ImageOps.grayscale(img)
-    # Threshold: HUD numbers are bright on dark background
-    img = img.point(lambda x: 255 if x > 100 else 0)
+    return img.point(lambda x: 255 if x > threshold else 0)
+
+
+def ocr_number(img: Image.Image, threshold: int = 100) -> Optional[int]:
+    """OCR a single integer from a HUD region. Returns None on failure."""
     text = pytesseract.image_to_string(
-        img,
+        _preprocess(img, threshold),
         config="--psm 7 --oem 3 -c tessedit_char_whitelist=0123456789"
     ).strip()
     try:
@@ -103,15 +103,10 @@ def ocr_number(img: "PIL.Image.Image") -> Optional[int]:
         return None
 
 
-def ocr_supply(img: "PIL.Image.Image") -> tuple:
+def ocr_supply(img: Image.Image, threshold: int = 100) -> tuple:
     """OCR supply region. Returns (used, max) or (None, None) on failure."""
-    import pytesseract
-    from PIL import Image, ImageOps
-    img = img.resize((img.width * 3, img.height * 3), resample=Image.LANCZOS)
-    img = ImageOps.grayscale(img)
-    img = img.point(lambda x: 255 if x > 100 else 0)
     text = pytesseract.image_to_string(
-        img,
+        _preprocess(img, threshold),
         config="--psm 7 --oem 3 -c tessedit_char_whitelist=0123456789/"
     ).strip()
     if "/" in text:
@@ -133,11 +128,12 @@ def fetch_game_state(config: dict) -> Optional[dict]:
         return None
 
     sc = config["screen_capture"]
+    threshold = sc.get("ocr_threshold", 100)
 
-    minerals = ocr_number(capture_region(sc["minerals"]))
-    gas = ocr_number(capture_region(sc["gas"]))
-    supply_used, supply_max = ocr_supply(capture_region(sc["supply"]))
-    idle_workers = ocr_number(capture_region(sc["idle_workers"])) or 0
+    minerals = ocr_number(capture_region(sc["minerals"]), threshold)
+    gas = ocr_number(capture_region(sc["gas"]), threshold)
+    supply_used, supply_max = ocr_supply(capture_region(sc["supply"]), threshold)
+    idle_workers = ocr_number(capture_region(sc["idle_workers"]), threshold) or 0
 
     # Skip this poll if any critical value failed OCR
     if any(v is None for v in [minerals, gas, supply_used, supply_max]):

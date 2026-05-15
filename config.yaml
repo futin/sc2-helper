@@ -25,3 +25,4 @@ screen_capture:
   gas:          [1458, 1018, 90, 28]
   supply:       [1550, 1018, 90, 28]   # text format: "used/max" e.g. "43/50"
   idle_workers: [10,   970, 60, 35]    # bottom-left idle worker button area
+  ocr_threshold: 100  # brightness cutoff (0-255); lower if numbers aren't detected
