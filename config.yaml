@@ -15,3 +15,13 @@ workers:
 
 player_id: 1              # 1 = local player (yourself)
 tts_voice: ""             # empty = macOS default voice; or e.g. "Alex"
+
+screen_capture:
+  # Pixel regions for each HUD element: [left, top, width, height]
+  # Run --calibrate to capture a screenshot, then open calibration.png
+  # to find the correct coordinates for your resolution/UI scale.
+  # Defaults below are approximate for 1920x1080 at default SC2 UI scale.
+  minerals:     [1365, 1018, 90, 28]
+  gas:          [1458, 1018, 90, 28]
+  supply:       [1550, 1018, 90, 28]   # text format: "used/max" e.g. "43/50"
+  idle_workers: [10,   970, 60, 35]    # bottom-left idle worker button area

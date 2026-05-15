@@ -1,15 +1,20 @@
 """
-SC2 Helper — polls the StarCraft II game client API and speaks audio warnings.
+SC2 Helper — captures the StarCraft II HUD via screen OCR and speaks audio warnings.
 
 Endpoints used:
-  GET http://localhost:6119/game   → mineral/gas/supply data
-  GET http://localhost:6119/ui     → idle worker alerts
+  GET http://localhost:6119/game   → game/player status only (no resource data)
+
+Resource values (minerals, gas, supply, idle workers) are read via screen capture
+and OCR from the HUD.
 
 Run normally:
   python3 sc2_helper.py
 
-Debug mode (prints raw JSON from both endpoints and exits):
+Debug mode (prints raw JSON from /game endpoint and exits):
   python3 sc2_helper.py --debug
+
+Calibrate mode (saves full screenshot to calibration.png for coordinate finding):
+  python3 sc2_helper.py --calibrate
 """
 
 import json
@@ -48,77 +53,95 @@ def speak(message: str, voice: str = "") -> None:
 
 
 # ---------------------------------------------------------------------------
-# Game state fetch
+# Game status check
 # ---------------------------------------------------------------------------
 
-def fetch_game_state(player_id: int) -> Optional[dict]:
-    """
-    Poll /game and /ui endpoints.
-
-    Returns a dict with:
-        minerals, gas, supply_used, supply_max  (from /game)
-        idle_workers                             (from /ui)
-
-    Returns None if SC2 is not running or either endpoint fails.
-
-    NOTE on SC2 API schema:
-      /game  — resource data lives under players[player_id - 1].  Known keys
-               include "minerals" and "vespene" (gas).  Supply is typically
-               "food_used" / "food_cap" (Blizzard API names).  We try both
-               common variants and fall back to 0 so the script doesn't crash
-               if field names differ.
-      /ui    — idle worker count is reported in activeAlerts as an alert with
-               workerType set.  A simpler shortcut is the top-level
-               "activeAlerts" list; we look for any entry with a numeric count.
-               The value may also appear directly as "idleWorkerCount" on the
-               root object depending on API version.
-    """
+def is_game_running() -> bool:
+    """Return True if SC2 is running and a game is in progress."""
     try:
-        game_resp = requests.get(f"{SC2_BASE}/game", timeout=REQUEST_TIMEOUT)
-        ui_resp = requests.get(f"{SC2_BASE}/ui", timeout=REQUEST_TIMEOUT)
-    except (requests.ConnectionError, requests.Timeout):
-        return None
+        resp = requests.get(f"{SC2_BASE}/game", timeout=REQUEST_TIMEOUT)
+        if resp.status_code != 200:
+            return False
+        data = resp.json()
+        players = data.get("players", [])
+        return any(p.get("result") == "Undecided" for p in players)
+    except (requests.ConnectionError, requests.Timeout, ValueError):
+        return False
 
-    if game_resp.status_code != 200 or ui_resp.status_code != 200:
-        return None
 
+# ---------------------------------------------------------------------------
+# Screen capture helpers
+# ---------------------------------------------------------------------------
+
+def capture_region(region: list) -> "PIL.Image.Image":
+    """Capture a screen region. region = [left, top, width, height]."""
+    import mss
+    from PIL import Image
+    left, top, width, height = region
+    with mss.mss() as sct:
+        monitor = {"left": left, "top": top, "width": width, "height": height}
+        raw = sct.grab(monitor)
+        return Image.frombytes("RGB", raw.size, raw.bgra, "raw", "BGRX")
+
+
+def ocr_number(img: "PIL.Image.Image") -> Optional[int]:
+    """OCR a single integer from a HUD region. Returns None on failure."""
+    import pytesseract
+    from PIL import Image, ImageOps
+    # Upscale 3x for better accuracy on small HUD text
+    img = img.resize((img.width * 3, img.height * 3), resample=Image.LANCZOS)
+    img = ImageOps.grayscale(img)
+    # Threshold: HUD numbers are bright on dark background
+    img = img.point(lambda x: 255 if x > 100 else 0)
+    text = pytesseract.image_to_string(
+        img,
+        config="--psm 7 --oem 3 -c tessedit_char_whitelist=0123456789"
+    ).strip()
     try:
-        game_data = game_resp.json()
-        ui_data = ui_resp.json()
+        return int(text)
     except ValueError:
         return None
 
-    # --- /game: resource and supply ---
-    # Player list is 0-indexed; player_id is 1-indexed.
-    players = game_data.get("players", [])
-    player_index = player_id - 1
-    player = players[player_index] if player_index < len(players) else {}
 
-    minerals = int(player.get("minerals", 0))
-    # "vespene" is the canonical Blizzard name; fall back to "gas"
-    gas = int(player.get("vespene", player.get("gas", 0)))
-    # Blizzard uses "foodUsed"/"foodCap"; community APIs sometimes use
-    # "supply_used"/"supply_max" — try both.
-    supply_used = int(
-        player.get("foodUsed", player.get("food_used", player.get("supply_used", 0)))
-    )
-    supply_max = int(
-        player.get("foodCap", player.get("food_cap", player.get("supply_max", 0)))
-    )
+def ocr_supply(img: "PIL.Image.Image") -> tuple:
+    """OCR supply region. Returns (used, max) or (None, None) on failure."""
+    import pytesseract
+    from PIL import Image, ImageOps
+    img = img.resize((img.width * 3, img.height * 3), resample=Image.LANCZOS)
+    img = ImageOps.grayscale(img)
+    img = img.point(lambda x: 255 if x > 100 else 0)
+    text = pytesseract.image_to_string(
+        img,
+        config="--psm 7 --oem 3 -c tessedit_char_whitelist=0123456789/"
+    ).strip()
+    if "/" in text:
+        parts = text.split("/")
+        try:
+            return int(parts[0]), int(parts[1])
+        except (ValueError, IndexError):
+            return None, None
+    return None, None
 
-    # --- /ui: idle workers ---
-    # Strategy 1: top-level "idleWorkerCount" field (some API versions)
-    idle_workers = int(ui_data.get("idleWorkerCount", 0))
 
-    # Strategy 2: scan activeAlerts for a worker-idle entry
-    if idle_workers == 0:
-        for alert in ui_data.get("activeAlerts", []):
-            # Alert objects vary; look for a numeric "count" on worker alerts.
-            if isinstance(alert, dict) and alert.get("alertType", "").lower() in (
-                "idleworker", "idle_worker", "worker"
-            ):
-                idle_workers = int(alert.get("count", 1))
-                break
+# ---------------------------------------------------------------------------
+# Game state fetch
+# ---------------------------------------------------------------------------
+
+def fetch_game_state(config: dict) -> Optional[dict]:
+    """Capture current game state via screen OCR. Returns None if game not running."""
+    if not is_game_running():
+        return None
+
+    sc = config["screen_capture"]
+
+    minerals = ocr_number(capture_region(sc["minerals"]))
+    gas = ocr_number(capture_region(sc["gas"]))
+    supply_used, supply_max = ocr_supply(capture_region(sc["supply"]))
+    idle_workers = ocr_number(capture_region(sc["idle_workers"])) or 0
+
+    # Skip this poll if any critical value failed OCR
+    if any(v is None for v in [minerals, gas, supply_used, supply_max]):
+        return None
 
     return {
         "minerals": minerals,
@@ -212,7 +235,7 @@ def check_idle_workers(
 # ---------------------------------------------------------------------------
 
 def debug_mode() -> None:
-    """Hit both endpoints once, pretty-print the raw JSON, then exit."""
+    """Hit /game endpoint once, pretty-print the raw JSON, then exit."""
     print("=== DEBUG MODE ===")
     print(f"Hitting {SC2_BASE}/game ...\n")
     try:
@@ -222,13 +245,30 @@ def debug_mode() -> None:
     except (requests.ConnectionError, requests.Timeout) as exc:
         print(f"Connection failed: {exc}")
 
-    print(f"\nHitting {SC2_BASE}/ui ...\n")
-    try:
-        ui_resp = requests.get(f"{SC2_BASE}/ui", timeout=REQUEST_TIMEOUT)
-        print(f"Status: {ui_resp.status_code}")
-        print(json.dumps(ui_resp.json(), indent=2))
-    except (requests.ConnectionError, requests.Timeout) as exc:
-        print(f"Connection failed: {exc}")
+
+# ---------------------------------------------------------------------------
+# Calibrate mode
+# ---------------------------------------------------------------------------
+
+def calibrate_mode() -> None:
+    """Take a full screenshot and save it for HUD coordinate identification."""
+    import mss
+    from PIL import Image
+    print("Capturing full screenshot...")
+    with mss.mss() as sct:
+        monitor = sct.monitors[1]  # primary monitor
+        raw = sct.grab(monitor)
+        img = Image.frombytes("RGB", raw.size, raw.bgra, "raw", "BGRX")
+    path = Path(__file__).parent / "calibration.png"
+    img.save(path)
+    print(f"Saved: {path}")
+    print()
+    print("Open calibration.png in Preview (Tools > Show Inspector shows pixel coords).")
+    print("Find each HUD element and update screen_capture regions in config.yaml:")
+    print("  minerals:     [left, top, width, height]")
+    print("  gas:          [left, top, width, height]")
+    print("  supply:       [left, top, width, height]   # shows 'used/max'")
+    print("  idle_workers: [left, top, width, height]   # bottom-left icon area")
 
 
 # ---------------------------------------------------------------------------
@@ -239,6 +279,9 @@ def main() -> None:
     if "--debug" in sys.argv:
         debug_mode()
         return
+    if "--calibrate" in sys.argv:
+        calibrate_mode()
+        return
 
     config = load_config(Path(__file__).parent / "config.yaml")
     voice: str = config.get("tts_voice", "")
@@ -248,7 +291,7 @@ def main() -> None:
     print("SC2 Helper running. Press Ctrl+C to stop.")
     try:
         while True:
-            state = fetch_game_state(config["player_id"])
+            state = fetch_game_state(config)
             if state:
                 check_resources(state, config, cooldown, voice)
                 check_supply(state, config, cooldown, voice)
