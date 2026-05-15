@@ -198,7 +198,7 @@ class CooldownTracker:
 # Detectors
 # ---------------------------------------------------------------------------
 
-def check_resources(state: dict, config: dict, cooldown: CooldownTracker, voice: str) -> None:
+def check_resources(state: dict, config: dict, cooldown: CooldownTracker, voice: str, mode: str) -> None:
     minerals = state["minerals"]
     gas = state["gas"]
     res_cfg = config["resources"]
@@ -207,12 +207,12 @@ def check_resources(state: dict, config: dict, cooldown: CooldownTracker, voice:
     gas_over = gas > res_cfg["gas_threshold"]
 
     if mineral_over and cooldown.ready("minerals", res_cfg["cooldown"]):
-        speak(get_message("minerals"), voice, PRIORITY_MINERALS)
+        speak(get_message("minerals", mode), voice, PRIORITY_MINERALS)
     if gas_over and cooldown.ready("gas", res_cfg["cooldown"]):
-        speak(get_message("gas"), voice, PRIORITY_GAS)
+        speak(get_message("gas", mode), voice, PRIORITY_GAS)
 
 
-def check_supply(state: dict, config: dict, cooldown: CooldownTracker, voice: str) -> None:
+def check_supply(state: dict, config: dict, cooldown: CooldownTracker, voice: str, mode: str) -> None:
     supply_used = state["supply_used"]
     supply_max = state["supply_max"]
 
@@ -229,7 +229,7 @@ def check_supply(state: dict, config: dict, cooldown: CooldownTracker, voice: st
             break
 
     if warn_gap is not None and gap <= warn_gap and cooldown.ready("supply", supply_cfg["cooldown"]):
-        speak(get_message("supply"), voice, PRIORITY_SUPPLY)
+        speak(get_message("supply", mode), voice, PRIORITY_SUPPLY)
 
 
 def check_idle_workers(
@@ -238,6 +238,7 @@ def check_idle_workers(
     cooldown: CooldownTracker,
     voice: str,
     idle_onset: Optional[float],
+    mode: str = "strict",
 ) -> Optional[float]:
     """
     Track how long workers have been idle.
@@ -256,7 +257,7 @@ def check_idle_workers(
 
     elapsed = time.monotonic() - idle_onset
     if elapsed >= workers_cfg["idle_seconds"] and cooldown.ready("workers", workers_cfg["cooldown"]):
-        speak(get_message("idle_workers"), voice, PRIORITY_IDLE_WORKERS)
+        speak(get_message("idle_workers", mode), voice, PRIORITY_IDLE_WORKERS)
 
     return idle_onset
 
@@ -397,18 +398,19 @@ def main() -> None:
 
     config = load_config(Path(__file__).parent / "config.yaml")
     voice: str = config.get("tts_voice", "")
+    mode: str = config.get("message_mode", "strict")
     cooldown = CooldownTracker()
     idle_onset: Optional[float] = None
 
-    print("SC2 Helper running. Press Ctrl+C to stop.")
+    print(f"SC2 Helper running [{mode} mode]. Press Ctrl+C to stop.")
     try:
         while True:
             state = fetch_game_state(config)
             print(state)
             if state:
-                check_resources(state, config, cooldown, voice)
-                check_supply(state, config, cooldown, voice)
-                idle_onset = check_idle_workers(state, config, cooldown, voice, idle_onset)
+                check_resources(state, config, cooldown, voice, mode)
+                check_supply(state, config, cooldown, voice, mode)
+                idle_onset = check_idle_workers(state, config, cooldown, voice, idle_onset, mode)
             time.sleep(config["poll_interval"])
     except KeyboardInterrupt:
         print("Stopping.")

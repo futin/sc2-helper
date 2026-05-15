@@ -1,5 +1,12 @@
 import random
 
+STRICT_MESSAGES = {
+    "supply":       "Check supply.",
+    "minerals":     "Check minerals.",
+    "gas":          "Check gas.",
+    "idle_workers": "Check lazy workers.",
+}
+
 SUPPLY_MESSAGES = [
     "Supply blocked incoming! Build something or cry later.",
     "You're capped. Your army is waiting. Are you waiting too?",
@@ -53,11 +60,13 @@ GAS_MESSAGES = [
 ]
 
 
-def get_message(category: str, value: int = 0) -> str:
-    messages = {
-        "supply": SUPPLY_MESSAGES,
-        "minerals": MINERAL_MESSAGES,
-        "idle_workers": IDLE_WORKER_MESSAGES,
-        "gas": GAS_MESSAGES,
-    }
-    return random.choice(messages[category])
+def get_message(category: str, mode: str = "strict") -> str:
+    if mode == "funny":
+        messages = {
+            "supply":       SUPPLY_MESSAGES,
+            "minerals":     MINERAL_MESSAGES,
+            "idle_workers": IDLE_WORKER_MESSAGES,
+            "gas":          GAS_MESSAGES,
+        }
+        return random.choice(messages[category])
+    return STRICT_MESSAGES[category]

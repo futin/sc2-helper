@@ -9,6 +9,7 @@ supply:
 workers: {idle_seconds: 10, cooldown: 30}
 player_id: 1
 tts_voice: 'Moira'
+message_mode: strict
 screen_capture:
   minerals:     [2026, 30, 80, 30]
   gas:          [2193, 30, 80, 30]
