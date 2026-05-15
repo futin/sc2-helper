@@ -1,0 +1,17 @@
+poll_interval: 2.5        # seconds between API polls
+
+resources:
+  mineral_threshold: 400
+  gas_threshold: 300
+  cooldown: 15            # seconds before re-warning
+
+supply:
+  threshold_pct: 0.85     # warn at 85% of cap
+  cooldown: 20
+
+workers:
+  idle_seconds: 10        # idle duration before warning fires
+  cooldown: 10
+
+player_id: 1              # 1 = local player (yourself)
+tts_voice: ""             # empty = macOS default voice; or e.g. "Alex"
