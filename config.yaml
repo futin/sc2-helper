@@ -1,9 +1,14 @@
 poll_interval: 2.5
-resources: {mineral_threshold: 400, gas_threshold: 300, cooldown: 30}
-supply: {threshold_pct: 0.80, cooldown: 20}
+resources: {mineral_threshold: 600, gas_threshold: 600, cooldown: 30}
+supply:
+  cooldown: 10
+  tiers:
+    - {max_cap: 25,  gap: 3}
+    - {max_cap: 50,  gap: 5}
+    - {max_cap: 200, gap: 10}
 workers: {idle_seconds: 10, cooldown: 30}
 player_id: 1
-tts_voice: ''
+tts_voice: 'Moira'
 screen_capture:
   minerals:     [2026, 30, 80, 30]
   gas:          [2193, 30, 80, 30]

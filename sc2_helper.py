@@ -217,11 +217,18 @@ def check_supply(state: dict, config: dict, cooldown: CooldownTracker, voice: st
     supply_max = state["supply_max"]
 
     if supply_max == 0:
-        return  # avoid division by zero before game starts
+        return
 
     supply_cfg = config["supply"]
-    if (supply_used / supply_max >= supply_cfg["threshold_pct"] and
-            cooldown.ready("supply", supply_cfg["cooldown"])):
+    gap = supply_max - supply_used
+
+    warn_gap = None
+    for tier in supply_cfg["tiers"]:
+        if supply_max <= tier["max_cap"]:
+            warn_gap = tier["gap"]
+            break
+
+    if warn_gap is not None and gap <= warn_gap and cooldown.ready("supply", supply_cfg["cooldown"]):
         speak(get_message("supply"), voice, PRIORITY_SUPPLY)
 
 
