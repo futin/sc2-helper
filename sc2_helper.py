@@ -32,6 +32,8 @@ import requests
 import yaml
 from PIL import Image, ImageOps
 
+from messages import get_message
+
 SC2_BASE = "http://localhost:6119"
 REQUEST_TIMEOUT = 1  # seconds
 
@@ -205,9 +207,9 @@ def check_resources(state: dict, config: dict, cooldown: CooldownTracker, voice:
     gas_over = gas > res_cfg["gas_threshold"]
 
     if mineral_over and cooldown.ready("minerals", res_cfg["cooldown"]):
-        speak(f"Spend resources — minerals at {minerals}", voice, PRIORITY_MINERALS)
+        speak(get_message("minerals"), voice, PRIORITY_MINERALS)
     if gas_over and cooldown.ready("gas", res_cfg["cooldown"]):
-        speak(f"Spend resources — gas at {gas}", voice, PRIORITY_GAS)
+        speak(get_message("gas"), voice, PRIORITY_GAS)
 
 
 def check_supply(state: dict, config: dict, cooldown: CooldownTracker, voice: str) -> None:
@@ -220,7 +222,7 @@ def check_supply(state: dict, config: dict, cooldown: CooldownTracker, voice: st
     supply_cfg = config["supply"]
     if (supply_used / supply_max >= supply_cfg["threshold_pct"] and
             cooldown.ready("supply", supply_cfg["cooldown"])):
-        speak(f"Supply almost full — {supply_used} of {supply_max}", voice, PRIORITY_SUPPLY)
+        speak(get_message("supply"), voice, PRIORITY_SUPPLY)
 
 
 def check_idle_workers(
@@ -247,7 +249,7 @@ def check_idle_workers(
 
     elapsed = time.monotonic() - idle_onset
     if elapsed >= workers_cfg["idle_seconds"] and cooldown.ready("workers", workers_cfg["cooldown"]):
-        speak(f"{idle_count} idle workers", voice, PRIORITY_IDLE_WORKERS)
+        speak(get_message("idle_workers"), voice, PRIORITY_IDLE_WORKERS)
 
     return idle_onset
 
