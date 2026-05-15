@@ -16,6 +16,7 @@ import json
 import subprocess
 import sys
 import time
+from pathlib import Path
 from typing import Optional
 
 import requests
@@ -81,8 +82,11 @@ def fetch_game_state(player_id: int) -> Optional[dict]:
     if game_resp.status_code != 200 or ui_resp.status_code != 200:
         return None
 
-    game_data = game_resp.json()
-    ui_data = ui_resp.json()
+    try:
+        game_data = game_resp.json()
+        ui_data = ui_resp.json()
+    except ValueError:
+        return None
 
     # --- /game: resource and supply ---
     # Player list is 0-indexed; player_id is 1-indexed.
@@ -236,7 +240,7 @@ def main() -> None:
         debug_mode()
         return
 
-    config = load_config("config.yaml")
+    config = load_config(Path(__file__).parent / "config.yaml")
     voice: str = config.get("tts_voice", "")
     cooldown = CooldownTracker()
     idle_onset: Optional[float] = None
