@@ -4,3 +4,4 @@ mss
 pytesseract
 Pillow
 watchdog
+customtkinter

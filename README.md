@@ -14,11 +14,12 @@ sc2-helper/
 │   │   ├── messages.py        # Warning message banks (strict / funny / custom)
 │   │   └── config.yaml        # All runtime configuration
 │   └── frontend/
-│       ├── app.py             # Tkinter root window
+│       ├── app.py             # customtkinter root window
 │       ├── sc2_ui.py          # UI entry point
 │       ├── runner_screen.py   # Start/stop backend process, live log view
 │       ├── settings_screen.py # Config editor (3 tabs: Config / Messages / Coords)
 │       └── config_manager.py  # YAML load/save helpers
+├── dev.py                     # Hot-reload runner (watchdog) for development
 └── requirements.txt
 ```
 
@@ -28,7 +29,7 @@ sc2-helper/
 2. For each live game tick it captures four screen regions via `mss`, scales them 3×, converts to greyscale/binary, and runs Tesseract OCR to read minerals, gas, supply, and idle-worker count.
 3. Three detectors (`check_resources`, `check_supply`, `check_idle_workers`) compare the values against configurable thresholds and, when a condition fires and its cooldown has elapsed, push a message onto a priority queue.
 4. A background TTS thread drains the queue via macOS `say`, ordered: supply > minerals > idle workers > gas.
-5. **Frontend** is a Tkinter wrapper that edits `config.yaml` and spawns the backend script as a subprocess, streaming its stdout into a log panel.
+5. **Frontend** is a `customtkinter` wrapper that edits `config.yaml` and spawns the backend script as a subprocess, streaming its stdout into a log panel.
 
 ---
 
@@ -38,6 +39,7 @@ sc2-helper/
 - macOS (TTS uses the `say` command)
 - Tesseract OCR installed: `brew install tesseract`
 - StarCraft II running with the client API enabled (port 6119)
+- `customtkinter` — installed via `pip install -r requirements.txt`
 
 Install Python dependencies:
 
@@ -85,6 +87,14 @@ python src/backend/sc2_helper.py --test-ocr
 
 Saves raw and pre-processed crops to `src/backend/ocr_debug/` and prints OCR results. Useful for tuning `ocr_threshold`.
 
+### Dev mode — hot-reload on file changes
+
+```bash
+python dev.py
+```
+
+Watches `src/` for `.py` changes and auto-restarts the UI. Requires `watchdog` (included in `requirements.txt`).
+
 ---
 
 ## Configuration
@@ -105,6 +115,10 @@ All settings live in `src/backend/config.yaml`. They can also be edited via the 
 | `workers.idle_seconds` | `10` | Seconds before idle worker warning fires |
 | `workers.cooldown` | `30` | Seconds between idle worker warnings |
 | `screen_capture.*` | see below | Pixel regions for each HUD element |
+| `custom_messages.supply` | `[]` | Custom TTS lines for supply warnings |
+| `custom_messages.minerals` | `[]` | Custom TTS lines for mineral warnings |
+| `custom_messages.gas` | `[]` | Custom TTS lines for gas warnings |
+| `custom_messages.idle_workers` | `[]` | Custom TTS lines for idle worker warnings |
 
 ### Supply tiers
 
