@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sc2-helper"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "customtkinter",
+    "mss",
+    "pytesseract",
+    "Pillow",
+    "pyyaml",
+    "requests",
+    "watchdog",
+]
+
+[project.scripts]
+sc2-helper = "frontend.sc2_ui:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

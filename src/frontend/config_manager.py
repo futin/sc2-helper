@@ -1,7 +1,17 @@
 from pathlib import Path
 import yaml
 
+from backend.hud_elements import HUD_ELEMENTS
+
 CONFIG_PATH = Path(__file__).parent.parent / "backend" / "config.yaml"
+
+# Default x,y positions — adjust via the Coords Selection tab in the GUI
+_DEFAULT_COORDS: dict[str, tuple[int, int]] = {
+    "minerals":     (2026, 30),
+    "gas":          (2193, 30),
+    "supply":       (2358, 30),
+    "idle_workers": (65, 999),
+}
 
 _DEFAULT_CONFIG: dict = {
     "poll_interval": 2.5,
@@ -19,10 +29,10 @@ _DEFAULT_CONFIG: dict = {
     "tts_voice": "Moira",
     "message_mode": "strict",
     "screen_capture": {
-        "minerals": [2026, 30, 80, 30],
-        "gas": [2193, 30, 80, 30],
-        "supply": [2358, 30, 100, 30],
-        "idle_workers": [65, 999, 60, 25],
+        **{
+            e.key: [*_DEFAULT_COORDS[e.key], *e.default_size]
+            for e in HUD_ELEMENTS
+        },
         "ocr_threshold": 100,
     },
 }

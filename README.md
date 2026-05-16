@@ -10,7 +10,7 @@ Real-time StarCraft II assistant. Monitors your HUD via screen OCR and fires spo
 sc2-helper/
 ├── src/
 │   ├── backend/
-│   │   ├── sc2_helper.py      # Core loop: OCR → detect → TTS
+│   │   ├── index.py           # Core loop: OCR → detect → TTS
 │   │   ├── messages.py        # Warning message banks (strict / funny / custom)
 │   │   └── config.yaml        # All runtime configuration
 │   └── frontend/
@@ -62,27 +62,19 @@ Opens the settings window. Click **▶ Run Script** to open the runner panel, th
 ### Backend only
 
 ```bash
-python src/backend/sc2_helper.py
+python -m backend.index
 ```
 
 ### Debug mode — inspect the SC2 client API response and exit
 
 ```bash
-python src/backend/sc2_helper.py --debug
+python -m backend.index --debug
 ```
-
-### Calibrate mode — auto-detect HUD regions from screen resolution
-
-```bash
-python src/backend/sc2_helper.py --calibrate
-```
-
-Saves `calibration.png` with annotated bounding boxes and writes the computed coordinates to `config.yaml`. Open the image to verify alignment; adjust `screen_capture` in the config manually if needed.
 
 ### Test OCR mode — verify OCR is reading each region correctly
 
 ```bash
-python src/backend/sc2_helper.py --test-ocr
+python -m backend.index --test-ocr
 ```
 
 Saves raw and pre-processed crops to `src/backend/ocr_debug/` and prints OCR results. Useful for tuning `ocr_threshold`.
@@ -145,7 +137,7 @@ screen_capture:
   ocr_threshold: 100
 ```
 
-Run `--calibrate` to auto-populate these from your screen resolution, or use the **Coords Selection** tab in the GUI to click-capture positions manually.
+Use the **Coords Selection** tab in the GUI to set these, or edit `config.yaml` manually.
 
 ---
 

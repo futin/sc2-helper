@@ -8,7 +8,7 @@ from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
 
 WATCH_DIR = Path(__file__).parent / "src"
-APP_ENTRY = Path(__file__).parent / "src" / "frontend" / "sc2_ui.py"
+SRC_DIR = Path(__file__).parent / "src"
 
 
 class RestartHandler(FileSystemEventHandler):
@@ -23,8 +23,8 @@ class RestartHandler(FileSystemEventHandler):
             self.proc.wait()
         print(">> Starting app...")
         self.proc = subprocess.Popen(
-            [sys.executable, str(APP_ENTRY)],
-            cwd=str(APP_ENTRY.parent),
+            [sys.executable, "-m", "frontend.sc2_ui"],
+            cwd=str(SRC_DIR),
         )
 
     def on_modified(self, event):
