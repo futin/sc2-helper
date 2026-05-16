@@ -10,14 +10,13 @@ and OCR from the HUD.
 Run normally:
   python3 -m backend.index
 
-Debug mode (prints raw JSON from /game endpoint and exits):
+Debug mode (runs main loop and prints HUD state each interval):
   python3 -m backend.index --debug
 
 Test OCR mode (saves crops and prints OCR results for each HUD region):
   python3 -m backend.index --test-ocr
 """
 
-import json
 import logging
 import queue
 import subprocess
@@ -263,22 +262,6 @@ def check_idle_workers(
 
 
 # ---------------------------------------------------------------------------
-# Debug mode
-# ---------------------------------------------------------------------------
-
-def debug_mode() -> None:
-    """Hit /game endpoint once, pretty-print the raw JSON, then exit."""
-    print("=== DEBUG MODE ===")
-    print(f"Hitting {SC2_BASE}/game ...\n")
-    try:
-        game_resp = requests.get(f"{SC2_BASE}/game", timeout=REQUEST_TIMEOUT)
-        print(f"Status: {game_resp.status_code}")
-        print(json.dumps(game_resp.json(), indent=2))
-    except (requests.ConnectionError, requests.Timeout) as exc:
-        print(f"Connection failed: {exc}")
-
-
-# ---------------------------------------------------------------------------
 # Test OCR mode
 # ---------------------------------------------------------------------------
 
@@ -316,13 +299,20 @@ def test_ocr_mode() -> None:
 # Main loop
 # ---------------------------------------------------------------------------
 
+def _format_debug_state(state: dict) -> str:
+    return (
+        f"[DEBUG] minerals={state['minerals']}  gas={state['gas']}  "
+        f"supply={state['supply_used']}/{state['supply_max']}  "
+        f"idle_workers={state['idle_workers']}"
+    )
+
+
 def main() -> None:
-    if "--debug" in sys.argv:
-        debug_mode()
-        return
     if "--test-ocr" in sys.argv:
         test_ocr_mode()
         return
+
+    debug: bool = "--debug" in sys.argv
 
     logging.basicConfig(
         level=logging.INFO,
@@ -338,10 +328,16 @@ def main() -> None:
     speech = SpeechQueue()
     idle_onset: Optional[float] = None
 
-    logging.info("SC2 Helper running [%s mode]. Press Ctrl+C to stop.", mode)
+    label = ", debug" if debug else ""
+    logging.info("SC2 Helper running [%s mode%s]. Press Ctrl+C to stop.", mode, label)
     try:
         while True:
             state = fetch_game_state(config)
+            if debug:
+                if state:
+                    print(_format_debug_state(state), flush=True)
+                else:
+                    print("[DEBUG] no state (game not running or OCR failed)", flush=True)
             if state:
                 check_resources(state, config, cooldown, speech, voice, mode, custom_messages)
                 check_supply(state, config, cooldown, speech, voice, mode, custom_messages)
