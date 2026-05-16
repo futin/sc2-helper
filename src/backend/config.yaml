@@ -17,7 +17,7 @@ screen_capture:
   idle_workers: [65, 999, 60, 25]
   ocr_threshold: 100
 custom_messages:
-  supply: []
   minerals: []
   gas: []
+  supply: []
   idle_workers: []

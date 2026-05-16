@@ -8,13 +8,13 @@ Resource values (minerals, gas, supply, idle workers) are read via screen captur
 and OCR from the HUD.
 
 Run normally:
-  python3 sc2_helper.py
+  python3 -m backend.index
 
 Debug mode (prints raw JSON from /game endpoint and exits):
-  python3 sc2_helper.py --debug
+  python3 -m backend.index --debug
 
-Calibrate mode (saves full screenshot to calibration.png for coordinate finding):
-  python3 sc2_helper.py --calibrate
+Test OCR mode (saves crops and prints OCR results for each HUD region):
+  python3 -m backend.index --test-ocr
 """
 
 import json
@@ -279,80 +279,7 @@ def debug_mode() -> None:
 
 
 # ---------------------------------------------------------------------------
-# Calibrate mode
-# ---------------------------------------------------------------------------
-
-def _calculate_regions(w: int, h: int) -> dict:
-    """
-    Estimate SC2 HUD region positions from screen dimensions.
-    Based on default UI scale layout ratios (1920x1080 reference).
-    """
-    bar_y = int(h * 0.950)
-    bar_h = int(h * 0.026)
-    reg_w = int(w * 0.047)
-    return {
-        "minerals":     [int(w * 0.711), bar_y, reg_w, bar_h],
-        "gas":          [int(w * 0.759), bar_y, reg_w, bar_h],
-        "supply":       [int(w * 0.807), bar_y, reg_w, bar_h],
-        "idle_workers": [10, int(h * 0.898), 60, int(h * 0.032)],
-        "ocr_threshold": 100,
-    }
-
-
-def _annotate(img: Image.Image, regions: dict) -> Image.Image:
-    """Draw labelled rectangles on screenshot to show detected regions."""
-    from PIL import ImageDraw, ImageFont
-    draw = ImageDraw.Draw(img)
-    colors = {
-        "minerals": "#00BFFF",
-        "gas":      "#00FF88",
-        "supply":   "#FFAA00",
-        "idle_workers": "#FF4444",
-    }
-    for name, region in regions.items():
-        if name == "ocr_threshold":
-            continue
-        l, t, rw, rh = region
-        color = colors.get(name, "#FFFFFF")
-        draw.rectangle([l, t, l + rw, t + rh], outline=color, width=2)
-        draw.text((l, t - 14), name, fill=color)
-    return img
-
-
-def calibrate_mode() -> None:
-    """Auto-detect SC2 HUD regions from screen resolution and write to config.yaml."""
-    print("Capturing screenshot...")
-    with _mss.MSS() as sct:
-        monitor = sct.monitors[1]
-        raw = sct.grab(monitor)
-        img = Image.frombytes("RGB", raw.size, raw.rgb)
-
-    w, h = img.size
-    print(f"Screen: {w}x{h}")
-
-    regions = _calculate_regions(w, h)
-
-    # Save annotated screenshot for verification
-    annotated = _annotate(img.copy(), regions)
-    cal_path = Path(__file__).parent / "calibration.png"
-    annotated.save(cal_path)
-    print(f"Saved annotated screenshot: {cal_path}")
-
-    # Update config.yaml screen_capture section
-    cfg_path = Path(__file__).parent / "config.yaml"
-    config = load_config(cfg_path)
-    config["screen_capture"] = regions
-    with open(cfg_path, "w") as f:
-        yaml.dump(config, f, default_flow_style=None, sort_keys=False)
-
-    print("\nRegions written to config.yaml:")
-    for name, val in regions.items():
-        print(f"  {name}: {val}")
-    print("\nOpen calibration.png to verify. Adjust config.yaml if boxes look off.")
-
-
-# ---------------------------------------------------------------------------
-# Main loop
+# Test OCR mode
 # ---------------------------------------------------------------------------
 
 def test_ocr_mode() -> None:
@@ -385,12 +312,13 @@ def test_ocr_mode() -> None:
     print("If processed image looks wrong, adjust ocr_threshold in config.yaml.")
 
 
+# ---------------------------------------------------------------------------
+# Main loop
+# ---------------------------------------------------------------------------
+
 def main() -> None:
     if "--debug" in sys.argv:
         debug_mode()
-        return
-    if "--calibrate" in sys.argv:
-        calibrate_mode()
         return
     if "--test-ocr" in sys.argv:
         test_ocr_mode()

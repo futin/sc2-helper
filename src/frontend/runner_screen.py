@@ -6,8 +6,8 @@ import customtkinter as ctk
 from pathlib import Path
 
 SRC_DIR = Path(__file__).parent.parent
-BACKEND_MODULE = "backend.sc2_helper"
-SCRIPT_DISPLAY_NAME = "sc2_helper"
+BACKEND_MODULE = "backend.index"
+SCRIPT_DISPLAY_NAME = "sc2-helper"
 
 
 class RunnerScreen(ctk.CTkToplevel):

@@ -5,7 +5,7 @@ from backend.hud_elements import HUD_ELEMENTS
 
 CONFIG_PATH = Path(__file__).parent.parent / "backend" / "config.yaml"
 
-# Default x,y positions — user should calibrate these via Coords Selection tab
+# Default x,y positions — adjust via the Coords Selection tab in the GUI
 _DEFAULT_COORDS: dict[str, tuple[int, int]] = {
     "minerals":     (2026, 30),
     "gas":          (2193, 30),
