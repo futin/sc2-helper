@@ -33,6 +33,7 @@ import yaml
 from PIL import Image, ImageOps
 
 from backend.messages import get_message
+from backend.stats import StatsManager
 
 SC2_BASE = "http://localhost:6119"
 REQUEST_TIMEOUT = 1  # seconds
@@ -81,17 +82,24 @@ class SpeechQueue:
 # Game status check
 # ---------------------------------------------------------------------------
 
-def is_game_running() -> bool:
-    """Return True if SC2 is running and a game is in progress."""
+def _poll_game() -> tuple[bool, list]:
+    """Return (is_running, players). Single API call reused by main loop."""
     try:
         resp = requests.get(f"{SC2_BASE}/game", timeout=REQUEST_TIMEOUT)
         if resp.status_code != 200:
-            return False
+            return False, []
         data = resp.json()
         players = data.get("players", [])
-        return any(p.get("result") == "Undecided" for p in players)
+        running = any(p.get("result") == "Undecided" for p in players)
+        return running, players
     except (requests.ConnectionError, requests.Timeout, ValueError):
-        return False
+        return False, []
+
+
+def is_game_running() -> bool:
+    """Return True if SC2 is running and a game is in progress."""
+    running, _ = _poll_game()
+    return running
 
 
 # ---------------------------------------------------------------------------
@@ -119,6 +127,8 @@ def ocr_number(img: Image.Image, threshold: int = 100, region_name: str = "unkno
         _preprocess(img, threshold),
         config="--psm 7 --oem 3 -c tessedit_char_whitelist=0123456789"
     ).strip()
+    if text == '':
+        return 0
     try:
         return int(text)
     except ValueError:
@@ -147,11 +157,8 @@ def ocr_supply(img: Image.Image, threshold: int = 100) -> tuple:
 # Game state fetch
 # ---------------------------------------------------------------------------
 
-def fetch_game_state(config: dict) -> Optional[dict]:
-    """Capture current game state via screen OCR. Returns None if game not running."""
-    if not is_game_running():
-        return None
-
+def _capture_hud(config: dict) -> Optional[dict]:
+    """Capture HUD via screen OCR. Assumes game is already confirmed running."""
     sc = config["screen_capture"]
     threshold = sc.get("ocr_threshold", 100)
 
@@ -160,10 +167,6 @@ def fetch_game_state(config: dict) -> Optional[dict]:
     supply_used, supply_max = ocr_supply(capture_region(sc["supply"]), threshold)
     idle_workers = ocr_number(capture_region(sc["idle_workers"]), threshold, "idle_workers") or 0
 
-    # Skip this poll if any critical value failed OCR
-    if any(v is None for v in [minerals, gas, supply_used, supply_max]):
-        return None
-
     return {
         "minerals": minerals,
         "gas": gas,
@@ -171,6 +174,67 @@ def fetch_game_state(config: dict) -> Optional[dict]:
         "supply_max": supply_max,
         "idle_workers": idle_workers,
     }
+
+
+def _filter_spikes(state: dict, prev: Optional[dict], config: dict) -> dict:
+    af = config.get("anomaly_filter", {})
+    if not af.get("enabled", False) or prev is None:
+        return state
+    max_delta = af.get("max_delta", {})
+    filtered = dict(state)
+    for key in ("minerals", "gas", "supply_used", "supply_max"):
+        new_val = state.get(key)
+        prev_val = prev.get(key)
+        limit = max_delta.get(key)
+        if new_val is not None and prev_val is not None and limit is not None:
+            if abs(new_val - prev_val) > limit:
+                logging.debug("Spike filtered %s: %s → %s", key, prev_val, new_val)
+                filtered[key] = prev_val
+    return filtered
+
+
+def fetch_game_state(config: dict) -> Optional[dict]:
+    """Capture current game state via screen OCR. Returns None if game not running."""
+    if not is_game_running():
+        return None
+    return _capture_hud(config)
+
+
+_RESULT_MAP = {
+    "Win": "Win", "Victory": "Win",
+    "Loss": "Loss", "Defeat": "Loss",
+    "Tie": "Tie",
+}
+
+_RACE_MAP = {
+    "Prot": "Protoss", "Protoss": "Protoss",
+    "Terr": "Terran",  "Terran": "Terran",
+    "Zerg": "Zerg",
+    "random": "Random", "Random": "Random",
+}
+
+
+def _extract_result(players: list, player_id: int) -> str:
+    """Extract Win/Loss/Tie for player_id from an already-fetched players list."""
+    idx = player_id - 1
+    if 0 <= idx < len(players):
+        result = _RESULT_MAP.get(players[idx].get("result", ""))
+        if result:
+            return result
+    for p in players:
+        result = _RESULT_MAP.get(p.get("result", ""))
+        if result:
+            return result
+    return "Unknown"
+
+
+def _extract_race(players: list, player_id: int) -> str:
+    """Extract the player's race from the players list."""
+    idx = player_id - 1
+    if 0 <= idx < len(players):
+        return _RACE_MAP.get(players[idx].get("race", ""), "Unknown")
+    return "Unknown"
+
 
 
 # ---------------------------------------------------------------------------
@@ -197,28 +261,31 @@ class CooldownTracker:
 def check_resources(
     state: dict, config: dict, cooldown: CooldownTracker, speech: SpeechQueue,
     voice: str, mode: str, custom_messages: dict | None = None,
+    stats: "StatsManager | None" = None,
 ) -> None:
     minerals = state["minerals"]
     gas = state["gas"]
     res_cfg = config["resources"]
 
-    mineral_over = minerals > res_cfg["mineral_threshold"]
-    gas_over = gas > res_cfg["gas_threshold"]
-
-    if mineral_over and cooldown.ready("minerals", res_cfg["cooldown"]):
+    if minerals is not None and minerals > res_cfg["mineral_threshold"] and cooldown.ready("minerals", res_cfg["cooldown"]):
         speech.speak(get_message("minerals", mode, custom_messages), voice, PRIORITY_MINERALS)
-    if gas_over and cooldown.ready("gas", res_cfg["cooldown"]):
+        if stats:
+            stats.on_mineral_warning()
+    if gas is not None and gas > res_cfg["gas_threshold"] and cooldown.ready("gas", res_cfg["cooldown"]):
         speech.speak(get_message("gas", mode, custom_messages), voice, PRIORITY_GAS)
+        if stats:
+            stats.on_gas_warning()
 
 
 def check_supply(
     state: dict, config: dict, cooldown: CooldownTracker, speech: SpeechQueue,
     voice: str, mode: str, custom_messages: dict | None = None,
+    stats: "StatsManager | None" = None,
 ) -> None:
     supply_used = state["supply_used"]
     supply_max = state["supply_max"]
 
-    if supply_max == 0:
+    if supply_used is None or supply_max is None or supply_max == 0:
         return
 
     supply_cfg = config["supply"]
@@ -232,6 +299,8 @@ def check_supply(
 
     if warn_gap is not None and gap <= warn_gap and cooldown.ready("supply", supply_cfg["cooldown"]):
         speech.speak(get_message("supply", mode, custom_messages), voice, PRIORITY_SUPPLY)
+        if stats:
+            stats.on_supply_warning()
 
 
 def check_idle_workers(
@@ -243,12 +312,13 @@ def check_idle_workers(
     idle_onset: Optional[float],
     mode: str = "strict",
     custom_messages: dict | None = None,
+    stats: "StatsManager | None" = None,
 ) -> Optional[float]:
     """Track idle workers. Returns updated idle_onset (or None if busy)."""
     idle_count = state["idle_workers"]
     workers_cfg = config["workers"]
 
-    if idle_count == 0:
+    if idle_count is None or idle_count == 0:
         return None
 
     if idle_onset is None:
@@ -257,6 +327,8 @@ def check_idle_workers(
     elapsed = time.monotonic() - idle_onset
     if elapsed >= workers_cfg["idle_seconds"] and cooldown.ready("workers", workers_cfg["cooldown"]):
         speech.speak(get_message("idle_workers", mode, custom_messages), voice, PRIORITY_IDLE_WORKERS)
+        if stats:
+            stats.on_idle_workers_warning()
 
     return idle_onset
 
@@ -300,10 +372,13 @@ def test_ocr_mode() -> None:
 # ---------------------------------------------------------------------------
 
 def _format_debug_state(state: dict) -> str:
+    def _v(val) -> str:
+        return '?' if val is None else str(val)
+
     return (
-        f"[DEBUG] minerals={state['minerals']}  gas={state['gas']}  "
-        f"supply={state['supply_used']}/{state['supply_max']}  "
-        f"idle_workers={state['idle_workers']}"
+        f"[DEBUG] minerals={_v(state['minerals'])}  gas={_v(state['gas'])}  "
+        f"supply={_v(state['supply_used'])}/{_v(state['supply_max'])}  "
+        f"idle_workers={_v(state['idle_workers'])}"
     )
 
 
@@ -326,22 +401,49 @@ def main() -> None:
     custom_messages: dict = config.get("custom_messages", {})
     cooldown = CooldownTracker()
     speech = SpeechQueue()
+    stats = StatsManager()
     idle_onset: Optional[float] = None
+    game_active: bool = False
+    prev_state: Optional[dict] = None
 
     label = ", debug" if debug else ""
     logging.info("SC2 Helper running [%s mode%s]. Press Ctrl+C to stop.", mode, label)
     try:
         while True:
-            state = fetch_game_state(config)
-            if debug:
+            running, players = _poll_game()
+
+            if running and not game_active:
+                game_active = True
+                idle_onset = None
+                prev_state = None
+                stats.on_game_start()
+
+            elif not running and game_active:
+                player_id = config.get("player_id", 1)
+                result = _extract_result(players, player_id)
+                race = _extract_race(players, player_id)
+                stats.on_game_end(result, race)
+                game_active = False
+                idle_onset = None
+                prev_state = None
+
+            if running:
+                state = _capture_hud(config)
                 if state:
-                    print(_format_debug_state(state), flush=True)
-                else:
-                    print("[DEBUG] no state (game not running or OCR failed)", flush=True)
-            if state:
-                check_resources(state, config, cooldown, speech, voice, mode, custom_messages)
-                check_supply(state, config, cooldown, speech, voice, mode, custom_messages)
-                idle_onset = check_idle_workers(state, config, cooldown, speech, voice, idle_onset, mode, custom_messages)
+                    state = _filter_spikes(state, prev_state, config)
+                    prev_state = state
+                if debug:
+                    if state:
+                        print(_format_debug_state(state), flush=True)
+                    else:
+                        print("[DEBUG] no HUD state (OCR failed)", flush=True)
+                if state:
+                    check_resources(state, config, cooldown, speech, voice, mode, custom_messages, stats)
+                    check_supply(state, config, cooldown, speech, voice, mode, custom_messages, stats)
+                    idle_onset = check_idle_workers(state, config, cooldown, speech, voice, idle_onset, mode, custom_messages, stats)
+            elif debug:
+                print("[DEBUG] no state (game not running)", flush=True)
+
             time.sleep(config["poll_interval"])
     except KeyboardInterrupt:
         print("Stopping.")
