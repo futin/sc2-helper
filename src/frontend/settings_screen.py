@@ -1,5 +1,6 @@
 import tkinter as tk
-from tkinter import ttk, messagebox
+import customtkinter as ctk
+from tkinter import messagebox
 from typing import Callable
 
 from config_manager import load_config
@@ -27,28 +28,31 @@ CATEGORY_LABELS = {
 }
 
 
-class SettingsScreen(ttk.Frame):
-    def __init__(self, parent: tk.Widget, cfg: dict, on_save: Callable[[dict], None]):
-        super().__init__(parent)
+class SettingsScreen(ctk.CTkFrame):
+    def __init__(self, parent, cfg: dict, on_save: Callable[[dict], None]):
+        super().__init__(parent, corner_radius=0, fg_color="transparent")
         self._cfg = cfg
         self._on_save = on_save
         self._build()
 
     def _build(self) -> None:
-        self._notebook = ttk.Notebook(self)
-        self._notebook.pack(fill="both", expand=True, padx=8, pady=8)
+        self._tabview = ctk.CTkTabview(self)
+        self._tabview.pack(fill="both", expand=True)
 
-        self._config_tab = _ConfigTab(self._notebook, self._cfg)
-        self._messages_tab = _MessagesTab(self._notebook, self._cfg)
-        self._coords_tab = _CoordsTab(self._notebook, self._cfg)
+        self._tabview.add("Configuration")
+        self._tabview.add("Messages")
+        self._tabview.add("Coords Selection")
 
-        self._notebook.add(self._config_tab, text="Configuration")
-        self._notebook.add(self._messages_tab, text="Messages")
-        self._notebook.add(self._coords_tab, text="Coords Selection")
+        self._config_tab = _ConfigTab(self._tabview.tab("Configuration"), self._cfg)
+        self._config_tab.pack(fill="both", expand=True)
 
-        btn_frame = ttk.Frame(self)
-        btn_frame.pack(fill="x", padx=8, pady=(0, 8))
-        ttk.Button(btn_frame, text="Save All", command=self._save).pack(side="right")
+        self._messages_tab = _MessagesTab(self._tabview.tab("Messages"), self._cfg)
+        self._messages_tab.pack(fill="both", expand=True)
+
+        self._coords_tab = _CoordsTab(self._tabview.tab("Coords Selection"), self._cfg)
+        self._coords_tab.pack(fill="both", expand=True)
+
+        ctk.CTkButton(self, text="Save All", command=self._save, width=100).pack(anchor="e", pady=(0, 4))
 
     def _save(self) -> None:
         try:
@@ -73,181 +77,160 @@ class SettingsScreen(ttk.Frame):
 # Tab 1 — Configuration
 # ---------------------------------------------------------------------------
 
-class _ConfigTab(ttk.Frame):
-    def __init__(self, parent: tk.Widget, cfg: dict):
+class _ConfigTab(ctk.CTkScrollableFrame):
+    def __init__(self, parent, cfg: dict):
         super().__init__(parent)
         self._cfg = cfg
         self._tier_rows: list[dict] = []
         self._build()
 
     def _build(self) -> None:
-        canvas = tk.Canvas(self, borderwidth=0, highlightthickness=0)
-        scrollbar = ttk.Scrollbar(self, orient="vertical", command=canvas.yview)
-        self._inner = ttk.Frame(canvas)
-
-        self._inner.bind(
-            "<Configure>",
-            lambda e: canvas.configure(scrollregion=canvas.bbox("all")),
-        )
-        canvas.create_window((0, 0), window=self._inner, anchor="nw")
-        canvas.configure(yscrollcommand=scrollbar.set)
-
-        canvas.pack(side="left", fill="both", expand=True)
-        scrollbar.pack(side="right", fill="y")
-
-        canvas.bind_all("<MouseWheel>", lambda e: canvas.yview_scroll(-1 * (e.delta // 120), "units"))
-
-        f = self._inner
+        f = self
         row = 0
 
         def lbl(text, r, c, **kw):
-            ttk.Label(f, text=text).grid(row=r, column=c, sticky="w", padx=6, pady=3, **kw)
+            ctk.CTkLabel(f, text=text).grid(row=r, column=c, sticky="w", padx=6, pady=3, **kw)
 
-        def spinbox(r, c, **kw):
-            sb = ttk.Spinbox(f, width=10, **kw)
-            sb.grid(row=r, column=c, sticky="w", padx=6, pady=3)
-            return sb
+        def entry(r, c, width=120):
+            e = ctk.CTkEntry(f, width=width)
+            e.grid(row=r, column=c, sticky="w", padx=6, pady=3)
+            return e
 
         # ---- General ----
-        ttk.Label(f, text="General", font=("", 11, "bold")).grid(
+        ctk.CTkLabel(f, text="General", font=ctk.CTkFont(size=13, weight="bold")).grid(
             row=row, column=0, columnspan=2, sticky="w", padx=6, pady=(10, 2))
         row += 1
 
         lbl("Poll Interval (s)", row, 0)
-        self._poll_interval = spinbox(row, 1, from_=0.5, to=10.0, increment=0.5)
-        self._poll_interval.set(cfg.get("poll_interval", 2.5))
+        self._poll_interval = entry(row, 1)
+        self._poll_interval.insert(0, str(self._cfg.get("poll_interval", 2.5)))
         row += 1
 
         lbl("Player ID", row, 0)
-        self._player_id = spinbox(row, 1, from_=1, to=8, increment=1)
-        self._player_id.set(cfg.get("player_id", 1))
+        self._player_id = entry(row, 1)
+        self._player_id.insert(0, str(self._cfg.get("player_id", 1)))
         row += 1
 
         lbl("TTS Voice", row, 0)
-        self._tts_voice = ttk.Entry(f, width=14)
-        self._tts_voice.insert(0, cfg.get("tts_voice", "Moira"))
-        self._tts_voice.grid(row=row, column=1, sticky="w", padx=6, pady=3)
+        self._tts_voice = entry(row, 1)
+        self._tts_voice.insert(0, self._cfg.get("tts_voice", "Moira"))
         row += 1
 
         lbl("Message Mode", row, 0)
-        self._message_mode = ttk.Combobox(f, values=["strict", "funny", "custom"], width=11, state="readonly")
-        self._message_mode.set(cfg.get("message_mode", "strict"))
+        self._message_mode = ctk.CTkComboBox(f, values=["strict", "funny", "custom"], width=120, state="readonly")
+        self._message_mode.set(self._cfg.get("message_mode", "strict"))
         self._message_mode.grid(row=row, column=1, sticky="w", padx=6, pady=3)
         row += 1
 
-        ttk.Separator(f, orient="horizontal").grid(
-            row=row, column=0, columnspan=2, sticky="ew", padx=6, pady=6)
+        ctk.CTkLabel(f, text="").grid(row=row, column=0)
         row += 1
 
         # ---- Resources ----
-        ttk.Label(f, text="Resources", font=("", 11, "bold")).grid(
+        ctk.CTkLabel(f, text="Resources", font=ctk.CTkFont(size=13, weight="bold")).grid(
             row=row, column=0, columnspan=2, sticky="w", padx=6, pady=(4, 2))
         row += 1
 
-        res = cfg.get("resources", {})
+        res = self._cfg.get("resources", {})
         lbl("Mineral Threshold", row, 0)
-        self._mineral_threshold = spinbox(row, 1, from_=0, to=5000, increment=50)
-        self._mineral_threshold.set(res.get("mineral_threshold", 600))
+        self._mineral_threshold = entry(row, 1)
+        self._mineral_threshold.insert(0, str(res.get("mineral_threshold", 600)))
         row += 1
 
         lbl("Gas Threshold", row, 0)
-        self._gas_threshold = spinbox(row, 1, from_=0, to=5000, increment=50)
-        self._gas_threshold.set(res.get("gas_threshold", 600))
+        self._gas_threshold = entry(row, 1)
+        self._gas_threshold.insert(0, str(res.get("gas_threshold", 600)))
         row += 1
 
         lbl("Resources Cooldown (s)", row, 0)
-        self._res_cooldown = spinbox(row, 1, from_=5, to=120, increment=5)
-        self._res_cooldown.set(res.get("cooldown", 30))
+        self._res_cooldown = entry(row, 1)
+        self._res_cooldown.insert(0, str(res.get("cooldown", 30)))
         row += 1
 
-        ttk.Separator(f, orient="horizontal").grid(
-            row=row, column=0, columnspan=2, sticky="ew", padx=6, pady=6)
+        ctk.CTkLabel(f, text="").grid(row=row, column=0)
         row += 1
 
         # ---- Supply ----
-        ttk.Label(f, text="Supply", font=("", 11, "bold")).grid(
+        ctk.CTkLabel(f, text="Supply", font=ctk.CTkFont(size=13, weight="bold")).grid(
             row=row, column=0, columnspan=2, sticky="w", padx=6, pady=(4, 2))
         row += 1
 
-        sup = cfg.get("supply", {})
+        sup = self._cfg.get("supply", {})
         lbl("Supply Cooldown (s)", row, 0)
-        self._supply_cooldown = spinbox(row, 1, from_=5, to=120, increment=5)
-        self._supply_cooldown.set(sup.get("cooldown", 10))
+        self._supply_cooldown = entry(row, 1)
+        self._supply_cooldown.insert(0, str(sup.get("cooldown", 10)))
         row += 1
 
         lbl("Supply Tiers", row, 0)
         row += 1
 
-        self._tiers_frame = ttk.Frame(f)
+        self._tiers_frame = ctk.CTkFrame(f, fg_color="transparent")
         self._tiers_frame.grid(row=row, column=0, columnspan=2, sticky="ew", padx=6)
         row += 1
 
-        header = ttk.Frame(self._tiers_frame)
+        header = ctk.CTkFrame(self._tiers_frame, fg_color="transparent")
         header.pack(fill="x")
-        ttk.Label(header, text="Max Cap", width=10).pack(side="left", padx=4)
-        ttk.Label(header, text="Gap", width=8).pack(side="left", padx=4)
+        ctk.CTkLabel(header, text="Max Cap", width=80).pack(side="left", padx=4)
+        ctk.CTkLabel(header, text="Gap", width=60).pack(side="left", padx=4)
 
-        self._tier_list_frame = ttk.Frame(self._tiers_frame)
+        self._tier_list_frame = ctk.CTkFrame(self._tiers_frame, fg_color="transparent")
         self._tier_list_frame.pack(fill="x")
 
         for tier in sup.get("tiers", []):
             self._add_tier_row(tier.get("max_cap", 200), tier.get("gap", 10))
 
-        ttk.Button(self._tiers_frame, text="+ Add Tier", command=self._add_tier_row).pack(
+        ctk.CTkButton(self._tiers_frame, text="+ Add Tier", command=self._add_tier_row, width=100).pack(
             anchor="w", pady=4)
 
-        ttk.Separator(f, orient="horizontal").grid(
-            row=row, column=0, columnspan=2, sticky="ew", padx=6, pady=6)
+        ctk.CTkLabel(f, text="").grid(row=row, column=0)
         row += 1
 
         # ---- Workers ----
-        ttk.Label(f, text="Workers", font=("", 11, "bold")).grid(
+        ctk.CTkLabel(f, text="Workers", font=ctk.CTkFont(size=13, weight="bold")).grid(
             row=row, column=0, columnspan=2, sticky="w", padx=6, pady=(4, 2))
         row += 1
 
-        wrk = cfg.get("workers", {})
+        wrk = self._cfg.get("workers", {})
         lbl("Idle Seconds", row, 0)
-        self._idle_seconds = spinbox(row, 1, from_=1, to=60, increment=1)
-        self._idle_seconds.set(wrk.get("idle_seconds", 10))
+        self._idle_seconds = entry(row, 1)
+        self._idle_seconds.insert(0, str(wrk.get("idle_seconds", 10)))
         row += 1
 
         lbl("Workers Cooldown (s)", row, 0)
-        self._workers_cooldown = spinbox(row, 1, from_=5, to=120, increment=5)
-        self._workers_cooldown.set(wrk.get("cooldown", 30))
+        self._workers_cooldown = entry(row, 1)
+        self._workers_cooldown.insert(0, str(wrk.get("cooldown", 30)))
         row += 1
 
-        ttk.Separator(f, orient="horizontal").grid(
-            row=row, column=0, columnspan=2, sticky="ew", padx=6, pady=6)
+        ctk.CTkLabel(f, text="").grid(row=row, column=0)
         row += 1
 
         # ---- Screen Capture ----
-        ttk.Label(f, text="Screen Capture", font=("", 11, "bold")).grid(
+        ctk.CTkLabel(f, text="Screen Capture", font=ctk.CTkFont(size=13, weight="bold")).grid(
             row=row, column=0, columnspan=2, sticky="w", padx=6, pady=(4, 2))
         row += 1
 
-        sc = cfg.get("screen_capture", {})
+        sc = self._cfg.get("screen_capture", {})
         lbl("OCR Threshold", row, 0)
-        self._ocr_threshold = spinbox(row, 1, from_=0, to=255, increment=5)
-        self._ocr_threshold.set(sc.get("ocr_threshold", 100))
+        self._ocr_threshold = entry(row, 1)
+        self._ocr_threshold.insert(0, str(sc.get("ocr_threshold", 100)))
         row += 1
 
     def _add_tier_row(self, max_cap: int = 200, gap: int = 10) -> None:
-        row_frame = ttk.Frame(self._tier_list_frame)
+        row_frame = ctk.CTkFrame(self._tier_list_frame, fg_color="transparent")
         row_frame.pack(fill="x", pady=2)
 
-        mc = ttk.Spinbox(row_frame, from_=1, to=200, increment=1, width=9)
-        mc.set(max_cap)
+        mc = ctk.CTkEntry(row_frame, width=80)
+        mc.insert(0, str(max_cap))
         mc.pack(side="left", padx=4)
 
-        g = ttk.Spinbox(row_frame, from_=1, to=50, increment=1, width=7)
-        g.set(gap)
+        g = ctk.CTkEntry(row_frame, width=60)
+        g.insert(0, str(gap))
         g.pack(side="left", padx=4)
 
         row_data = {"frame": row_frame, "max_cap": mc, "gap": g}
         self._tier_rows.append(row_data)
 
-        ttk.Button(
-            row_frame, text="Remove",
+        ctk.CTkButton(
+            row_frame, text="Remove", width=70,
             command=lambda rd=row_data: self._remove_tier_row(rd),
         ).pack(side="left", padx=4)
 
@@ -303,42 +286,44 @@ class _ConfigTab(ttk.Frame):
 # Tab 2 — Messages
 # ---------------------------------------------------------------------------
 
-class _MessagesTab(ttk.Frame):
-    def __init__(self, parent: tk.Widget, cfg: dict):
-        super().__init__(parent)
+class _MessagesTab(ctk.CTkFrame):
+    def __init__(self, parent, cfg: dict):
+        super().__init__(parent, fg_color="transparent")
         self._cfg = cfg
         self._build()
 
     def _build(self) -> None:
-        mode_frame = ttk.LabelFrame(self, text="Message Mode")
+        mode_frame = ctk.CTkFrame(self)
         mode_frame.pack(fill="x", padx=12, pady=12)
+        ctk.CTkLabel(mode_frame, text="Message Mode", font=ctk.CTkFont(weight="bold")).pack(anchor="w", padx=8, pady=(6, 2))
 
         self._mode_var = tk.StringVar(value=self._cfg.get("message_mode", "strict"))
         self._mode_var.trace_add("write", self._on_mode_change)
 
+        btn_row = ctk.CTkFrame(mode_frame, fg_color="transparent")
+        btn_row.pack(fill="x", padx=8, pady=(0, 6))
         for mode in ("strict", "funny", "custom"):
-            ttk.Radiobutton(
-                mode_frame, text=mode.capitalize(),
+            ctk.CTkRadioButton(
+                btn_row, text=mode.capitalize(),
                 variable=self._mode_var, value=mode,
-            ).pack(side="left", padx=12, pady=8)
+            ).pack(side="left", padx=12)
 
-        self._custom_frame = ttk.LabelFrame(self, text="Custom Messages (one per line)")
-        self._text_widgets: dict[str, tk.Text] = {}
+        self._custom_frame = ctk.CTkFrame(self)
+        ctk.CTkLabel(self._custom_frame, text="Custom Messages (one per line)", font=ctk.CTkFont(weight="bold")).pack(
+            anchor="w", padx=8, pady=(6, 2))
 
+        self._text_widgets: dict[str, ctk.CTkTextbox] = {}
         custom = self._cfg.get("custom_messages", {})
         for cat in CATEGORIES:
-            row = ttk.Frame(self._custom_frame)
+            row = ctk.CTkFrame(self._custom_frame, fg_color="transparent")
             row.pack(fill="x", padx=8, pady=4)
-            ttk.Label(row, text=CATEGORY_LABELS[cat], width=14, anchor="w").pack(side="left")
-            txt = tk.Text(row, height=3, width=50, wrap="word")
+            ctk.CTkLabel(row, text=CATEGORY_LABELS[cat], width=100, anchor="w").pack(side="left")
+            txt = ctk.CTkTextbox(row, height=60, wrap="word")
             txt.pack(side="left", fill="x", expand=True)
             msgs = custom.get(cat, [])
             if msgs:
                 txt.insert("1.0", "\n".join(msgs))
             self._text_widgets[cat] = txt
-            sb = ttk.Scrollbar(row, command=txt.yview)
-            sb.pack(side="left", fill="y")
-            txt.configure(yscrollcommand=sb.set)
 
         self._on_mode_change()
 
@@ -361,16 +346,16 @@ class _MessagesTab(ttk.Frame):
 # Tab 3 — Coords Selection
 # ---------------------------------------------------------------------------
 
-class _CoordsTab(ttk.Frame):
-    def __init__(self, parent: tk.Widget, cfg: dict):
+class _CoordsTab(ctk.CTkScrollableFrame):
+    def __init__(self, parent, cfg: dict):
         super().__init__(parent)
         self._cfg = cfg
         self._recorded: dict[str, tuple[int, int]] = {}
-        self._coord_display: dict[str, ttk.Label] = {}
+        self._coord_display: dict[str, ctk.CTkLabel] = {}
         self._build()
 
     def _build(self) -> None:
-        ttk.Label(
+        ctk.CTkLabel(
             self,
             text="Move your mouse to the top-left corner of each HUD element, then click Capture.",
             wraplength=480,
@@ -383,23 +368,24 @@ class _CoordsTab(ttk.Frame):
             x, y = existing[0], existing[1]
             self._recorded[name] = (x, y)
 
-            frame = ttk.LabelFrame(self, text=COORD_LABELS[name])
+            frame = ctk.CTkFrame(self)
             frame.pack(fill="x", padx=12, pady=4)
 
-            ttk.Button(
-                frame,
-                text=f"Capture {COORD_LABELS[name]}",
-                command=lambda n=name: self._capture(n),
-            ).pack(side="left", padx=8, pady=6)
+            ctk.CTkLabel(frame, text=COORD_LABELS[name], font=ctk.CTkFont(weight="bold"), width=100).pack(side="left", padx=8, pady=6)
 
-            lbl = ttk.Label(frame, text=f"x={x}, y={y}", foreground="#555")
+            ctk.CTkButton(
+                frame,
+                text=f"Capture",
+                width=80,
+                command=lambda n=name: self._capture(n),
+            ).pack(side="left", padx=4, pady=6)
+
+            lbl = ctk.CTkLabel(frame, text=f"x={x}, y={y}")
             lbl.pack(side="left", padx=8)
             self._coord_display[name] = lbl
 
-        ttk.Separator(self, orient="horizontal").pack(fill="x", padx=12, pady=8)
-
-        ttk.Button(self, text="Save Coords to Config", command=self._save_coords).pack(
-            anchor="e", padx=12, pady=(0, 12))
+        ctk.CTkButton(self, text="Save Coords to Config", command=self._save_coords).pack(
+            anchor="e", padx=12, pady=(8, 12))
 
     def _capture(self, name: str) -> None:
         try:
@@ -409,7 +395,7 @@ class _CoordsTab(ttk.Frame):
             messagebox.showerror("Capture Error", f"Could not read mouse position:\n{e}")
             return
         self._recorded[name] = (x, y)
-        self._coord_display[name].config(text=f"x={x}, y={y}", foreground="#007700")
+        self._coord_display[name].configure(text=f"x={x}, y={y}")
 
     def _save_coords(self) -> None:
         sc = dict(self._cfg.get("screen_capture", {}))
@@ -431,4 +417,4 @@ class _CoordsTab(ttk.Frame):
             existing = sc.get(name, [0, 0, 0, 0])
             x, y = existing[0], existing[1]
             self._recorded[name] = (x, y)
-            self._coord_display[name].config(text=f"x={x}, y={y}", foreground="#555")
+            self._coord_display[name].configure(text=f"x={x}, y={y}")

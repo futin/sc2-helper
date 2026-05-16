@@ -1,12 +1,15 @@
-import tkinter as tk
-from tkinter import messagebox, ttk
+import customtkinter as ctk
+from tkinter import messagebox
 
-from config_manager import CONFIG_PATH, load_config, save_config
+from config_manager import load_config, save_config
 from runner_screen import RunnerScreen
 from settings_screen import SettingsScreen
 
+ctk.set_appearance_mode("system")
+ctk.set_default_color_theme("blue")
 
-class SC2HelperApp(tk.Tk):
+
+class SC2HelperApp(ctk.CTk):
     def __init__(self):
         super().__init__()
         self.title("SC2 Helper")
@@ -19,18 +22,15 @@ class SC2HelperApp(tk.Tk):
         self._build()
 
     def _build(self) -> None:
-        # ---- Top bar ----
-        bar = ttk.Frame(self, padding=(10, 8))
+        bar = ctk.CTkFrame(self, height=48, corner_radius=0)
         bar.pack(fill="x")
+        bar.pack_propagate(False)
 
-        ttk.Label(bar, text="SC2 Helper", font=("", 14, "bold")).pack(side="left")
-        ttk.Button(bar, text="▶  Run Script", command=self._open_runner).pack(side="right")
+        ctk.CTkLabel(bar, text="SC2 Helper", font=ctk.CTkFont(size=16, weight="bold")).pack(side="left", padx=12)
+        ctk.CTkButton(bar, text="▶  Run Script", command=self._open_runner, width=120).pack(side="right", padx=8, pady=6)
 
-        ttk.Separator(self, orient="horizontal").pack(fill="x")
-
-        # ---- Settings ----
         self._settings = SettingsScreen(self, self._cfg, on_save=self._handle_save)
-        self._settings.pack(fill="both", expand=True)
+        self._settings.pack(fill="both", expand=True, padx=8, pady=8)
 
     def _handle_save(self, cfg: dict) -> None:
         self._cfg = cfg
