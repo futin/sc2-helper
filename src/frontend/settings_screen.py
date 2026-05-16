@@ -95,11 +95,6 @@ class _ConfigTab(ctk.CTkScrollableFrame):
         self._poll_interval.insert(0, str(self._cfg.get("poll_interval", 2.5)))
         row += 1
 
-        self._lbl("Player ID", row, 0)
-        self._player_id = self._entry(row, 1)
-        self._player_id.insert(0, str(self._cfg.get("player_id", 1)))
-        row += 1
-
         self._lbl("TTS Voice", row, 0)
         self._tts_voice = self._entry(row, 1)
         self._tts_voice.insert(0, self._cfg.get("tts_voice", "Moira"))
@@ -214,7 +209,6 @@ class _ConfigTab(ctk.CTkScrollableFrame):
     def collect(self) -> dict:
         try:
             poll = float(self._poll_interval.get())
-            player = int(self._player_id.get())
             m_thresh = int(self._mineral_threshold.get())
             g_thresh = int(self._gas_threshold.get())
             r_cool = int(self._res_cooldown.get())
@@ -241,7 +235,6 @@ class _ConfigTab(ctk.CTkScrollableFrame):
 
         return {
             "poll_interval": poll,
-            "player_id": player,
             "tts_voice": self._tts_voice.get().strip(),
             "resources": {
                 "mineral_threshold": m_thresh,
@@ -324,12 +317,13 @@ class _CoordsTab(ctk.CTkScrollableFrame):
         self._cfg = cfg
         self._recorded: dict[str, tuple[int, int]] = {}
         self._coord_display: dict[str, ctk.CTkLabel] = {}
+        self._capture_btns: dict[str, ctk.CTkButton] = {}
         self._build()
 
     def _build(self) -> None:
         ctk.CTkLabel(
             self,
-            text="Move your mouse to the top-left corner of each HUD element, then click Capture.",
+            text="Click Capture, then move your mouse to the HUD element within 3 seconds.",
             wraplength=480,
         ).pack(padx=12, pady=(12, 6), anchor="w")
 
@@ -344,12 +338,14 @@ class _CoordsTab(ctk.CTkScrollableFrame):
 
             ctk.CTkLabel(frame, text=e.label, font=ctk.CTkFont(weight="bold"), width=100).pack(side="left", padx=8, pady=6)
 
-            ctk.CTkButton(
+            btn = ctk.CTkButton(
                 frame,
                 text="Capture",
                 width=80,
                 command=lambda n=e.key: self._capture(n),
-            ).pack(side="left", padx=4, pady=6)
+            )
+            btn.pack(side="left", padx=4, pady=6)
+            self._capture_btns[e.key] = btn
 
             lbl = ctk.CTkLabel(frame, text=f"x={x}, y={y}")
             lbl.pack(side="left", padx=8)
@@ -359,14 +355,23 @@ class _CoordsTab(ctk.CTkScrollableFrame):
             anchor="e", padx=12, pady=(8, 12))
 
     def _capture(self, name: str) -> None:
-        try:
-            from backend.find_coords import get_mouse_pos
-            x, y = get_mouse_pos()
-        except Exception as e:
-            messagebox.showerror("Capture Error", f"Could not read mouse position:\n{e}")
-            return
-        self._recorded[name] = (x, y)
-        self._coord_display[name].configure(text=f"x={x}, y={y}")
+        btn = self._capture_btns[name]
+        self._countdown(name, btn, 3)
+
+    def _countdown(self, name: str, btn: ctk.CTkButton, remaining: int) -> None:
+        if remaining > 0:
+            btn.configure(text=f"{remaining}…", state="disabled")
+            self.after(1000, lambda: self._countdown(name, btn, remaining - 1))
+        else:
+            btn.configure(text="Capture", state="normal")
+            try:
+                from backend.find_coords import get_mouse_pos
+                x, y = get_mouse_pos()
+            except Exception as e:
+                messagebox.showerror("Capture Error", f"Could not read mouse position:\n{e}")
+                return
+            self._recorded[name] = (x, y)
+            self._coord_display[name].configure(text=f"x={x}, y={y}")
 
     def _save_coords(self) -> None:
         sc = dict(self._cfg.get("screen_capture", {}))
