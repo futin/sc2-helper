@@ -60,7 +60,12 @@ GAS_MESSAGES = [
 ]
 
 
-def get_message(category: str, mode: str = "strict") -> str:
+def get_message(category: str, mode: str = "strict", custom_messages: dict | None = None) -> str:
+    if mode == "custom":
+        msgs = (custom_messages or {}).get(category, [])
+        if msgs:
+            return random.choice(msgs) if isinstance(msgs, list) else msgs
+        return STRICT_MESSAGES.get(category, "")
     if mode == "funny":
         messages = {
             "supply":       SUPPLY_MESSAGES,
