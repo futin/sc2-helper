@@ -38,6 +38,12 @@ class RunnerScreen(ctk.CTkToplevel):
         self._status_lbl = ctk.CTkLabel(bar, text="Not running", text_color="gray")
         self._status_lbl.pack(side="left", padx=12)
 
+        self._debug_var = ctk.BooleanVar(value=False)
+        self._debug_check = ctk.CTkCheckBox(
+            bar, text="Debug mode", variable=self._debug_var, width=110
+        )
+        self._debug_check.pack(side="left", padx=12)
+
         ctk.CTkButton(bar, text="Clear Log", command=self._clear_log, width=80).pack(side="right", padx=8, pady=6)
 
         self._log = ctk.CTkTextbox(
@@ -52,8 +58,11 @@ class RunnerScreen(ctk.CTkToplevel):
             return
         self._append_log(f"--- Starting {SCRIPT_DISPLAY_NAME} ---\n")
         try:
+            cmd = [sys.executable, "-m", BACKEND_MODULE]
+            if self._debug_var.get():
+                cmd.append("--debug")
             self._process = subprocess.Popen(
-                [sys.executable, "-m", BACKEND_MODULE],
+                cmd,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT,
                 text=True,
@@ -70,6 +79,7 @@ class RunnerScreen(ctk.CTkToplevel):
 
         self._btn_start.configure(state="disabled")
         self._btn_stop.configure(state="normal")
+        self._debug_check.configure(state="disabled")
         self._status_lbl.configure(text="Running", text_color="green")
 
     def _stop(self) -> None:
@@ -78,6 +88,7 @@ class RunnerScreen(ctk.CTkToplevel):
             self._process.terminate()
             self._process = None
         self._btn_start.configure(state="normal")
+        self._debug_check.configure(state="normal")
         self._btn_stop.configure(state="disabled")
         self._status_lbl.configure(text="Stopped", text_color="orange")
         self._append_log("--- Process stopped ---\n")
@@ -86,6 +97,7 @@ class RunnerScreen(ctk.CTkToplevel):
         self._polling = False
         self._process = None
         self._btn_start.configure(state="normal")
+        self._debug_check.configure(state="normal")
         self._btn_stop.configure(state="disabled")
         self._status_lbl.configure(text="Exited", text_color="gray")
         self._append_log("--- Process exited ---\n")
