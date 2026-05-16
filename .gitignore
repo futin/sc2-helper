@@ -28,6 +28,6 @@ Thumbs.db
 
 # Project-specific
 ocr_debug/
-docs/
+docs/superpowers
 src/backend/game_stats.json
 src/backend/game_stats_live.json
