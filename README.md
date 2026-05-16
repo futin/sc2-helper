@@ -12,12 +12,13 @@ sc2-helper/
 │   ├── backend/
 │   │   ├── index.py           # Core loop: OCR → detect → TTS
 │   │   ├── messages.py        # Warning message banks (strict / funny / custom)
+│   │   ├── stats.py           # StatsManager: per-game warning counts → JSON
 │   │   └── config.yaml        # All runtime configuration
 │   └── frontend/
 │       ├── app.py             # customtkinter root window
 │       ├── sc2_ui.py          # UI entry point
 │       ├── runner_screen.py   # Start/stop backend process, live log view
-│       ├── settings_screen.py # Config editor (3 tabs: Config / Messages / Coords)
+│       ├── settings_screen.py # Config editor (4 tabs: Config / Messages / Coords / Statistics)
 │       └── config_manager.py  # YAML load/save helpers
 ├── dev.py                     # Hot-reload runner (watchdog) for development
 └── requirements.txt
@@ -26,10 +27,11 @@ sc2-helper/
 ### How it works
 
 1. **Backend** polls `http://localhost:6119/game` (SC2 client API) every `poll_interval` seconds to detect whether a game is live.
-2. For each live game tick it captures four screen regions via `mss`, scales them 3×, converts to greyscale/binary, and runs Tesseract OCR to read minerals, gas, supply, and idle-worker count.
-3. Three detectors (`check_resources`, `check_supply`, `check_idle_workers`) compare the values against configurable thresholds and, when a condition fires and its cooldown has elapsed, push a message onto a priority queue.
-4. A background TTS thread drains the queue via macOS `say`, ordered: supply > minerals > idle workers > gas.
-5. **Frontend** is a `customtkinter` wrapper that edits `config.yaml` and spawns the backend script as a subprocess, streaming its stdout into a log panel.
+2. Game lifecycle transitions (not-running → running, running → not-running) trigger `StatsManager.on_game_start/on_game_end`, which records result and race from the API response.
+3. For each live game tick it captures four screen regions via `mss`, scales them 3×, converts to greyscale/binary, and runs Tesseract OCR to read minerals, gas, supply, and idle-worker count. An optional anomaly filter suppresses OCR spikes by clamping values that jump more than a configured delta from the previous reading.
+4. Three detectors (`check_resources`, `check_supply`, `check_idle_workers`) compare the values against configurable thresholds and, when a condition fires and its cooldown has elapsed, push a message onto a priority queue. Each warning also increments the in-progress game counter in `StatsManager`.
+5. A background TTS thread drains the queue via macOS `say`, ordered: supply > minerals > idle workers > gas.
+6. **Frontend** is a `customtkinter` wrapper that edits `config.yaml` and spawns the backend script as a subprocess, streaming its stdout into a log panel. A **Debug** checkbox in the runner toolbar passes `--debug` to the backend.
 
 ---
 
@@ -65,11 +67,13 @@ Opens the settings window. Click **▶ Run Script** to open the runner panel, th
 python -m backend.index
 ```
 
-### Debug mode — inspect the SC2 client API response and exit
+### Debug mode — print HUD state each poll interval
 
 ```bash
 python -m backend.index --debug
 ```
+
+Prints live OCR values (`minerals`, `gas`, `supply`, `idle_workers`) to stdout every tick. Also available as a checkbox in the GUI runner toolbar.
 
 ### Test OCR mode — verify OCR is reading each region correctly
 
@@ -102,7 +106,7 @@ All settings live in `src/backend/config.yaml`. They can also be edited via the 
 | `resources.mineral_threshold` | `600` | Warn when minerals exceed this |
 | `resources.gas_threshold` | `600` | Warn when gas exceeds this |
 | `resources.cooldown` | `30` | Seconds between resource warnings |
-| `supply.cooldown` | `10` | Seconds between supply warnings |
+| `supply.cooldown` | `20` | Seconds between supply warnings |
 | `supply.tiers` | see below | Gap-based warning tiers |
 | `workers.idle_seconds` | `10` | Seconds before idle worker warning fires |
 | `workers.cooldown` | `30` | Seconds between idle worker warnings |
@@ -119,8 +123,8 @@ Supply warnings use a gap system: warn when `supply_max - supply_used <= gap`. T
 ```yaml
 supply:
   tiers:
-    - {max_cap: 25,  gap: 3}
-    - {max_cap: 50,  gap: 5}
+    - {max_cap: 25,  gap: 2}
+    - {max_cap: 50,  gap: 4}
     - {max_cap: 200, gap: 10}
 ```
 
@@ -138,6 +142,35 @@ screen_capture:
 ```
 
 Use the **Coords Selection** tab in the GUI to set these, or edit `config.yaml` manually.
+
+### Anomaly filter
+
+Suppresses OCR misreads by clamping values that jump more than `max_delta` from the previous reading. Disabled by default.
+
+```yaml
+anomaly_filter:
+  enabled: true
+  max_delta:
+    minerals: 1000
+    gas: 500
+    supply_used: 10
+    supply_max: 16
+```
+
+---
+
+## Statistics
+
+`StatsManager` records per-game warning counts to two JSON files in `src/backend/`:
+
+| File | Purpose |
+|------|---------|
+| `game_stats.json` | Append-only history of completed games |
+| `game_stats_live.json` | In-progress game counters, deleted on game end |
+
+Both are written atomically. Neither is tracked by git.
+
+The **Statistics** tab in the GUI shows a scrollable history list (newest first, colour-coded Win/Loss/Tie), a live-game banner that refreshes every 5 seconds, and a detail panel with per-game warning counts.
 
 ---
 
