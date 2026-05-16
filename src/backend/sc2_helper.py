@@ -159,11 +159,7 @@ def fetch_game_state(config: dict) -> Optional[dict]:
     gas = ocr_number(capture_region(sc["gas"]), threshold)
     supply_used, supply_max = ocr_supply(capture_region(sc["supply"]), threshold)
     idle_workers = ocr_number(capture_region(sc["idle_workers"]), threshold) or 0
-    print("minerals", minerals)
-    print("gas", gas)
-    print("supply_used", supply_used)
-    print("supply_max", supply_max)
-    print("idle_workers", idle_workers)
+
     # Skip this poll if any critical value failed OCR
     if any(v is None for v in [minerals, gas, supply_used, supply_max]):
         return None
@@ -198,7 +194,10 @@ class CooldownTracker:
 # Detectors
 # ---------------------------------------------------------------------------
 
-def check_resources(state: dict, config: dict, cooldown: CooldownTracker, voice: str, mode: str) -> None:
+def check_resources(
+    state: dict, config: dict, cooldown: CooldownTracker, voice: str, mode: str,
+    custom_messages: dict | None = None,
+) -> None:
     minerals = state["minerals"]
     gas = state["gas"]
     res_cfg = config["resources"]
@@ -207,12 +206,15 @@ def check_resources(state: dict, config: dict, cooldown: CooldownTracker, voice:
     gas_over = gas > res_cfg["gas_threshold"]
 
     if mineral_over and cooldown.ready("minerals", res_cfg["cooldown"]):
-        speak(get_message("minerals", mode), voice, PRIORITY_MINERALS)
+        speak(get_message("minerals", mode, custom_messages), voice, PRIORITY_MINERALS)
     if gas_over and cooldown.ready("gas", res_cfg["cooldown"]):
-        speak(get_message("gas", mode), voice, PRIORITY_GAS)
+        speak(get_message("gas", mode, custom_messages), voice, PRIORITY_GAS)
 
 
-def check_supply(state: dict, config: dict, cooldown: CooldownTracker, voice: str, mode: str) -> None:
+def check_supply(
+    state: dict, config: dict, cooldown: CooldownTracker, voice: str, mode: str,
+    custom_messages: dict | None = None,
+) -> None:
     supply_used = state["supply_used"]
     supply_max = state["supply_max"]
 
@@ -229,7 +231,7 @@ def check_supply(state: dict, config: dict, cooldown: CooldownTracker, voice: st
             break
 
     if warn_gap is not None and gap <= warn_gap and cooldown.ready("supply", supply_cfg["cooldown"]):
-        speak(get_message("supply", mode), voice, PRIORITY_SUPPLY)
+        speak(get_message("supply", mode, custom_messages), voice, PRIORITY_SUPPLY)
 
 
 def check_idle_workers(
@@ -239,6 +241,7 @@ def check_idle_workers(
     voice: str,
     idle_onset: Optional[float],
     mode: str = "strict",
+    custom_messages: dict | None = None,
 ) -> Optional[float]:
     """
     Track how long workers have been idle.
@@ -257,7 +260,7 @@ def check_idle_workers(
 
     elapsed = time.monotonic() - idle_onset
     if elapsed >= workers_cfg["idle_seconds"] and cooldown.ready("workers", workers_cfg["cooldown"]):
-        speak(get_message("idle_workers", mode), voice, PRIORITY_IDLE_WORKERS)
+        speak(get_message("idle_workers", mode, custom_messages), voice, PRIORITY_IDLE_WORKERS)
 
     return idle_onset
 
@@ -399,6 +402,7 @@ def main() -> None:
     config = load_config(Path(__file__).parent / "config.yaml")
     voice: str = config.get("tts_voice", "")
     mode: str = config.get("message_mode", "strict")
+    custom_messages: dict = config.get("custom_messages", {})
     cooldown = CooldownTracker()
     idle_onset: Optional[float] = None
 
@@ -408,9 +412,9 @@ def main() -> None:
             state = fetch_game_state(config)
             print(state)
             if state:
-                check_resources(state, config, cooldown, voice, mode)
-                check_supply(state, config, cooldown, voice, mode)
-                idle_onset = check_idle_workers(state, config, cooldown, voice, idle_onset, mode)
+                check_resources(state, config, cooldown, voice, mode, custom_messages)
+                check_supply(state, config, cooldown, voice, mode, custom_messages)
+                idle_onset = check_idle_workers(state, config, cooldown, voice, idle_onset, mode, custom_messages)
             time.sleep(config["poll_interval"])
     except KeyboardInterrupt:
         print("Stopping.")
