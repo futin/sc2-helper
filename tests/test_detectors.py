@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from backend.sc2_helper import (
+from backend.index import (
     CooldownTracker,
     SpeechQueue,
     check_resources,
