@@ -5,7 +5,9 @@ import threading
 import customtkinter as ctk
 from pathlib import Path
 
-SCRIPT_PATH = Path(__file__).parent.parent / "backend" / "sc2_helper.py"
+SRC_DIR = Path(__file__).parent.parent
+BACKEND_MODULE = "backend.sc2_helper"
+SCRIPT_DISPLAY_NAME = "sc2_helper"
 
 
 class RunnerScreen(ctk.CTkToplevel):
@@ -48,14 +50,15 @@ class RunnerScreen(ctk.CTkToplevel):
     def _start(self) -> None:
         if self._process is not None:
             return
-        self._append_log(f"--- Starting {SCRIPT_PATH.name} ---\n")
+        self._append_log(f"--- Starting {SCRIPT_DISPLAY_NAME} ---\n")
         try:
             self._process = subprocess.Popen(
-                [sys.executable, str(SCRIPT_PATH)],
+                [sys.executable, "-m", BACKEND_MODULE],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT,
                 text=True,
                 bufsize=1,
+                cwd=str(SRC_DIR),
             )
         except Exception as e:
             self._append_log(f"ERROR: Could not start process: {e}\n")

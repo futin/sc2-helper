@@ -1,9 +1,9 @@
 import customtkinter as ctk
 from tkinter import messagebox
 
-from config_manager import load_config, save_config
-from runner_screen import RunnerScreen
-from settings_screen import SettingsScreen
+from frontend.config_manager import load_config, save_config
+from frontend.runner_screen import RunnerScreen
+from frontend.settings_screen import SettingsScreen
 
 ctk.set_appearance_mode("system")
 ctk.set_default_color_theme("blue")

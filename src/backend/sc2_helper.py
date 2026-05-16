@@ -18,6 +18,7 @@ Calibrate mode (saves full screenshot to calibration.png for coordinate finding)
 """
 
 import json
+import logging
 import queue
 import subprocess
 import sys
@@ -32,7 +33,7 @@ import requests
 import yaml
 from PIL import Image, ImageOps
 
-from messages import get_message
+from backend.messages import get_message
 
 SC2_BASE = "http://localhost:6119"
 REQUEST_TIMEOUT = 1  # seconds
@@ -56,28 +57,25 @@ PRIORITY_MINERALS = 1
 PRIORITY_IDLE_WORKERS = 2
 PRIORITY_GAS = 3
 
-_speech_queue: queue.PriorityQueue = queue.PriorityQueue()
-_speech_counter = 0
-_speech_lock = threading.Lock()
+class SpeechQueue:
+    def __init__(self) -> None:
+        self._queue: queue.PriorityQueue = queue.PriorityQueue()
+        self._counter = 0
+        self._lock = threading.Lock()
+        threading.Thread(target=self._worker, daemon=True).start()
 
+    def _worker(self) -> None:
+        while True:
+            _, _, message, voice = self._queue.get()
+            cmd = ["say", "-v", voice, message] if voice else ["say", message]
+            subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            self._queue.task_done()
 
-def _speech_worker() -> None:
-    while True:
-        _, _, message, voice = _speech_queue.get()
-        cmd = ["say", "-v", voice, message] if voice else ["say", message]
-        subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        _speech_queue.task_done()
-
-
-threading.Thread(target=_speech_worker, daemon=True).start()
-
-
-def speak(message: str, voice: str = "", priority: int = 99) -> None:
-    global _speech_counter
-    with _speech_lock:
-        _speech_counter += 1
-        counter = _speech_counter
-    _speech_queue.put((priority, counter, message, voice))
+    def speak(self, message: str, voice: str = "", priority: int = 99) -> None:
+        with self._lock:
+            self._counter += 1
+            counter = self._counter
+        self._queue.put((priority, counter, message, voice))
 
 
 # ---------------------------------------------------------------------------
@@ -116,7 +114,7 @@ def _preprocess(img: Image.Image, threshold: int) -> Image.Image:
     return img.point(lambda x: 255 if x > threshold else 0)
 
 
-def ocr_number(img: Image.Image, threshold: int = 100) -> Optional[int]:
+def ocr_number(img: Image.Image, threshold: int = 100, region_name: str = "unknown") -> Optional[int]:
     """OCR a single integer from a HUD region. Returns None on failure."""
     text = pytesseract.image_to_string(
         _preprocess(img, threshold),
@@ -125,6 +123,7 @@ def ocr_number(img: Image.Image, threshold: int = 100) -> Optional[int]:
     try:
         return int(text)
     except ValueError:
+        logging.warning("OCR failed for %s (got %r)", region_name, text)
         return None
 
 
@@ -139,7 +138,9 @@ def ocr_supply(img: Image.Image, threshold: int = 100) -> tuple:
         try:
             return int(parts[0]), int(parts[1])
         except (ValueError, IndexError):
+            logging.warning("OCR failed for supply (got %r)", text)
             return None, None
+    logging.warning("OCR failed for supply — no '/' in %r", text)
     return None, None
 
 
@@ -155,10 +156,10 @@ def fetch_game_state(config: dict) -> Optional[dict]:
     sc = config["screen_capture"]
     threshold = sc.get("ocr_threshold", 100)
 
-    minerals = ocr_number(capture_region(sc["minerals"]), threshold)
-    gas = ocr_number(capture_region(sc["gas"]), threshold)
+    minerals = ocr_number(capture_region(sc["minerals"]), threshold, "minerals")
+    gas = ocr_number(capture_region(sc["gas"]), threshold, "gas")
     supply_used, supply_max = ocr_supply(capture_region(sc["supply"]), threshold)
-    idle_workers = ocr_number(capture_region(sc["idle_workers"]), threshold) or 0
+    idle_workers = ocr_number(capture_region(sc["idle_workers"]), threshold, "idle_workers") or 0
 
     # Skip this poll if any critical value failed OCR
     if any(v is None for v in [minerals, gas, supply_used, supply_max]):
@@ -195,8 +196,8 @@ class CooldownTracker:
 # ---------------------------------------------------------------------------
 
 def check_resources(
-    state: dict, config: dict, cooldown: CooldownTracker, voice: str, mode: str,
-    custom_messages: dict | None = None,
+    state: dict, config: dict, cooldown: CooldownTracker, speech: SpeechQueue,
+    voice: str, mode: str, custom_messages: dict | None = None,
 ) -> None:
     minerals = state["minerals"]
     gas = state["gas"]
@@ -206,14 +207,14 @@ def check_resources(
     gas_over = gas > res_cfg["gas_threshold"]
 
     if mineral_over and cooldown.ready("minerals", res_cfg["cooldown"]):
-        speak(get_message("minerals", mode, custom_messages), voice, PRIORITY_MINERALS)
+        speech.speak(get_message("minerals", mode, custom_messages), voice, PRIORITY_MINERALS)
     if gas_over and cooldown.ready("gas", res_cfg["cooldown"]):
-        speak(get_message("gas", mode, custom_messages), voice, PRIORITY_GAS)
+        speech.speak(get_message("gas", mode, custom_messages), voice, PRIORITY_GAS)
 
 
 def check_supply(
-    state: dict, config: dict, cooldown: CooldownTracker, voice: str, mode: str,
-    custom_messages: dict | None = None,
+    state: dict, config: dict, cooldown: CooldownTracker, speech: SpeechQueue,
+    voice: str, mode: str, custom_messages: dict | None = None,
 ) -> None:
     supply_used = state["supply_used"]
     supply_max = state["supply_max"]
@@ -231,36 +232,32 @@ def check_supply(
             break
 
     if warn_gap is not None and gap <= warn_gap and cooldown.ready("supply", supply_cfg["cooldown"]):
-        speak(get_message("supply", mode, custom_messages), voice, PRIORITY_SUPPLY)
+        speech.speak(get_message("supply", mode, custom_messages), voice, PRIORITY_SUPPLY)
 
 
 def check_idle_workers(
     state: dict,
     config: dict,
     cooldown: CooldownTracker,
+    speech: SpeechQueue,
     voice: str,
     idle_onset: Optional[float],
     mode: str = "strict",
     custom_messages: dict | None = None,
 ) -> Optional[float]:
-    """
-    Track how long workers have been idle.
-
-    Returns the updated idle_onset timestamp (or None if workers are busy).
-    """
+    """Track idle workers. Returns updated idle_onset (or None if busy)."""
     idle_count = state["idle_workers"]
     workers_cfg = config["workers"]
 
     if idle_count == 0:
-        return None  # reset onset
+        return None
 
-    # Workers are idle — record onset if not already tracking
     if idle_onset is None:
         idle_onset = time.monotonic()
 
     elapsed = time.monotonic() - idle_onset
     if elapsed >= workers_cfg["idle_seconds"] and cooldown.ready("workers", workers_cfg["cooldown"]):
-        speak(get_message("idle_workers", mode, custom_messages), voice, PRIORITY_IDLE_WORKERS)
+        speech.speak(get_message("idle_workers", mode, custom_messages), voice, PRIORITY_IDLE_WORKERS)
 
     return idle_onset
 
@@ -399,22 +396,28 @@ def main() -> None:
         test_ocr_mode()
         return
 
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)s %(message)s",
+        handlers=[logging.StreamHandler(sys.stdout)],
+    )
+
     config = load_config(Path(__file__).parent / "config.yaml")
     voice: str = config.get("tts_voice", "")
     mode: str = config.get("message_mode", "strict")
     custom_messages: dict = config.get("custom_messages", {})
     cooldown = CooldownTracker()
+    speech = SpeechQueue()
     idle_onset: Optional[float] = None
 
-    print(f"SC2 Helper running [{mode} mode]. Press Ctrl+C to stop.")
+    logging.info("SC2 Helper running [%s mode]. Press Ctrl+C to stop.", mode)
     try:
         while True:
             state = fetch_game_state(config)
-            print(state)
             if state:
-                check_resources(state, config, cooldown, voice, mode, custom_messages)
-                check_supply(state, config, cooldown, voice, mode, custom_messages)
-                idle_onset = check_idle_workers(state, config, cooldown, voice, idle_onset, mode, custom_messages)
+                check_resources(state, config, cooldown, speech, voice, mode, custom_messages)
+                check_supply(state, config, cooldown, speech, voice, mode, custom_messages)
+                idle_onset = check_idle_workers(state, config, cooldown, speech, voice, idle_onset, mode, custom_messages)
             time.sleep(config["poll_interval"])
     except KeyboardInterrupt:
         print("Stopping.")

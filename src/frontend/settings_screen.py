@@ -3,29 +3,7 @@ import customtkinter as ctk
 from tkinter import messagebox
 from typing import Callable
 
-from config_manager import load_config
-
-COORD_WIDTHS = {
-    "minerals":     (80, 30),
-    "gas":          (80, 30),
-    "supply":       (100, 30),
-    "idle_workers": (60, 25),
-}
-
-COORD_LABELS = {
-    "minerals":     "Minerals",
-    "gas":          "Gas",
-    "supply":       "Supply",
-    "idle_workers": "Idle Workers",
-}
-
-CATEGORIES = ["supply", "minerals", "gas", "idle_workers"]
-CATEGORY_LABELS = {
-    "supply":       "Supply",
-    "minerals":     "Minerals",
-    "gas":          "Gas",
-    "idle_workers": "Idle Workers",
-}
+from backend.hud_elements import HUD_ELEMENTS
 
 
 class SettingsScreen(ctk.CTkFrame):
@@ -84,86 +62,85 @@ class _ConfigTab(ctk.CTkScrollableFrame):
         self._tier_rows: list[dict] = []
         self._build()
 
-    def _build(self) -> None:
-        f = self
-        row = 0
+    def _lbl(self, text: str, row: int, col: int, **kw) -> None:
+        ctk.CTkLabel(self, text=text).grid(row=row, column=col, sticky="w", padx=6, pady=3, **kw)
 
-        def lbl(text, r, c, **kw):
-            ctk.CTkLabel(f, text=text).grid(row=r, column=c, sticky="w", padx=6, pady=3, **kw)
+    def _entry(self, row: int, col: int, width: int = 120) -> ctk.CTkEntry:
+        e = ctk.CTkEntry(self, width=width)
+        e.grid(row=row, column=col, sticky="w", padx=6, pady=3)
+        return e
 
-        def entry(r, c, width=120):
-            e = ctk.CTkEntry(f, width=width)
-            e.grid(row=r, column=c, sticky="w", padx=6, pady=3)
-            return e
-
-        # ---- General ----
-        ctk.CTkLabel(f, text="General", font=ctk.CTkFont(size=13, weight="bold")).grid(
+    def _section_header(self, text: str, row: int) -> int:
+        ctk.CTkLabel(self, text=text, font=ctk.CTkFont(size=13, weight="bold")).grid(
             row=row, column=0, columnspan=2, sticky="w", padx=6, pady=(10, 2))
-        row += 1
+        return row + 1
 
-        lbl("Poll Interval (s)", row, 0)
-        self._poll_interval = entry(row, 1)
+    def _spacer(self, row: int) -> int:
+        ctk.CTkLabel(self, text="").grid(row=row, column=0)
+        return row + 1
+
+    def _build(self) -> None:
+        row = 0
+        row = self._build_general_section(row)
+        row = self._build_resources_section(row)
+        row = self._build_supply_section(row)
+        row = self._build_workers_section(row)
+        self._build_screen_capture_section(row)
+
+    def _build_general_section(self, row: int) -> int:
+        row = self._section_header("General", row)
+
+        self._lbl("Poll Interval (s)", row, 0)
+        self._poll_interval = self._entry(row, 1)
         self._poll_interval.insert(0, str(self._cfg.get("poll_interval", 2.5)))
         row += 1
 
-        lbl("Player ID", row, 0)
-        self._player_id = entry(row, 1)
+        self._lbl("Player ID", row, 0)
+        self._player_id = self._entry(row, 1)
         self._player_id.insert(0, str(self._cfg.get("player_id", 1)))
         row += 1
 
-        lbl("TTS Voice", row, 0)
-        self._tts_voice = entry(row, 1)
+        self._lbl("TTS Voice", row, 0)
+        self._tts_voice = self._entry(row, 1)
         self._tts_voice.insert(0, self._cfg.get("tts_voice", "Moira"))
         row += 1
 
-        lbl("Message Mode", row, 0)
-        self._message_mode = ctk.CTkComboBox(f, values=["strict", "funny", "custom"], width=120, state="readonly")
-        self._message_mode.set(self._cfg.get("message_mode", "strict"))
-        self._message_mode.grid(row=row, column=1, sticky="w", padx=6, pady=3)
-        row += 1
+        return self._spacer(row)
 
-        ctk.CTkLabel(f, text="").grid(row=row, column=0)
-        row += 1
-
-        # ---- Resources ----
-        ctk.CTkLabel(f, text="Resources", font=ctk.CTkFont(size=13, weight="bold")).grid(
-            row=row, column=0, columnspan=2, sticky="w", padx=6, pady=(4, 2))
-        row += 1
-
+    def _build_resources_section(self, row: int) -> int:
+        row = self._section_header("Resources", row)
         res = self._cfg.get("resources", {})
-        lbl("Mineral Threshold", row, 0)
-        self._mineral_threshold = entry(row, 1)
+
+        self._lbl("Mineral Threshold", row, 0)
+        self._mineral_threshold = self._entry(row, 1)
         self._mineral_threshold.insert(0, str(res.get("mineral_threshold", 600)))
         row += 1
 
-        lbl("Gas Threshold", row, 0)
-        self._gas_threshold = entry(row, 1)
+        self._lbl("Gas Threshold", row, 0)
+        self._gas_threshold = self._entry(row, 1)
         self._gas_threshold.insert(0, str(res.get("gas_threshold", 600)))
         row += 1
 
-        lbl("Resources Cooldown (s)", row, 0)
-        self._res_cooldown = entry(row, 1)
+        self._lbl("Resources Cooldown (s)", row, 0)
+        self._res_cooldown = self._entry(row, 1)
         self._res_cooldown.insert(0, str(res.get("cooldown", 30)))
         row += 1
 
-        ctk.CTkLabel(f, text="").grid(row=row, column=0)
-        row += 1
+        return self._spacer(row)
 
-        # ---- Supply ----
-        ctk.CTkLabel(f, text="Supply", font=ctk.CTkFont(size=13, weight="bold")).grid(
-            row=row, column=0, columnspan=2, sticky="w", padx=6, pady=(4, 2))
-        row += 1
-
+    def _build_supply_section(self, row: int) -> int:
+        row = self._section_header("Supply", row)
         sup = self._cfg.get("supply", {})
-        lbl("Supply Cooldown (s)", row, 0)
-        self._supply_cooldown = entry(row, 1)
+
+        self._lbl("Supply Cooldown (s)", row, 0)
+        self._supply_cooldown = self._entry(row, 1)
         self._supply_cooldown.insert(0, str(sup.get("cooldown", 10)))
         row += 1
 
-        lbl("Supply Tiers", row, 0)
+        self._lbl("Supply Tiers", row, 0)
         row += 1
 
-        self._tiers_frame = ctk.CTkFrame(f, fg_color="transparent")
+        self._tiers_frame = ctk.CTkFrame(self, fg_color="transparent")
         self._tiers_frame.grid(row=row, column=0, columnspan=2, sticky="ew", padx=6)
         row += 1
 
@@ -181,38 +158,34 @@ class _ConfigTab(ctk.CTkScrollableFrame):
         ctk.CTkButton(self._tiers_frame, text="+ Add Tier", command=self._add_tier_row, width=100).pack(
             anchor="w", pady=4)
 
-        ctk.CTkLabel(f, text="").grid(row=row, column=0)
-        row += 1
+        return self._spacer(row)
 
-        # ---- Workers ----
-        ctk.CTkLabel(f, text="Workers", font=ctk.CTkFont(size=13, weight="bold")).grid(
-            row=row, column=0, columnspan=2, sticky="w", padx=6, pady=(4, 2))
-        row += 1
-
+    def _build_workers_section(self, row: int) -> int:
+        row = self._section_header("Workers", row)
         wrk = self._cfg.get("workers", {})
-        lbl("Idle Seconds", row, 0)
-        self._idle_seconds = entry(row, 1)
+
+        self._lbl("Idle Seconds", row, 0)
+        self._idle_seconds = self._entry(row, 1)
         self._idle_seconds.insert(0, str(wrk.get("idle_seconds", 10)))
         row += 1
 
-        lbl("Workers Cooldown (s)", row, 0)
-        self._workers_cooldown = entry(row, 1)
+        self._lbl("Workers Cooldown (s)", row, 0)
+        self._workers_cooldown = self._entry(row, 1)
         self._workers_cooldown.insert(0, str(wrk.get("cooldown", 30)))
         row += 1
 
-        ctk.CTkLabel(f, text="").grid(row=row, column=0)
-        row += 1
+        return self._spacer(row)
 
-        # ---- Screen Capture ----
-        ctk.CTkLabel(f, text="Screen Capture", font=ctk.CTkFont(size=13, weight="bold")).grid(
-            row=row, column=0, columnspan=2, sticky="w", padx=6, pady=(4, 2))
-        row += 1
-
+    def _build_screen_capture_section(self, row: int) -> int:
+        row = self._section_header("Screen Capture", row)
         sc = self._cfg.get("screen_capture", {})
-        lbl("OCR Threshold", row, 0)
-        self._ocr_threshold = entry(row, 1)
+
+        self._lbl("OCR Threshold", row, 0)
+        self._ocr_threshold = self._entry(row, 1)
         self._ocr_threshold.insert(0, str(sc.get("ocr_threshold", 100)))
         row += 1
+
+        return row
 
     def _add_tier_row(self, max_cap: int = 200, gap: int = 10) -> None:
         row_frame = ctk.CTkFrame(self._tier_list_frame, fg_color="transparent")
@@ -270,7 +243,6 @@ class _ConfigTab(ctk.CTkScrollableFrame):
             "poll_interval": poll,
             "player_id": player,
             "tts_voice": self._tts_voice.get().strip(),
-            "message_mode": self._message_mode.get(),
             "resources": {
                 "mineral_threshold": m_thresh,
                 "gas_threshold": g_thresh,
@@ -314,16 +286,16 @@ class _MessagesTab(ctk.CTkFrame):
 
         self._text_widgets: dict[str, ctk.CTkTextbox] = {}
         custom = self._cfg.get("custom_messages", {})
-        for cat in CATEGORIES:
+        for e in HUD_ELEMENTS:
             row = ctk.CTkFrame(self._custom_frame, fg_color="transparent")
             row.pack(fill="x", padx=8, pady=4)
-            ctk.CTkLabel(row, text=CATEGORY_LABELS[cat], width=100, anchor="w").pack(side="left")
+            ctk.CTkLabel(row, text=e.label, width=100, anchor="w").pack(side="left")
             txt = ctk.CTkTextbox(row, height=60, wrap="word")
             txt.pack(side="left", fill="x", expand=True)
-            msgs = custom.get(cat, [])
+            msgs = custom.get(e.key, [])
             if msgs:
                 txt.insert("1.0", "\n".join(msgs))
-            self._text_widgets[cat] = txt
+            self._text_widgets[e.key] = txt
 
         self._on_mode_change()
 
@@ -336,9 +308,9 @@ class _MessagesTab(ctk.CTkFrame):
     def collect(self) -> dict:
         mode = self._mode_var.get()
         custom: dict[str, list[str]] = {}
-        for cat, txt in self._text_widgets.items():
+        for key, txt in self._text_widgets.items():
             raw = txt.get("1.0", "end-1c")
-            custom[cat] = [line for line in raw.splitlines() if line.strip()]
+            custom[key] = [line for line in raw.splitlines() if line.strip()]
         return {"message_mode": mode, "custom_messages": custom}
 
 
@@ -362,34 +334,33 @@ class _CoordsTab(ctk.CTkScrollableFrame):
         ).pack(padx=12, pady=(12, 6), anchor="w")
 
         sc = self._cfg.get("screen_capture", {})
-
-        for name in COORD_LABELS:
-            existing = sc.get(name, [0, 0, 0, 0])
+        for e in HUD_ELEMENTS:
+            existing = sc.get(e.key, [0, 0, 0, 0])
             x, y = existing[0], existing[1]
-            self._recorded[name] = (x, y)
+            self._recorded[e.key] = (x, y)
 
             frame = ctk.CTkFrame(self)
             frame.pack(fill="x", padx=12, pady=4)
 
-            ctk.CTkLabel(frame, text=COORD_LABELS[name], font=ctk.CTkFont(weight="bold"), width=100).pack(side="left", padx=8, pady=6)
+            ctk.CTkLabel(frame, text=e.label, font=ctk.CTkFont(weight="bold"), width=100).pack(side="left", padx=8, pady=6)
 
             ctk.CTkButton(
                 frame,
-                text=f"Capture",
+                text="Capture",
                 width=80,
-                command=lambda n=name: self._capture(n),
+                command=lambda n=e.key: self._capture(n),
             ).pack(side="left", padx=4, pady=6)
 
             lbl = ctk.CTkLabel(frame, text=f"x={x}, y={y}")
             lbl.pack(side="left", padx=8)
-            self._coord_display[name] = lbl
+            self._coord_display[e.key] = lbl
 
         ctk.CTkButton(self, text="Save Coords to Config", command=self._save_coords).pack(
             anchor="e", padx=12, pady=(8, 12))
 
     def _capture(self, name: str) -> None:
         try:
-            from find_coords import get_mouse_pos
+            from backend.find_coords import get_mouse_pos
             x, y = get_mouse_pos()
         except Exception as e:
             messagebox.showerror("Capture Error", f"Could not read mouse position:\n{e}")
@@ -399,13 +370,13 @@ class _CoordsTab(ctk.CTkScrollableFrame):
 
     def _save_coords(self) -> None:
         sc = dict(self._cfg.get("screen_capture", {}))
-        for name, (x, y) in self._recorded.items():
-            w, h = COORD_WIDTHS[name]
-            sc[name] = [x, y, w, h]
+        for e in HUD_ELEMENTS:
+            x, y = self._recorded[e.key]
+            sc[e.key] = [x, y, *e.default_size]
         cfg = dict(self._cfg)
         cfg["screen_capture"] = sc
 
-        from config_manager import save_config
+        from frontend.config_manager import save_config
         save_config(cfg)
         self._cfg = cfg
         messagebox.showinfo("Saved", "Coordinates saved to config.yaml")
@@ -413,8 +384,8 @@ class _CoordsTab(ctk.CTkScrollableFrame):
     def refresh(self, cfg: dict) -> None:
         self._cfg = cfg
         sc = cfg.get("screen_capture", {})
-        for name in COORD_LABELS:
-            existing = sc.get(name, [0, 0, 0, 0])
+        for e in HUD_ELEMENTS:
+            existing = sc.get(e.key, [0, 0, 0, 0])
             x, y = existing[0], existing[1]
-            self._recorded[name] = (x, y)
-            self._coord_display[name].configure(text=f"x={x}, y={y}")
+            self._recorded[e.key] = (x, y)
+            self._coord_display[e.key].configure(text=f"x={x}, y={y}")

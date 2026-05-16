@@ -1,11 +1,10 @@
 """Entry point for the SC2 Helper UI."""
-import sys
-from pathlib import Path
+from frontend.app import SC2HelperApp
 
-sys.path.insert(0, str(Path(__file__).parent))
-sys.path.insert(0, str(Path(__file__).parent.parent / "backend"))
 
-from app import SC2HelperApp
+def main() -> None:
+    SC2HelperApp().mainloop()
+
 
 if __name__ == "__main__":
-    SC2HelperApp().mainloop()
+    main()
