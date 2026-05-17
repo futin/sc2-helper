@@ -3,7 +3,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from backend.index import _format_debug_state
+from backend.utils import _format_debug_state
 
 _NO_STATE_LINE = "[DEBUG] no state (game not running or OCR failed)"
 
