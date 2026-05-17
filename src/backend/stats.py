@@ -18,7 +18,12 @@ class StatsManager:
 
     @property
     def counts(self) -> dict[str, int]:
-        return dict(self._counts)
+        return {
+            "mineralWarningsCount":     self._mineral_warnings,
+            "gasWarningsCount":         self._gas_warnings,
+            "supplyWarningsCount":      self._supply_warnings,
+            "idleWorkersWarningsCount": self._idle_worker_warnings,
+        }
 
     def on_game_start(self) -> None:
         now = datetime.now()

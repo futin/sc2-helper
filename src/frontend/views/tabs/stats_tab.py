@@ -19,24 +19,11 @@ class StatsTab(ctk.CTkFrame):
         self._render_list()
 
     def _build(self) -> None:
-        self.grid_rowconfigure(1, weight=1)
+        self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
 
-        self._banner_slot = ctk.CTkFrame(self, fg_color="transparent")
-        self._banner_slot.grid(row=0, column=0, sticky="ew")
-
-        self._live_outer = ctk.CTkFrame(self._banner_slot, fg_color=("#d0f0d0", "#1b4a1b"), corner_radius=6)
-        self._live_title = ctk.CTkLabel(
-            self._live_outer,
-            text="Game in Progress",
-            font=ctk.CTkFont(weight="bold"),
-        )
-        self._live_title.pack(anchor="w", padx=10, pady=(6, 0))
-        self._live_counts_label = ctk.CTkLabel(self._live_outer, text="", justify="left")
-        self._live_counts_label.pack(anchor="w", padx=10, pady=(0, 6))
-
         self._list_outer = ctk.CTkFrame(self, fg_color="transparent")
-        self._list_outer.grid(row=1, column=0, sticky="nsew", padx=8, pady=(4, 0))
+        self._list_outer.grid(row=0, column=0, sticky="nsew", padx=8, pady=(4, 0))
         self._list_outer.grid_rowconfigure(0, weight=1)
         self._list_outer.grid_columnconfigure(0, weight=1)
 
@@ -135,8 +122,12 @@ class StatsTab(ctk.CTkFrame):
         }
         for key, lbl in self._detail_labels.items():
             lbl.configure(text=values.get(key, "—"))
-        self._detail_outer.grid(row=2, column=0, sticky="ew", padx=8, pady=(4, 8))
+        self._detail_outer.grid(row=1, column=0, sticky="ew", padx=8, pady=(4, 8))
 
     def _hide_detail(self) -> None:
         self._selected_idx = None
         self._detail_outer.grid_forget()
+
+    def refresh(self) -> None:
+        self._hide_detail()
+        self._render_list()

@@ -13,7 +13,7 @@ class SettingsScreen(ctk.CTkFrame):
         self._build()
 
     def _build(self) -> None:
-        self._tabview = ctk.CTkTabview(self)
+        self._tabview = ctk.CTkTabview(self, command=self._on_tab_change)
         self._tabview.pack(fill="both", expand=True)
 
         self._tabview.add("Configuration")
@@ -48,6 +48,10 @@ class SettingsScreen(ctk.CTkFrame):
         cfg.update(self._config_tab.collect())
         cfg.update(self._messages_tab.collect())
         return cfg
+
+    def _on_tab_change(self) -> None:
+        if self._tabview.get() == "Statistics":
+            self._stats_tab.refresh()
 
     def refresh(self, cfg: dict) -> None:
         self._cfg = cfg
