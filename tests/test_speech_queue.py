@@ -5,7 +5,8 @@ from unittest.mock import patch
 
 import pytest
 
-from backend.index import SpeechQueue, PRIORITY_SUPPLY, PRIORITY_MINERALS
+from backend.classes import SpeechQueue
+from backend.constants import PRIORITY_SUPPLY, PRIORITY_MINERALS
 
 
 def test_speak_enqueues_without_error():
