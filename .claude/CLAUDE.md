@@ -1,0 +1,101 @@
+# SC2 Helper — Claude Context
+
+## Project Docs
+
+- [Architecture & How it works](../docs/architecture.md)
+- [Running & Requirements](../docs/running.md)
+- [Configuration](../docs/configuration.md)
+- [Statistics](../docs/statistics.md)
+- [Message Modes](../docs/messages.md)
+
+---
+
+## Project Structure
+
+### Backend (`src/backend/`)
+
+| File | Responsibility |
+|------|---------------|
+| `index.py` | Entry point — `test_ocr_mode()` + `main()` loop only |
+| `constants.py` | `SC2_BASE`, `REQUEST_TIMEOUT`, `PRIORITY_*`, `_RESULT_MAP`, `_RACE_MAP` |
+| `utils.py` | `load_config`, `_extract_result`, `_extract_race`, `_format_debug_state` |
+| `logger.py` | `setup_logging()` |
+| `ocr.py` | Screen capture (`mss`) + Tesseract OCR functions |
+| `game_api.py` | SC2 API polling, HUD capture, spike filter |
+| `detectors.py` | `check_resources`, `check_supply`, `check_idle_workers` |
+| `classes/speech_queue.py` | `SpeechQueue` — priority TTS daemon thread |
+| `classes/cooldown_tracker.py` | `CooldownTracker` |
+| `messages.py` | Warning message banks + `get_message()` |
+| `stats.py` | `StatsManager` — per-game warning counts → JSON |
+| `hud_elements.py` | `HudElement` dataclass + `HUD_ELEMENTS` list |
+| `find_coords.py` | Standalone calibration script (macOS, `__main__` block) |
+
+### Frontend (`src/frontend/`)
+
+**Views** (`views/`) — pure UI, no file I/O or subprocess logic:
+
+| File | Responsibility |
+|------|---------------|
+| `views/runner_view.py` | `RunnerScreen` — Start/Stop UI, log display |
+| `views/settings_view.py` | `SettingsScreen` — tab container + Save All |
+| `views/tabs/config_tab.py` | Configuration tab (thresholds, tiers, OCR) |
+| `views/tabs/messages_tab.py` | Message mode selector + custom message editor |
+| `views/tabs/coords_tab.py` | HUD coordinate capture with countdown |
+| `views/tabs/stats_tab.py` | Game statistics dashboard |
+
+**Logic** (`logic/`) — no UI code:
+
+| File | Responsibility |
+|------|---------------|
+| `logic/runner_logic.py` | `RunnerController` — subprocess + thread management |
+| `logic/stats_logic.py` | `StatsLoader` — reads `game_stats*.json` via `StatsManager` paths |
+
+**Root:**
+
+| File | Responsibility |
+|------|---------------|
+| `sc2_ui.py` | Entry point |
+| `app.py` | `SC2HelperApp` root window |
+| `config_manager.py` | YAML load/save + default config constants |
+
+---
+
+## Development Guidelines
+
+### Think Before Coding
+
+- State assumptions explicitly. If uncertain, ask.
+- If multiple interpretations exist, present them — don't pick silently.
+- If a simpler approach exists, say so. Push back when warranted.
+- If something is unclear, stop. Name what's confusing. Ask.
+
+### Simplicity First
+
+- No features beyond what was asked.
+- No abstractions for single-use code.
+- No "flexibility" or "configurability" that wasn't requested.
+- No error handling for impossible scenarios.
+- If you write 200 lines and it could be 50, rewrite it.
+
+### Surgical Changes
+
+When editing existing code:
+- Don't "improve" adjacent code, comments, or formatting unless asked.
+- Don't refactor things that aren't broken.
+- Match existing style, even if you'd do it differently.
+- If you notice unrelated dead code, mention it — don't delete it.
+- Remove imports/variables/functions that YOUR changes made unused. Don't remove pre-existing dead code unless asked.
+
+### Goal-Driven Execution
+
+Transform tasks into verifiable goals:
+- "Add validation" → "Write tests for invalid inputs, then make them pass"
+- "Fix the bug" → "Write a test that reproduces it, then make it pass"
+- "Refactor X" → "Ensure tests pass before and after"
+
+For multi-step tasks, state a brief plan:
+```
+1. [Step] → verify: [check]
+2. [Step] → verify: [check]
+3. [Step] → verify: [check]
+```
