@@ -5,7 +5,7 @@
 - [Architecture & How it works](../docs/architecture.md)
 - [Running & Requirements](../docs/running.md)
 - [Configuration](../docs/configuration.md)
-- [Statistics](../docs/statistics.md)
+- [Game History](../docs/game_history.md)
 - [Message Modes](../docs/messages.md)
 
 ---
@@ -18,15 +18,21 @@
 |------|---------------|
 | `index.py` | Entry point — `test_ocr_mode()` + `main()` loop only |
 | `constants.py` | `SC2_BASE`, `REQUEST_TIMEOUT`, `PRIORITY_*`, `_RESULT_MAP`, `_RACE_MAP` |
-| `utils.py` | `load_config`, `_extract_result`, `_extract_race`, `_format_debug_state` |
+| `utils.py` | `_extract_result`, `_extract_race`, `_format_debug_state` |
 | `logger.py` | `setup_logging()` |
 | `ocr.py` | Screen capture (`mss`) + Tesseract OCR functions |
 | `game_api.py` | SC2 API polling, HUD capture, spike filter |
 | `detectors.py` | `check_resources`, `check_supply`, `check_idle_workers` |
+| `service.py` | Service layer — `get_config`, `save_config`, `get_stats_history`, `get_live_stats` |
 | `classes/speech_queue.py` | `SpeechQueue` — priority TTS daemon thread |
 | `classes/cooldown_tracker.py` | `CooldownTracker` |
+| `db/__init__.py` | `get_db()` context manager, `DB_PATH` |
+| `db/connector.py` | Database abstraction base |
+| `db/sqlite_connector.py` | `aiosqlite` implementation |
+| `db/collection.py` | Collection query API (`find`/`findOne`/`create`/`updateOne`) |
+| `db/schema.py` | `CREATE TABLE` statements for `config` + `game_stats` |
 | `messages.py` | Warning message banks + `get_message()` |
-| `stats.py` | `StatsManager` — per-game warning counts → JSON |
+| `game_history.py` | `GameHistoryManager` — per-game warning counts → SQLite |
 | `hud_elements.py` | `HudElement` dataclass + `HUD_ELEMENTS` list |
 | `find_coords.py` | Standalone calibration script (macOS, `__main__` block) |
 
@@ -41,14 +47,14 @@
 | `views/tabs/config_tab.py` | Configuration tab (thresholds, tiers, OCR) |
 | `views/tabs/messages_tab.py` | Message mode selector + custom message editor |
 | `views/tabs/coords_tab.py` | HUD coordinate capture with countdown |
-| `views/tabs/stats_tab.py` | Game statistics dashboard |
+| `views/tabs/game_history_tab.py` | Game History dashboard |
 
 **Logic** (`logic/`) — no UI code:
 
 | File | Responsibility |
 |------|---------------|
 | `logic/runner_logic.py` | `RunnerController` — subprocess + thread management |
-| `logic/stats_logic.py` | `StatsLoader` — reads `game_stats*.json` via `StatsManager` paths |
+| `logic/game_history_logic.py` | `GameHistoryLoader` — reads history via `service.get_stats_history()` |
 
 **Root:**
 
@@ -56,7 +62,7 @@
 |------|---------------|
 | `sc2_ui.py` | Entry point |
 | `app.py` | `SC2HelperApp` root window |
-| `config_manager.py` | YAML load/save + default config constants |
+| `config_manager.py` | Re-exports `get_config`, `save_config`, `DEFAULT_CONFIG` from `service` |
 
 ---
 

@@ -28,7 +28,7 @@ from backend.detectors import check_idle_workers, check_resources, check_supply
 from backend.game_api import _capture_hud, _filter_spikes, _poll_game
 from backend.logger import setup_logging
 from backend.ocr import _preprocess, capture_region, ocr_number, ocr_supply
-from backend.stats import StatsManager
+from backend.game_history import GameHistoryManager
 from backend.service import get_config
 from backend.utils import _extract_race, _extract_result, _format_debug_state
 
@@ -64,7 +64,7 @@ def test_ocr_mode() -> None:
     print(f"\nCrops saved to {out_dir}/")
     print("Check *_raw.png to verify region placement.")
     print("Check *_processed.png to see what Tesseract receives.")
-    print("If processed image looks wrong, adjust ocr_threshold in config.yaml.")
+    print("If processed image looks wrong, adjust ocr_threshold in Settings → Configuration.")
 
 
 # ---------------------------------------------------------------------------
@@ -85,7 +85,7 @@ def main() -> None:
     custom_messages: dict = config.get("custom_messages", {})
     cooldown = CooldownTracker()
     speech = SpeechQueue()
-    stats = StatsManager()
+    stats = GameHistoryManager()
     idle_onset: Optional[float] = None
     game_active: bool = False
     prev_state: Optional[dict] = None

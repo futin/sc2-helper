@@ -77,7 +77,7 @@ class CoordsTab(ctk.CTkScrollableFrame):
         from frontend.config_manager import save_config
         save_config(cfg)
         self._cfg = cfg
-        messagebox.showinfo("Saved", "Coordinates saved to config.yaml")
+        messagebox.showinfo("Saved", "Coordinates saved.")
 
     def refresh(self, cfg: dict) -> None:
         self._cfg = cfg

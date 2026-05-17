@@ -17,7 +17,7 @@ This tool reads your screen using OCR (Optical Character Recognition) and does n
 - [Architecture & How it works](docs/architecture.md)
 - [Running & Requirements](docs/running.md)
 - [Configuration](docs/configuration.md)
-- [Statistics](docs/statistics.md)
+- [Game History](docs/game_history.md)
 - [Message Modes](docs/messages.md)
 
 ---
@@ -33,6 +33,6 @@ Open **Settings**, configure screen capture regions via the **Coords Selection**
 
 ---
 
-## Using statistics to improve your gameplay
+## Using game history to improve your gameplay
 
-The **Statistics** tab tracks per-game warning counts (minerals, gas, supply, idle workers) across your match history. Use this data to identify your weakest habits over time — for example, consistently high idle-worker warnings point to a macro routine problem, while frequent supply warnings suggest build order practice. Review your history after sessions to spot patterns, set a target warning count to beat each week, and watch that number fall as the habits become natural.
+The **Game History** tab tracks per-game warning counts (minerals, gas, supply, idle workers) across your match history. Use this data to identify your weakest habits over time — for example, consistently high idle-worker warnings point to a macro routine problem, while frequent supply warnings suggest build order practice. Review your history after sessions to spot patterns, set a target warning count to beat each week, and watch that number fall as the habits become natural.

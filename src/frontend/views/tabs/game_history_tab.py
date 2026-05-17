@@ -1,9 +1,9 @@
 import customtkinter as ctk
 
-from frontend.logic.stats_logic import StatsLoader
+from frontend.logic.game_history_logic import GameHistoryLoader
 
 
-class StatsTab(ctk.CTkFrame):
+class GameHistoryTab(ctk.CTkFrame):
     _RESULT_COLORS = {
         "Win":     ("#1a7a1a", "#4caf50"),
         "Loss":    ("#a01010", "#ef5350"),
@@ -13,7 +13,7 @@ class StatsTab(ctk.CTkFrame):
 
     def __init__(self, parent):
         super().__init__(parent, fg_color="transparent")
-        self._loader = StatsLoader()
+        self._loader = GameHistoryLoader()
         self._selected_idx: int | None = None
         self._build()
         self._render_list()

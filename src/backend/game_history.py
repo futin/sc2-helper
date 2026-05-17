@@ -6,7 +6,7 @@ from typing import Optional
 from backend.db import get_db
 
 
-class StatsManager:
+class GameHistoryManager:
     def __init__(self) -> None:
         self._game_id: Optional[str] = None
         self._start_time: Optional[float] = None

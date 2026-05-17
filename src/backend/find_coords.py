@@ -24,7 +24,7 @@ if __name__ == "__main__":
         positions.append((x, y))
         print(f"    -> recorded: x={x}, y={y}\n")
 
-    print("\nPaste these into config.yaml (adjust width/height as needed):")
+    print("\nEnter these in Settings → Coords Selection (adjust width/height as needed):")
     for e, (x, y) in zip(HUD_ELEMENTS, positions):
         w, h = e.default_size
         print(f"  {e.key}: [{x}, {y}, {w}, {h}]")

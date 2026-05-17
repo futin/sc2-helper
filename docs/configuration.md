@@ -1,6 +1,6 @@
 # Configuration
 
-All settings live in `src/backend/config.yaml`. They can also be edited via the GUI **Configuration** tab.
+All settings are stored in the `config` table in `src/backend/db/sc2helper.db`. They can be edited via the GUI **Configuration** tab or by calling `service.save_config()` directly.
 
 | Key | Default | Description |
 |-----|---------|-------------|
@@ -11,7 +11,7 @@ All settings live in `src/backend/config.yaml`. They can also be edited via the 
 | `resources.mineral_threshold` | `600` | Warn when minerals exceed this |
 | `resources.gas_threshold` | `600` | Warn when gas exceeds this |
 | `resources.cooldown` | `30` | Seconds between resource warnings |
-| `supply.cooldown` | `20` | Seconds between supply warnings |
+| `supply.cooldown` | `10` | Seconds between supply warnings |
 | `supply.tiers` | see below | Gap-based warning tiers |
 | `workers.idle_seconds` | `10` | Seconds before idle worker warning fires |
 | `workers.cooldown` | `30` | Seconds between idle worker warnings |
@@ -25,39 +25,42 @@ All settings live in `src/backend/config.yaml`. They can also be edited via the 
 
 Supply warnings use a gap system: warn when `supply_max - supply_used <= gap`. Tiers are matched by `max_cap` (first tier where `supply_max <= max_cap` wins):
 
-```yaml
-supply:
-  tiers:
-    - {max_cap: 25,  gap: 2}
-    - {max_cap: 50,  gap: 4}
-    - {max_cap: 200, gap: 10}
+```json
+"supply": {
+  "tiers": [
+    {"max_cap": 25,  "gap": 3},
+    {"max_cap": 50,  "gap": 5},
+    {"max_cap": 200, "gap": 10}
+  ]
+}
 ```
 
 ## Screen capture regions
 
-Each region is `[left, top, width, height]` in screen pixels:
+Each region is `[left, top, width, height]` in screen pixels. Use the **Coords Selection** tab in the GUI to set these.
 
-```yaml
-screen_capture:
-  minerals:     [2026, 30, 80, 30]
-  gas:          [2193, 30, 80, 30]
-  supply:       [2358, 30, 100, 30]
-  idle_workers: [65, 999, 60, 25]
-  ocr_threshold: 100
+```json
+"screen_capture": {
+  "minerals":     [2026, 30, 80, 30],
+  "gas":          [2193, 30, 80, 30],
+  "supply":       [2358, 30, 100, 30],
+  "idle_workers": [65, 999, 60, 25],
+  "ocr_threshold": 100
+}
 ```
-
-Use the **Coords Selection** tab in the GUI to set these, or edit `config.yaml` manually.
 
 ## Anomaly filter
 
-Suppresses OCR misreads by clamping values that jump more than `max_delta` from the previous reading. Disabled by default.
+Suppresses OCR misreads by clamping values that jump more than `max_delta` from the previous reading. Enabled by default.
 
-```yaml
-anomaly_filter:
-  enabled: true
-  max_delta:
-    minerals: 1000
-    gas: 500
-    supply_used: 10
-    supply_max: 16
+```json
+"anomaly_filter": {
+  "enabled": true,
+  "max_delta": {
+    "minerals": 1000,
+    "gas": 500,
+    "supply_used": 10,
+    "supply_max": 16
+  }
+}
 ```

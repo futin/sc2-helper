@@ -11,7 +11,7 @@ from backend.messages import get_message
 def check_resources(
     state: dict, config: dict, cooldown: CooldownTracker, speech: SpeechQueue,
     voice: str, mode: str, custom_messages: dict | None = None,
-    stats: "StatsManager | None" = None,
+    stats: "GameHistoryManager | None" = None,
 ) -> None:
     minerals = state["minerals"]
     gas = state["gas"]
@@ -30,7 +30,7 @@ def check_resources(
 def check_supply(
     state: dict, config: dict, cooldown: CooldownTracker, speech: SpeechQueue,
     voice: str, mode: str, custom_messages: dict | None = None,
-    stats: "StatsManager | None" = None,
+    stats: "GameHistoryManager | None" = None,
 ) -> None:
     supply_used = state["supply_used"]
     supply_max = state["supply_max"]
@@ -62,7 +62,7 @@ def check_idle_workers(
     idle_onset: Optional[float],
     mode: str = "strict",
     custom_messages: dict | None = None,
-    stats: "StatsManager | None" = None,
+    stats: "GameHistoryManager | None" = None,
 ) -> Optional[float]:
     """Track idle workers. Returns updated idle_onset (or None if busy)."""
     idle_count = state["idle_workers"]
