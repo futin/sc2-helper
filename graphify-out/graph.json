@@ -1624,19 +1624,10 @@
       "norm_label": "game_api.py"
     },
     {
-      "label": "test_graphify()",
-      "file_type": "code",
-      "source_file": "src/backend/game_api.py",
-      "source_location": "L10",
-      "id": "backend_game_api_test_graphify",
-      "community": 0,
-      "norm_label": "test_graphify()"
-    },
-    {
       "label": "_poll_game()",
       "file_type": "code",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L13",
+      "source_location": "L10",
       "id": "backend_game_api_poll_game",
       "community": 0,
       "norm_label": "_poll_game()"
@@ -1645,7 +1636,7 @@
       "label": "is_game_running()",
       "file_type": "code",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L27",
+      "source_location": "L24",
       "id": "backend_game_api_is_game_running",
       "community": 0,
       "norm_label": "is_game_running()"
@@ -1654,7 +1645,7 @@
       "label": "_capture_hud()",
       "file_type": "code",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L33",
+      "source_location": "L30",
       "id": "backend_game_api_capture_hud",
       "community": 0,
       "norm_label": "_capture_hud()"
@@ -1663,7 +1654,7 @@
       "label": "_filter_spikes()",
       "file_type": "code",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L52",
+      "source_location": "L49",
       "id": "backend_game_api_filter_spikes",
       "community": 0,
       "norm_label": "_filter_spikes()"
@@ -1672,7 +1663,7 @@
       "label": "fetch_game_state()",
       "file_type": "code",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L69",
+      "source_location": "L66",
       "id": "backend_game_api_fetch_game_state",
       "community": 0,
       "norm_label": "fetch_game_state()"
@@ -1681,8 +1672,8 @@
       "label": "Return (is_running, players). Single API call reused by main loop.",
       "file_type": "rationale",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L14",
-      "id": "backend_game_api_rationale_14",
+      "source_location": "L11",
+      "id": "backend_game_api_rationale_11",
       "community": 0,
       "norm_label": "return (is_running, players). single api call reused by main loop."
     },
@@ -1690,8 +1681,8 @@
       "label": "Return True if SC2 is running and a game is in progress.",
       "file_type": "rationale",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L28",
-      "id": "backend_game_api_rationale_28",
+      "source_location": "L25",
+      "id": "backend_game_api_rationale_25",
       "community": 0,
       "norm_label": "return true if sc2 is running and a game is in progress."
     },
@@ -1699,8 +1690,8 @@
       "label": "Capture HUD via screen OCR. Assumes game is already confirmed running.",
       "file_type": "rationale",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L34",
-      "id": "backend_game_api_rationale_34",
+      "source_location": "L31",
+      "id": "backend_game_api_rationale_31",
       "community": 0,
       "norm_label": "capture hud via screen ocr. assumes game is already confirmed running."
     },
@@ -1708,8 +1699,8 @@
       "label": "Capture current game state via screen OCR. Returns None if game not running.",
       "file_type": "rationale",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L70",
-      "id": "backend_game_api_rationale_70",
+      "source_location": "L67",
+      "id": "backend_game_api_rationale_67",
       "community": 0,
       "norm_label": "capture current game state via screen ocr. returns none if game not running."
     },
@@ -2191,40 +2182,49 @@
       "norm_label": "ensure_tables()"
     },
     {
+      "label": "test_graphify()",
+      "file_type": "code",
+      "source_file": "src/backend/game_api.py",
+      "source_location": "L10",
+      "community": 0,
+      "norm_label": "test_graphify()",
+      "id": "backend_game_api_test_graphify"
+    },
+    {
       "label": "Return (is_running, players). Single API call reused by main loop.",
       "file_type": "rationale",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L11",
+      "source_location": "L14",
       "community": 0,
       "norm_label": "return (is_running, players). single api call reused by main loop.",
-      "id": "backend_game_api_rationale_11"
+      "id": "backend_game_api_rationale_14"
     },
     {
       "label": "Return True if SC2 is running and a game is in progress.",
       "file_type": "rationale",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L25",
+      "source_location": "L28",
       "community": 0,
       "norm_label": "return true if sc2 is running and a game is in progress.",
-      "id": "backend_game_api_rationale_25"
+      "id": "backend_game_api_rationale_28"
     },
     {
       "label": "Capture HUD via screen OCR. Assumes game is already confirmed running.",
       "file_type": "rationale",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L31",
+      "source_location": "L34",
       "community": 0,
       "norm_label": "capture hud via screen ocr. assumes game is already confirmed running.",
-      "id": "backend_game_api_rationale_31"
+      "id": "backend_game_api_rationale_34"
     },
     {
       "label": "Capture current game state via screen OCR. Returns None if game not running.",
       "file_type": "rationale",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L67",
+      "source_location": "L70",
       "community": 0,
       "norm_label": "capture current game state via screen ocr. returns none if game not running.",
-      "id": "backend_game_api_rationale_67"
+      "id": "backend_game_api_rationale_70"
     },
     {
       "label": "SC2 Helper",
@@ -6312,16 +6312,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_backend_game_api_py",
-      "target": "backend_game_api_test_graphify"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/backend/game_api.py",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_backend_game_api_py",
       "target": "backend_game_api_poll_game"
     },
     {
@@ -6365,6 +6355,16 @@
       "target": "backend_game_api_fetch_game_state"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/backend/game_api.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_backend_game_api_py",
+      "target": "backend_game_api_test_graphify"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -6379,20 +6379,20 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L14",
+      "source_location": "L11",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "backend_game_api_rationale_14",
+      "source": "backend_game_api_rationale_11",
       "target": "backend_game_api_poll_game"
     },
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L11",
+      "source_location": "L14",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "backend_game_api_rationale_11",
+      "source": "backend_game_api_rationale_14",
       "target": "backend_game_api_poll_game"
     },
     {
@@ -6410,20 +6410,20 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L28",
+      "source_location": "L25",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "backend_game_api_rationale_28",
+      "source": "backend_game_api_rationale_25",
       "target": "backend_game_api_is_game_running"
     },
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L25",
+      "source_location": "L28",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "backend_game_api_rationale_25",
+      "source": "backend_game_api_rationale_28",
       "target": "backend_game_api_is_game_running"
     },
     {
@@ -6441,16 +6441,6 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L34",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_game_api_rationale_34",
-      "target": "backend_game_api_capture_hud"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "src/backend/game_api.py",
       "source_location": "L31",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -6461,11 +6451,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "src/backend/game_api.py",
-      "source_location": "L70",
+      "source_location": "L34",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "backend_game_api_rationale_70",
-      "target": "backend_game_api_fetch_game_state"
+      "source": "backend_game_api_rationale_34",
+      "target": "backend_game_api_capture_hud"
     },
     {
       "relation": "rationale_for",
@@ -6475,6 +6465,16 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "backend_game_api_rationale_67",
+      "target": "backend_game_api_fetch_game_state"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src/backend/game_api.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_game_api_rationale_70",
       "target": "backend_game_api_fetch_game_state"
     },
     {
@@ -8032,5 +8032,5 @@
       "source_file": "docs/superpowers/plans/2026-05-16-debug-hud-prints.md"
     }
   ],
-  "built_at_commit": "6bac3cf341d2aa27b9f225b208e49eddd112af3f"
+  "built_at_commit": "8d788f1b0c2fc4aabf205751eed7d3cfe2ad54e1"
 }
