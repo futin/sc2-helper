@@ -19,11 +19,29 @@ class StatsTab(ctk.CTkFrame):
         self._render_list()
 
     def _build(self) -> None:
+        self.grid_rowconfigure(1, weight=1)
+        self.grid_columnconfigure(0, weight=1)
+
+        self._banner_slot = ctk.CTkFrame(self, fg_color="transparent")
+        self._banner_slot.grid(row=0, column=0, sticky="ew")
+
+        self._live_outer = ctk.CTkFrame(self._banner_slot, fg_color=("#d0f0d0", "#1b4a1b"), corner_radius=6)
+        self._live_title = ctk.CTkLabel(
+            self._live_outer,
+            text="Game in Progress",
+            font=ctk.CTkFont(weight="bold"),
+        )
+        self._live_title.pack(anchor="w", padx=10, pady=(6, 0))
+        self._live_counts_label = ctk.CTkLabel(self._live_outer, text="", justify="left")
+        self._live_counts_label.pack(anchor="w", padx=10, pady=(0, 6))
+
         self._list_outer = ctk.CTkFrame(self, fg_color="transparent")
-        self._list_outer.pack(fill="both", expand=True, padx=8, pady=(4, 0))
+        self._list_outer.grid(row=1, column=0, sticky="nsew", padx=8, pady=(4, 0))
+        self._list_outer.grid_rowconfigure(0, weight=1)
+        self._list_outer.grid_columnconfigure(0, weight=1)
 
         self._list_frame = ctk.CTkScrollableFrame(self._list_outer, fg_color="transparent")
-        self._list_frame.pack(fill="both", expand=True)
+        self._list_frame.grid(row=0, column=0, sticky="nsew")
 
         self._detail_outer = ctk.CTkFrame(self, fg_color=("gray90", "gray20"), corner_radius=6)
         ctk.CTkLabel(
@@ -68,13 +86,13 @@ class StatsTab(ctk.CTkFrame):
 
         for i, rec in enumerate(reversed(records)):
             idx = len(records) - 1 - i
-            result = rec.get("result", "Unknown")
+            result = rec.get("result") or "Unknown"
             light_color, dark_color = self._RESULT_COLORS.get(result, self._RESULT_COLORS["Unknown"])
 
             row = ctk.CTkFrame(self._list_frame, fg_color=("gray88", "gray18"), corner_radius=4)
             row.pack(fill="x", padx=4, pady=2)
 
-            ctk.CTkLabel(row, text=rec.get("gameId", "—"), anchor="w", width=180).pack(
+            ctk.CTkLabel(row, text=rec.get("gameId") or "—", anchor="w", width=180).pack(
                 side="left", padx=(8, 4), pady=6
             )
             ctk.CTkLabel(
@@ -82,18 +100,20 @@ class StatsTab(ctk.CTkFrame):
                 text_color=(light_color, dark_color),
                 font=ctk.CTkFont(weight="bold"),
             ).pack(side="left", padx=4, pady=6)
-            ctk.CTkLabel(row, text=rec.get("race", "—"), anchor="w", width=70).pack(
+            ctk.CTkLabel(row, text=rec.get("race") or "—", anchor="w", width=70).pack(
                 side="left", padx=4, pady=6
             )
-            ctk.CTkLabel(row, text=rec.get("gameDuration", "—"), anchor="w", width=60).pack(
+            ctk.CTkLabel(row, text=rec.get("gameDuration") or "—", anchor="w", width=60).pack(
                 side="left", padx=4, pady=6
             )
-            ctk.CTkLabel(row, text=rec.get("matchDate", "—"), anchor="w", width=160).pack(
+            ctk.CTkLabel(row, text=rec.get("matchDate") or "—", anchor="w", width=160).pack(
                 side="left", padx=4, pady=6
             )
 
             for widget in (row, *row.winfo_children()):
                 widget.bind("<Button-1>", lambda e, n=idx: self._show_detail(n))
+
+        self._list_frame._parent_canvas.yview_moveto(0)
 
     def _show_detail(self, idx: int) -> None:
         records = self._loader.load_history()
@@ -103,11 +123,11 @@ class StatsTab(ctk.CTkFrame):
         rec = records[idx]
         gs = rec.get("gameStats", {})
         values = {
-            "gameId":                   rec.get("gameId", "—"),
-            "matchDate":                rec.get("matchDate", "—"),
-            "gameDuration":             rec.get("gameDuration", "—"),
-            "result":                   rec.get("result", "—"),
-            "race":                     rec.get("race", "—"),
+            "gameId":                   rec.get("gameId") or "—",
+            "matchDate":                rec.get("matchDate") or "—",
+            "gameDuration":             rec.get("gameDuration") or "—",
+            "result":                   rec.get("result") or "—",
+            "race":                     rec.get("race") or "—",
             "mineralWarningsCount":     str(gs.get("mineralWarningsCount", 0)),
             "gasWarningsCount":         str(gs.get("gasWarningsCount", 0)),
             "supplyWarningsCount":      str(gs.get("supplyWarningsCount", 0)),
@@ -115,8 +135,8 @@ class StatsTab(ctk.CTkFrame):
         }
         for key, lbl in self._detail_labels.items():
             lbl.configure(text=values.get(key, "—"))
-        self._detail_outer.pack(fill="x", padx=8, pady=(4, 8))
+        self._detail_outer.grid(row=2, column=0, sticky="ew", padx=8, pady=(4, 8))
 
     def _hide_detail(self) -> None:
         self._selected_idx = None
-        self._detail_outer.pack_forget()
+        self._detail_outer.grid_forget()

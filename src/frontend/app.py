@@ -1,7 +1,7 @@
 import customtkinter as ctk
 from tkinter import messagebox
 
-from frontend.config_manager import load_config, save_config
+from frontend.config_manager import get_config, save_config
 from frontend.views.runner_view import RunnerScreen
 from frontend.views.settings_view import SettingsScreen
 
@@ -16,7 +16,7 @@ class SC2HelperApp(ctk.CTk):
         self.geometry("660x700")
         self.minsize(500, 400)
 
-        self._cfg = load_config()
+        self._cfg = get_config()
         self._runner: RunnerScreen | None = None
 
         self._build()
@@ -36,7 +36,7 @@ class SC2HelperApp(ctk.CTk):
         self._cfg = cfg
         save_config(cfg)
         self._settings.refresh(cfg)
-        messagebox.showinfo("Saved", "Configuration saved to config.yaml")
+        messagebox.showinfo("Saved", "Configuration saved.")
 
     def _open_runner(self) -> None:
         if self._runner is not None and self._runner.winfo_exists():

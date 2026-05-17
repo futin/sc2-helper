@@ -1,11 +1,4 @@
-import yaml
-
 from backend.constants import _RESULT_MAP, _RACE_MAP
-
-
-def load_config(path: str) -> dict:
-    with open(path) as f:
-        return yaml.safe_load(f)
 
 
 def _extract_result(players: list, player_id: int) -> str:

@@ -1,30 +1,20 @@
-"""
-Game statistics tracker — records per-game warning counts to JSON.
-
-Files written:
-  game_stats.json       — append-only array of completed games
-  game_stats_live.json  — current in-progress game counters (deleted on game end)
-
-Both files are written atomically via os.replace to prevent partial reads.
-"""
-
-import json
-import os
+import asyncio
 import time
 from datetime import datetime
-from pathlib import Path
 from typing import Optional
+
+from backend.db import get_db
 
 
 class StatsManager:
-    STATS_PATH: Path = Path(__file__).parent / "game_stats.json"
-    LIVE_PATH: Path = Path(__file__).parent / "game_stats_live.json"
-
     def __init__(self) -> None:
         self._game_id: Optional[str] = None
         self._start_time: Optional[float] = None
         self._start_dt: Optional[datetime] = None
-        self._counts: dict[str, int] = {}
+        self._mineral_warnings: int = 0
+        self._gas_warnings: int = 0
+        self._supply_warnings: int = 0
+        self._idle_worker_warnings: int = 0
 
     @property
     def counts(self) -> dict[str, int]:
@@ -35,79 +25,90 @@ class StatsManager:
         self._game_id = "game_" + now.strftime("%Y%m%d_%H%M%S")
         self._start_time = time.monotonic()
         self._start_dt = now
-        self._counts = {
-            "mineralWarningsCount": 0,
-            "gasWarningsCount": 0,
-            "supplyWarningsCount": 0,
-            "idleWorkersWarningsCount": 0,
-        }
+        self._mineral_warnings = 0
+        self._gas_warnings = 0
+        self._supply_warnings = 0
+        self._idle_worker_warnings = 0
+        asyncio.run(self._db_create_game())
 
     def on_mineral_warning(self) -> None:
         if self._game_id:
-            self._counts["mineralWarningsCount"] += 1
-            self._write_live()
+            self._mineral_warnings += 1
+            asyncio.run(self._db_update_warnings())
 
     def on_gas_warning(self) -> None:
         if self._game_id:
-            self._counts["gasWarningsCount"] += 1
-            self._write_live()
+            self._gas_warnings += 1
+            asyncio.run(self._db_update_warnings())
 
     def on_supply_warning(self) -> None:
         if self._game_id:
-            self._counts["supplyWarningsCount"] += 1
-            self._write_live()
+            self._supply_warnings += 1
+            asyncio.run(self._db_update_warnings())
 
     def on_idle_workers_warning(self) -> None:
         if self._game_id:
-            self._counts["idleWorkersWarningsCount"] += 1
-            self._write_live()
+            self._idle_worker_warnings += 1
+            asyncio.run(self._db_update_warnings())
 
     def on_game_end(self, result: str, race: str = "Unknown") -> None:
         if not self._game_id:
             return
         elapsed = time.monotonic() - self._start_time
-        record = {
-            "gameId": self._game_id,
-            "matchDate": self._start_dt.isoformat(timespec="seconds"),
-            "gameDuration": self._format_duration(elapsed),
-            "result": result,
-            "race": race,
-            "gameStats": dict(self._counts),
-        }
-        self._append_history(record)
-        self.LIVE_PATH.unlink(missing_ok=True)
+        duration = self._format_duration(elapsed)
+        asyncio.run(self._db_end_game(result, race, duration))
         self._game_id = None
         self._start_time = None
         self._start_dt = None
-        self._counts = {}
+        self._mineral_warnings = 0
+        self._gas_warnings = 0
+        self._supply_warnings = 0
+        self._idle_worker_warnings = 0
 
-    def _write_live(self) -> None:
-        data = {
-            "gameId": self._game_id,
-            "matchDate": self._start_dt.isoformat(timespec="seconds"),
-            "lastUpdated": datetime.now().isoformat(timespec="seconds"),
-            "gameStats": dict(self._counts),
-        }
-        self._atomic_write(self.LIVE_PATH, data)
+    async def _db_create_game(self) -> None:
+        async with get_db() as db:
+            col = db.collection("game_stats")
+            await col.create({
+                "game_id": self._game_id,
+                "match_date": self._start_dt.isoformat(timespec="seconds"),
+                "game_duration": None,
+                "result": None,
+                "race": None,
+                "mineral_warnings": 0,
+                "gas_warnings": 0,
+                "supply_warnings": 0,
+                "idle_worker_warnings": 0,
+                "status": "live",
+                "last_updated": self._start_dt.isoformat(timespec="seconds"),
+            })
 
-    def _append_history(self, record: dict) -> None:
-        records = self._load_history()
-        records.append(record)
-        self._atomic_write(self.STATS_PATH, records)
+    async def _db_update_warnings(self) -> None:
+        async with get_db() as db:
+            col = db.collection("game_stats")
+            await col.updateOne(
+                {"game_id": self._game_id},
+                {
+                    "mineral_warnings": self._mineral_warnings,
+                    "gas_warnings": self._gas_warnings,
+                    "supply_warnings": self._supply_warnings,
+                    "idle_worker_warnings": self._idle_worker_warnings,
+                    "last_updated": datetime.now().isoformat(timespec="seconds"),
+                },
+            )
 
-    def _load_history(self) -> list:
-        try:
-            text = self.STATS_PATH.read_text()
-            data = json.loads(text)
-            return data if isinstance(data, list) else []
-        except (FileNotFoundError, json.JSONDecodeError):
-            return []
-
-    @staticmethod
-    def _atomic_write(path: Path, data) -> None:
-        tmp = path.with_suffix(".tmp")
-        tmp.write_text(json.dumps(data, indent=2))
-        os.replace(tmp, path)
+    async def _db_end_game(self, result: str, race: str, duration: str) -> None:
+        async with get_db() as db:
+            col = db.collection("game_stats")
+            await col.updateOne(
+                {"game_id": self._game_id},
+                {
+                    "game_duration": duration,
+                    "result": result,
+                    "race": race,
+                    "status": "complete",
+                    "last_updated": datetime.now().isoformat(timespec="seconds"),
+                },
+            )
 
     @staticmethod
     def _format_duration(seconds: float) -> str:

@@ -29,7 +29,8 @@ from backend.game_api import _capture_hud, _filter_spikes, _poll_game
 from backend.logger import setup_logging
 from backend.ocr import _preprocess, capture_region, ocr_number, ocr_supply
 from backend.stats import StatsManager
-from backend.utils import _extract_race, _extract_result, _format_debug_state, load_config
+from backend.service import get_config
+from backend.utils import _extract_race, _extract_result, _format_debug_state
 
 
 # ---------------------------------------------------------------------------
@@ -38,7 +39,7 @@ from backend.utils import _extract_race, _extract_result, _format_debug_state, l
 
 def test_ocr_mode() -> None:
     """Capture each configured region, save crops, print OCR results."""
-    config = load_config(Path(__file__).parent / "config.yaml")
+    config = get_config()
     sc = config["screen_capture"]
     threshold = sc.get("ocr_threshold", 100)
     out_dir = Path(__file__).parent / "ocr_debug"
@@ -78,7 +79,7 @@ def main() -> None:
     debug: bool = "--debug" in sys.argv
     setup_logging(debug)
 
-    config = load_config(Path(__file__).parent / "config.yaml")
+    config = get_config()
     voice: str = config.get("tts_voice", "")
     mode: str = config.get("message_mode", "strict")
     custom_messages: dict = config.get("custom_messages", {})
