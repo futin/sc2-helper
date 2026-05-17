@@ -26,6 +26,10 @@ class StatsManager:
         self._start_dt: Optional[datetime] = None
         self._counts: dict[str, int] = {}
 
+    @property
+    def counts(self) -> dict[str, int]:
+        return dict(self._counts)
+
     def on_game_start(self) -> None:
         now = datetime.now()
         self._game_id = "game_" + now.strftime("%Y%m%d_%H%M%S")

@@ -125,10 +125,15 @@ def main() -> None:
                 if state:
                     def _v(val):
                         return '?' if val is None else str(val)
+                    c = stats.counts
                     print(
                         f"[STATE] minerals={_v(state['minerals'])} gas={_v(state['gas'])}"
                         f" supply={_v(state['supply_used'])}/{_v(state['supply_max'])}"
-                        f" idle={_v(state['idle_workers'])}",
+                        f" idle={_v(state['idle_workers'])}"
+                        f" mw={c.get('mineralWarningsCount', 0)}"
+                        f" gw={c.get('gasWarningsCount', 0)}"
+                        f" sw={c.get('supplyWarningsCount', 0)}"
+                        f" iw={c.get('idleWorkersWarningsCount', 0)}",
                         flush=True,
                     )
                     check_resources(state, config, cooldown, speech, voice, mode, custom_messages, stats)

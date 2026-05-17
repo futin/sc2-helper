@@ -68,19 +68,27 @@ class RunnerScreen(ctk.CTkToplevel):
         ctk.CTkFrame(frame, width=1, height=44, fg_color="gray40").pack(side="left", padx=8, pady=12)
 
         self._track_labels: dict[str, ctk.CTkLabel] = {}
+        warn_keys = {"minerals": "mw", "gas": "gw", "supply": "sw", "idle": "iw"}
         for key, title in [("minerals", "Minerals"), ("gas", "Gas"), ("supply", "Supply"), ("idle", "Idle")]:
             cell = ctk.CTkFrame(frame, fg_color="transparent")
             cell.pack(side="left", padx=16, pady=4)
             ctk.CTkLabel(cell, text=title, font=ctk.CTkFont(size=9), text_color="gray50").pack()
-            val_lbl = ctk.CTkLabel(cell, text="—", font=ctk.CTkFont(size=13, weight="bold"))
-            val_lbl.pack()
+            row = ctk.CTkFrame(cell, fg_color="transparent")
+            row.pack()
+            val_lbl = ctk.CTkLabel(row, text="—", font=ctk.CTkFont(size=13, weight="bold"))
+            val_lbl.pack(side="left")
+            warn_lbl = ctk.CTkLabel(row, text="", font=ctk.CTkFont(size=10), text_color="gray50")
+            warn_lbl.pack(side="left", padx=(4, 0))
             self._track_labels[key] = val_lbl
+            self._track_labels[warn_keys[key]] = warn_lbl
+
+    _WARN_LABEL_KEYS = {"mw", "gw", "sw", "iw"}
 
     def _update_tracking(self, state_str: str) -> None:
         if state_str == "game=idle":
             self._track_status.configure(text="No game", text_color="gray")
-            for lbl in self._track_labels.values():
-                lbl.configure(text="—")
+            for key, lbl in self._track_labels.items():
+                lbl.configure(text="—" if key not in self._WARN_LABEL_KEYS else "")
             return
         parts: dict[str, str] = {}
         for part in state_str.split():
@@ -91,6 +99,9 @@ class RunnerScreen(ctk.CTkToplevel):
         self._track_labels["gas"].configure(text=parts.get("gas", "?"))
         self._track_labels["supply"].configure(text=parts.get("supply", "?"))
         self._track_labels["idle"].configure(text=parts.get("idle", "?"))
+        for wk in ("mw", "gw", "sw", "iw"):
+            n = parts.get(wk, "0")
+            self._track_labels[wk].configure(text=f"⚠ {n}" if n != "0" else "")
 
     def _start(self) -> None:
         self._append_log(f"--- Starting {SCRIPT_DISPLAY_NAME} ---\n")
@@ -126,8 +137,8 @@ class RunnerScreen(ctk.CTkToplevel):
 
     def _reset_tracking(self) -> None:
         self._track_status.configure(text="Not running", text_color="gray")
-        for lbl in self._track_labels.values():
-            lbl.configure(text="—")
+        for key, lbl in self._track_labels.items():
+            lbl.configure(text="—" if key not in self._WARN_LABEL_KEYS else "")
 
     def _append_log(self, text: str) -> None:
         self._log.configure(state="normal")
