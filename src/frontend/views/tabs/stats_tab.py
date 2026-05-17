@@ -4,8 +4,6 @@ from frontend.logic.stats_logic import StatsLoader
 
 
 class StatsTab(ctk.CTkFrame):
-    POLL_MS = 5000
-
     _RESULT_COLORS = {
         "Win":     ("#1a7a1a", "#4caf50"),
         "Loss":    ("#a01010", "#ef5350"),
@@ -16,35 +14,16 @@ class StatsTab(ctk.CTkFrame):
     def __init__(self, parent):
         super().__init__(parent, fg_color="transparent")
         self._loader = StatsLoader()
-        self._records: list[dict] = []
         self._selected_idx: int | None = None
-        self._live_data: dict | None = None
         self._build()
-        self._refresh()
+        self._render_list()
 
     def _build(self) -> None:
-        self._banner_slot = ctk.CTkFrame(self, fg_color="transparent")
-        self._banner_slot.pack(fill="x")
-
-        self._live_outer = ctk.CTkFrame(self._banner_slot, fg_color=("#d0f0d0", "#1b4a1b"), corner_radius=6)
-        self._live_title = ctk.CTkLabel(
-            self._live_outer,
-            text="Game in Progress",
-            font=ctk.CTkFont(weight="bold"),
-        )
-        self._live_title.pack(anchor="w", padx=10, pady=(6, 0))
-        self._live_counts_label = ctk.CTkLabel(self._live_outer, text="", justify="left")
-        self._live_counts_label.pack(anchor="w", padx=10, pady=(0, 6))
-
         self._list_outer = ctk.CTkFrame(self, fg_color="transparent")
         self._list_outer.pack(fill="both", expand=True, padx=8, pady=(4, 0))
 
         self._list_frame = ctk.CTkScrollableFrame(self._list_outer, fg_color="transparent")
         self._list_frame.pack(fill="both", expand=True)
-
-        self._empty_label = ctk.CTkLabel(
-            self._list_frame, text="No games recorded yet.", text_color="gray"
-        )
 
         self._detail_outer = ctk.CTkFrame(self, fg_color=("gray90", "gray20"), corner_radius=6)
         ctk.CTkLabel(
@@ -75,46 +54,20 @@ class StatsTab(ctk.CTkFrame):
             self._detail_outer, text="Close", width=70, command=self._hide_detail
         ).pack(anchor="e", padx=10, pady=6)
 
-    def _refresh(self) -> None:
-        self._records = self._loader.load_history()
-        self._live_data = self._loader.load_live()
-        self._render_live_banner()
-        self._render_list()
-        if self._selected_idx is not None:
-            if self._selected_idx < len(self._records):
-                self._show_detail(self._selected_idx)
-            else:
-                self._hide_detail()
-        self.after(self.POLL_MS, self._refresh)
-
-    def _render_live_banner(self) -> None:
-        if self._live_data:
-            gs = self._live_data.get("gameStats", {})
-            counts = (
-                f"Minerals: {gs.get('mineralWarningsCount', 0)}  "
-                f"Gas: {gs.get('gasWarningsCount', 0)}  "
-                f"Supply: {gs.get('supplyWarningsCount', 0)}  "
-                f"Idle Workers: {gs.get('idleWorkersWarningsCount', 0)}"
-            )
-            updated = self._live_data.get("lastUpdated", "")
-            self._live_counts_label.configure(text=f"{counts}\nLast updated: {updated}")
-            self._live_outer.pack(fill="x", padx=8, pady=(6, 2))
-        else:
-            self._live_outer.pack_forget()
-
     def _render_list(self) -> None:
         for widget in self._list_frame.winfo_children():
             widget.destroy()
 
-        if not self._records:
-            self._empty_label = ctk.CTkLabel(
+        records = self._loader.load_history()
+
+        if not records:
+            ctk.CTkLabel(
                 self._list_frame, text="No games recorded yet.", text_color="gray"
-            )
-            self._empty_label.pack(pady=20)
+            ).pack(pady=20)
             return
 
-        for i, rec in enumerate(reversed(self._records)):
-            idx = len(self._records) - 1 - i
+        for i, rec in enumerate(reversed(records)):
+            idx = len(records) - 1 - i
             result = rec.get("result", "Unknown")
             light_color, dark_color = self._RESULT_COLORS.get(result, self._RESULT_COLORS["Unknown"])
 
@@ -138,14 +91,16 @@ class StatsTab(ctk.CTkFrame):
             ctk.CTkLabel(row, text=rec.get("matchDate", "—"), anchor="w", width=160).pack(
                 side="left", padx=4, pady=6
             )
-            ctk.CTkButton(
-                row, text="Details", width=70,
-                command=lambda n=idx: self._show_detail(n),
-            ).pack(side="right", padx=8, pady=4)
+
+            for widget in (row, *row.winfo_children()):
+                widget.bind("<Button-1>", lambda e, n=idx: self._show_detail(n))
 
     def _show_detail(self, idx: int) -> None:
+        records = self._loader.load_history()
+        if idx >= len(records):
+            return
         self._selected_idx = idx
-        rec = self._records[idx]
+        rec = records[idx]
         gs = rec.get("gameStats", {})
         values = {
             "gameId":                   rec.get("gameId", "—"),

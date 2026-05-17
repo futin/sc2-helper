@@ -12,9 +12,3 @@ class StatsLoader:
         except (FileNotFoundError, json.JSONDecodeError):
             return []
 
-    def load_live(self) -> dict | None:
-        try:
-            text = StatsManager.LIVE_PATH.read_text()
-            return json.loads(text)
-        except (FileNotFoundError, json.JSONDecodeError):
-            return None
