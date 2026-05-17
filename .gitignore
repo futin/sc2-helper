@@ -30,3 +30,11 @@ Thumbs.db
 ocr_debug/
 docs/superpowers
 src/backend/db/sc2helper.db
+
+# graphify — commit: graph.json, GRAPH_REPORT.md, wiki/, manifest.json, cost.json
+graphify-out/graph.html
+graphify-out/.graphify_python
+graphify-out/.graphify_root
+graphify-out/.graphify_labels.json
+graphify-out/.graphify_*.json
+graphify-out/cache/

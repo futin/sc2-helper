@@ -1,0 +1,270 @@
+{
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/dev.py": {
+    "mtime": 1778950254.3443959,
+    "hash": "d9b5036fdac27f64b1dedbb448c0d212"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/tests/test_detectors.py": {
+    "mtime": 1779003697.2283845,
+    "hash": "f563cd646885ed8b507813087e89dd32"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/tests/test_debug.py": {
+    "mtime": 1779003697.2277436,
+    "hash": "cd80490eabc8376fa7bcee4c4851c3b6"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/tests/test_speech_queue.py": {
+    "mtime": 1779003697.2290325,
+    "hash": "817e836637c65f45b09a10a3f965f3bb"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/tests/test_messages.py": {
+    "mtime": 1778950254.3615742,
+    "hash": "491b74351c7c9558007d8df620e3b422"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/tests/test_config_manager.py": {
+    "mtime": 1778950254.3605578,
+    "hash": "24f3ac4ce1b6690de8f014590cb63755"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/frontend/config_manager.py": {
+    "mtime": 1779049376.9323387,
+    "hash": "43792966d1f2849f82f4b9850c3ddf1c"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/frontend/__init__.py": {
+    "mtime": 1778930384.6344128,
+    "hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/frontend/app.py": {
+    "mtime": 1779049376.9317088,
+    "hash": "8fbf4e028461f02ac0eae8fcbaf17b90"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/frontend/sc2_ui.py": {
+    "mtime": 1778950254.3584616,
+    "hash": "11bad6ac88a8aba7da67fb9dc88dbb06"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/frontend/logic/game_history_logic.py": {
+    "mtime": 1779049847.8381877,
+    "hash": "45d45914df236e2379dbc9bc6730b52d"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/frontend/logic/__init__.py": {
+    "mtime": 1779049856.6497343,
+    "hash": "1426de5ecfab374a0b603656b92d5bcc"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/frontend/logic/runner_logic.py": {
+    "mtime": 1779048703.2565246,
+    "hash": "dfedb08724b13d0c34df738ac4c3b116"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/frontend/views/runner_view.py": {
+    "mtime": 1779048703.264514,
+    "hash": "a222a07c999fd505c15dc5c00ec46315"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/frontend/views/__init__.py": {
+    "mtime": 1779003697.223079,
+    "hash": "e65369ce24b2987dc94604a605bb0300"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/frontend/views/settings_view.py": {
+    "mtime": 1779049914.5872762,
+    "hash": "0ce1c3a54c59e28cc0051578bbb8beae"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/frontend/views/tabs/messages_tab.py": {
+    "mtime": 1779003697.2264934,
+    "hash": "b96e8cde59bad872ec630500fd8ae884"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/frontend/views/tabs/__init__.py": {
+    "mtime": 1779049857.9492688,
+    "hash": "f4ce76a91e689ad7b74031b6da8bfd83"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/frontend/views/tabs/coords_tab.py": {
+    "mtime": 1779049631.7429397,
+    "hash": "f6033fda2bf634490f61e1bf349b78db"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/frontend/views/tabs/config_tab.py": {
+    "mtime": 1779003697.2252808,
+    "hash": "7fbce881400f4174a9c85de1470871d1"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/frontend/views/tabs/game_history_tab.py": {
+    "mtime": 1779049852.7506666,
+    "hash": "15cecd5f971fb9a7b38097454deb90ab"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/service.py": {
+    "mtime": 1779049376.9293895,
+    "hash": "602a4e7d136f613ef17565a81c1d31f7"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/index.py": {
+    "mtime": 1779049870.4973648,
+    "hash": "050189c6adc2f9f2aed29fe3faccd02e"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/game_history.py": {
+    "mtime": 1779049846.9889224,
+    "hash": "a745c69e43780d2f0e7545da476fb67c"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/constants.py": {
+    "mtime": 1779003697.2167175,
+    "hash": "bd75e29c46f80a429d8902ac4f22855e"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/__init__.py": {
+    "mtime": 1778950254.3471217,
+    "hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/logger.py": {
+    "mtime": 1779003697.219122,
+    "hash": "5af67078fc4cf2c262de0383141cdd75"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/ocr.py": {
+    "mtime": 1779003697.2196643,
+    "hash": "c1f01552f27a733d2de172c0de2f6f90"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/hud_elements.py": {
+    "mtime": 1778950254.352632,
+    "hash": "a6180b2cf476cd58ff66553b43dd5ff9"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/utils.py": {
+    "mtime": 1779049376.9310215,
+    "hash": "000a10d8be9320cb506fa1bb3f2d5f5f"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/messages.py": {
+    "mtime": 1778930384.633298,
+    "hash": "73379038000b502011ff4b74a94237bb"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/game_api.py": {
+    "mtime": 1779051701.4505732,
+    "hash": "21ca04729052e67a61fab52d0b982571"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/detectors.py": {
+    "mtime": 1779049871.0563374,
+    "hash": "cb443e63677ef84e8b208d2ff536239a"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/find_coords.py": {
+    "mtime": 1779049634.0579963,
+    "hash": "f3a6a112e81258a908eeb72cc888e6b3"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/classes/cooldown_tracker.py": {
+    "mtime": 1779003697.2154295,
+    "hash": "5e26826d64e0eaa9b6a5a9d55b0ac32a"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/classes/speech_queue.py": {
+    "mtime": 1779003697.216082,
+    "hash": "66612cedfb72bb3de699a09619cdfaf1"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/classes/__init__.py": {
+    "mtime": 1779003697.214866,
+    "hash": "a031a8dfd05e177a82147055c6cae8ed"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/db/__init__.py": {
+    "mtime": 1779049376.923615,
+    "hash": "1f29e6942120a3066e5faf7455014503"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/db/sqlite_connector.py": {
+    "mtime": 1779049376.9274893,
+    "hash": "d8d9ee8d78e96493527fbc9a8d5a2e76"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/db/connector.py": {
+    "mtime": 1779049376.9249592,
+    "hash": "98ddc748af87de6c5852f13eb8494679"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/db/collection.py": {
+    "mtime": 1779049376.9243178,
+    "hash": "6b49e94b8125f84e6bb69d485db91a39"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/db/schema.py": {
+    "mtime": 1779049376.9269364,
+    "hash": "5e64b31595472ce422f37c5c7ac88d9e"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/requirements.txt": {
+    "mtime": 1779049634.3867457,
+    "hash": "c9e88c34ea672ca388a7d523ccdc7473"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/README.md": {
+    "mtime": 1779049904.4303398,
+    "hash": "b4a61bd11b98ee1e4e9305d6f312b301"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/docs/architecture.md": {
+    "mtime": 1779049880.546992,
+    "hash": "f7251aea87c45c1491ebcdb571534b86"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/docs/messages.md": {
+    "mtime": 1779049701.3325794,
+    "hash": "07f9071b4128d6a45b06854f596714de"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/docs/running.md": {
+    "mtime": 1778967794.5575905,
+    "hash": "575139c55b7b5c8fe03bf47b76fdcd80"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/docs/game_history.md": {
+    "mtime": 1779049886.246382,
+    "hash": "c02088e628f4e2fd91012a9a35f0bc62"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/docs/configuration.md": {
+    "mtime": 1779049698.4170787,
+    "hash": "a7230e86379ed77432b93ceaa3748c5e"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/docs/superpowers/plans/2026-05-16-debug-hud-prints.md": {
+    "mtime": 1778951622.2135453,
+    "hash": "581b8faa77196bd4d6ef1f3c37bed3f6"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/docs/superpowers/specs/2026-05-16-debug-hud-prints-design.md": {
+    "mtime": 1778951569.3254654,
+    "hash": "4e989e03329a1c3e64421ebd31849d95"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/ocr_debug/supply_raw.png": {
+    "mtime": 1778877735.8856924,
+    "hash": "4f6baf5bd34053cb2702efbc991a837d"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/ocr_debug/idle_workers_processed.png": {
+    "mtime": 1778877736.088385,
+    "hash": "f884698a94601c0f5d28ba1a1c203c58"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/ocr_debug/supply_processed.png": {
+    "mtime": 1778877735.8925629,
+    "hash": "c999fa77c265da1de46a16db13a4470b"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/ocr_debug/gas_raw.png": {
+    "mtime": 1778877735.6807024,
+    "hash": "5f6e2791ad2df45f98264200cd587be3"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/ocr_debug/minerals_processed.png": {
+    "mtime": 1778877735.4729738,
+    "hash": "94b4c0b40b6490d1d0dac359be2abd54"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/ocr_debug/gas_processed.png": {
+    "mtime": 1778877735.6872041,
+    "hash": "0da95768de5c4cd8a8b0ce1895a1b0bd"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/ocr_debug/idle_workers_raw.png": {
+    "mtime": 1778877736.0803726,
+    "hash": "0256da4f4472ac630db3d09bd516cf2a"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/ocr_debug/minerals_raw.png": {
+    "mtime": 1778877735.4683313,
+    "hash": "624d67ceefcef23841200b774db5c8ff"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/ocr_debug/supply_raw.png": {
+    "mtime": 1778961596.6760886,
+    "hash": "59ade09f99cf882833e09eb73e27eade"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/ocr_debug/idle_workers_processed.png": {
+    "mtime": 1778961596.9311483,
+    "hash": "612b79ed9ba49e955590a25a0ae5a6af"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/ocr_debug/supply_processed.png": {
+    "mtime": 1778961596.7025404,
+    "hash": "63270e5bb767cdcfc0650d43d698075e"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/ocr_debug/gas_raw.png": {
+    "mtime": 1778961596.5058136,
+    "hash": "7f814dc75c85b20238dfe5278dd58d20"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/ocr_debug/minerals_processed.png": {
+    "mtime": 1778961596.2557182,
+    "hash": "c468cd8f3eeeb14059f6d6dab81bfb0b"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/ocr_debug/gas_processed.png": {
+    "mtime": 1778961596.5113134,
+    "hash": "4df07acc89ba07e7e52c344a3ae14b80"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/ocr_debug/idle_workers_raw.png": {
+    "mtime": 1778961596.9239836,
+    "hash": "d4c38d2cff2863de97eb8959f4b80e42"
+  },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/ocr_debug/minerals_raw.png": {
+    "mtime": 1778961596.2498877,
+    "hash": "408cd3817578d7b44dea68bbcf6b8020"
+  }
+}
