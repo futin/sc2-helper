@@ -7,9 +7,6 @@ from backend.constants import SC2_BASE, REQUEST_TIMEOUT
 from backend.ocr import capture_region, ocr_number, ocr_supply
 
 
-def test_graphify() -> bool:
-    return False
-
 def _poll_game() -> tuple[bool, list]:
     """Return (is_running, players). Single API call reused by main loop."""
     try:
