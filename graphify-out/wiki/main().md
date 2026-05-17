@@ -14,9 +14,9 @@
 - [[_capture_hud()]] `INFERRED`
 - [[check_resources()]] `INFERRED`
 - [[check_idle_workers()]] `INFERRED`
+- [[_poll_game()]] `INFERRED`
 - [[check_supply()]] `INFERRED`
 - [[get_config()]] `INFERRED`
-- [[_poll_game()]] `INFERRED`
 - [[_extract_result()]] `INFERRED`
 - [[_extract_race()]] `INFERRED`
 - [[_format_debug_state()]] `INFERRED`

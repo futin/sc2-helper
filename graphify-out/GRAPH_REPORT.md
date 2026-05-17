@@ -1,16 +1,16 @@
 # Graph Report - sc2-helper  (2026-05-17)
 
 ## Corpus Check
-- 42 files · ~10,931 words
+- 42 files · ~10,841 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 320 nodes · 442 edges · 38 communities (27 shown, 11 thin omitted)
-- Extraction: 76% EXTRACTED · 24% INFERRED · 0% AMBIGUOUS · INFERRED: 105 edges (avg confidence: 0.82)
+- 325 nodes · 447 edges · 38 communities (27 shown, 11 thin omitted)
+- Extraction: 77% EXTRACTED · 23% INFERRED · 0% AMBIGUOUS · INFERRED: 105 edges (avg confidence: 0.82)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `bd202129`
+- Built from commit: `8b8c7809`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -78,8 +78,8 @@
 ## Communities (38 total, 11 thin omitted)
 
 ### Community 0 - "Game API Polling"
-Cohesion: 0.09
-Nodes (28): _capture_hud(), fetch_game_state(), _filter_spikes(), is_game_running(), _poll_game(), Return (is_running, players). Single API call reused by main loop., Return True if SC2 is running and a game is in progress., Capture HUD via screen OCR. Assumes game is already confirmed running. (+20 more)
+Cohesion: 0.07
+Nodes (32): _capture_hud(), fetch_game_state(), _filter_spikes(), is_game_running(), _poll_game(), Return (is_running, players). Single API call reused by main loop., Return (is_running, players). Single API call reused by main loop., Return True if SC2 is running and a game is in progress. (+24 more)
 
 ### Community 1 - "DB Collection Layer"
 Cohesion: 0.09
@@ -143,18 +143,18 @@ Nodes (3): dev.py (Hot-reload runner), watchdog (dependency), Dev Mode (hot-relo
 
 ### Community 17 - "UI Entry Point"
 Cohesion: 0.67
-Nodes (3): app.py (SC2HelperApp Root Window), sc2_ui.py (UI Entry Point), customtkinter (dependency)
+Nodes (3): db/connector.py (DB Abstraction Base), db/sqlite_connector.py (aiosqlite impl), aiosqlite (dependency)
 
 ### Community 18 - "DB Connectors"
 Cohesion: 0.67
-Nodes (3): db/connector.py (DB Abstraction Base), db/sqlite_connector.py (aiosqlite impl), aiosqlite (dependency)
+Nodes (3): app.py (SC2HelperApp Root Window), sc2_ui.py (UI Entry Point), customtkinter (dependency)
 
 ### Community 19 - "HUD Element Config"
 Cohesion: 0.67
 Nodes (3): views/tabs/coords_tab.py, hud_elements.py (HudElement + HUD_ELEMENTS), Screen Capture Regions Config
 
 ## Knowledge Gaps
-- **61 isolated node(s):** `Dev runner: watches src/ for .py changes and auto-restarts the app.`, `Smoke tests for detector logic — no TTS subprocess spawned.`, `Smoke tests for SpeechQueue — no actual TTS subprocess spawned.`, `Lower priority number = higher urgency = dequeued first.`, `Smoke tests for message selection logic.` (+56 more)
+- **65 isolated node(s):** `Dev runner: watches src/ for .py changes and auto-restarts the app.`, `Smoke tests for detector logic — no TTS subprocess spawned.`, `Smoke tests for SpeechQueue — no actual TTS subprocess spawned.`, `Lower priority number = higher urgency = dequeued first.`, `Smoke tests for message selection logic.` (+60 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -162,11 +162,11 @@ Nodes (3): views/tabs/coords_tab.py, hud_elements.py (HudElement + HUD_ELEMENTS)
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `main()` connect `Game API Polling` to `Game History DB`, `Game Detectors & Alerts`, `TTS Speech Queue`?**
-  _High betweenness centrality (0.319) - this node is a cross-community bridge._
+  _High betweenness centrality (0.328) - this node is a cross-community bridge._
 - **Why does `get_config()` connect `Game API Polling` to `App Root & Entry Points`, `Service Layer`?**
-  _High betweenness centrality (0.236) - this node is a cross-community bridge._
+  _High betweenness centrality (0.238) - this node is a cross-community bridge._
 - **Why does `GameHistoryManager` connect `Game History DB` to `Game API Polling`?**
-  _High betweenness centrality (0.163) - this node is a cross-community bridge._
+  _High betweenness centrality (0.162) - this node is a cross-community bridge._
 - **Are the 14 inferred relationships involving `main()` (e.g. with `setup_logging()` and `get_config()`) actually correct?**
   _`main()` has 14 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 3 inferred relationships involving `RunnerScreen` (e.g. with `SC2HelperApp` and `RunnerController`) actually correct?**
@@ -174,4 +174,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Are the 8 inferred relationships involving `CooldownTracker` (e.g. with `test_check_resources_no_speak_below_threshold()` and `test_check_resources_speaks_when_over_threshold()`) actually correct?**
   _`CooldownTracker` has 8 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `Dev runner: watches src/ for .py changes and auto-restarts the app.`, `Smoke tests for detector logic — no TTS subprocess spawned.`, `Smoke tests for SpeechQueue — no actual TTS subprocess spawned.` to the rest of the system?**
-  _61 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _65 weakly-connected nodes found - possible documentation gaps or missing edges._
