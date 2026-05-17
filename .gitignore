@@ -29,5 +29,4 @@ Thumbs.db
 # Project-specific
 ocr_debug/
 docs/superpowers
-src/backend/game_stats.json
-src/backend/game_stats_live.json
+src/backend/db/sc2helper.db
