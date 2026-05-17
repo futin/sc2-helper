@@ -15,10 +15,12 @@ class RunnerController:
         on_log: Callable[[str], None],
         on_status: Callable[[str], None],
         schedule: Callable[[int, Callable], None],
+        on_state: Callable[[str], None] | None = None,
     ) -> None:
         self._on_log = on_log
         self._on_status = on_status
         self._schedule = schedule
+        self._on_state = on_state
         self._process: subprocess.Popen | None = None
         self._queue: queue.Queue[str | None] = queue.Queue()
         self._polling: bool = False
@@ -70,7 +72,10 @@ class RunnerController:
                     self._process = None
                     self._on_status("exited")
                     return
-                self._on_log(item)
+                if item.startswith("[STATE] ") and self._on_state:
+                    self._on_state(item[len("[STATE] "):].strip())
+                else:
+                    self._on_log(item)
         except queue.Empty:
             pass
         if self._polling:

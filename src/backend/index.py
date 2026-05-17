@@ -91,6 +91,7 @@ def main() -> None:
 
     label = ", debug" if debug else ""
     logging.info("SC2 Helper running [%s mode%s]. Press Ctrl+C to stop.", mode, label)
+    print("[STATE] game=idle", flush=True)
     try:
         while True:
             running, players = _poll_game()
@@ -109,6 +110,7 @@ def main() -> None:
                 game_active = False
                 idle_onset = None
                 prev_state = None
+                print("[STATE] game=idle", flush=True)
 
             if running:
                 state = _capture_hud(config)
@@ -121,6 +123,14 @@ def main() -> None:
                     else:
                         print("[DEBUG] no HUD state (OCR failed)", flush=True)
                 if state:
+                    def _v(val):
+                        return '?' if val is None else str(val)
+                    print(
+                        f"[STATE] minerals={_v(state['minerals'])} gas={_v(state['gas'])}"
+                        f" supply={_v(state['supply_used'])}/{_v(state['supply_max'])}"
+                        f" idle={_v(state['idle_workers'])}",
+                        flush=True,
+                    )
                     check_resources(state, config, cooldown, speech, voice, mode, custom_messages, stats)
                     check_supply(state, config, cooldown, speech, voice, mode, custom_messages, stats)
                     idle_onset = check_idle_workers(state, config, cooldown, speech, voice, idle_onset, mode, custom_messages, stats)
