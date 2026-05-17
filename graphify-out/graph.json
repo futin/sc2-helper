@@ -2190,9 +2190,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_sc2helper",
       "community": 3,
-      "norm_label": "sc2 helper"
+      "norm_label": "sc2 helper",
+      "id": "readme_sc2helper"
     },
     {
       "label": "Game History Tab (README)",
@@ -2203,9 +2203,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_gamehistorytab",
       "community": 3,
-      "norm_label": "game history tab (readme)"
+      "norm_label": "game history tab (readme)",
+      "id": "readme_gamehistorytab"
     },
     {
       "label": "requests (dependency)",
@@ -2216,9 +2216,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "requirements_requests",
       "community": 29,
-      "norm_label": "requests (dependency)"
+      "norm_label": "requests (dependency)",
+      "id": "requirements_requests"
     },
     {
       "label": "mss (dependency)",
@@ -2229,9 +2229,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "requirements_mss",
       "community": 6,
-      "norm_label": "mss (dependency)"
+      "norm_label": "mss (dependency)",
+      "id": "requirements_mss"
     },
     {
       "label": "pytesseract (dependency)",
@@ -2242,9 +2242,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "requirements_pytesseract",
       "community": 6,
-      "norm_label": "pytesseract (dependency)"
+      "norm_label": "pytesseract (dependency)",
+      "id": "requirements_pytesseract"
     },
     {
       "label": "Pillow (dependency)",
@@ -2255,9 +2255,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "requirements_pillow",
       "community": 6,
-      "norm_label": "pillow (dependency)"
+      "norm_label": "pillow (dependency)",
+      "id": "requirements_pillow"
     },
     {
       "label": "watchdog (dependency)",
@@ -2268,9 +2268,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "requirements_watchdog",
       "community": 16,
-      "norm_label": "watchdog (dependency)"
+      "norm_label": "watchdog (dependency)",
+      "id": "requirements_watchdog"
     },
     {
       "label": "customtkinter (dependency)",
@@ -2281,9 +2281,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "requirements_customtkinter",
       "community": 17,
-      "norm_label": "customtkinter (dependency)"
+      "norm_label": "customtkinter (dependency)",
+      "id": "requirements_customtkinter"
     },
     {
       "label": "aiosqlite (dependency)",
@@ -2294,9 +2294,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "requirements_aiosqlite",
       "community": 18,
-      "norm_label": "aiosqlite (dependency)"
+      "norm_label": "aiosqlite (dependency)",
+      "id": "requirements_aiosqlite"
     },
     {
       "label": "pytest (dependency)",
@@ -2307,9 +2307,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "requirements_pytest",
       "community": 30,
-      "norm_label": "pytest (dependency)"
+      "norm_label": "pytest (dependency)",
+      "id": "requirements_pytest"
     },
     {
       "label": "Backend (src/backend/)",
@@ -2320,9 +2320,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_backend",
       "community": 3,
-      "norm_label": "backend (src/backend/)"
+      "norm_label": "backend (src/backend/)",
+      "id": "architecture_backend"
     },
     {
       "label": "Frontend (src/frontend/)",
@@ -2333,9 +2333,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_frontend",
       "community": 3,
-      "norm_label": "frontend (src/frontend/)"
+      "norm_label": "frontend (src/frontend/)",
+      "id": "architecture_frontend"
     },
     {
       "label": "index.py (Backend Entry Point)",
@@ -2346,9 +2346,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_indexpy",
       "community": 6,
-      "norm_label": "index.py (backend entry point)"
+      "norm_label": "index.py (backend entry point)",
+      "id": "architecture_indexpy"
     },
     {
       "label": "constants.py",
@@ -2359,9 +2359,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_constantspy",
       "community": 31,
-      "norm_label": "constants.py"
+      "norm_label": "constants.py",
+      "id": "architecture_constantspy"
     },
     {
       "label": "utils.py",
@@ -2372,9 +2372,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_utilspy",
       "community": 32,
-      "norm_label": "utils.py"
+      "norm_label": "utils.py",
+      "id": "architecture_utilspy"
     },
     {
       "label": "logger.py",
@@ -2385,9 +2385,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_loggerpy",
       "community": 33,
-      "norm_label": "logger.py"
+      "norm_label": "logger.py",
+      "id": "architecture_loggerpy"
     },
     {
       "label": "ocr.py (Screen Capture + OCR)",
@@ -2398,9 +2398,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_ocrpy",
       "community": 6,
-      "norm_label": "ocr.py (screen capture + ocr)"
+      "norm_label": "ocr.py (screen capture + ocr)",
+      "id": "architecture_ocrpy"
     },
     {
       "label": "game_api.py (SC2 API Polling)",
@@ -2411,9 +2411,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_gameapipy",
       "community": 6,
-      "norm_label": "game_api.py (sc2 api polling)"
+      "norm_label": "game_api.py (sc2 api polling)",
+      "id": "architecture_gameapipy"
     },
     {
       "label": "detectors.py",
@@ -2424,9 +2424,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_detectorspy",
       "community": 3,
-      "norm_label": "detectors.py"
+      "norm_label": "detectors.py",
+      "id": "architecture_detectorspy"
     },
     {
       "label": "service.py (Service Layer)",
@@ -2437,9 +2437,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_servicepy",
       "community": 3,
-      "norm_label": "service.py (service layer)"
+      "norm_label": "service.py (service layer)",
+      "id": "architecture_servicepy"
     },
     {
       "label": "classes/speech_queue.py (SpeechQueue)",
@@ -2450,9 +2450,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_speechqueuepy",
       "community": 3,
-      "norm_label": "classes/speech_queue.py (speechqueue)"
+      "norm_label": "classes/speech_queue.py (speechqueue)",
+      "id": "architecture_speechqueuepy"
     },
     {
       "label": "classes/cooldown_tracker.py (CooldownTracker)",
@@ -2463,9 +2463,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_cooldowntrackerpy",
       "community": 3,
-      "norm_label": "classes/cooldown_tracker.py (cooldowntracker)"
+      "norm_label": "classes/cooldown_tracker.py (cooldowntracker)",
+      "id": "architecture_cooldowntrackerpy"
     },
     {
       "label": "db/__init__.py (get_db context manager)",
@@ -2476,9 +2476,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_dbinitpy",
       "community": 3,
-      "norm_label": "db/__init__.py (get_db context manager)"
+      "norm_label": "db/__init__.py (get_db context manager)",
+      "id": "architecture_dbinitpy"
     },
     {
       "label": "db/connector.py (DB Abstraction Base)",
@@ -2489,9 +2489,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_dbconnectorpy",
       "community": 18,
-      "norm_label": "db/connector.py (db abstraction base)"
+      "norm_label": "db/connector.py (db abstraction base)",
+      "id": "architecture_dbconnectorpy"
     },
     {
       "label": "db/sqlite_connector.py (aiosqlite impl)",
@@ -2502,9 +2502,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_sqliteconnectorpy",
       "community": 18,
-      "norm_label": "db/sqlite_connector.py (aiosqlite impl)"
+      "norm_label": "db/sqlite_connector.py (aiosqlite impl)",
+      "id": "architecture_sqliteconnectorpy"
     },
     {
       "label": "db/collection.py (Collection Query API)",
@@ -2515,9 +2515,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_collectionpy",
       "community": 3,
-      "norm_label": "db/collection.py (collection query api)"
+      "norm_label": "db/collection.py (collection query api)",
+      "id": "architecture_collectionpy"
     },
     {
       "label": "db/schema.py (CREATE TABLE statements)",
@@ -2528,9 +2528,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_schemapy",
       "community": 3,
-      "norm_label": "db/schema.py (create table statements)"
+      "norm_label": "db/schema.py (create table statements)",
+      "id": "architecture_schemapy"
     },
     {
       "label": "messages.py (Warning Message Banks)",
@@ -2541,9 +2541,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_messagespy",
       "community": 34,
-      "norm_label": "messages.py (warning message banks)"
+      "norm_label": "messages.py (warning message banks)",
+      "id": "architecture_messagespy"
     },
     {
       "label": "game_history.py (GameHistoryManager)",
@@ -2554,9 +2554,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_gamehistorypy",
       "community": 3,
-      "norm_label": "game_history.py (gamehistorymanager)"
+      "norm_label": "game_history.py (gamehistorymanager)",
+      "id": "architecture_gamehistorypy"
     },
     {
       "label": "hud_elements.py (HudElement + HUD_ELEMENTS)",
@@ -2567,9 +2567,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_hudelemspy",
       "community": 19,
-      "norm_label": "hud_elements.py (hudelement + hud_elements)"
+      "norm_label": "hud_elements.py (hudelement + hud_elements)",
+      "id": "architecture_hudelemspy"
     },
     {
       "label": "find_coords.py (Calibration Script)",
@@ -2580,9 +2580,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_findcoordspy",
       "community": 35,
-      "norm_label": "find_coords.py (calibration script)"
+      "norm_label": "find_coords.py (calibration script)",
+      "id": "architecture_findcoordspy"
     },
     {
       "label": "views/runner_view.py (RunnerScreen)",
@@ -2593,9 +2593,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_runnerview",
       "community": 6,
-      "norm_label": "views/runner_view.py (runnerscreen)"
+      "norm_label": "views/runner_view.py (runnerscreen)",
+      "id": "architecture_runnerview"
     },
     {
       "label": "views/settings_view.py (SettingsScreen)",
@@ -2606,9 +2606,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_settingsview",
       "community": 36,
-      "norm_label": "views/settings_view.py (settingsscreen)"
+      "norm_label": "views/settings_view.py (settingsscreen)",
+      "id": "architecture_settingsview"
     },
     {
       "label": "views/tabs/config_tab.py",
@@ -2619,9 +2619,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_configtab",
       "community": 37,
-      "norm_label": "views/tabs/config_tab.py"
+      "norm_label": "views/tabs/config_tab.py",
+      "id": "architecture_configtab"
     },
     {
       "label": "views/tabs/messages_tab.py",
@@ -2632,9 +2632,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_messagestab",
       "community": 3,
-      "norm_label": "views/tabs/messages_tab.py"
+      "norm_label": "views/tabs/messages_tab.py",
+      "id": "architecture_messagestab"
     },
     {
       "label": "views/tabs/coords_tab.py",
@@ -2645,9 +2645,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_coordstab",
       "community": 19,
-      "norm_label": "views/tabs/coords_tab.py"
+      "norm_label": "views/tabs/coords_tab.py",
+      "id": "architecture_coordstab"
     },
     {
       "label": "views/tabs/game_history_tab.py",
@@ -2658,9 +2658,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_gamehistorytab",
       "community": 3,
-      "norm_label": "views/tabs/game_history_tab.py"
+      "norm_label": "views/tabs/game_history_tab.py",
+      "id": "architecture_gamehistorytab"
     },
     {
       "label": "logic/runner_logic.py (RunnerController)",
@@ -2671,9 +2671,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_runnerlogic",
       "community": 6,
-      "norm_label": "logic/runner_logic.py (runnercontroller)"
+      "norm_label": "logic/runner_logic.py (runnercontroller)",
+      "id": "architecture_runnerlogic"
     },
     {
       "label": "logic/game_history_logic.py (GameHistoryLoader)",
@@ -2684,9 +2684,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_gamehistorylogic",
       "community": 3,
-      "norm_label": "logic/game_history_logic.py (gamehistoryloader)"
+      "norm_label": "logic/game_history_logic.py (gamehistoryloader)",
+      "id": "architecture_gamehistorylogic"
     },
     {
       "label": "sc2_ui.py (UI Entry Point)",
@@ -2697,9 +2697,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_sc2uipy",
       "community": 17,
-      "norm_label": "sc2_ui.py (ui entry point)"
+      "norm_label": "sc2_ui.py (ui entry point)",
+      "id": "architecture_sc2uipy"
     },
     {
       "label": "app.py (SC2HelperApp Root Window)",
@@ -2710,9 +2710,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_apppy",
       "community": 17,
-      "norm_label": "app.py (sc2helperapp root window)"
+      "norm_label": "app.py (sc2helperapp root window)",
+      "id": "architecture_apppy"
     },
     {
       "label": "config_manager.py (Re-exports from service)",
@@ -2723,9 +2723,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_configmanagerpy",
       "community": 3,
-      "norm_label": "config_manager.py (re-exports from service)"
+      "norm_label": "config_manager.py (re-exports from service)",
+      "id": "architecture_configmanagerpy"
     },
     {
       "label": "dev.py (Hot-reload runner)",
@@ -2736,9 +2736,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_devpy",
       "community": 16,
-      "norm_label": "dev.py (hot-reload runner)"
+      "norm_label": "dev.py (hot-reload runner)",
+      "id": "architecture_devpy"
     },
     {
       "label": "Spike Filter (OCR Anomaly Suppression)",
@@ -2749,9 +2749,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_spikefilter",
       "community": 6,
-      "norm_label": "spike filter (ocr anomaly suppression)"
+      "norm_label": "spike filter (ocr anomaly suppression)",
+      "id": "architecture_spikefilter"
     },
     {
       "label": "Game Lifecycle (start/end transitions)",
@@ -2762,9 +2762,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_gamelifecycle",
       "community": 3,
-      "norm_label": "game lifecycle (start/end transitions)"
+      "norm_label": "game lifecycle (start/end transitions)",
+      "id": "architecture_gamelifecycle"
     },
     {
       "label": "TTS Priority Queue (supply > minerals > idle > gas)",
@@ -2775,9 +2775,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "architecture_priorityqueue",
       "community": 3,
-      "norm_label": "tts priority queue (supply > minerals > idle > gas)"
+      "norm_label": "tts priority queue (supply > minerals > idle > gas)",
+      "id": "architecture_priorityqueue"
     },
     {
       "label": "Strict Message Mode",
@@ -2788,9 +2788,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "messages_strictmode",
       "community": 3,
-      "norm_label": "strict message mode"
+      "norm_label": "strict message mode",
+      "id": "messages_strictmode"
     },
     {
       "label": "Funny Message Mode",
@@ -2801,9 +2801,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "messages_funnymode",
       "community": 3,
-      "norm_label": "funny message mode"
+      "norm_label": "funny message mode",
+      "id": "messages_funnymode"
     },
     {
       "label": "Custom Message Mode",
@@ -2814,9 +2814,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "messages_custommode",
       "community": 3,
-      "norm_label": "custom message mode"
+      "norm_label": "custom message mode",
+      "id": "messages_custommode"
     },
     {
       "label": "Tesseract OCR (external tool)",
@@ -2827,9 +2827,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "running_tesseract",
       "community": 6,
-      "norm_label": "tesseract ocr (external tool)"
+      "norm_label": "tesseract ocr (external tool)",
+      "id": "running_tesseract"
     },
     {
       "label": "--debug CLI Flag",
@@ -2840,9 +2840,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "running_debugmode",
       "community": 6,
-      "norm_label": "--debug cli flag"
+      "norm_label": "--debug cli flag",
+      "id": "running_debugmode"
     },
     {
       "label": "--test-ocr CLI Flag",
@@ -2853,9 +2853,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "running_testocrmode",
       "community": 6,
-      "norm_label": "--test-ocr cli flag"
+      "norm_label": "--test-ocr cli flag",
+      "id": "running_testocrmode"
     },
     {
       "label": "Dev Mode (hot-reload via dev.py)",
@@ -2866,9 +2866,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "running_devmode",
       "community": 16,
-      "norm_label": "dev mode (hot-reload via dev.py)"
+      "norm_label": "dev mode (hot-reload via dev.py)",
+      "id": "running_devmode"
     },
     {
       "label": "SC2 Client API (port 6119)",
@@ -2879,9 +2879,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "running_sc2api",
       "community": 6,
-      "norm_label": "sc2 client api (port 6119)"
+      "norm_label": "sc2 client api (port 6119)",
+      "id": "running_sc2api"
     },
     {
       "label": "GameHistoryManager",
@@ -2892,9 +2892,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "gamehistory_gamehistorymanager",
       "community": 3,
-      "norm_label": "gamehistorymanager"
+      "norm_label": "gamehistorymanager",
+      "id": "gamehistory_gamehistorymanager"
     },
     {
       "label": "game_stats SQLite Table",
@@ -2905,9 +2905,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "gamehistory_gamestats_table",
       "community": 3,
-      "norm_label": "game_stats sqlite table"
+      "norm_label": "game_stats sqlite table",
+      "id": "gamehistory_gamestats_table"
     },
     {
       "label": "Service Layer Record Schema (get_stats_history)",
@@ -2918,9 +2918,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "gamehistory_servicerecord",
       "community": 3,
-      "norm_label": "service layer record schema (get_stats_history)"
+      "norm_label": "service layer record schema (get_stats_history)",
+      "id": "gamehistory_servicerecord"
     },
     {
       "label": "config SQLite Table",
@@ -2931,9 +2931,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "config_configtable",
       "community": 3,
-      "norm_label": "config sqlite table"
+      "norm_label": "config sqlite table",
+      "id": "config_configtable"
     },
     {
       "label": "Supply Warning Tiers",
@@ -2944,9 +2944,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "config_supplytiers",
       "community": 3,
-      "norm_label": "supply warning tiers"
+      "norm_label": "supply warning tiers",
+      "id": "config_supplytiers"
     },
     {
       "label": "Screen Capture Regions Config",
@@ -2957,9 +2957,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "config_screencapture",
       "community": 19,
-      "norm_label": "screen capture regions config"
+      "norm_label": "screen capture regions config",
+      "id": "config_screencapture"
     },
     {
       "label": "Anomaly Filter Config",
@@ -2970,9 +2970,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "config_anomalyfilter",
       "community": 6,
-      "norm_label": "anomaly filter config"
+      "norm_label": "anomaly filter config",
+      "id": "config_anomalyfilter"
     },
     {
       "label": "Debug HUD Prints Implementation Plan",
@@ -2983,9 +2983,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_debughuds",
       "community": 6,
-      "norm_label": "debug hud prints implementation plan"
+      "norm_label": "debug hud prints implementation plan",
+      "id": "plan_debughuds"
     },
     {
       "label": "--debug Flag Repurpose (plan)",
@@ -2997,9 +2997,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Replace one-shot /game API dump with full loop + per-interval HUD state print. Avoids stopping the loop for debug inspection and gives real visibility into OCR output.",
-      "id": "plan_debugflag",
       "community": 6,
-      "norm_label": "--debug flag repurpose (plan)"
+      "norm_label": "--debug flag repurpose (plan)",
+      "id": "plan_debugflag"
     },
     {
       "label": "Debug Mode Checkbox (RunnerScreen)",
@@ -3010,9 +3010,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_debugcheckbox",
       "community": 6,
-      "norm_label": "debug mode checkbox (runnerscreen)"
+      "norm_label": "debug mode checkbox (runnerscreen)",
+      "id": "plan_debugcheckbox"
     },
     {
       "label": "Debug HUD Prints Design Spec",
@@ -3023,9 +3023,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "spec_debughuds",
       "community": 6,
-      "norm_label": "debug hud prints design spec"
+      "norm_label": "debug hud prints design spec",
+      "id": "spec_debughuds"
     },
     {
       "label": "Debug Output Format ([DEBUG] lines)",
@@ -3037,9 +3037,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Stdout is already piped to the log textbox in RunnerScreen, so debug output flows into the UI automatically without additional plumbing.",
-      "id": "spec_debugoutputformat",
       "community": 6,
-      "norm_label": "debug output format ([debug] lines)"
+      "norm_label": "debug output format ([debug] lines)",
+      "id": "spec_debugoutputformat"
     },
     {
       "label": "Supply HUD Crop (Raw)",
@@ -3050,9 +3050,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "supply_raw_hud_crop",
       "community": 14,
-      "norm_label": "supply hud crop (raw)"
+      "norm_label": "supply hud crop (raw)",
+      "id": "supply_raw_hud_crop"
     },
     {
       "label": "Supply HUD Crop (Processed)",
@@ -3063,9 +3063,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "supply_processed_hud_crop",
       "community": 14,
-      "norm_label": "supply hud crop (processed)"
+      "norm_label": "supply hud crop (processed)",
+      "id": "supply_processed_hud_crop"
     },
     {
       "label": "Minerals HUD Crop (Raw)",
@@ -3076,9 +3076,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "minerals_raw_hud_crop",
       "community": 14,
-      "norm_label": "minerals hud crop (raw)"
+      "norm_label": "minerals hud crop (raw)",
+      "id": "minerals_raw_hud_crop"
     },
     {
       "label": "Minerals HUD Crop (Processed)",
@@ -3089,9 +3089,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "minerals_processed_hud_crop",
       "community": 14,
-      "norm_label": "minerals hud crop (processed)"
+      "norm_label": "minerals hud crop (processed)",
+      "id": "minerals_processed_hud_crop"
     },
     {
       "label": "Gas HUD Crop (Raw)",
@@ -3102,9 +3102,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "gas_raw_hud_crop",
       "community": 14,
-      "norm_label": "gas hud crop (raw)"
+      "norm_label": "gas hud crop (raw)",
+      "id": "gas_raw_hud_crop"
     },
     {
       "label": "Gas HUD Crop (Processed)",
@@ -3115,9 +3115,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "gas_processed_hud_crop",
       "community": 14,
-      "norm_label": "gas hud crop (processed)"
+      "norm_label": "gas hud crop (processed)",
+      "id": "gas_processed_hud_crop"
     },
     {
       "label": "Idle Workers HUD Crop (Raw)",
@@ -3128,9 +3128,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "idle_workers_raw_hud_crop",
       "community": 14,
-      "norm_label": "idle workers hud crop (raw)"
+      "norm_label": "idle workers hud crop (raw)",
+      "id": "idle_workers_raw_hud_crop"
     },
     {
       "label": "Idle Workers HUD Crop (Processed)",
@@ -3141,9 +3141,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "idle_workers_processed_hud_crop",
       "community": 14,
-      "norm_label": "idle workers hud crop (processed)"
+      "norm_label": "idle workers hud crop (processed)",
+      "id": "idle_workers_processed_hud_crop"
     },
     {
       "label": "Supply HUD Crop Raw (backend)",
@@ -3160,9 +3160,9 @@
         "ocr_content": "12/15",
         "description": "Raw crop of SC2 HUD supply counter showing 12/15 in dark/low-contrast style"
       },
-      "id": "backend_supply_raw_hud_crop",
       "community": 13,
-      "norm_label": "supply hud crop raw (backend)"
+      "norm_label": "supply hud crop raw (backend)",
+      "id": "backend_supply_raw_hud_crop"
     },
     {
       "label": "Supply HUD Crop Processed (backend)",
@@ -3179,9 +3179,9 @@
         "ocr_content": "12/15",
         "description": "Processed (binarized/contrast-enhanced) crop of SC2 HUD supply counter showing 12/15 in white on black"
       },
-      "id": "backend_supply_processed_hud_crop",
       "community": 13,
-      "norm_label": "supply hud crop processed (backend)"
+      "norm_label": "supply hud crop processed (backend)",
+      "id": "backend_supply_processed_hud_crop"
     },
     {
       "label": "Minerals HUD Crop Raw (backend)",
@@ -3198,9 +3198,9 @@
         "ocr_content": "50",
         "description": "Raw crop of SC2 HUD minerals counter showing 50 in dark/low-contrast style"
       },
-      "id": "backend_minerals_raw_hud_crop",
       "community": 13,
-      "norm_label": "minerals hud crop raw (backend)"
+      "norm_label": "minerals hud crop raw (backend)",
+      "id": "backend_minerals_raw_hud_crop"
     },
     {
       "label": "Minerals HUD Crop Processed (backend)",
@@ -3217,9 +3217,9 @@
         "ocr_content": "50",
         "description": "Processed (binarized/contrast-enhanced) crop of SC2 HUD minerals counter showing 50 in white on black"
       },
-      "id": "backend_minerals_processed_hud_crop",
       "community": 13,
-      "norm_label": "minerals hud crop processed (backend)"
+      "norm_label": "minerals hud crop processed (backend)",
+      "id": "backend_minerals_processed_hud_crop"
     },
     {
       "label": "Gas HUD Crop Raw (backend)",
@@ -3236,9 +3236,9 @@
         "ocr_content": "0",
         "description": "Raw crop of SC2 HUD gas counter showing 0 (icon visible) in dark/low-contrast style"
       },
-      "id": "backend_gas_raw_hud_crop",
       "community": 13,
-      "norm_label": "gas hud crop raw (backend)"
+      "norm_label": "gas hud crop raw (backend)",
+      "id": "backend_gas_raw_hud_crop"
     },
     {
       "label": "Gas HUD Crop Processed (backend)",
@@ -3255,9 +3255,9 @@
         "ocr_content": "0",
         "description": "Processed (binarized/contrast-enhanced) crop of SC2 HUD gas counter showing 0 in white on black"
       },
-      "id": "backend_gas_processed_hud_crop",
       "community": 13,
-      "norm_label": "gas hud crop processed (backend)"
+      "norm_label": "gas hud crop processed (backend)",
+      "id": "backend_gas_processed_hud_crop"
     },
     {
       "label": "Idle Workers HUD Crop Raw (backend)",
@@ -3274,9 +3274,9 @@
         "ocr_content": "0",
         "description": "Raw crop of SC2 HUD idle workers indicator showing 0 workers idle (icon with small digit)"
       },
-      "id": "backend_idle_workers_raw_hud_crop",
       "community": 13,
-      "norm_label": "idle workers hud crop raw (backend)"
+      "norm_label": "idle workers hud crop raw (backend)",
+      "id": "backend_idle_workers_raw_hud_crop"
     },
     {
       "label": "Idle Workers HUD Crop Processed (backend)",
@@ -3293,9 +3293,9 @@
         "ocr_content": "0",
         "description": "Processed (binarized/contrast-enhanced) crop of SC2 HUD idle workers indicator showing 0 in white on black"
       },
-      "id": "backend_idle_workers_processed_hud_crop",
       "community": 13,
-      "norm_label": "idle workers hud crop processed (backend)"
+      "norm_label": "idle workers hud crop processed (backend)",
+      "id": "backend_idle_workers_processed_hud_crop"
     },
     {
       "label": "OCR Module (backend)",
@@ -3309,9 +3309,9 @@
       "properties": {
         "description": "Screen capture (mss) + Tesseract OCR functions; generates ocr_debug images during test/debug mode"
       },
-      "id": "backend_ocr_module",
       "community": 13,
-      "norm_label": "ocr module (backend)"
+      "norm_label": "ocr module (backend)",
+      "id": "backend_ocr_module"
     }
   ],
   "links": [
@@ -3321,9 +3321,9 @@
       "source_file": "dev.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dev_py",
-      "target": "sc2_helper_dev_restarthandler",
-      "confidence_score": 1.0
+      "target": "sc2_helper_dev_restarthandler"
     },
     {
       "relation": "rationale_for",
@@ -3331,9 +3331,9 @@
       "source_file": "dev.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "sc2_helper_dev_rationale_1",
-      "target": "dev_py",
-      "confidence_score": 1.0
+      "target": "dev_py"
     },
     {
       "relation": "inherits",
@@ -3341,9 +3341,9 @@
       "source_file": "dev.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "sc2_helper_dev_restarthandler",
-      "target": "filesystemeventhandler",
-      "confidence_score": 1.0
+      "target": "filesystemeventhandler"
     },
     {
       "relation": "method",
@@ -3351,9 +3351,9 @@
       "source_file": "dev.py",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "sc2_helper_dev_restarthandler",
-      "target": "sc2_helper_dev_restarthandler_init",
-      "confidence_score": 1.0
+      "target": "sc2_helper_dev_restarthandler_init"
     },
     {
       "relation": "method",
@@ -3361,9 +3361,9 @@
       "source_file": "dev.py",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "sc2_helper_dev_restarthandler",
-      "target": "sc2_helper_dev_restarthandler_start",
-      "confidence_score": 1.0
+      "target": "sc2_helper_dev_restarthandler_start"
     },
     {
       "relation": "method",
@@ -3371,9 +3371,9 @@
       "source_file": "dev.py",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "sc2_helper_dev_restarthandler",
-      "target": "sc2_helper_dev_restarthandler_on_modified",
-      "confidence_score": 1.0
+      "target": "sc2_helper_dev_restarthandler_on_modified"
     },
     {
       "relation": "calls",
@@ -3382,9 +3382,9 @@
       "source_file": "dev.py",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "sc2_helper_dev_restarthandler_init",
-      "target": "sc2_helper_dev_restarthandler_start",
-      "confidence_score": 1.0
+      "target": "sc2_helper_dev_restarthandler_start"
     },
     {
       "relation": "calls",
@@ -3393,9 +3393,9 @@
       "source_file": "dev.py",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "sc2_helper_dev_restarthandler_on_modified",
-      "target": "sc2_helper_dev_restarthandler_start",
-      "confidence_score": 1.0
+      "target": "sc2_helper_dev_restarthandler_start"
     },
     {
       "relation": "contains",
@@ -3403,9 +3403,9 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_detectors_py",
-      "target": "tests_test_detectors_make_speech",
-      "confidence_score": 1.0
+      "target": "tests_test_detectors_make_speech"
     },
     {
       "relation": "contains",
@@ -3413,9 +3413,9 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_detectors_py",
-      "target": "tests_test_detectors_test_check_resources_no_speak_below_threshold",
-      "confidence_score": 1.0
+      "target": "tests_test_detectors_test_check_resources_no_speak_below_threshold"
     },
     {
       "relation": "contains",
@@ -3423,9 +3423,9 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_detectors_py",
-      "target": "tests_test_detectors_test_check_resources_speaks_when_over_threshold",
-      "confidence_score": 1.0
+      "target": "tests_test_detectors_test_check_resources_speaks_when_over_threshold"
     },
     {
       "relation": "contains",
@@ -3433,9 +3433,9 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_detectors_py",
-      "target": "tests_test_detectors_test_check_resources_cooldown_prevents_repeat",
-      "confidence_score": 1.0
+      "target": "tests_test_detectors_test_check_resources_cooldown_prevents_repeat"
     },
     {
       "relation": "contains",
@@ -3443,9 +3443,9 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_detectors_py",
-      "target": "tests_test_detectors_test_check_supply_speaks_when_capped",
-      "confidence_score": 1.0
+      "target": "tests_test_detectors_test_check_supply_speaks_when_capped"
     },
     {
       "relation": "contains",
@@ -3453,9 +3453,9 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_detectors_py",
-      "target": "tests_test_detectors_test_check_supply_silent_when_ok",
-      "confidence_score": 1.0
+      "target": "tests_test_detectors_test_check_supply_silent_when_ok"
     },
     {
       "relation": "contains",
@@ -3463,9 +3463,9 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_detectors_py",
-      "target": "tests_test_detectors_test_check_idle_workers_speaks_when_idle",
-      "confidence_score": 1.0
+      "target": "tests_test_detectors_test_check_idle_workers_speaks_when_idle"
     },
     {
       "relation": "contains",
@@ -3473,9 +3473,9 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_detectors_py",
-      "target": "tests_test_detectors_test_check_idle_workers_resets_on_zero",
-      "confidence_score": 1.0
+      "target": "tests_test_detectors_test_check_idle_workers_resets_on_zero"
     },
     {
       "relation": "rationale_for",
@@ -3483,9 +3483,9 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_detectors_rationale_1",
-      "target": "tests_test_detectors_py",
-      "confidence_score": 1.0
+      "target": "tests_test_detectors_py"
     },
     {
       "relation": "calls",
@@ -3494,9 +3494,9 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_detectors_test_check_resources_no_speak_below_threshold",
-      "target": "tests_test_detectors_make_speech",
-      "confidence_score": 1.0
+      "target": "tests_test_detectors_make_speech"
     },
     {
       "relation": "calls",
@@ -3505,9 +3505,9 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_detectors_test_check_resources_speaks_when_over_threshold",
-      "target": "tests_test_detectors_make_speech",
-      "confidence_score": 1.0
+      "target": "tests_test_detectors_make_speech"
     },
     {
       "relation": "calls",
@@ -3516,9 +3516,9 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_detectors_test_check_resources_cooldown_prevents_repeat",
-      "target": "tests_test_detectors_make_speech",
-      "confidence_score": 1.0
+      "target": "tests_test_detectors_make_speech"
     },
     {
       "relation": "calls",
@@ -3527,9 +3527,9 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_detectors_test_check_supply_speaks_when_capped",
-      "target": "tests_test_detectors_make_speech",
-      "confidence_score": 1.0
+      "target": "tests_test_detectors_make_speech"
     },
     {
       "relation": "calls",
@@ -3538,9 +3538,9 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_detectors_test_check_supply_silent_when_ok",
-      "target": "tests_test_detectors_make_speech",
-      "confidence_score": 1.0
+      "target": "tests_test_detectors_make_speech"
     },
     {
       "relation": "calls",
@@ -3549,9 +3549,9 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_detectors_test_check_idle_workers_speaks_when_idle",
-      "target": "tests_test_detectors_make_speech",
-      "confidence_score": 1.0
+      "target": "tests_test_detectors_make_speech"
     },
     {
       "relation": "calls",
@@ -3560,9 +3560,9 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_detectors_test_check_idle_workers_resets_on_zero",
-      "target": "tests_test_detectors_make_speech",
-      "confidence_score": 1.0
+      "target": "tests_test_detectors_make_speech"
     },
     {
       "relation": "calls",
@@ -3735,9 +3735,9 @@
       "source_file": "tests/test_debug.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_debug_py",
-      "target": "tests_test_debug_test_debug_line_format",
-      "confidence_score": 1.0
+      "target": "tests_test_debug_test_debug_line_format"
     },
     {
       "relation": "contains",
@@ -3745,9 +3745,9 @@
       "source_file": "tests/test_debug.py",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_debug_py",
-      "target": "tests_test_debug_test_debug_no_state_line_format",
-      "confidence_score": 1.0
+      "target": "tests_test_debug_test_debug_no_state_line_format"
     },
     {
       "relation": "calls",
@@ -3766,9 +3766,9 @@
       "source_file": "tests/test_speech_queue.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_speech_queue_py",
-      "target": "tests_test_speech_queue_test_speak_enqueues_without_error",
-      "confidence_score": 1.0
+      "target": "tests_test_speech_queue_test_speak_enqueues_without_error"
     },
     {
       "relation": "contains",
@@ -3776,9 +3776,9 @@
       "source_file": "tests/test_speech_queue.py",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_speech_queue_py",
-      "target": "tests_test_speech_queue_test_priority_ordering",
-      "confidence_score": 1.0
+      "target": "tests_test_speech_queue_test_priority_ordering"
     },
     {
       "relation": "contains",
@@ -3786,9 +3786,9 @@
       "source_file": "tests/test_speech_queue.py",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_speech_queue_py",
-      "target": "tests_test_speech_queue_test_counter_increments",
-      "confidence_score": 1.0
+      "target": "tests_test_speech_queue_test_counter_increments"
     },
     {
       "relation": "rationale_for",
@@ -3796,9 +3796,9 @@
       "source_file": "tests/test_speech_queue.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_speech_queue_rationale_1",
-      "target": "tests_test_speech_queue_py",
-      "confidence_score": 1.0
+      "target": "tests_test_speech_queue_py"
     },
     {
       "relation": "calls",
@@ -3817,9 +3817,9 @@
       "source_file": "tests/test_speech_queue.py",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_speech_queue_rationale_19",
-      "target": "tests_test_speech_queue_test_priority_ordering",
-      "confidence_score": 1.0
+      "target": "tests_test_speech_queue_test_priority_ordering"
     },
     {
       "relation": "calls",
@@ -3849,9 +3849,9 @@
       "source_file": "tests/test_messages.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_messages_py",
-      "target": "tests_test_messages_test_strict_mode_returns_exact_string",
-      "confidence_score": 1.0
+      "target": "tests_test_messages_test_strict_mode_returns_exact_string"
     },
     {
       "relation": "contains",
@@ -3859,9 +3859,9 @@
       "source_file": "tests/test_messages.py",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_messages_py",
-      "target": "tests_test_messages_test_funny_mode_returns_non_empty",
-      "confidence_score": 1.0
+      "target": "tests_test_messages_test_funny_mode_returns_non_empty"
     },
     {
       "relation": "contains",
@@ -3869,9 +3869,9 @@
       "source_file": "tests/test_messages.py",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_messages_py",
-      "target": "tests_test_messages_test_custom_mode_uses_custom_messages",
-      "confidence_score": 1.0
+      "target": "tests_test_messages_test_custom_mode_uses_custom_messages"
     },
     {
       "relation": "contains",
@@ -3879,9 +3879,9 @@
       "source_file": "tests/test_messages.py",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_messages_py",
-      "target": "tests_test_messages_test_custom_mode_falls_back_to_strict_when_empty",
-      "confidence_score": 1.0
+      "target": "tests_test_messages_test_custom_mode_falls_back_to_strict_when_empty"
     },
     {
       "relation": "contains",
@@ -3889,9 +3889,9 @@
       "source_file": "tests/test_messages.py",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_messages_py",
-      "target": "tests_test_messages_test_custom_mode_falls_back_when_category_missing",
-      "confidence_score": 1.0
+      "target": "tests_test_messages_test_custom_mode_falls_back_when_category_missing"
     },
     {
       "relation": "rationale_for",
@@ -3899,9 +3899,9 @@
       "source_file": "tests/test_messages.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_messages_rationale_1",
-      "target": "tests_test_messages_py",
-      "confidence_score": 1.0
+      "target": "tests_test_messages_py"
     },
     {
       "relation": "calls",
@@ -3964,9 +3964,9 @@
       "source_file": "tests/test_config_manager.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_config_manager_py",
-      "target": "tests_test_config_manager_test_load_config_returns_defaults_on_missing_file",
-      "confidence_score": 1.0
+      "target": "tests_test_config_manager_test_load_config_returns_defaults_on_missing_file"
     },
     {
       "relation": "contains",
@@ -3974,9 +3974,9 @@
       "source_file": "tests/test_config_manager.py",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_config_manager_py",
-      "target": "tests_test_config_manager_test_save_and_load_roundtrip",
-      "confidence_score": 1.0
+      "target": "tests_test_config_manager_test_save_and_load_roundtrip"
     },
     {
       "relation": "contains",
@@ -3984,9 +3984,9 @@
       "source_file": "tests/test_config_manager.py",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_config_manager_py",
-      "target": "tests_test_config_manager_test_default_screen_capture_has_all_hud_elements",
-      "confidence_score": 1.0
+      "target": "tests_test_config_manager_test_default_screen_capture_has_all_hud_elements"
     },
     {
       "relation": "contains",
@@ -3994,9 +3994,9 @@
       "source_file": "tests/test_config_manager.py",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_config_manager_py",
-      "target": "tests_test_config_manager_test_load_config_returns_default_on_empty_file",
-      "confidence_score": 1.0
+      "target": "tests_test_config_manager_test_load_config_returns_default_on_empty_file"
     },
     {
       "relation": "rationale_for",
@@ -4004,9 +4004,9 @@
       "source_file": "tests/test_config_manager.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_config_manager_rationale_1",
-      "target": "tests_test_config_manager_py",
-      "confidence_score": 1.0
+      "target": "tests_test_config_manager_py"
     },
     {
       "relation": "calls",
@@ -4025,9 +4025,9 @@
       "source_file": "src/frontend/app.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_frontend_app_py",
-      "target": "frontend_app_sc2helperapp",
-      "confidence_score": 1.0
+      "target": "frontend_app_sc2helperapp"
     },
     {
       "relation": "method",
@@ -4035,9 +4035,9 @@
       "source_file": "src/frontend/app.py",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_sc2helperapp",
-      "target": "frontend_app_sc2helperapp_init",
-      "confidence_score": 1.0
+      "target": "frontend_app_sc2helperapp_init"
     },
     {
       "relation": "method",
@@ -4045,9 +4045,9 @@
       "source_file": "src/frontend/app.py",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_sc2helperapp",
-      "target": "frontend_app_sc2helperapp_build",
-      "confidence_score": 1.0
+      "target": "frontend_app_sc2helperapp_build"
     },
     {
       "relation": "method",
@@ -4055,9 +4055,9 @@
       "source_file": "src/frontend/app.py",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_sc2helperapp",
-      "target": "frontend_app_sc2helperapp_handle_save",
-      "confidence_score": 1.0
+      "target": "frontend_app_sc2helperapp_handle_save"
     },
     {
       "relation": "method",
@@ -4065,9 +4065,9 @@
       "source_file": "src/frontend/app.py",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_sc2helperapp",
-      "target": "frontend_app_sc2helperapp_open_runner",
-      "confidence_score": 1.0
+      "target": "frontend_app_sc2helperapp_open_runner"
     },
     {
       "relation": "uses",
@@ -4075,9 +4075,9 @@
       "source_file": "src/frontend/app.py",
       "source_location": "L5",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "frontend_app_sc2helperapp",
-      "target": "views_runner_view_runnerscreen",
-      "confidence_score": 0.5
+      "target": "views_runner_view_runnerscreen"
     },
     {
       "relation": "uses",
@@ -4085,9 +4085,9 @@
       "source_file": "src/frontend/app.py",
       "source_location": "L6",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "frontend_app_sc2helperapp",
-      "target": "views_settings_view_settingsscreen",
-      "confidence_score": 0.5
+      "target": "views_settings_view_settingsscreen"
     },
     {
       "relation": "calls",
@@ -4107,9 +4107,9 @@
       "source_file": "src/frontend/app.py",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_sc2helperapp_init",
-      "target": "frontend_app_sc2helperapp_build",
-      "confidence_score": 1.0
+      "target": "frontend_app_sc2helperapp_build"
     },
     {
       "relation": "calls",
@@ -4161,9 +4161,9 @@
       "source_file": "src/frontend/sc2_ui.py",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_frontend_sc2_ui_py",
-      "target": "frontend_sc2_ui_main",
-      "confidence_score": 1.0
+      "target": "frontend_sc2_ui_main"
     },
     {
       "relation": "rationale_for",
@@ -4171,9 +4171,9 @@
       "source_file": "src/frontend/sc2_ui.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_sc2_ui_rationale_1",
-      "target": "src_frontend_sc2_ui_py",
-      "confidence_score": 1.0
+      "target": "src_frontend_sc2_ui_py"
     },
     {
       "relation": "contains",
@@ -4181,9 +4181,9 @@
       "source_file": "src/frontend/logic/game_history_logic.py",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_frontend_logic_game_history_logic_py",
-      "target": "logic_game_history_logic_gamehistoryloader",
-      "confidence_score": 1.0
+      "target": "logic_game_history_logic_gamehistoryloader"
     },
     {
       "relation": "method",
@@ -4191,9 +4191,9 @@
       "source_file": "src/frontend/logic/game_history_logic.py",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "logic_game_history_logic_gamehistoryloader",
-      "target": "logic_game_history_logic_gamehistoryloader_load_history",
-      "confidence_score": 1.0
+      "target": "logic_game_history_logic_gamehistoryloader_load_history"
     },
     {
       "relation": "uses",
@@ -4201,9 +4201,9 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tabs_game_history_tab_gamehistorytab",
-      "target": "logic_game_history_logic_gamehistoryloader",
-      "confidence_score": 0.5
+      "target": "logic_game_history_logic_gamehistoryloader"
     },
     {
       "relation": "calls",
@@ -4233,9 +4233,9 @@
       "source_file": "src/frontend/logic/runner_logic.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_frontend_logic_runner_logic_py",
-      "target": "logic_runner_logic_runnercontroller",
-      "confidence_score": 1.0
+      "target": "logic_runner_logic_runnercontroller"
     },
     {
       "relation": "method",
@@ -4243,9 +4243,9 @@
       "source_file": "src/frontend/logic/runner_logic.py",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "logic_runner_logic_runnercontroller",
-      "target": "logic_runner_logic_runnercontroller_init",
-      "confidence_score": 1.0
+      "target": "logic_runner_logic_runnercontroller_init"
     },
     {
       "relation": "method",
@@ -4253,9 +4253,9 @@
       "source_file": "src/frontend/logic/runner_logic.py",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "logic_runner_logic_runnercontroller",
-      "target": "logic_runner_logic_runnercontroller_start",
-      "confidence_score": 1.0
+      "target": "logic_runner_logic_runnercontroller_start"
     },
     {
       "relation": "method",
@@ -4263,9 +4263,9 @@
       "source_file": "src/frontend/logic/runner_logic.py",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "logic_runner_logic_runnercontroller",
-      "target": "logic_runner_logic_runnercontroller_stop",
-      "confidence_score": 1.0
+      "target": "logic_runner_logic_runnercontroller_stop"
     },
     {
       "relation": "method",
@@ -4273,9 +4273,9 @@
       "source_file": "src/frontend/logic/runner_logic.py",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "logic_runner_logic_runnercontroller",
-      "target": "logic_runner_logic_runnercontroller_read_output",
-      "confidence_score": 1.0
+      "target": "logic_runner_logic_runnercontroller_read_output"
     },
     {
       "relation": "method",
@@ -4283,9 +4283,9 @@
       "source_file": "src/frontend/logic/runner_logic.py",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "logic_runner_logic_runnercontroller",
-      "target": "logic_runner_logic_runnercontroller_check_queue",
-      "confidence_score": 1.0
+      "target": "logic_runner_logic_runnercontroller_check_queue"
     },
     {
       "relation": "uses",
@@ -4293,9 +4293,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "views_runner_view_runnerscreen",
-      "target": "logic_runner_logic_runnercontroller",
-      "confidence_score": 0.5
+      "target": "logic_runner_logic_runnercontroller"
     },
     {
       "relation": "calls",
@@ -4314,9 +4314,9 @@
       "source_file": "src/frontend/logic/runner_logic.py",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "logic_runner_logic_rationale_29",
-      "target": "logic_runner_logic_runnercontroller_start",
-      "confidence_score": 1.0
+      "target": "logic_runner_logic_runnercontroller_start"
     },
     {
       "relation": "contains",
@@ -4324,9 +4324,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_frontend_views_runner_view_py",
-      "target": "views_runner_view_runnerscreen",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen"
     },
     {
       "relation": "method",
@@ -4334,9 +4334,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_runner_view_runnerscreen",
-      "target": "views_runner_view_runnerscreen_init",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen_init"
     },
     {
       "relation": "method",
@@ -4344,9 +4344,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_runner_view_runnerscreen",
-      "target": "views_runner_view_runnerscreen_build",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen_build"
     },
     {
       "relation": "method",
@@ -4354,9 +4354,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_runner_view_runnerscreen",
-      "target": "views_runner_view_runnerscreen_build_tracking",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen_build_tracking"
     },
     {
       "relation": "method",
@@ -4364,9 +4364,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L87",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_runner_view_runnerscreen",
-      "target": "views_runner_view_runnerscreen_update_tracking",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen_update_tracking"
     },
     {
       "relation": "method",
@@ -4374,9 +4374,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_runner_view_runnerscreen",
-      "target": "views_runner_view_runnerscreen_start",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen_start"
     },
     {
       "relation": "method",
@@ -4384,9 +4384,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L110",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_runner_view_runnerscreen",
-      "target": "views_runner_view_runnerscreen_stop",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen_stop"
     },
     {
       "relation": "method",
@@ -4394,9 +4394,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_runner_view_runnerscreen",
-      "target": "views_runner_view_runnerscreen_on_close",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen_on_close"
     },
     {
       "relation": "method",
@@ -4404,9 +4404,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L118",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_runner_view_runnerscreen",
-      "target": "views_runner_view_runnerscreen_update_status",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen_update_status"
     },
     {
       "relation": "method",
@@ -4414,9 +4414,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L138",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_runner_view_runnerscreen",
-      "target": "views_runner_view_runnerscreen_reset_tracking",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen_reset_tracking"
     },
     {
       "relation": "method",
@@ -4424,9 +4424,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L143",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_runner_view_runnerscreen",
-      "target": "views_runner_view_runnerscreen_append_log",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen_append_log"
     },
     {
       "relation": "method",
@@ -4434,9 +4434,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L149",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_runner_view_runnerscreen",
-      "target": "views_runner_view_runnerscreen_clear_log",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen_clear_log"
     },
     {
       "relation": "calls",
@@ -4445,9 +4445,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_runner_view_runnerscreen_init",
-      "target": "views_runner_view_runnerscreen_build",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen_build"
     },
     {
       "relation": "calls",
@@ -4456,9 +4456,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_runner_view_runnerscreen_build",
-      "target": "views_runner_view_runnerscreen_build_tracking",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen_build_tracking"
     },
     {
       "relation": "calls",
@@ -4467,9 +4467,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L107",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_runner_view_runnerscreen_start",
-      "target": "views_runner_view_runnerscreen_append_log",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen_append_log"
     },
     {
       "relation": "calls",
@@ -4478,9 +4478,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L112",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_runner_view_runnerscreen_stop",
-      "target": "views_runner_view_runnerscreen_append_log",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen_append_log"
     },
     {
       "relation": "calls",
@@ -4489,9 +4489,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L129",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_runner_view_runnerscreen_update_status",
-      "target": "views_runner_view_runnerscreen_reset_tracking",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen_reset_tracking"
     },
     {
       "relation": "calls",
@@ -4500,9 +4500,9 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L135",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_runner_view_runnerscreen_update_status",
-      "target": "views_runner_view_runnerscreen_append_log",
-      "confidence_score": 1.0
+      "target": "views_runner_view_runnerscreen_append_log"
     },
     {
       "relation": "contains",
@@ -4510,9 +4510,9 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_frontend_views_settings_view_py",
-      "target": "views_settings_view_settingsscreen",
-      "confidence_score": 1.0
+      "target": "views_settings_view_settingsscreen"
     },
     {
       "relation": "method",
@@ -4520,9 +4520,9 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_settings_view_settingsscreen",
-      "target": "views_settings_view_settingsscreen_init",
-      "confidence_score": 1.0
+      "target": "views_settings_view_settingsscreen_init"
     },
     {
       "relation": "method",
@@ -4530,9 +4530,9 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_settings_view_settingsscreen",
-      "target": "views_settings_view_settingsscreen_build",
-      "confidence_score": 1.0
+      "target": "views_settings_view_settingsscreen_build"
     },
     {
       "relation": "method",
@@ -4540,9 +4540,9 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_settings_view_settingsscreen",
-      "target": "views_settings_view_settingsscreen_save",
-      "confidence_score": 1.0
+      "target": "views_settings_view_settingsscreen_save"
     },
     {
       "relation": "method",
@@ -4550,9 +4550,9 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_settings_view_settingsscreen",
-      "target": "views_settings_view_settingsscreen_collect",
-      "confidence_score": 1.0
+      "target": "views_settings_view_settingsscreen_collect"
     },
     {
       "relation": "method",
@@ -4560,9 +4560,9 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_settings_view_settingsscreen",
-      "target": "views_settings_view_settingsscreen_on_tab_change",
-      "confidence_score": 1.0
+      "target": "views_settings_view_settingsscreen_on_tab_change"
     },
     {
       "relation": "method",
@@ -4570,9 +4570,9 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_settings_view_settingsscreen",
-      "target": "views_settings_view_settingsscreen_refresh",
-      "confidence_score": 1.0
+      "target": "views_settings_view_settingsscreen_refresh"
     },
     {
       "relation": "calls",
@@ -4581,9 +4581,9 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_settings_view_settingsscreen_init",
-      "target": "views_settings_view_settingsscreen_build",
-      "confidence_score": 1.0
+      "target": "views_settings_view_settingsscreen_build"
     },
     {
       "relation": "calls",
@@ -4636,9 +4636,9 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_settings_view_settingsscreen_save",
-      "target": "views_settings_view_settingsscreen_collect",
-      "confidence_score": 1.0
+      "target": "views_settings_view_settingsscreen_collect"
     },
     {
       "relation": "calls",
@@ -4658,9 +4658,9 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "views_settings_view_settingsscreen_on_tab_change",
-      "target": "views_settings_view_settingsscreen_refresh",
-      "confidence_score": 1.0
+      "target": "views_settings_view_settingsscreen_refresh"
     },
     {
       "relation": "contains",
@@ -4668,9 +4668,9 @@
       "source_file": "src/frontend/views/tabs/messages_tab.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_frontend_views_tabs_messages_tab_py",
-      "target": "tabs_messages_tab_messagestab",
-      "confidence_score": 1.0
+      "target": "tabs_messages_tab_messagestab"
     },
     {
       "relation": "method",
@@ -4678,9 +4678,9 @@
       "source_file": "src/frontend/views/tabs/messages_tab.py",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_messages_tab_messagestab",
-      "target": "tabs_messages_tab_messagestab_init",
-      "confidence_score": 1.0
+      "target": "tabs_messages_tab_messagestab_init"
     },
     {
       "relation": "method",
@@ -4688,9 +4688,9 @@
       "source_file": "src/frontend/views/tabs/messages_tab.py",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_messages_tab_messagestab",
-      "target": "tabs_messages_tab_messagestab_build",
-      "confidence_score": 1.0
+      "target": "tabs_messages_tab_messagestab_build"
     },
     {
       "relation": "method",
@@ -4698,9 +4698,9 @@
       "source_file": "src/frontend/views/tabs/messages_tab.py",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_messages_tab_messagestab",
-      "target": "tabs_messages_tab_messagestab_on_mode_change",
-      "confidence_score": 1.0
+      "target": "tabs_messages_tab_messagestab_on_mode_change"
     },
     {
       "relation": "method",
@@ -4708,9 +4708,9 @@
       "source_file": "src/frontend/views/tabs/messages_tab.py",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_messages_tab_messagestab",
-      "target": "tabs_messages_tab_messagestab_collect",
-      "confidence_score": 1.0
+      "target": "tabs_messages_tab_messagestab_collect"
     },
     {
       "relation": "calls",
@@ -4719,9 +4719,9 @@
       "source_file": "src/frontend/views/tabs/messages_tab.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_messages_tab_messagestab_init",
-      "target": "tabs_messages_tab_messagestab_build",
-      "confidence_score": 1.0
+      "target": "tabs_messages_tab_messagestab_build"
     },
     {
       "relation": "calls",
@@ -4730,9 +4730,9 @@
       "source_file": "src/frontend/views/tabs/messages_tab.py",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_messages_tab_messagestab_build",
-      "target": "tabs_messages_tab_messagestab_on_mode_change",
-      "confidence_score": 1.0
+      "target": "tabs_messages_tab_messagestab_on_mode_change"
     },
     {
       "relation": "contains",
@@ -4740,9 +4740,9 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_frontend_views_tabs_coords_tab_py",
-      "target": "tabs_coords_tab_coordstab",
-      "confidence_score": 1.0
+      "target": "tabs_coords_tab_coordstab"
     },
     {
       "relation": "method",
@@ -4750,9 +4750,9 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_coords_tab_coordstab",
-      "target": "tabs_coords_tab_coordstab_init",
-      "confidence_score": 1.0
+      "target": "tabs_coords_tab_coordstab_init"
     },
     {
       "relation": "method",
@@ -4760,9 +4760,9 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_coords_tab_coordstab",
-      "target": "tabs_coords_tab_coordstab_build",
-      "confidence_score": 1.0
+      "target": "tabs_coords_tab_coordstab_build"
     },
     {
       "relation": "method",
@@ -4770,9 +4770,9 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_coords_tab_coordstab",
-      "target": "tabs_coords_tab_coordstab_capture",
-      "confidence_score": 1.0
+      "target": "tabs_coords_tab_coordstab_capture"
     },
     {
       "relation": "method",
@@ -4780,9 +4780,9 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_coords_tab_coordstab",
-      "target": "tabs_coords_tab_coordstab_countdown",
-      "confidence_score": 1.0
+      "target": "tabs_coords_tab_coordstab_countdown"
     },
     {
       "relation": "method",
@@ -4790,9 +4790,9 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_coords_tab_coordstab",
-      "target": "tabs_coords_tab_coordstab_save_coords",
-      "confidence_score": 1.0
+      "target": "tabs_coords_tab_coordstab_save_coords"
     },
     {
       "relation": "method",
@@ -4800,9 +4800,9 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_coords_tab_coordstab",
-      "target": "tabs_coords_tab_coordstab_refresh",
-      "confidence_score": 1.0
+      "target": "tabs_coords_tab_coordstab_refresh"
     },
     {
       "relation": "calls",
@@ -4811,9 +4811,9 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_coords_tab_coordstab_init",
-      "target": "tabs_coords_tab_coordstab_build",
-      "confidence_score": 1.0
+      "target": "tabs_coords_tab_coordstab_build"
     },
     {
       "relation": "calls",
@@ -4822,9 +4822,9 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_coords_tab_coordstab_build",
-      "target": "tabs_coords_tab_coordstab_capture",
-      "confidence_score": 1.0
+      "target": "tabs_coords_tab_coordstab_capture"
     },
     {
       "relation": "calls",
@@ -4833,9 +4833,9 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_coords_tab_coordstab_capture",
-      "target": "tabs_coords_tab_coordstab_countdown",
-      "confidence_score": 1.0
+      "target": "tabs_coords_tab_coordstab_countdown"
     },
     {
       "relation": "calls",
@@ -4865,9 +4865,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_frontend_views_tabs_config_tab_py",
-      "target": "tabs_config_tab_configtab",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab"
     },
     {
       "relation": "method",
@@ -4875,9 +4875,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab",
-      "target": "tabs_config_tab_configtab_init",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_init"
     },
     {
       "relation": "method",
@@ -4885,9 +4885,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab",
-      "target": "tabs_config_tab_configtab_lbl",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_lbl"
     },
     {
       "relation": "method",
@@ -4895,9 +4895,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab",
-      "target": "tabs_config_tab_configtab_entry",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_entry"
     },
     {
       "relation": "method",
@@ -4905,9 +4905,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab",
-      "target": "tabs_config_tab_configtab_section_header",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_section_header"
     },
     {
       "relation": "method",
@@ -4915,9 +4915,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab",
-      "target": "tabs_config_tab_configtab_spacer",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_spacer"
     },
     {
       "relation": "method",
@@ -4925,9 +4925,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab",
-      "target": "tabs_config_tab_configtab_build",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_build"
     },
     {
       "relation": "method",
@@ -4935,9 +4935,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab",
-      "target": "tabs_config_tab_configtab_build_general_section",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_build_general_section"
     },
     {
       "relation": "method",
@@ -4945,9 +4945,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab",
-      "target": "tabs_config_tab_configtab_build_resources_section",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_build_resources_section"
     },
     {
       "relation": "method",
@@ -4955,9 +4955,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab",
-      "target": "tabs_config_tab_configtab_build_supply_section",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_build_supply_section"
     },
     {
       "relation": "method",
@@ -4965,9 +4965,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab",
-      "target": "tabs_config_tab_configtab_build_workers_section",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_build_workers_section"
     },
     {
       "relation": "method",
@@ -4975,9 +4975,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L120",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab",
-      "target": "tabs_config_tab_configtab_build_screen_capture_section",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_build_screen_capture_section"
     },
     {
       "relation": "method",
@@ -4985,9 +4985,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L131",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab",
-      "target": "tabs_config_tab_configtab_add_tier_row",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_add_tier_row"
     },
     {
       "relation": "method",
@@ -4995,9 +4995,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L151",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab",
-      "target": "tabs_config_tab_configtab_remove_tier_row",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_remove_tier_row"
     },
     {
       "relation": "method",
@@ -5005,9 +5005,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L155",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab",
-      "target": "tabs_config_tab_configtab_collect",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_collect"
     },
     {
       "relation": "calls",
@@ -5016,9 +5016,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_init",
-      "target": "tabs_config_tab_configtab_build",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_build"
     },
     {
       "relation": "calls",
@@ -5027,9 +5027,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_general_section",
-      "target": "tabs_config_tab_configtab_lbl",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_lbl"
     },
     {
       "relation": "calls",
@@ -5038,9 +5038,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_resources_section",
-      "target": "tabs_config_tab_configtab_lbl",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_lbl"
     },
     {
       "relation": "calls",
@@ -5049,9 +5049,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_supply_section",
-      "target": "tabs_config_tab_configtab_lbl",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_lbl"
     },
     {
       "relation": "calls",
@@ -5060,9 +5060,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L108",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_workers_section",
-      "target": "tabs_config_tab_configtab_lbl",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_lbl"
     },
     {
       "relation": "calls",
@@ -5071,9 +5071,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L124",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_screen_capture_section",
-      "target": "tabs_config_tab_configtab_lbl",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_lbl"
     },
     {
       "relation": "calls",
@@ -5082,9 +5082,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_general_section",
-      "target": "tabs_config_tab_configtab_entry",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_entry"
     },
     {
       "relation": "calls",
@@ -5093,9 +5093,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_resources_section",
-      "target": "tabs_config_tab_configtab_entry",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_entry"
     },
     {
       "relation": "calls",
@@ -5104,9 +5104,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_supply_section",
-      "target": "tabs_config_tab_configtab_entry",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_entry"
     },
     {
       "relation": "calls",
@@ -5115,9 +5115,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L109",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_workers_section",
-      "target": "tabs_config_tab_configtab_entry",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_entry"
     },
     {
       "relation": "calls",
@@ -5126,9 +5126,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L125",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_screen_capture_section",
-      "target": "tabs_config_tab_configtab_entry",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_entry"
     },
     {
       "relation": "calls",
@@ -5137,9 +5137,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_general_section",
-      "target": "tabs_config_tab_configtab_section_header",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_section_header"
     },
     {
       "relation": "calls",
@@ -5148,9 +5148,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_resources_section",
-      "target": "tabs_config_tab_configtab_section_header",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_section_header"
     },
     {
       "relation": "calls",
@@ -5159,9 +5159,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_supply_section",
-      "target": "tabs_config_tab_configtab_section_header",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_section_header"
     },
     {
       "relation": "calls",
@@ -5170,9 +5170,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_workers_section",
-      "target": "tabs_config_tab_configtab_section_header",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_section_header"
     },
     {
       "relation": "calls",
@@ -5181,9 +5181,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L121",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_screen_capture_section",
-      "target": "tabs_config_tab_configtab_section_header",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_section_header"
     },
     {
       "relation": "calls",
@@ -5192,9 +5192,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_general_section",
-      "target": "tabs_config_tab_configtab_spacer",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_spacer"
     },
     {
       "relation": "calls",
@@ -5203,9 +5203,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_resources_section",
-      "target": "tabs_config_tab_configtab_spacer",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_spacer"
     },
     {
       "relation": "calls",
@@ -5214,9 +5214,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L102",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_supply_section",
-      "target": "tabs_config_tab_configtab_spacer",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_spacer"
     },
     {
       "relation": "calls",
@@ -5225,9 +5225,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L118",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_workers_section",
-      "target": "tabs_config_tab_configtab_spacer",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_spacer"
     },
     {
       "relation": "calls",
@@ -5236,9 +5236,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build",
-      "target": "tabs_config_tab_configtab_build_general_section",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_build_general_section"
     },
     {
       "relation": "calls",
@@ -5247,9 +5247,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build",
-      "target": "tabs_config_tab_configtab_build_resources_section",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_build_resources_section"
     },
     {
       "relation": "calls",
@@ -5258,9 +5258,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build",
-      "target": "tabs_config_tab_configtab_build_supply_section",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_build_supply_section"
     },
     {
       "relation": "calls",
@@ -5269,9 +5269,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build",
-      "target": "tabs_config_tab_configtab_build_workers_section",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_build_workers_section"
     },
     {
       "relation": "calls",
@@ -5280,9 +5280,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build",
-      "target": "tabs_config_tab_configtab_build_screen_capture_section",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_build_screen_capture_section"
     },
     {
       "relation": "calls",
@@ -5291,9 +5291,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L97",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_build_supply_section",
-      "target": "tabs_config_tab_configtab_add_tier_row",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_add_tier_row"
     },
     {
       "relation": "calls",
@@ -5302,9 +5302,9 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L148",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_config_tab_configtab_add_tier_row",
-      "target": "tabs_config_tab_configtab_remove_tier_row",
-      "confidence_score": 1.0
+      "target": "tabs_config_tab_configtab_remove_tier_row"
     },
     {
       "relation": "contains",
@@ -5312,9 +5312,9 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_frontend_views_tabs_game_history_tab_py",
-      "target": "tabs_game_history_tab_gamehistorytab",
-      "confidence_score": 1.0
+      "target": "tabs_game_history_tab_gamehistorytab"
     },
     {
       "relation": "method",
@@ -5322,9 +5322,9 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_game_history_tab_gamehistorytab",
-      "target": "tabs_game_history_tab_gamehistorytab_init",
-      "confidence_score": 1.0
+      "target": "tabs_game_history_tab_gamehistorytab_init"
     },
     {
       "relation": "method",
@@ -5332,9 +5332,9 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_game_history_tab_gamehistorytab",
-      "target": "tabs_game_history_tab_gamehistorytab_build",
-      "confidence_score": 1.0
+      "target": "tabs_game_history_tab_gamehistorytab_build"
     },
     {
       "relation": "method",
@@ -5342,9 +5342,9 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_game_history_tab_gamehistorytab",
-      "target": "tabs_game_history_tab_gamehistorytab_render_list",
-      "confidence_score": 1.0
+      "target": "tabs_game_history_tab_gamehistorytab_render_list"
     },
     {
       "relation": "method",
@@ -5352,9 +5352,9 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_game_history_tab_gamehistorytab",
-      "target": "tabs_game_history_tab_gamehistorytab_show_detail",
-      "confidence_score": 1.0
+      "target": "tabs_game_history_tab_gamehistorytab_show_detail"
     },
     {
       "relation": "method",
@@ -5362,9 +5362,9 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L127",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_game_history_tab_gamehistorytab",
-      "target": "tabs_game_history_tab_gamehistorytab_hide_detail",
-      "confidence_score": 1.0
+      "target": "tabs_game_history_tab_gamehistorytab_hide_detail"
     },
     {
       "relation": "method",
@@ -5372,9 +5372,9 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L131",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_game_history_tab_gamehistorytab",
-      "target": "tabs_game_history_tab_gamehistorytab_refresh",
-      "confidence_score": 1.0
+      "target": "tabs_game_history_tab_gamehistorytab_refresh"
     },
     {
       "relation": "calls",
@@ -5383,9 +5383,9 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_game_history_tab_gamehistorytab_init",
-      "target": "tabs_game_history_tab_gamehistorytab_build",
-      "confidence_score": 1.0
+      "target": "tabs_game_history_tab_gamehistorytab_build"
     },
     {
       "relation": "calls",
@@ -5394,9 +5394,9 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_game_history_tab_gamehistorytab_init",
-      "target": "tabs_game_history_tab_gamehistorytab_render_list",
-      "confidence_score": 1.0
+      "target": "tabs_game_history_tab_gamehistorytab_render_list"
     },
     {
       "relation": "calls",
@@ -5405,9 +5405,9 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_game_history_tab_gamehistorytab_render_list",
-      "target": "tabs_game_history_tab_gamehistorytab_show_detail",
-      "confidence_score": 1.0
+      "target": "tabs_game_history_tab_gamehistorytab_show_detail"
     },
     {
       "relation": "calls",
@@ -5416,9 +5416,9 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L133",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_game_history_tab_gamehistorytab_refresh",
-      "target": "tabs_game_history_tab_gamehistorytab_render_list",
-      "confidence_score": 1.0
+      "target": "tabs_game_history_tab_gamehistorytab_render_list"
     },
     {
       "relation": "calls",
@@ -5427,9 +5427,9 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L132",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tabs_game_history_tab_gamehistorytab_refresh",
-      "target": "tabs_game_history_tab_gamehistorytab_hide_detail",
-      "confidence_score": 1.0
+      "target": "tabs_game_history_tab_gamehistorytab_hide_detail"
     },
     {
       "relation": "contains",
@@ -5437,9 +5437,9 @@
       "source_file": "src/backend/service.py",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_service_py",
-      "target": "backend_service_row_to_config",
-      "confidence_score": 1.0
+      "target": "backend_service_row_to_config"
     },
     {
       "relation": "contains",
@@ -5447,9 +5447,9 @@
       "source_file": "src/backend/service.py",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_service_py",
-      "target": "backend_service_config_to_row",
-      "confidence_score": 1.0
+      "target": "backend_service_config_to_row"
     },
     {
       "relation": "contains",
@@ -5457,9 +5457,9 @@
       "source_file": "src/backend/service.py",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_service_py",
-      "target": "backend_service_get_config",
-      "confidence_score": 1.0
+      "target": "backend_service_get_config"
     },
     {
       "relation": "contains",
@@ -5467,9 +5467,9 @@
       "source_file": "src/backend/service.py",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_service_py",
-      "target": "backend_service_save_config",
-      "confidence_score": 1.0
+      "target": "backend_service_save_config"
     },
     {
       "relation": "contains",
@@ -5477,9 +5477,9 @@
       "source_file": "src/backend/service.py",
       "source_location": "L108",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_service_py",
-      "target": "backend_service_row_to_record",
-      "confidence_score": 1.0
+      "target": "backend_service_row_to_record"
     },
     {
       "relation": "contains",
@@ -5487,9 +5487,9 @@
       "source_file": "src/backend/service.py",
       "source_location": "L124",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_service_py",
-      "target": "backend_service_row_to_live",
-      "confidence_score": 1.0
+      "target": "backend_service_row_to_live"
     },
     {
       "relation": "contains",
@@ -5497,9 +5497,9 @@
       "source_file": "src/backend/service.py",
       "source_location": "L138",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_service_py",
-      "target": "backend_service_get_stats_history",
-      "confidence_score": 1.0
+      "target": "backend_service_get_stats_history"
     },
     {
       "relation": "contains",
@@ -5507,9 +5507,9 @@
       "source_file": "src/backend/service.py",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_service_py",
-      "target": "backend_service_get_live_stats",
-      "confidence_score": 1.0
+      "target": "backend_service_get_live_stats"
     },
     {
       "relation": "rationale_for",
@@ -5517,9 +5517,9 @@
       "source_file": "src/backend/service.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_service_rationale_1",
-      "target": "src_backend_service_py",
-      "confidence_score": 1.0
+      "target": "src_backend_service_py"
     },
     {
       "relation": "calls",
@@ -5549,9 +5549,9 @@
       "source_file": "src/backend/index.py",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_index_py",
-      "target": "backend_index_test_ocr_mode",
-      "confidence_score": 1.0
+      "target": "backend_index_test_ocr_mode"
     },
     {
       "relation": "contains",
@@ -5559,9 +5559,9 @@
       "source_file": "src/backend/index.py",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_index_py",
-      "target": "backend_index_main",
-      "confidence_score": 1.0
+      "target": "backend_index_main"
     },
     {
       "relation": "rationale_for",
@@ -5569,9 +5569,9 @@
       "source_file": "src/backend/index.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_index_rationale_1",
-      "target": "src_backend_index_py",
-      "confidence_score": 1.0
+      "target": "src_backend_index_py"
     },
     {
       "relation": "calls",
@@ -5580,9 +5580,9 @@
       "source_file": "src/backend/index.py",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_index_main",
-      "target": "backend_index_test_ocr_mode",
-      "confidence_score": 1.0
+      "target": "backend_index_test_ocr_mode"
     },
     {
       "relation": "rationale_for",
@@ -5590,9 +5590,9 @@
       "source_file": "src/backend/index.py",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_index_rationale_41",
-      "target": "backend_index_test_ocr_mode",
-      "confidence_score": 1.0
+      "target": "backend_index_test_ocr_mode"
     },
     {
       "relation": "calls",
@@ -5787,9 +5787,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_game_history_py",
-      "target": "backend_game_history_gamehistorymanager",
-      "confidence_score": 1.0
+      "target": "backend_game_history_gamehistorymanager"
     },
     {
       "relation": "contains",
@@ -5797,9 +5797,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_game_history_py",
-      "target": "backend_game_history_counts",
-      "confidence_score": 1.0
+      "target": "backend_game_history_counts"
     },
     {
       "relation": "contains",
@@ -5807,9 +5807,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L119",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_game_history_py",
-      "target": "backend_game_history_format_duration",
-      "confidence_score": 1.0
+      "target": "backend_game_history_format_duration"
     },
     {
       "relation": "method",
@@ -5817,9 +5817,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_history_gamehistorymanager",
-      "target": "backend_game_history_gamehistorymanager_init",
-      "confidence_score": 1.0
+      "target": "backend_game_history_gamehistorymanager_init"
     },
     {
       "relation": "method",
@@ -5827,9 +5827,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_history_gamehistorymanager",
-      "target": "backend_game_history_gamehistorymanager_on_game_start",
-      "confidence_score": 1.0
+      "target": "backend_game_history_gamehistorymanager_on_game_start"
     },
     {
       "relation": "method",
@@ -5837,9 +5837,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_history_gamehistorymanager",
-      "target": "backend_game_history_gamehistorymanager_on_mineral_warning",
-      "confidence_score": 1.0
+      "target": "backend_game_history_gamehistorymanager_on_mineral_warning"
     },
     {
       "relation": "method",
@@ -5847,9 +5847,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_history_gamehistorymanager",
-      "target": "backend_game_history_gamehistorymanager_on_gas_warning",
-      "confidence_score": 1.0
+      "target": "backend_game_history_gamehistorymanager_on_gas_warning"
     },
     {
       "relation": "method",
@@ -5857,9 +5857,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_history_gamehistorymanager",
-      "target": "backend_game_history_gamehistorymanager_on_supply_warning",
-      "confidence_score": 1.0
+      "target": "backend_game_history_gamehistorymanager_on_supply_warning"
     },
     {
       "relation": "method",
@@ -5867,9 +5867,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_history_gamehistorymanager",
-      "target": "backend_game_history_gamehistorymanager_on_idle_workers_warning",
-      "confidence_score": 1.0
+      "target": "backend_game_history_gamehistorymanager_on_idle_workers_warning"
     },
     {
       "relation": "method",
@@ -5877,9 +5877,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_history_gamehistorymanager",
-      "target": "backend_game_history_gamehistorymanager_on_game_end",
-      "confidence_score": 1.0
+      "target": "backend_game_history_gamehistorymanager_on_game_end"
     },
     {
       "relation": "method",
@@ -5887,9 +5887,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_history_gamehistorymanager",
-      "target": "backend_game_history_gamehistorymanager_db_create_game",
-      "confidence_score": 1.0
+      "target": "backend_game_history_gamehistorymanager_db_create_game"
     },
     {
       "relation": "method",
@@ -5897,9 +5897,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_history_gamehistorymanager",
-      "target": "backend_game_history_gamehistorymanager_db_update_warnings",
-      "confidence_score": 1.0
+      "target": "backend_game_history_gamehistorymanager_db_update_warnings"
     },
     {
       "relation": "method",
@@ -5907,9 +5907,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_history_gamehistorymanager",
-      "target": "backend_game_history_gamehistorymanager_db_end_game",
-      "confidence_score": 1.0
+      "target": "backend_game_history_gamehistorymanager_db_end_game"
     },
     {
       "relation": "calls",
@@ -5918,9 +5918,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_history_gamehistorymanager_on_game_start",
-      "target": "backend_game_history_gamehistorymanager_db_create_game",
-      "confidence_score": 1.0
+      "target": "backend_game_history_gamehistorymanager_db_create_game"
     },
     {
       "relation": "calls",
@@ -5929,9 +5929,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_history_gamehistorymanager_on_mineral_warning",
-      "target": "backend_game_history_gamehistorymanager_db_update_warnings",
-      "confidence_score": 1.0
+      "target": "backend_game_history_gamehistorymanager_db_update_warnings"
     },
     {
       "relation": "calls",
@@ -5940,9 +5940,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_history_gamehistorymanager_on_gas_warning",
-      "target": "backend_game_history_gamehistorymanager_db_update_warnings",
-      "confidence_score": 1.0
+      "target": "backend_game_history_gamehistorymanager_db_update_warnings"
     },
     {
       "relation": "calls",
@@ -5951,9 +5951,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_history_gamehistorymanager_on_supply_warning",
-      "target": "backend_game_history_gamehistorymanager_db_update_warnings",
-      "confidence_score": 1.0
+      "target": "backend_game_history_gamehistorymanager_db_update_warnings"
     },
     {
       "relation": "calls",
@@ -5962,9 +5962,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_history_gamehistorymanager_on_idle_workers_warning",
-      "target": "backend_game_history_gamehistorymanager_db_update_warnings",
-      "confidence_score": 1.0
+      "target": "backend_game_history_gamehistorymanager_db_update_warnings"
     },
     {
       "relation": "calls",
@@ -5973,9 +5973,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_history_gamehistorymanager_on_game_end",
-      "target": "backend_game_history_format_duration",
-      "confidence_score": 1.0
+      "target": "backend_game_history_format_duration"
     },
     {
       "relation": "calls",
@@ -5984,9 +5984,9 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_history_gamehistorymanager_on_game_end",
-      "target": "backend_game_history_gamehistorymanager_db_end_game",
-      "confidence_score": 1.0
+      "target": "backend_game_history_gamehistorymanager_db_end_game"
     },
     {
       "relation": "calls",
@@ -6027,9 +6027,9 @@
       "source_file": "src/backend/logger.py",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_logger_py",
-      "target": "backend_logger_setup_logging",
-      "confidence_score": 1.0
+      "target": "backend_logger_setup_logging"
     },
     {
       "relation": "contains",
@@ -6037,9 +6037,9 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_ocr_py",
-      "target": "backend_ocr_capture_region",
-      "confidence_score": 1.0
+      "target": "backend_ocr_capture_region"
     },
     {
       "relation": "contains",
@@ -6047,9 +6047,9 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_ocr_py",
-      "target": "backend_ocr_preprocess",
-      "confidence_score": 1.0
+      "target": "backend_ocr_preprocess"
     },
     {
       "relation": "contains",
@@ -6057,9 +6057,9 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_ocr_py",
-      "target": "backend_ocr_ocr_number",
-      "confidence_score": 1.0
+      "target": "backend_ocr_ocr_number"
     },
     {
       "relation": "contains",
@@ -6067,9 +6067,9 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_ocr_py",
-      "target": "backend_ocr_ocr_supply",
-      "confidence_score": 1.0
+      "target": "backend_ocr_ocr_supply"
     },
     {
       "relation": "rationale_for",
@@ -6077,9 +6077,9 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_ocr_rationale_10",
-      "target": "backend_ocr_capture_region",
-      "confidence_score": 1.0
+      "target": "backend_ocr_capture_region"
     },
     {
       "relation": "calls",
@@ -6099,9 +6099,9 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_ocr_ocr_number",
-      "target": "backend_ocr_preprocess",
-      "confidence_score": 1.0
+      "target": "backend_ocr_preprocess"
     },
     {
       "relation": "calls",
@@ -6110,9 +6110,9 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_ocr_ocr_supply",
-      "target": "backend_ocr_preprocess",
-      "confidence_score": 1.0
+      "target": "backend_ocr_preprocess"
     },
     {
       "relation": "rationale_for",
@@ -6120,9 +6120,9 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_ocr_rationale_25",
-      "target": "backend_ocr_ocr_number",
-      "confidence_score": 1.0
+      "target": "backend_ocr_ocr_number"
     },
     {
       "relation": "calls",
@@ -6141,9 +6141,9 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_ocr_rationale_40",
-      "target": "backend_ocr_ocr_supply",
-      "confidence_score": 1.0
+      "target": "backend_ocr_ocr_supply"
     },
     {
       "relation": "calls",
@@ -6162,9 +6162,9 @@
       "source_file": "src/backend/hud_elements.py",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_hud_elements_py",
-      "target": "backend_hud_elements_hudelement",
-      "confidence_score": 1.0
+      "target": "backend_hud_elements_hudelement"
     },
     {
       "relation": "contains",
@@ -6172,9 +6172,9 @@
       "source_file": "src/backend/utils.py",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_utils_py",
-      "target": "backend_utils_extract_result",
-      "confidence_score": 1.0
+      "target": "backend_utils_extract_result"
     },
     {
       "relation": "contains",
@@ -6182,9 +6182,9 @@
       "source_file": "src/backend/utils.py",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_utils_py",
-      "target": "backend_utils_extract_race",
-      "confidence_score": 1.0
+      "target": "backend_utils_extract_race"
     },
     {
       "relation": "contains",
@@ -6192,9 +6192,9 @@
       "source_file": "src/backend/utils.py",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_utils_py",
-      "target": "backend_utils_format_debug_state",
-      "confidence_score": 1.0
+      "target": "backend_utils_format_debug_state"
     },
     {
       "relation": "rationale_for",
@@ -6202,9 +6202,9 @@
       "source_file": "src/backend/utils.py",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_utils_rationale_5",
-      "target": "backend_utils_extract_result",
-      "confidence_score": 1.0
+      "target": "backend_utils_extract_result"
     },
     {
       "relation": "rationale_for",
@@ -6212,9 +6212,9 @@
       "source_file": "src/backend/utils.py",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_utils_rationale_19",
-      "target": "backend_utils_extract_race",
-      "confidence_score": 1.0
+      "target": "backend_utils_extract_race"
     },
     {
       "relation": "contains",
@@ -6222,9 +6222,9 @@
       "source_file": "src/backend/messages.py",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_messages_py",
-      "target": "backend_messages_get_message",
-      "confidence_score": 1.0
+      "target": "backend_messages_get_message"
     },
     {
       "relation": "calls",
@@ -6265,9 +6265,9 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_game_api_py",
-      "target": "backend_game_api_poll_game",
-      "confidence_score": 1.0
+      "target": "backend_game_api_poll_game"
     },
     {
       "relation": "contains",
@@ -6275,9 +6275,9 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_game_api_py",
-      "target": "backend_game_api_is_game_running",
-      "confidence_score": 1.0
+      "target": "backend_game_api_is_game_running"
     },
     {
       "relation": "contains",
@@ -6285,9 +6285,9 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_game_api_py",
-      "target": "backend_game_api_capture_hud",
-      "confidence_score": 1.0
+      "target": "backend_game_api_capture_hud"
     },
     {
       "relation": "contains",
@@ -6295,9 +6295,9 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_game_api_py",
-      "target": "backend_game_api_filter_spikes",
-      "confidence_score": 1.0
+      "target": "backend_game_api_filter_spikes"
     },
     {
       "relation": "contains",
@@ -6305,9 +6305,9 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_game_api_py",
-      "target": "backend_game_api_fetch_game_state",
-      "confidence_score": 1.0
+      "target": "backend_game_api_fetch_game_state"
     },
     {
       "relation": "calls",
@@ -6316,9 +6316,9 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_api_is_game_running",
-      "target": "backend_game_api_poll_game",
-      "confidence_score": 1.0
+      "target": "backend_game_api_poll_game"
     },
     {
       "relation": "rationale_for",
@@ -6326,9 +6326,9 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_api_rationale_11",
-      "target": "backend_game_api_poll_game",
-      "confidence_score": 1.0
+      "target": "backend_game_api_poll_game"
     },
     {
       "relation": "calls",
@@ -6337,9 +6337,9 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_api_fetch_game_state",
-      "target": "backend_game_api_is_game_running",
-      "confidence_score": 1.0
+      "target": "backend_game_api_is_game_running"
     },
     {
       "relation": "rationale_for",
@@ -6347,9 +6347,9 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_api_rationale_25",
-      "target": "backend_game_api_is_game_running",
-      "confidence_score": 1.0
+      "target": "backend_game_api_is_game_running"
     },
     {
       "relation": "calls",
@@ -6358,9 +6358,9 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_api_fetch_game_state",
-      "target": "backend_game_api_capture_hud",
-      "confidence_score": 1.0
+      "target": "backend_game_api_capture_hud"
     },
     {
       "relation": "rationale_for",
@@ -6368,9 +6368,9 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_api_rationale_31",
-      "target": "backend_game_api_capture_hud",
-      "confidence_score": 1.0
+      "target": "backend_game_api_capture_hud"
     },
     {
       "relation": "rationale_for",
@@ -6378,9 +6378,9 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_game_api_rationale_67",
-      "target": "backend_game_api_fetch_game_state",
-      "confidence_score": 1.0
+      "target": "backend_game_api_fetch_game_state"
     },
     {
       "relation": "contains",
@@ -6388,9 +6388,9 @@
       "source_file": "src/backend/detectors.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_detectors_py",
-      "target": "backend_detectors_check_resources",
-      "confidence_score": 1.0
+      "target": "backend_detectors_check_resources"
     },
     {
       "relation": "contains",
@@ -6398,9 +6398,9 @@
       "source_file": "src/backend/detectors.py",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_detectors_py",
-      "target": "backend_detectors_check_supply",
-      "confidence_score": 1.0
+      "target": "backend_detectors_check_supply"
     },
     {
       "relation": "contains",
@@ -6408,9 +6408,9 @@
       "source_file": "src/backend/detectors.py",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_detectors_py",
-      "target": "backend_detectors_check_idle_workers",
-      "confidence_score": 1.0
+      "target": "backend_detectors_check_idle_workers"
     },
     {
       "relation": "rationale_for",
@@ -6418,9 +6418,9 @@
       "source_file": "src/backend/detectors.py",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_detectors_rationale_67",
-      "target": "backend_detectors_check_idle_workers",
-      "confidence_score": 1.0
+      "target": "backend_detectors_check_idle_workers"
     },
     {
       "relation": "contains",
@@ -6428,9 +6428,9 @@
       "source_file": "src/backend/find_coords.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_find_coords_py",
-      "target": "backend_find_coords_get_mouse_pos",
-      "confidence_score": 1.0
+      "target": "backend_find_coords_get_mouse_pos"
     },
     {
       "relation": "rationale_for",
@@ -6438,9 +6438,9 @@
       "source_file": "src/backend/find_coords.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_find_coords_rationale_1",
-      "target": "src_backend_find_coords_py",
-      "confidence_score": 1.0
+      "target": "src_backend_find_coords_py"
     },
     {
       "relation": "contains",
@@ -6448,9 +6448,9 @@
       "source_file": "src/backend/classes/cooldown_tracker.py",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_classes_cooldown_tracker_py",
-      "target": "classes_cooldown_tracker_cooldowntracker",
-      "confidence_score": 1.0
+      "target": "classes_cooldown_tracker_cooldowntracker"
     },
     {
       "relation": "method",
@@ -6458,9 +6458,9 @@
       "source_file": "src/backend/classes/cooldown_tracker.py",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "classes_cooldown_tracker_cooldowntracker",
-      "target": "classes_cooldown_tracker_cooldowntracker_init",
-      "confidence_score": 1.0
+      "target": "classes_cooldown_tracker_cooldowntracker_init"
     },
     {
       "relation": "method",
@@ -6468,9 +6468,9 @@
       "source_file": "src/backend/classes/cooldown_tracker.py",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "classes_cooldown_tracker_cooldowntracker",
-      "target": "classes_cooldown_tracker_cooldowntracker_ready",
-      "confidence_score": 1.0
+      "target": "classes_cooldown_tracker_cooldowntracker_ready"
     },
     {
       "relation": "rationale_for",
@@ -6478,9 +6478,9 @@
       "source_file": "src/backend/classes/cooldown_tracker.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "classes_cooldown_tracker_rationale_9",
-      "target": "classes_cooldown_tracker_cooldowntracker_ready",
-      "confidence_score": 1.0
+      "target": "classes_cooldown_tracker_cooldowntracker_ready"
     },
     {
       "relation": "contains",
@@ -6488,9 +6488,9 @@
       "source_file": "src/backend/classes/speech_queue.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_classes_speech_queue_py",
-      "target": "classes_speech_queue_speechqueue",
-      "confidence_score": 1.0
+      "target": "classes_speech_queue_speechqueue"
     },
     {
       "relation": "method",
@@ -6498,9 +6498,9 @@
       "source_file": "src/backend/classes/speech_queue.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "classes_speech_queue_speechqueue",
-      "target": "classes_speech_queue_speechqueue_init",
-      "confidence_score": 1.0
+      "target": "classes_speech_queue_speechqueue_init"
     },
     {
       "relation": "method",
@@ -6508,9 +6508,9 @@
       "source_file": "src/backend/classes/speech_queue.py",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "classes_speech_queue_speechqueue",
-      "target": "classes_speech_queue_speechqueue_worker",
-      "confidence_score": 1.0
+      "target": "classes_speech_queue_speechqueue_worker"
     },
     {
       "relation": "method",
@@ -6518,9 +6518,9 @@
       "source_file": "src/backend/classes/speech_queue.py",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "classes_speech_queue_speechqueue",
-      "target": "classes_speech_queue_speechqueue_speak",
-      "confidence_score": 1.0
+      "target": "classes_speech_queue_speechqueue_speak"
     },
     {
       "relation": "imports_from",
@@ -6529,9 +6529,9 @@
       "source_file": "src/backend/db/__init__.py",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_init_py",
-      "target": "src_backend_db_collection_py",
-      "confidence_score": 1.0
+      "target": "src_backend_db_collection_py"
     },
     {
       "relation": "imports_from",
@@ -6540,9 +6540,9 @@
       "source_file": "src/backend/db/__init__.py",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_init_py",
-      "target": "src_backend_db_connector_py",
-      "confidence_score": 1.0
+      "target": "src_backend_db_connector_py"
     },
     {
       "relation": "imports_from",
@@ -6551,9 +6551,9 @@
       "source_file": "src/backend/db/__init__.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_init_py",
-      "target": "src_backend_db_sqlite_connector_py",
-      "confidence_score": 1.0
+      "target": "src_backend_db_sqlite_connector_py"
     },
     {
       "relation": "contains",
@@ -6561,9 +6561,9 @@
       "source_file": "src/backend/db/__init__.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_init_py",
-      "target": "db_init_get_db",
-      "confidence_score": 1.0
+      "target": "db_init_get_db"
     },
     {
       "relation": "calls",
@@ -6583,9 +6583,9 @@
       "source_file": "src/backend/db/sqlite_connector.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_sqlite_connector_py",
-      "target": "src_backend_db_connector_py",
-      "confidence_score": 1.0
+      "target": "src_backend_db_connector_py"
     },
     {
       "relation": "imports_from",
@@ -6594,9 +6594,9 @@
       "source_file": "src/backend/db/sqlite_connector.py",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_sqlite_connector_py",
-      "target": "src_backend_db_schema_py",
-      "confidence_score": 1.0
+      "target": "src_backend_db_schema_py"
     },
     {
       "relation": "contains",
@@ -6604,9 +6604,9 @@
       "source_file": "src/backend/db/sqlite_connector.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_sqlite_connector_py",
-      "target": "db_sqlite_connector_sqliteconnector",
-      "confidence_score": 1.0
+      "target": "db_sqlite_connector_sqliteconnector"
     },
     {
       "relation": "inherits",
@@ -6614,9 +6614,9 @@
       "source_file": "src/backend/db/sqlite_connector.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_sqlite_connector_sqliteconnector",
-      "target": "dbconnector",
-      "confidence_score": 1.0
+      "target": "dbconnector"
     },
     {
       "relation": "method",
@@ -6624,9 +6624,9 @@
       "source_file": "src/backend/db/sqlite_connector.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_sqlite_connector_sqliteconnector",
-      "target": "db_sqlite_connector_sqliteconnector_init",
-      "confidence_score": 1.0
+      "target": "db_sqlite_connector_sqliteconnector_init"
     },
     {
       "relation": "method",
@@ -6634,9 +6634,9 @@
       "source_file": "src/backend/db/sqlite_connector.py",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_sqlite_connector_sqliteconnector",
-      "target": "db_sqlite_connector_sqliteconnector_connect",
-      "confidence_score": 1.0
+      "target": "db_sqlite_connector_sqliteconnector_connect"
     },
     {
       "relation": "method",
@@ -6644,9 +6644,9 @@
       "source_file": "src/backend/db/sqlite_connector.py",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_sqlite_connector_sqliteconnector",
-      "target": "db_sqlite_connector_sqliteconnector_close",
-      "confidence_score": 1.0
+      "target": "db_sqlite_connector_sqliteconnector_close"
     },
     {
       "relation": "method",
@@ -6654,9 +6654,9 @@
       "source_file": "src/backend/db/sqlite_connector.py",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_sqlite_connector_sqliteconnector",
-      "target": "db_sqlite_connector_sqliteconnector_fetch",
-      "confidence_score": 1.0
+      "target": "db_sqlite_connector_sqliteconnector_fetch"
     },
     {
       "relation": "method",
@@ -6664,9 +6664,9 @@
       "source_file": "src/backend/db/sqlite_connector.py",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_sqlite_connector_sqliteconnector",
-      "target": "db_sqlite_connector_sqliteconnector_execute",
-      "confidence_score": 1.0
+      "target": "db_sqlite_connector_sqliteconnector_execute"
     },
     {
       "relation": "method",
@@ -6674,9 +6674,9 @@
       "source_file": "src/backend/db/sqlite_connector.py",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_sqlite_connector_sqliteconnector",
-      "target": "db_sqlite_connector_sqliteconnector_execute_returning_rowid",
-      "confidence_score": 1.0
+      "target": "db_sqlite_connector_sqliteconnector_execute_returning_rowid"
     },
     {
       "relation": "uses",
@@ -6684,9 +6684,9 @@
       "source_file": "src/backend/db/sqlite_connector.py",
       "source_location": "L7",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "db_sqlite_connector_sqliteconnector",
-      "target": "db_connector_dbconnector",
-      "confidence_score": 0.5
+      "target": "db_connector_dbconnector"
     },
     {
       "relation": "calls",
@@ -6695,9 +6695,9 @@
       "source_file": "src/backend/db/sqlite_connector.py",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_sqlite_connector_sqliteconnector_connect",
-      "target": "db_sqlite_connector_sqliteconnector_execute",
-      "confidence_score": 1.0
+      "target": "db_sqlite_connector_sqliteconnector_execute"
     },
     {
       "relation": "calls",
@@ -6717,9 +6717,9 @@
       "source_file": "src/backend/db/sqlite_connector.py",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_sqlite_connector_sqliteconnector_fetch",
-      "target": "db_sqlite_connector_sqliteconnector_execute",
-      "confidence_score": 1.0
+      "target": "db_sqlite_connector_sqliteconnector_execute"
     },
     {
       "relation": "calls",
@@ -6728,9 +6728,9 @@
       "source_file": "src/backend/db/sqlite_connector.py",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_sqlite_connector_sqliteconnector_execute_returning_rowid",
-      "target": "db_sqlite_connector_sqliteconnector_execute",
-      "confidence_score": 1.0
+      "target": "db_sqlite_connector_sqliteconnector_execute"
     },
     {
       "relation": "imports_from",
@@ -6739,9 +6739,9 @@
       "source_file": "src/backend/db/connector.py",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_connector_py",
-      "target": "abc",
-      "confidence_score": 1.0
+      "target": "abc"
     },
     {
       "relation": "imports_from",
@@ -6750,9 +6750,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_collection_py",
-      "target": "src_backend_db_connector_py",
-      "confidence_score": 1.0
+      "target": "src_backend_db_connector_py"
     },
     {
       "relation": "contains",
@@ -6760,9 +6760,9 @@
       "source_file": "src/backend/db/connector.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_connector_py",
-      "target": "db_connector_dbconnector",
-      "confidence_score": 1.0
+      "target": "db_connector_dbconnector"
     },
     {
       "relation": "contains",
@@ -6770,9 +6770,9 @@
       "source_file": "src/backend/db/connector.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_connector_py",
-      "target": "db_connector_connect",
-      "confidence_score": 1.0
+      "target": "db_connector_connect"
     },
     {
       "relation": "contains",
@@ -6780,9 +6780,9 @@
       "source_file": "src/backend/db/connector.py",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_connector_py",
-      "target": "db_connector_close",
-      "confidence_score": 1.0
+      "target": "db_connector_close"
     },
     {
       "relation": "contains",
@@ -6790,9 +6790,9 @@
       "source_file": "src/backend/db/connector.py",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_connector_py",
-      "target": "db_connector_fetch",
-      "confidence_score": 1.0
+      "target": "db_connector_fetch"
     },
     {
       "relation": "contains",
@@ -6800,9 +6800,9 @@
       "source_file": "src/backend/db/connector.py",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_connector_py",
-      "target": "db_connector_execute",
-      "confidence_score": 1.0
+      "target": "db_connector_execute"
     },
     {
       "relation": "contains",
@@ -6810,9 +6810,9 @@
       "source_file": "src/backend/db/connector.py",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_connector_py",
-      "target": "db_connector_execute_returning_rowid",
-      "confidence_score": 1.0
+      "target": "db_connector_execute_returning_rowid"
     },
     {
       "relation": "inherits",
@@ -6820,9 +6820,9 @@
       "source_file": "src/backend/db/connector.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_connector_dbconnector",
-      "target": "abc",
-      "confidence_score": 1.0
+      "target": "abc"
     },
     {
       "relation": "method",
@@ -6830,9 +6830,9 @@
       "source_file": "src/backend/db/connector.py",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_connector_dbconnector",
-      "target": "db_connector_dbconnector_collection",
-      "confidence_score": 1.0
+      "target": "db_connector_dbconnector_collection"
     },
     {
       "relation": "uses",
@@ -6840,9 +6840,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L6",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "db_collection_collection",
-      "target": "db_connector_dbconnector",
-      "confidence_score": 0.5
+      "target": "db_connector_dbconnector"
     },
     {
       "relation": "contains",
@@ -6850,9 +6850,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_collection_py",
-      "target": "db_collection_build_where",
-      "confidence_score": 1.0
+      "target": "db_collection_build_where"
     },
     {
       "relation": "contains",
@@ -6860,9 +6860,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_collection_py",
-      "target": "db_collection_build_set",
-      "confidence_score": 1.0
+      "target": "db_collection_build_set"
     },
     {
       "relation": "contains",
@@ -6870,9 +6870,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_collection_py",
-      "target": "db_collection_collection",
-      "confidence_score": 1.0
+      "target": "db_collection_collection"
     },
     {
       "relation": "calls",
@@ -6881,9 +6881,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_collection_collection_find",
-      "target": "db_collection_build_where",
-      "confidence_score": 1.0
+      "target": "db_collection_build_where"
     },
     {
       "relation": "calls",
@@ -6892,9 +6892,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_collection_collection_update",
-      "target": "db_collection_build_where",
-      "confidence_score": 1.0
+      "target": "db_collection_build_where"
     },
     {
       "relation": "calls",
@@ -6903,9 +6903,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_collection_collection_updateone",
-      "target": "db_collection_build_where",
-      "confidence_score": 1.0
+      "target": "db_collection_build_where"
     },
     {
       "relation": "calls",
@@ -6914,9 +6914,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_collection_collection_delete",
-      "target": "db_collection_build_where",
-      "confidence_score": 1.0
+      "target": "db_collection_build_where"
     },
     {
       "relation": "calls",
@@ -6925,9 +6925,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_collection_collection_count",
-      "target": "db_collection_build_where",
-      "confidence_score": 1.0
+      "target": "db_collection_build_where"
     },
     {
       "relation": "calls",
@@ -6936,9 +6936,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_collection_collection_update",
-      "target": "db_collection_build_set",
-      "confidence_score": 1.0
+      "target": "db_collection_build_set"
     },
     {
       "relation": "calls",
@@ -6947,9 +6947,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_collection_collection_updateone",
-      "target": "db_collection_build_set",
-      "confidence_score": 1.0
+      "target": "db_collection_build_set"
     },
     {
       "relation": "method",
@@ -6957,9 +6957,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_collection_collection",
-      "target": "db_collection_collection_init",
-      "confidence_score": 1.0
+      "target": "db_collection_collection_init"
     },
     {
       "relation": "method",
@@ -6967,9 +6967,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_collection_collection",
-      "target": "db_collection_collection_find",
-      "confidence_score": 1.0
+      "target": "db_collection_collection_find"
     },
     {
       "relation": "method",
@@ -6977,9 +6977,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_collection_collection",
-      "target": "db_collection_collection_findone",
-      "confidence_score": 1.0
+      "target": "db_collection_collection_findone"
     },
     {
       "relation": "method",
@@ -6987,9 +6987,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_collection_collection",
-      "target": "db_collection_collection_create",
-      "confidence_score": 1.0
+      "target": "db_collection_collection_create"
     },
     {
       "relation": "method",
@@ -6997,9 +6997,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_collection_collection",
-      "target": "db_collection_collection_update",
-      "confidence_score": 1.0
+      "target": "db_collection_collection_update"
     },
     {
       "relation": "method",
@@ -7007,9 +7007,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_collection_collection",
-      "target": "db_collection_collection_updateone",
-      "confidence_score": 1.0
+      "target": "db_collection_collection_updateone"
     },
     {
       "relation": "method",
@@ -7017,9 +7017,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_collection_collection",
-      "target": "db_collection_collection_delete",
-      "confidence_score": 1.0
+      "target": "db_collection_collection_delete"
     },
     {
       "relation": "method",
@@ -7027,9 +7027,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_collection_collection",
-      "target": "db_collection_collection_count",
-      "confidence_score": 1.0
+      "target": "db_collection_collection_count"
     },
     {
       "relation": "calls",
@@ -7038,9 +7038,9 @@
       "source_file": "src/backend/db/collection.py",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "db_collection_collection_findone",
-      "target": "db_collection_collection_find",
-      "confidence_score": 1.0
+      "target": "db_collection_collection_find"
     },
     {
       "relation": "contains",
@@ -7048,9 +7048,9 @@
       "source_file": "src/backend/db/schema.py",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_backend_db_schema_py",
-      "target": "db_schema_ensure_tables",
-      "confidence_score": 1.0
+      "target": "db_schema_ensure_tables"
     },
     {
       "relation": "references",
@@ -7937,5 +7937,5 @@
       "source_file": "docs/superpowers/plans/2026-05-16-debug-hud-prints.md"
     }
   ],
-  "built_at_commit": "aac37d5fd1e531783e5eca75437115d1815dc26a"
+  "built_at_commit": "bd20212917938c541b2cb195ec3bb3ba7d104c1a"
 }

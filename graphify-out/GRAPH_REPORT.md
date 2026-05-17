@@ -1,12 +1,18 @@
-# Graph Report - .  (2026-05-17)
+# Graph Report - sc2-helper  (2026-05-17)
 
 ## Corpus Check
-- Corpus is ~10,835 words - fits in a single context window. You may not need a graph.
+- 42 files · ~10,931 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
 - 320 nodes · 442 edges · 38 communities (27 shown, 11 thin omitted)
 - Extraction: 76% EXTRACTED · 24% INFERRED · 0% AMBIGUOUS · INFERRED: 105 edges (avg confidence: 0.82)
-- Token cost: 4,800 input · 2,200 output
+- Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `bd202129`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - [[_COMMUNITY_Game API Polling|Game API Polling]]
