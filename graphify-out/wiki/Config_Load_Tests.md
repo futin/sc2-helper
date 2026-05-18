@@ -9,7 +9,7 @@
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Collection DB Bridge]] (2 shared connections)
 
 ## Source Files
 

@@ -2,7 +2,7 @@
 
 > God node · 15 connections · `src/frontend/views/runner_view.py`
 
-**Community:** [[Project Architecture Docs]]
+**Community:** [[Config & Service Layer]]
 
 ## Connections by Relation
 

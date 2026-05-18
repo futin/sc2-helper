@@ -9,7 +9,7 @@
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Config Manager Module]] (2 shared connections)
 
 ## Source Files
 

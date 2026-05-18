@@ -12,6 +12,16 @@
 pip install -r requirements.txt
 ```
 
+### Optional: voice control
+
+Required only when `voice_control.enabled = true` in config:
+
+```bash
+pip install openwakeword pyaudio numpy SpeechRecognition
+```
+
+`openwakeword` downloads the selected ONNX model (~2 MB) on first run.
+
 ## GUI (recommended)
 
 ```bash

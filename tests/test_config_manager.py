@@ -1,33 +1,34 @@
-"""Smoke tests for config load/save round-trips."""
-import tempfile
-from pathlib import Path
-
+"""Smoke tests for config get/save round-trips."""
 import pytest
-import yaml
 
-from frontend.config_manager import load_config, save_config, _DEFAULT_CONFIG
+import backend.db as db_module
+from frontend.config_manager import get_config, save_config, DEFAULT_CONFIG
 from backend.hud_elements import HUD_ELEMENTS
 
 
-def test_load_config_returns_defaults_on_missing_file(tmp_path):
-    missing = tmp_path / "nonexistent.yaml"
-    cfg = load_config(missing)
-    assert cfg["poll_interval"] == _DEFAULT_CONFIG["poll_interval"]
+@pytest.fixture(autouse=True)
+def isolated_db(tmp_path, monkeypatch):
+    monkeypatch.setattr(db_module, "DB_PATH", tmp_path / "test.db")
+
+
+def test_get_config_returns_defaults_on_empty_db():
+    cfg = get_config()
+    assert cfg["poll_interval"] == DEFAULT_CONFIG["poll_interval"]
     assert "screen_capture" in cfg
 
 
-def test_save_and_load_roundtrip(tmp_path):
-    cfg_path = tmp_path / "config.yaml"
-    original = dict(_DEFAULT_CONFIG)
-    original["poll_interval"] = 3.0
-    save_config(original, cfg_path)
+def test_save_and_get_roundtrip():
+    get_config()  # seed the row
+    modified = dict(DEFAULT_CONFIG)
+    modified["poll_interval"] = 3.0
+    save_config(modified)
 
-    loaded = load_config(cfg_path)
+    loaded = get_config()
     assert loaded["poll_interval"] == 3.0
 
 
 def test_default_screen_capture_has_all_hud_elements():
-    cfg = dict(_DEFAULT_CONFIG)
+    cfg = dict(DEFAULT_CONFIG)
     sc = cfg["screen_capture"]
     for e in HUD_ELEMENTS:
         assert e.key in sc, f"{e.key} missing from default screen_capture"
@@ -37,8 +38,6 @@ def test_default_screen_capture_has_all_hud_elements():
         assert (w, h) == e.default_size, f"{e.key} size mismatch: got {(w, h)}, expected {e.default_size}"
 
 
-def test_load_config_returns_default_on_empty_file(tmp_path):
-    empty = tmp_path / "empty.yaml"
-    empty.write_text("")
-    cfg = load_config(empty)
-    assert cfg["poll_interval"] == _DEFAULT_CONFIG["poll_interval"]
+def test_get_config_returns_defaults_on_fresh_db():
+    cfg = get_config()
+    assert cfg["poll_interval"] == DEFAULT_CONFIG["poll_interval"]

@@ -23,8 +23,7 @@
 
 ## Relationships
 
-- [[Game History Tracking]] (38 shared connections)
-- [[Config & Service Layer]] (1 shared connections)
+- [[Config UI Tab]] (39 shared connections)
 
 ## Source Files
 

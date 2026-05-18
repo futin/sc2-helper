@@ -13,8 +13,10 @@ sc2-helper/
 │   │   ├── detectors.py         # check_resources, check_supply, check_idle_workers
 │   │   ├── service.py           # Service layer: get_config/save_config, get_stats_history/get_live_stats
 │   │   ├── classes/
-│   │   │   ├── speech_queue.py  # SpeechQueue: priority TTS daemon thread
-│   │   │   └── cooldown_tracker.py  # CooldownTracker
+│   │   │   ├── speech_queue.py      # SpeechQueue: priority TTS daemon thread
+│   │   │   ├── cooldown_tracker.py  # CooldownTracker
+│   │   │   ├── wake_word_detector.py  # WakeWordDetector: always-on openwakeword thread
+│   │   │   └── voice_listener.py    # VoiceListener: stateless two-phase command transcription
 │   │   ├── db/
 │   │   │   ├── __init__.py      # get_db() context manager, DB_PATH
 │   │   │   ├── connector.py     # Database abstraction base
@@ -45,7 +47,9 @@ sc2-helper/
 │   ├── test_debug.py
 │   ├── test_detectors.py
 │   ├── test_messages.py
-│   └── test_speech_queue.py
+│   ├── test_speech_queue.py
+│   ├── test_wake_word_detector.py
+│   └── test_voice_listener.py
 ├── dev.py                       # Hot-reload runner (watchdog) for development
 └── requirements.txt
 ```
@@ -57,4 +61,5 @@ sc2-helper/
 3. For each live game tick, `ocr.py` captures four screen regions via `mss`, scales them 3×, converts to greyscale/binary, and runs Tesseract OCR to read minerals, gas, supply, and idle-worker count. `game_api._filter_spikes` optionally suppresses OCR spikes by clamping values that jump more than a configured delta from the previous reading.
 4. Three detectors in `detectors.py` compare values against configurable thresholds and, when a condition fires and its cooldown has elapsed, push a message onto a priority queue. Each warning also increments the in-progress game counter in `GameHistoryManager`.
 5. `SpeechQueue` (`classes/speech_queue.py`) drains the queue in a background TTS thread via macOS `say`, ordered: supply > minerals > idle workers > gas.
-6. **Frontend** (`views/`) is a `customtkinter` wrapper. `RunnerController` (`logic/runner_logic.py`) spawns the backend as a subprocess and streams stdout into the log panel via a queue/thread pair. `GameHistoryLoader` (`logic/game_history_logic.py`) calls `service.get_stats_history()` for the Game History tab. Config is read and saved via `service.get_config()`/`service.save_config()`, which reads from and writes to the `config` SQLite table.
+6. **Voice control** (optional): when enabled, `WakeWordDetector` runs an always-on background thread that feeds 80ms raw audio chunks to an `openwakeword` ONNX model. On wake detection (score ≥ sensitivity, with a 2s refractory period), it calls `VoiceListener.handle_wake()`, which opens the microphone, transcribes speech via Google STT or Whisper, parses the command, and pushes a `VoiceCommand` onto a queue. The main loop drains this queue each tick and dispatches to `_handle_voice_command()`. Supported intents: `query_supply`, `query_resources`, `silence`.
+7. **Frontend** (`views/`) is a `customtkinter` wrapper. `RunnerController` (`logic/runner_logic.py`) spawns the backend as a subprocess and streams stdout into the log panel via a queue/thread pair. `GameHistoryLoader` (`logic/game_history_logic.py`) calls `service.get_stats_history()` for the Game History tab. Config is read and saved via `service.get_config()`/`service.save_config()`, which reads from and writes to the `config` SQLite table.

@@ -141,7 +141,7 @@
       "source_file": "dev.py",
       "source_location": "L1",
       "id": "dev_py",
-      "community": 18,
+      "community": 19,
       "norm_label": "dev.py"
     },
     {
@@ -150,7 +150,7 @@
       "source_file": "dev.py",
       "source_location": "L14",
       "id": "sc2_helper_dev_restarthandler",
-      "community": 18,
+      "community": 19,
       "norm_label": "restarthandler"
     },
     {
@@ -159,7 +159,7 @@
       "source_file": "",
       "source_location": "",
       "id": "filesystemeventhandler",
-      "community": 18,
+      "community": 19,
       "norm_label": "filesystemeventhandler"
     },
     {
@@ -168,7 +168,7 @@
       "source_file": "dev.py",
       "source_location": "L15",
       "id": "sc2_helper_dev_restarthandler_init",
-      "community": 18,
+      "community": 19,
       "norm_label": ".__init__()"
     },
     {
@@ -177,7 +177,7 @@
       "source_file": "dev.py",
       "source_location": "L20",
       "id": "sc2_helper_dev_restarthandler_start",
-      "community": 18,
+      "community": 19,
       "norm_label": ".start()"
     },
     {
@@ -186,7 +186,7 @@
       "source_file": "dev.py",
       "source_location": "L30",
       "id": "sc2_helper_dev_restarthandler_on_modified",
-      "community": 18,
+      "community": 19,
       "norm_label": ".on_modified()"
     },
     {
@@ -195,7 +195,7 @@
       "source_file": "dev.py",
       "source_location": "L1",
       "id": "sc2_helper_dev_rationale_1",
-      "community": 18,
+      "community": 19,
       "norm_label": "dev runner: watches src/ for .py changes and auto-restarts the app."
     },
     {
@@ -204,7 +204,7 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L1",
       "id": "tests_test_detectors_py",
-      "community": 1,
+      "community": 2,
       "norm_label": "test_detectors.py"
     },
     {
@@ -213,7 +213,7 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L38",
       "id": "tests_test_detectors_make_speech",
-      "community": 1,
+      "community": 2,
       "norm_label": "_make_speech()"
     },
     {
@@ -222,7 +222,7 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L45",
       "id": "tests_test_detectors_test_check_resources_no_speak_below_threshold",
-      "community": 1,
+      "community": 2,
       "norm_label": "test_check_resources_no_speak_below_threshold()"
     },
     {
@@ -231,7 +231,7 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L52",
       "id": "tests_test_detectors_test_check_resources_speaks_when_over_threshold",
-      "community": 1,
+      "community": 2,
       "norm_label": "test_check_resources_speaks_when_over_threshold()"
     },
     {
@@ -240,7 +240,7 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L59",
       "id": "tests_test_detectors_test_check_resources_cooldown_prevents_repeat",
-      "community": 1,
+      "community": 2,
       "norm_label": "test_check_resources_cooldown_prevents_repeat()"
     },
     {
@@ -249,7 +249,7 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L68",
       "id": "tests_test_detectors_test_check_supply_speaks_when_capped",
-      "community": 1,
+      "community": 2,
       "norm_label": "test_check_supply_speaks_when_capped()"
     },
     {
@@ -258,7 +258,7 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L77",
       "id": "tests_test_detectors_test_check_supply_silent_when_ok",
-      "community": 1,
+      "community": 2,
       "norm_label": "test_check_supply_silent_when_ok()"
     },
     {
@@ -267,7 +267,7 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L84",
       "id": "tests_test_detectors_test_check_idle_workers_speaks_when_idle",
-      "community": 1,
+      "community": 2,
       "norm_label": "test_check_idle_workers_speaks_when_idle()"
     },
     {
@@ -276,7 +276,7 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L92",
       "id": "tests_test_detectors_test_check_idle_workers_resets_on_zero",
-      "community": 1,
+      "community": 2,
       "norm_label": "test_check_idle_workers_resets_on_zero()"
     },
     {
@@ -285,7 +285,7 @@
       "source_file": "tests/test_detectors.py",
       "source_location": "L1",
       "id": "tests_test_detectors_rationale_1",
-      "community": 1,
+      "community": 2,
       "norm_label": "smoke tests for detector logic \u2014 no tts subprocess spawned."
     },
     {
@@ -294,7 +294,7 @@
       "source_file": "tests/test_debug.py",
       "source_location": "L1",
       "id": "tests_test_debug_py",
-      "community": 1,
+      "community": 2,
       "norm_label": "test_debug.py"
     },
     {
@@ -303,7 +303,7 @@
       "source_file": "tests/test_debug.py",
       "source_location": "L11",
       "id": "tests_test_debug_test_debug_line_format",
-      "community": 1,
+      "community": 2,
       "norm_label": "test_debug_line_format()"
     },
     {
@@ -312,7 +312,7 @@
       "source_file": "tests/test_debug.py",
       "source_location": "L16",
       "id": "tests_test_debug_test_debug_no_state_line_format",
-      "community": 1,
+      "community": 2,
       "norm_label": "test_debug_no_state_line_format()"
     },
     {
@@ -321,7 +321,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L1",
       "id": "tests_test_wake_word_detector_py",
-      "community": 7,
+      "community": 8,
       "norm_label": "test_wake_word_detector.py"
     },
     {
@@ -330,7 +330,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L9",
       "id": "tests_test_wake_word_detector_test_init_sets_attributes",
-      "community": 7,
+      "community": 8,
       "norm_label": "test_init_sets_attributes()"
     },
     {
@@ -339,7 +339,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L24",
       "id": "tests_test_wake_word_detector_test_stop_sets_event",
-      "community": 7,
+      "community": 8,
       "norm_label": "test_stop_sets_event()"
     },
     {
@@ -348,7 +348,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L30",
       "id": "tests_test_wake_word_detector_test_detect_loop_logs_error_on_missing_import",
-      "community": 7,
+      "community": 8,
       "norm_label": "test_detect_loop_logs_error_on_missing_import()"
     },
     {
@@ -357,7 +357,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L37",
       "id": "tests_test_wake_word_detector_make_detector_mocks",
-      "community": 7,
+      "community": 8,
       "norm_label": "_make_detector_mocks()"
     },
     {
@@ -366,7 +366,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L62",
       "id": "tests_test_wake_word_detector_test_detect_loop_calls_on_wake_when_threshold_met",
-      "community": 7,
+      "community": 8,
       "norm_label": "test_detect_loop_calls_on_wake_when_threshold_met()"
     },
     {
@@ -375,7 +375,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L78",
       "id": "tests_test_wake_word_detector_test_detect_loop_refractory_suppresses_second_wake",
-      "community": 7,
+      "community": 8,
       "norm_label": "test_detect_loop_refractory_suppresses_second_wake()"
     },
     {
@@ -384,7 +384,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L124",
       "id": "tests_test_wake_word_detector_test_detect_loop_recovers_from_audio_read_error",
-      "community": 7,
+      "community": 8,
       "norm_label": "test_detect_loop_recovers_from_audio_read_error()"
     },
     {
@@ -393,7 +393,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L38",
       "id": "tests_test_wake_word_detector_rationale_38",
-      "community": 7,
+      "community": 8,
       "norm_label": "return (detector, mock_pyaudio, mock_oww_model) configured for a single-pass loo"
     },
     {
@@ -402,7 +402,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L79",
       "id": "tests_test_wake_word_detector_rationale_79",
-      "community": 7,
+      "community": 8,
       "norm_label": "second above-threshold chunk within refractory_s must not trigger on_wake again."
     },
     {
@@ -411,7 +411,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L125",
       "id": "tests_test_wake_word_detector_rationale_125",
-      "community": 7,
+      "community": 8,
       "norm_label": "loop must not crash on stream.read raising an exception."
     },
     {
@@ -420,7 +420,7 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L1",
       "id": "tests_test_voice_listener_py",
-      "community": 6,
+      "community": 5,
       "norm_label": "test_voice_listener.py"
     },
     {
@@ -429,7 +429,7 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L7",
       "id": "tests_test_voice_listener_make_listener",
-      "community": 6,
+      "community": 5,
       "norm_label": "_make_listener()"
     },
     {
@@ -438,7 +438,7 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L18",
       "id": "tests_test_voice_listener_test_parse_supply",
-      "community": 6,
+      "community": 5,
       "norm_label": "test_parse_supply()"
     },
     {
@@ -447,7 +447,7 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L25",
       "id": "tests_test_voice_listener_test_parse_resources",
-      "community": 6,
+      "community": 5,
       "norm_label": "test_parse_resources()"
     },
     {
@@ -456,7 +456,7 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L32",
       "id": "tests_test_voice_listener_test_parse_silence_minutes",
-      "community": 6,
+      "community": 5,
       "norm_label": "test_parse_silence_minutes()"
     },
     {
@@ -465,7 +465,7 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L40",
       "id": "tests_test_voice_listener_test_parse_silence_seconds",
-      "community": 6,
+      "community": 5,
       "norm_label": "test_parse_silence_seconds()"
     },
     {
@@ -474,7 +474,7 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L48",
       "id": "tests_test_voice_listener_test_parse_unknown_returns_none",
-      "community": 6,
+      "community": 5,
       "norm_label": "test_parse_unknown_returns_none()"
     },
     {
@@ -483,7 +483,7 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L56",
       "id": "tests_test_voice_listener_test_handle_wake_enqueues_command",
-      "community": 6,
+      "community": 5,
       "norm_label": "test_handle_wake_enqueues_command()"
     },
     {
@@ -492,7 +492,7 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L76",
       "id": "tests_test_voice_listener_test_handle_wake_timeout_does_not_enqueue",
-      "community": 6,
+      "community": 5,
       "norm_label": "test_handle_wake_timeout_does_not_enqueue()"
     },
     {
@@ -501,7 +501,7 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L94",
       "id": "tests_test_voice_listener_test_handle_wake_missing_import_does_not_raise",
-      "community": 6,
+      "community": 5,
       "norm_label": "test_handle_wake_missing_import_does_not_raise()"
     },
     {
@@ -564,7 +564,7 @@
       "source_file": "tests/test_messages.py",
       "source_location": "L1",
       "id": "tests_test_messages_py",
-      "community": 1,
+      "community": 16,
       "norm_label": "test_messages.py"
     },
     {
@@ -573,7 +573,7 @@
       "source_file": "tests/test_messages.py",
       "source_location": "L7",
       "id": "tests_test_messages_test_strict_mode_returns_exact_string",
-      "community": 1,
+      "community": 16,
       "norm_label": "test_strict_mode_returns_exact_string()"
     },
     {
@@ -582,7 +582,7 @@
       "source_file": "tests/test_messages.py",
       "source_location": "L13",
       "id": "tests_test_messages_test_funny_mode_returns_non_empty",
-      "community": 1,
+      "community": 16,
       "norm_label": "test_funny_mode_returns_non_empty()"
     },
     {
@@ -591,7 +591,7 @@
       "source_file": "tests/test_messages.py",
       "source_location": "L19",
       "id": "tests_test_messages_test_custom_mode_uses_custom_messages",
-      "community": 1,
+      "community": 16,
       "norm_label": "test_custom_mode_uses_custom_messages()"
     },
     {
@@ -600,7 +600,7 @@
       "source_file": "tests/test_messages.py",
       "source_location": "L25",
       "id": "tests_test_messages_test_custom_mode_falls_back_to_strict_when_empty",
-      "community": 1,
+      "community": 16,
       "norm_label": "test_custom_mode_falls_back_to_strict_when_empty()"
     },
     {
@@ -609,7 +609,7 @@
       "source_file": "tests/test_messages.py",
       "source_location": "L30",
       "id": "tests_test_messages_test_custom_mode_falls_back_when_category_missing",
-      "community": 1,
+      "community": 16,
       "norm_label": "test_custom_mode_falls_back_when_category_missing()"
     },
     {
@@ -618,7 +618,7 @@
       "source_file": "tests/test_messages.py",
       "source_location": "L1",
       "id": "tests_test_messages_rationale_1",
-      "community": 1,
+      "community": 16,
       "norm_label": "smoke tests for message selection logic."
     },
     {
@@ -627,53 +627,62 @@
       "source_file": "tests/test_config_manager.py",
       "source_location": "L1",
       "id": "tests_test_config_manager_py",
-      "community": 2,
+      "community": 1,
       "norm_label": "test_config_manager.py"
     },
     {
-      "label": "test_load_config_returns_defaults_on_missing_file()",
+      "label": "isolated_db()",
       "file_type": "code",
       "source_file": "tests/test_config_manager.py",
-      "source_location": "L12",
-      "id": "tests_test_config_manager_test_load_config_returns_defaults_on_missing_file",
-      "community": 2,
-      "norm_label": "test_load_config_returns_defaults_on_missing_file()"
+      "source_location": "L10",
+      "id": "tests_test_config_manager_isolated_db",
+      "community": 1,
+      "norm_label": "isolated_db()"
     },
     {
-      "label": "test_save_and_load_roundtrip()",
+      "label": "test_get_config_returns_defaults_on_empty_db()",
       "file_type": "code",
       "source_file": "tests/test_config_manager.py",
-      "source_location": "L19",
-      "id": "tests_test_config_manager_test_save_and_load_roundtrip",
-      "community": 2,
-      "norm_label": "test_save_and_load_roundtrip()"
+      "source_location": "L14",
+      "id": "tests_test_config_manager_test_get_config_returns_defaults_on_empty_db",
+      "community": 1,
+      "norm_label": "test_get_config_returns_defaults_on_empty_db()"
+    },
+    {
+      "label": "test_save_and_get_roundtrip()",
+      "file_type": "code",
+      "source_file": "tests/test_config_manager.py",
+      "source_location": "L20",
+      "id": "tests_test_config_manager_test_save_and_get_roundtrip",
+      "community": 1,
+      "norm_label": "test_save_and_get_roundtrip()"
     },
     {
       "label": "test_default_screen_capture_has_all_hud_elements()",
       "file_type": "code",
       "source_file": "tests/test_config_manager.py",
-      "source_location": "L29",
+      "source_location": "L30",
       "id": "tests_test_config_manager_test_default_screen_capture_has_all_hud_elements",
-      "community": 2,
+      "community": 1,
       "norm_label": "test_default_screen_capture_has_all_hud_elements()"
     },
     {
-      "label": "test_load_config_returns_default_on_empty_file()",
+      "label": "test_get_config_returns_defaults_on_fresh_db()",
       "file_type": "code",
       "source_file": "tests/test_config_manager.py",
-      "source_location": "L40",
-      "id": "tests_test_config_manager_test_load_config_returns_default_on_empty_file",
-      "community": 2,
-      "norm_label": "test_load_config_returns_default_on_empty_file()"
+      "source_location": "L41",
+      "id": "tests_test_config_manager_test_get_config_returns_defaults_on_fresh_db",
+      "community": 1,
+      "norm_label": "test_get_config_returns_defaults_on_fresh_db()"
     },
     {
-      "label": "Smoke tests for config load/save round-trips.",
+      "label": "Smoke tests for config get/save round-trips.",
       "file_type": "rationale",
       "source_file": "tests/test_config_manager.py",
       "source_location": "L1",
       "id": "tests_test_config_manager_rationale_1",
-      "community": 2,
-      "norm_label": "smoke tests for config load/save round-trips."
+      "community": 1,
+      "norm_label": "smoke tests for config get/save round-trips."
     },
     {
       "label": "config_manager.py",
@@ -681,7 +690,7 @@
       "source_file": "src/frontend/config_manager.py",
       "source_location": "L1",
       "id": "src_frontend_config_manager_py",
-      "community": 35,
+      "community": 36,
       "norm_label": "config_manager.py"
     },
     {
@@ -690,7 +699,7 @@
       "source_file": "src/frontend/__init__.py",
       "source_location": "L1",
       "id": "src_frontend_init_py",
-      "community": 36,
+      "community": 37,
       "norm_label": "__init__.py"
     },
     {
@@ -699,7 +708,7 @@
       "source_file": "src/frontend/app.py",
       "source_location": "L1",
       "id": "src_frontend_app_py",
-      "community": 2,
+      "community": 1,
       "norm_label": "app.py"
     },
     {
@@ -708,7 +717,7 @@
       "source_file": "src/frontend/app.py",
       "source_location": "L12",
       "id": "frontend_app_sc2helperapp",
-      "community": 2,
+      "community": 1,
       "norm_label": "sc2helperapp"
     },
     {
@@ -717,7 +726,7 @@
       "source_file": "src/frontend/app.py",
       "source_location": "L13",
       "id": "frontend_app_sc2helperapp_init",
-      "community": 2,
+      "community": 1,
       "norm_label": ".__init__()"
     },
     {
@@ -726,7 +735,7 @@
       "source_file": "src/frontend/app.py",
       "source_location": "L24",
       "id": "frontend_app_sc2helperapp_build",
-      "community": 2,
+      "community": 1,
       "norm_label": "._build()"
     },
     {
@@ -735,7 +744,7 @@
       "source_file": "src/frontend/app.py",
       "source_location": "L35",
       "id": "frontend_app_sc2helperapp_handle_save",
-      "community": 2,
+      "community": 1,
       "norm_label": "._handle_save()"
     },
     {
@@ -744,7 +753,7 @@
       "source_file": "src/frontend/app.py",
       "source_location": "L41",
       "id": "frontend_app_sc2helperapp_open_runner",
-      "community": 2,
+      "community": 1,
       "norm_label": "._open_runner()"
     },
     {
@@ -753,7 +762,7 @@
       "source_file": "src/frontend/sc2_ui.py",
       "source_location": "L1",
       "id": "src_frontend_sc2_ui_py",
-      "community": 2,
+      "community": 1,
       "norm_label": "sc2_ui.py"
     },
     {
@@ -762,7 +771,7 @@
       "source_file": "src/frontend/sc2_ui.py",
       "source_location": "L5",
       "id": "frontend_sc2_ui_main",
-      "community": 2,
+      "community": 1,
       "norm_label": "main()"
     },
     {
@@ -771,7 +780,7 @@
       "source_file": "src/frontend/sc2_ui.py",
       "source_location": "L1",
       "id": "frontend_sc2_ui_rationale_1",
-      "community": 2,
+      "community": 1,
       "norm_label": "entry point for the sc2 helper ui."
     },
     {
@@ -807,7 +816,7 @@
       "source_file": "src/frontend/logic/__init__.py",
       "source_location": "L1",
       "id": "src_frontend_logic_init_py",
-      "community": 37,
+      "community": 38,
       "norm_label": "__init__.py"
     },
     {
@@ -816,7 +825,7 @@
       "source_file": "src/frontend/logic/runner_logic.py",
       "source_location": "L1",
       "id": "src_frontend_logic_runner_logic_py",
-      "community": 5,
+      "community": 4,
       "norm_label": "runner_logic.py"
     },
     {
@@ -825,7 +834,7 @@
       "source_file": "src/frontend/logic/runner_logic.py",
       "source_location": "L12",
       "id": "logic_runner_logic_runnercontroller",
-      "community": 5,
+      "community": 4,
       "norm_label": "runnercontroller"
     },
     {
@@ -834,7 +843,7 @@
       "source_file": "src/frontend/logic/runner_logic.py",
       "source_location": "L13",
       "id": "logic_runner_logic_runnercontroller_init",
-      "community": 5,
+      "community": 4,
       "norm_label": ".__init__()"
     },
     {
@@ -843,7 +852,7 @@
       "source_file": "src/frontend/logic/runner_logic.py",
       "source_location": "L28",
       "id": "logic_runner_logic_runnercontroller_start",
-      "community": 5,
+      "community": 4,
       "norm_label": ".start()"
     },
     {
@@ -852,7 +861,7 @@
       "source_file": "src/frontend/logic/runner_logic.py",
       "source_location": "L54",
       "id": "logic_runner_logic_runnercontroller_stop",
-      "community": 5,
+      "community": 4,
       "norm_label": ".stop()"
     },
     {
@@ -861,7 +870,7 @@
       "source_file": "src/frontend/logic/runner_logic.py",
       "source_location": "L61",
       "id": "logic_runner_logic_runnercontroller_read_output",
-      "community": 5,
+      "community": 4,
       "norm_label": "._read_output()"
     },
     {
@@ -870,7 +879,7 @@
       "source_file": "src/frontend/logic/runner_logic.py",
       "source_location": "L66",
       "id": "logic_runner_logic_runnercontroller_check_queue",
-      "community": 5,
+      "community": 4,
       "norm_label": "._check_queue()"
     },
     {
@@ -879,7 +888,7 @@
       "source_file": "src/frontend/logic/runner_logic.py",
       "source_location": "L29",
       "id": "logic_runner_logic_rationale_29",
-      "community": 5,
+      "community": 4,
       "norm_label": "start the backend process. returns false if already running."
     },
     {
@@ -888,7 +897,7 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L1",
       "id": "src_frontend_views_runner_view_py",
-      "community": 5,
+      "community": 4,
       "norm_label": "runner_view.py"
     },
     {
@@ -897,7 +906,7 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L8",
       "id": "views_runner_view_runnerscreen",
-      "community": 5,
+      "community": 4,
       "norm_label": "runnerscreen"
     },
     {
@@ -906,7 +915,7 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L9",
       "id": "views_runner_view_runnerscreen_init",
-      "community": 5,
+      "community": 4,
       "norm_label": ".__init__()"
     },
     {
@@ -915,7 +924,7 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L25",
       "id": "views_runner_view_runnerscreen_build",
-      "community": 5,
+      "community": 4,
       "norm_label": "._build()"
     },
     {
@@ -924,7 +933,7 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L56",
       "id": "views_runner_view_runnerscreen_build_tracking",
-      "community": 5,
+      "community": 4,
       "norm_label": "._build_tracking()"
     },
     {
@@ -933,7 +942,7 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L96",
       "id": "views_runner_view_runnerscreen_update_tracking",
-      "community": 5,
+      "community": 4,
       "norm_label": "._update_tracking()"
     },
     {
@@ -942,7 +951,7 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L136",
       "id": "views_runner_view_runnerscreen_start",
-      "community": 5,
+      "community": 4,
       "norm_label": "._start()"
     },
     {
@@ -951,7 +960,7 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L140",
       "id": "views_runner_view_runnerscreen_stop",
-      "community": 5,
+      "community": 4,
       "norm_label": "._stop()"
     },
     {
@@ -960,7 +969,7 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L144",
       "id": "views_runner_view_runnerscreen_on_close",
-      "community": 5,
+      "community": 4,
       "norm_label": "._on_close()"
     },
     {
@@ -969,7 +978,7 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L148",
       "id": "views_runner_view_runnerscreen_update_status",
-      "community": 5,
+      "community": 4,
       "norm_label": "._update_status()"
     },
     {
@@ -978,7 +987,7 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L168",
       "id": "views_runner_view_runnerscreen_reset_tracking",
-      "community": 5,
+      "community": 4,
       "norm_label": "._reset_tracking()"
     },
     {
@@ -987,7 +996,7 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L175",
       "id": "views_runner_view_runnerscreen_append_log",
-      "community": 5,
+      "community": 4,
       "norm_label": "._append_log()"
     },
     {
@@ -996,7 +1005,7 @@
       "source_file": "src/frontend/views/runner_view.py",
       "source_location": "L181",
       "id": "views_runner_view_runnerscreen_clear_log",
-      "community": 5,
+      "community": 4,
       "norm_label": "._clear_log()"
     },
     {
@@ -1005,7 +1014,7 @@
       "source_file": "src/frontend/views/__init__.py",
       "source_location": "L1",
       "id": "src_frontend_views_init_py",
-      "community": 38,
+      "community": 39,
       "norm_label": "__init__.py"
     },
     {
@@ -1014,7 +1023,7 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L1",
       "id": "src_frontend_views_settings_view_py",
-      "community": 2,
+      "community": 1,
       "norm_label": "settings_view.py"
     },
     {
@@ -1023,7 +1032,7 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L8",
       "id": "views_settings_view_settingsscreen",
-      "community": 2,
+      "community": 1,
       "norm_label": "settingsscreen"
     },
     {
@@ -1032,7 +1041,7 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L9",
       "id": "views_settings_view_settingsscreen_init",
-      "community": 2,
+      "community": 1,
       "norm_label": ".__init__()"
     },
     {
@@ -1041,7 +1050,7 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L15",
       "id": "views_settings_view_settingsscreen_build",
-      "community": 2,
+      "community": 1,
       "norm_label": "._build()"
     },
     {
@@ -1050,7 +1059,7 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L38",
       "id": "views_settings_view_settingsscreen_save",
-      "community": 2,
+      "community": 1,
       "norm_label": "._save()"
     },
     {
@@ -1059,7 +1068,7 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L46",
       "id": "views_settings_view_settingsscreen_collect",
-      "community": 2,
+      "community": 1,
       "norm_label": "._collect()"
     },
     {
@@ -1068,7 +1077,7 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L52",
       "id": "views_settings_view_settingsscreen_on_tab_change",
-      "community": 2,
+      "community": 1,
       "norm_label": "._on_tab_change()"
     },
     {
@@ -1077,7 +1086,7 @@
       "source_file": "src/frontend/views/settings_view.py",
       "source_location": "L56",
       "id": "views_settings_view_settingsscreen_refresh",
-      "community": 2,
+      "community": 1,
       "norm_label": ".refresh()"
     },
     {
@@ -1086,7 +1095,7 @@
       "source_file": "src/frontend/views/tabs/messages_tab.py",
       "source_location": "L1",
       "id": "src_frontend_views_tabs_messages_tab_py",
-      "community": 2,
+      "community": 1,
       "norm_label": "messages_tab.py"
     },
     {
@@ -1095,7 +1104,7 @@
       "source_file": "src/frontend/views/tabs/messages_tab.py",
       "source_location": "L7",
       "id": "tabs_messages_tab_messagestab",
-      "community": 2,
+      "community": 1,
       "norm_label": "messagestab"
     },
     {
@@ -1104,7 +1113,7 @@
       "source_file": "src/frontend/views/tabs/messages_tab.py",
       "source_location": "L8",
       "id": "tabs_messages_tab_messagestab_init",
-      "community": 2,
+      "community": 1,
       "norm_label": ".__init__()"
     },
     {
@@ -1113,7 +1122,7 @@
       "source_file": "src/frontend/views/tabs/messages_tab.py",
       "source_location": "L13",
       "id": "tabs_messages_tab_messagestab_build",
-      "community": 2,
+      "community": 1,
       "norm_label": "._build()"
     },
     {
@@ -1122,7 +1131,7 @@
       "source_file": "src/frontend/views/tabs/messages_tab.py",
       "source_location": "L48",
       "id": "tabs_messages_tab_messagestab_on_mode_change",
-      "community": 2,
+      "community": 1,
       "norm_label": "._on_mode_change()"
     },
     {
@@ -1131,7 +1140,7 @@
       "source_file": "src/frontend/views/tabs/messages_tab.py",
       "source_location": "L54",
       "id": "tabs_messages_tab_messagestab_collect",
-      "community": 2,
+      "community": 1,
       "norm_label": ".collect()"
     },
     {
@@ -1140,7 +1149,7 @@
       "source_file": "src/frontend/views/tabs/__init__.py",
       "source_location": "L1",
       "id": "src_frontend_views_tabs_init_py",
-      "community": 39,
+      "community": 40,
       "norm_label": "__init__.py"
     },
     {
@@ -1203,7 +1212,7 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L69",
       "id": "tabs_coords_tab_coordstab_save_coords",
-      "community": 2,
+      "community": 15,
       "norm_label": "._save_coords()"
     },
     {
@@ -1221,7 +1230,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L1",
       "id": "src_frontend_views_tabs_config_tab_py",
-      "community": 9,
+      "community": 10,
       "norm_label": "config_tab.py"
     },
     {
@@ -1230,7 +1239,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L4",
       "id": "tabs_config_tab_configtab",
-      "community": 9,
+      "community": 10,
       "norm_label": "configtab"
     },
     {
@@ -1239,7 +1248,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L5",
       "id": "tabs_config_tab_configtab_init",
-      "community": 9,
+      "community": 10,
       "norm_label": ".__init__()"
     },
     {
@@ -1248,7 +1257,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L11",
       "id": "tabs_config_tab_configtab_lbl",
-      "community": 9,
+      "community": 10,
       "norm_label": "._lbl()"
     },
     {
@@ -1257,7 +1266,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L14",
       "id": "tabs_config_tab_configtab_entry",
-      "community": 9,
+      "community": 10,
       "norm_label": "._entry()"
     },
     {
@@ -1266,7 +1275,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L19",
       "id": "tabs_config_tab_configtab_section_header",
-      "community": 9,
+      "community": 10,
       "norm_label": "._section_header()"
     },
     {
@@ -1275,7 +1284,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L24",
       "id": "tabs_config_tab_configtab_spacer",
-      "community": 9,
+      "community": 10,
       "norm_label": "._spacer()"
     },
     {
@@ -1284,7 +1293,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L28",
       "id": "tabs_config_tab_configtab_build",
-      "community": 9,
+      "community": 10,
       "norm_label": "._build()"
     },
     {
@@ -1293,7 +1302,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L37",
       "id": "tabs_config_tab_configtab_build_general_section",
-      "community": 9,
+      "community": 10,
       "norm_label": "._build_general_section()"
     },
     {
@@ -1302,7 +1311,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L52",
       "id": "tabs_config_tab_configtab_build_resources_section",
-      "community": 9,
+      "community": 10,
       "norm_label": "._build_resources_section()"
     },
     {
@@ -1311,7 +1320,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L73",
       "id": "tabs_config_tab_configtab_build_supply_section",
-      "community": 9,
+      "community": 10,
       "norm_label": "._build_supply_section()"
     },
     {
@@ -1320,7 +1329,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L105",
       "id": "tabs_config_tab_configtab_build_workers_section",
-      "community": 9,
+      "community": 10,
       "norm_label": "._build_workers_section()"
     },
     {
@@ -1329,7 +1338,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L121",
       "id": "tabs_config_tab_configtab_build_voice_section",
-      "community": 9,
+      "community": 10,
       "norm_label": "._build_voice_section()"
     },
     {
@@ -1338,7 +1347,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L164",
       "id": "tabs_config_tab_configtab_build_screen_capture_section",
-      "community": 9,
+      "community": 10,
       "norm_label": "._build_screen_capture_section()"
     },
     {
@@ -1347,7 +1356,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L175",
       "id": "tabs_config_tab_configtab_add_tier_row",
-      "community": 9,
+      "community": 10,
       "norm_label": "._add_tier_row()"
     },
     {
@@ -1356,7 +1365,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L195",
       "id": "tabs_config_tab_configtab_remove_tier_row",
-      "community": 9,
+      "community": 10,
       "norm_label": "._remove_tier_row()"
     },
     {
@@ -1365,7 +1374,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L199",
       "id": "tabs_config_tab_configtab_collect",
-      "community": 9,
+      "community": 10,
       "norm_label": ".collect()"
     },
     {
@@ -1446,7 +1455,7 @@
       "source_file": "src/backend/service.py",
       "source_location": "L1",
       "id": "src_backend_service_py",
-      "community": 2,
+      "community": 1,
       "norm_label": "service.py"
     },
     {
@@ -1455,7 +1464,7 @@
       "source_file": "src/backend/service.py",
       "source_location": "L70",
       "id": "backend_service_row_to_config",
-      "community": 2,
+      "community": 1,
       "norm_label": "_row_to_config()"
     },
     {
@@ -1464,7 +1473,7 @@
       "source_file": "src/backend/service.py",
       "source_location": "L80",
       "id": "backend_service_config_to_row",
-      "community": 2,
+      "community": 1,
       "norm_label": "_config_to_row()"
     },
     {
@@ -1473,7 +1482,7 @@
       "source_file": "src/backend/service.py",
       "source_location": "L93",
       "id": "backend_service_get_config",
-      "community": 2,
+      "community": 1,
       "norm_label": "get_config()"
     },
     {
@@ -1482,7 +1491,7 @@
       "source_file": "src/backend/service.py",
       "source_location": "L105",
       "id": "backend_service_save_config",
-      "community": 2,
+      "community": 1,
       "norm_label": "save_config()"
     },
     {
@@ -1491,7 +1500,7 @@
       "source_file": "src/backend/service.py",
       "source_location": "L117",
       "id": "backend_service_row_to_record",
-      "community": 2,
+      "community": 1,
       "norm_label": "_row_to_record()"
     },
     {
@@ -1500,7 +1509,7 @@
       "source_file": "src/backend/service.py",
       "source_location": "L133",
       "id": "backend_service_row_to_live",
-      "community": 2,
+      "community": 1,
       "norm_label": "_row_to_live()"
     },
     {
@@ -1518,7 +1527,7 @@
       "source_file": "src/backend/service.py",
       "source_location": "L159",
       "id": "backend_service_get_live_stats",
-      "community": 2,
+      "community": 1,
       "norm_label": "get_live_stats()"
     },
     {
@@ -1527,7 +1536,7 @@
       "source_file": "src/backend/service.py",
       "source_location": "L1",
       "id": "backend_service_rationale_1",
-      "community": 2,
+      "community": 1,
       "norm_label": "service layer \u2014 the only entry point for frontend to access config and stats. fr"
     },
     {
@@ -1536,7 +1545,7 @@
       "source_file": "src/backend/index.py",
       "source_location": "L1",
       "id": "src_backend_index_py",
-      "community": 1,
+      "community": 2,
       "norm_label": "index.py"
     },
     {
@@ -1545,7 +1554,7 @@
       "source_file": "src/backend/index.py",
       "source_location": "L43",
       "id": "backend_index_test_ocr_mode",
-      "community": 8,
+      "community": 9,
       "norm_label": "test_ocr_mode()"
     },
     {
@@ -1554,7 +1563,7 @@
       "source_file": "src/backend/index.py",
       "source_location": "L77",
       "id": "backend_index_main",
-      "community": 1,
+      "community": 2,
       "norm_label": "main()"
     },
     {
@@ -1563,7 +1572,7 @@
       "source_file": "src/backend/index.py",
       "source_location": "L205",
       "id": "backend_index_handle_voice_command",
-      "community": 1,
+      "community": 2,
       "norm_label": "_handle_voice_command()"
     },
     {
@@ -1572,7 +1581,7 @@
       "source_file": "src/backend/index.py",
       "source_location": "L1",
       "id": "backend_index_rationale_1",
-      "community": 1,
+      "community": 2,
       "norm_label": "sc2 helper \u2014 captures the starcraft ii hud via screen ocr and speaks audio warni"
     },
     {
@@ -1581,7 +1590,7 @@
       "source_file": "src/backend/index.py",
       "source_location": "L44",
       "id": "backend_index_rationale_44",
-      "community": 8,
+      "community": 9,
       "norm_label": "capture each configured region, save crops, print ocr results."
     },
     {
@@ -1716,7 +1725,7 @@
       "source_file": "src/backend/constants.py",
       "source_location": "L1",
       "id": "src_backend_constants_py",
-      "community": 40,
+      "community": 41,
       "norm_label": "constants.py"
     },
     {
@@ -1725,7 +1734,7 @@
       "source_file": "src/backend/__init__.py",
       "source_location": "L1",
       "id": "src_backend_init_py",
-      "community": 41,
+      "community": 42,
       "norm_label": "__init__.py"
     },
     {
@@ -1734,7 +1743,7 @@
       "source_file": "src/backend/logger.py",
       "source_location": "L1",
       "id": "src_backend_logger_py",
-      "community": 1,
+      "community": 2,
       "norm_label": "logger.py"
     },
     {
@@ -1743,7 +1752,7 @@
       "source_file": "src/backend/logger.py",
       "source_location": "L5",
       "id": "backend_logger_setup_logging",
-      "community": 1,
+      "community": 2,
       "norm_label": "setup_logging()"
     },
     {
@@ -1752,7 +1761,7 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L1",
       "id": "src_backend_ocr_py",
-      "community": 8,
+      "community": 9,
       "norm_label": "ocr.py"
     },
     {
@@ -1761,7 +1770,7 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L9",
       "id": "backend_ocr_capture_region",
-      "community": 8,
+      "community": 9,
       "norm_label": "capture_region()"
     },
     {
@@ -1770,7 +1779,7 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L18",
       "id": "backend_ocr_preprocess",
-      "community": 8,
+      "community": 9,
       "norm_label": "_preprocess()"
     },
     {
@@ -1779,7 +1788,7 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L24",
       "id": "backend_ocr_ocr_number",
-      "community": 8,
+      "community": 9,
       "norm_label": "ocr_number()"
     },
     {
@@ -1788,7 +1797,7 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L39",
       "id": "backend_ocr_ocr_supply",
-      "community": 8,
+      "community": 9,
       "norm_label": "ocr_supply()"
     },
     {
@@ -1797,7 +1806,7 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L10",
       "id": "backend_ocr_rationale_10",
-      "community": 8,
+      "community": 9,
       "norm_label": "capture a screen region. region = [left, top, width, height]."
     },
     {
@@ -1806,7 +1815,7 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L25",
       "id": "backend_ocr_rationale_25",
-      "community": 8,
+      "community": 9,
       "norm_label": "ocr a single integer from a hud region. returns none on failure."
     },
     {
@@ -1815,7 +1824,7 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L40",
       "id": "backend_ocr_rationale_40",
-      "community": 8,
+      "community": 9,
       "norm_label": "ocr supply region. returns (used, max) or (none, none) on failure."
     },
     {
@@ -1824,7 +1833,7 @@
       "source_file": "src/backend/hud_elements.py",
       "source_location": "L1",
       "id": "src_backend_hud_elements_py",
-      "community": 23,
+      "community": 24,
       "norm_label": "hud_elements.py"
     },
     {
@@ -1833,7 +1842,7 @@
       "source_file": "src/backend/hud_elements.py",
       "source_location": "L5",
       "id": "backend_hud_elements_hudelement",
-      "community": 23,
+      "community": 24,
       "norm_label": "hudelement"
     },
     {
@@ -1842,7 +1851,7 @@
       "source_file": "src/backend/utils.py",
       "source_location": "L1",
       "id": "src_backend_utils_py",
-      "community": 1,
+      "community": 2,
       "norm_label": "utils.py"
     },
     {
@@ -1851,7 +1860,7 @@
       "source_file": "src/backend/utils.py",
       "source_location": "L4",
       "id": "backend_utils_extract_result",
-      "community": 1,
+      "community": 2,
       "norm_label": "_extract_result()"
     },
     {
@@ -1860,7 +1869,7 @@
       "source_file": "src/backend/utils.py",
       "source_location": "L18",
       "id": "backend_utils_extract_race",
-      "community": 1,
+      "community": 2,
       "norm_label": "_extract_race()"
     },
     {
@@ -1869,7 +1878,7 @@
       "source_file": "src/backend/utils.py",
       "source_location": "L26",
       "id": "backend_utils_format_debug_state",
-      "community": 1,
+      "community": 2,
       "norm_label": "_format_debug_state()"
     },
     {
@@ -1878,7 +1887,7 @@
       "source_file": "src/backend/utils.py",
       "source_location": "L5",
       "id": "backend_utils_rationale_5",
-      "community": 1,
+      "community": 2,
       "norm_label": "extract win/loss/tie for player_id from an already-fetched players list."
     },
     {
@@ -1887,7 +1896,7 @@
       "source_file": "src/backend/utils.py",
       "source_location": "L19",
       "id": "backend_utils_rationale_19",
-      "community": 1,
+      "community": 2,
       "norm_label": "extract the player's race from the players list."
     },
     {
@@ -1896,7 +1905,7 @@
       "source_file": "src/backend/messages.py",
       "source_location": "L1",
       "id": "src_backend_messages_py",
-      "community": 1,
+      "community": 16,
       "norm_label": "messages.py"
     },
     {
@@ -1905,7 +1914,7 @@
       "source_file": "src/backend/messages.py",
       "source_location": "L63",
       "id": "backend_messages_get_message",
-      "community": 1,
+      "community": 16,
       "norm_label": "get_message()"
     },
     {
@@ -1914,7 +1923,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L1",
       "id": "src_backend_game_api_py",
-      "community": 8,
+      "community": 9,
       "norm_label": "game_api.py"
     },
     {
@@ -1923,7 +1932,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L10",
       "id": "backend_game_api_poll_game",
-      "community": 8,
+      "community": 9,
       "norm_label": "_poll_game()"
     },
     {
@@ -1932,7 +1941,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L24",
       "id": "backend_game_api_is_game_running",
-      "community": 8,
+      "community": 9,
       "norm_label": "is_game_running()"
     },
     {
@@ -1941,7 +1950,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L30",
       "id": "backend_game_api_capture_hud",
-      "community": 8,
+      "community": 9,
       "norm_label": "_capture_hud()"
     },
     {
@@ -1950,7 +1959,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L49",
       "id": "backend_game_api_filter_spikes",
-      "community": 8,
+      "community": 9,
       "norm_label": "_filter_spikes()"
     },
     {
@@ -1959,7 +1968,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L66",
       "id": "backend_game_api_fetch_game_state",
-      "community": 8,
+      "community": 9,
       "norm_label": "fetch_game_state()"
     },
     {
@@ -1968,7 +1977,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L11",
       "id": "backend_game_api_rationale_11",
-      "community": 8,
+      "community": 9,
       "norm_label": "return (is_running, players). single api call reused by main loop."
     },
     {
@@ -1977,7 +1986,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L25",
       "id": "backend_game_api_rationale_25",
-      "community": 8,
+      "community": 9,
       "norm_label": "return true if sc2 is running and a game is in progress."
     },
     {
@@ -1986,7 +1995,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L31",
       "id": "backend_game_api_rationale_31",
-      "community": 8,
+      "community": 9,
       "norm_label": "capture hud via screen ocr. assumes game is already confirmed running."
     },
     {
@@ -1995,7 +2004,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L67",
       "id": "backend_game_api_rationale_67",
-      "community": 8,
+      "community": 9,
       "norm_label": "capture current game state via screen ocr. returns none if game not running."
     },
     {
@@ -2004,7 +2013,7 @@
       "source_file": "src/backend/detectors.py",
       "source_location": "L1",
       "id": "src_backend_detectors_py",
-      "community": 1,
+      "community": 2,
       "norm_label": "detectors.py"
     },
     {
@@ -2013,7 +2022,7 @@
       "source_file": "src/backend/detectors.py",
       "source_location": "L11",
       "id": "backend_detectors_check_resources",
-      "community": 1,
+      "community": 2,
       "norm_label": "check_resources()"
     },
     {
@@ -2022,7 +2031,7 @@
       "source_file": "src/backend/detectors.py",
       "source_location": "L30",
       "id": "backend_detectors_check_supply",
-      "community": 1,
+      "community": 2,
       "norm_label": "check_supply()"
     },
     {
@@ -2031,7 +2040,7 @@
       "source_file": "src/backend/detectors.py",
       "source_location": "L56",
       "id": "backend_detectors_check_idle_workers",
-      "community": 1,
+      "community": 2,
       "norm_label": "check_idle_workers()"
     },
     {
@@ -2040,7 +2049,7 @@
       "source_file": "src/backend/detectors.py",
       "source_location": "L67",
       "id": "backend_detectors_rationale_67",
-      "community": 1,
+      "community": 2,
       "norm_label": "track idle workers. returns updated idle_onset (or none if busy)."
     },
     {
@@ -2076,7 +2085,7 @@
       "source_file": "src/backend/classes/cooldown_tracker.py",
       "source_location": "L1",
       "id": "src_backend_classes_cooldown_tracker_py",
-      "community": 1,
+      "community": 2,
       "norm_label": "cooldown_tracker.py"
     },
     {
@@ -2085,7 +2094,7 @@
       "source_file": "src/backend/classes/cooldown_tracker.py",
       "source_location": "L4",
       "id": "classes_cooldown_tracker_cooldowntracker",
-      "community": 1,
+      "community": 2,
       "norm_label": "cooldowntracker"
     },
     {
@@ -2094,7 +2103,7 @@
       "source_file": "src/backend/classes/cooldown_tracker.py",
       "source_location": "L5",
       "id": "classes_cooldown_tracker_cooldowntracker_init",
-      "community": 1,
+      "community": 2,
       "norm_label": ".__init__()"
     },
     {
@@ -2103,7 +2112,7 @@
       "source_file": "src/backend/classes/cooldown_tracker.py",
       "source_location": "L8",
       "id": "classes_cooldown_tracker_cooldowntracker_ready",
-      "community": 1,
+      "community": 2,
       "norm_label": ".ready()"
     },
     {
@@ -2112,7 +2121,7 @@
       "source_file": "src/backend/classes/cooldown_tracker.py",
       "source_location": "L16",
       "id": "classes_cooldown_tracker_cooldowntracker_remaining",
-      "community": 1,
+      "community": 2,
       "norm_label": ".remaining()"
     },
     {
@@ -2121,7 +2130,7 @@
       "source_file": "src/backend/classes/cooldown_tracker.py",
       "source_location": "L9",
       "id": "classes_cooldown_tracker_rationale_9",
-      "community": 1,
+      "community": 2,
       "norm_label": "return true (and record the time) if the cooldown has elapsed."
     },
     {
@@ -2130,7 +2139,7 @@
       "source_file": "src/backend/classes/cooldown_tracker.py",
       "source_location": "L17",
       "id": "classes_cooldown_tracker_rationale_17",
-      "community": 1,
+      "community": 2,
       "norm_label": "return seconds left on cooldown, or 0 if ready."
     },
     {
@@ -2184,7 +2193,7 @@
       "source_file": "src/backend/classes/voice_listener.py",
       "source_location": "L1",
       "id": "src_backend_classes_voice_listener_py",
-      "community": 6,
+      "community": 5,
       "norm_label": "voice_listener.py"
     },
     {
@@ -2193,7 +2202,7 @@
       "source_file": "src/backend/classes/voice_listener.py",
       "source_location": "L10",
       "id": "classes_voice_listener_voicecommand",
-      "community": 6,
+      "community": 5,
       "norm_label": "voicecommand"
     },
     {
@@ -2202,7 +2211,7 @@
       "source_file": "src/backend/classes/voice_listener.py",
       "source_location": "L15",
       "id": "classes_voice_listener_voicelistener",
-      "community": 6,
+      "community": 5,
       "norm_label": "voicelistener"
     },
     {
@@ -2211,7 +2220,7 @@
       "source_file": "src/backend/classes/voice_listener.py",
       "source_location": "L16",
       "id": "classes_voice_listener_voicelistener_init",
-      "community": 6,
+      "community": 5,
       "norm_label": ".__init__()"
     },
     {
@@ -2220,7 +2229,7 @@
       "source_file": "src/backend/classes/voice_listener.py",
       "source_location": "L28",
       "id": "classes_voice_listener_voicelistener_handle_wake",
-      "community": 6,
+      "community": 5,
       "norm_label": ".handle_wake()"
     },
     {
@@ -2229,7 +2238,7 @@
       "source_file": "src/backend/classes/voice_listener.py",
       "source_location": "L58",
       "id": "classes_voice_listener_voicelistener_transcribe",
-      "community": 6,
+      "community": 5,
       "norm_label": "._transcribe()"
     },
     {
@@ -2238,7 +2247,7 @@
       "source_file": "src/backend/classes/voice_listener.py",
       "source_location": "L67",
       "id": "classes_voice_listener_voicelistener_parse_command",
-      "community": 6,
+      "community": 5,
       "norm_label": "._parse_command()"
     },
     {
@@ -2247,7 +2256,7 @@
       "source_file": "src/backend/classes/__init__.py",
       "source_location": "L1",
       "id": "src_backend_classes_init_py",
-      "community": 42,
+      "community": 43,
       "norm_label": "__init__.py"
     },
     {
@@ -2256,7 +2265,7 @@
       "source_file": "src/backend/classes/wake_word_detector.py",
       "source_location": "L1",
       "id": "src_backend_classes_wake_word_detector_py",
-      "community": 7,
+      "community": 8,
       "norm_label": "wake_word_detector.py"
     },
     {
@@ -2265,7 +2274,7 @@
       "source_file": "src/backend/classes/wake_word_detector.py",
       "source_location": "L9",
       "id": "classes_wake_word_detector_wakeworddetector",
-      "community": 7,
+      "community": 8,
       "norm_label": "wakeworddetector"
     },
     {
@@ -2274,7 +2283,7 @@
       "source_file": "src/backend/classes/wake_word_detector.py",
       "source_location": "L10",
       "id": "classes_wake_word_detector_wakeworddetector_init",
-      "community": 7,
+      "community": 8,
       "norm_label": ".__init__()"
     },
     {
@@ -2283,7 +2292,7 @@
       "source_file": "src/backend/classes/wake_word_detector.py",
       "source_location": "L26",
       "id": "classes_wake_word_detector_wakeworddetector_start",
-      "community": 7,
+      "community": 8,
       "norm_label": ".start()"
     },
     {
@@ -2292,7 +2301,7 @@
       "source_file": "src/backend/classes/wake_word_detector.py",
       "source_location": "L31",
       "id": "classes_wake_word_detector_wakeworddetector_stop",
-      "community": 7,
+      "community": 8,
       "norm_label": ".stop()"
     },
     {
@@ -2301,7 +2310,7 @@
       "source_file": "src/backend/classes/wake_word_detector.py",
       "source_location": "L34",
       "id": "classes_wake_word_detector_wakeworddetector_detect_loop",
-      "community": 7,
+      "community": 8,
       "norm_label": "._detect_loop()"
     },
     {
@@ -2611,11 +2620,38 @@
       "norm_label": "ensure_tables()"
     },
     {
+      "label": "test_load_config_returns_defaults_on_missing_file()",
+      "file_type": "code",
+      "source_file": "tests/test_config_manager.py",
+      "source_location": "L12",
+      "community": 1,
+      "norm_label": "test_load_config_returns_defaults_on_missing_file()",
+      "id": "tests_test_config_manager_test_load_config_returns_defaults_on_missing_file"
+    },
+    {
+      "label": "test_save_and_load_roundtrip()",
+      "file_type": "code",
+      "source_file": "tests/test_config_manager.py",
+      "source_location": "L19",
+      "community": 1,
+      "norm_label": "test_save_and_load_roundtrip()",
+      "id": "tests_test_config_manager_test_save_and_load_roundtrip"
+    },
+    {
+      "label": "test_load_config_returns_default_on_empty_file()",
+      "file_type": "code",
+      "source_file": "tests/test_config_manager.py",
+      "source_location": "L40",
+      "community": 1,
+      "norm_label": "test_load_config_returns_default_on_empty_file()",
+      "id": "tests_test_config_manager_test_load_config_returns_default_on_empty_file"
+    },
+    {
       "label": ".start()",
       "file_type": "code",
       "source_file": "src/backend/classes/voice_listener.py",
       "source_location": "L45",
-      "community": 6,
+      "community": 5,
       "norm_label": ".start()",
       "id": "classes_voice_listener_voicelistener_start"
     },
@@ -2624,7 +2660,7 @@
       "file_type": "code",
       "source_file": "src/backend/classes/voice_listener.py",
       "source_location": "L50",
-      "community": 6,
+      "community": 5,
       "norm_label": ".stop()",
       "id": "classes_voice_listener_voicelistener_stop"
     },
@@ -2633,7 +2669,7 @@
       "file_type": "code",
       "source_file": "src/backend/classes/voice_listener.py",
       "source_location": "L53",
-      "community": 6,
+      "community": 5,
       "norm_label": "._listen_loop()",
       "id": "classes_voice_listener_voicelistener_listen_loop"
     },
@@ -2642,7 +2678,7 @@
       "file_type": "rationale",
       "source_file": "src/backend/classes/voice_listener.py",
       "source_location": "L1",
-      "community": 6,
+      "community": 5,
       "norm_label": "voice listener \u2014 background thread that listens for a wake word then transcribes",
       "id": "classes_voice_listener_rationale_1"
     },
@@ -2651,7 +2687,7 @@
       "file_type": "rationale",
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L37",
-      "community": 7,
+      "community": 8,
       "norm_label": "return (detector, mock_pyaudio, mock_oww_model) configured for a single-pass loo",
       "id": "tests_test_wake_word_detector_rationale_37"
     },
@@ -2660,7 +2696,7 @@
       "file_type": "rationale",
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L78",
-      "community": 7,
+      "community": 8,
       "norm_label": "second above-threshold chunk within refractory_s must not trigger on_wake again.",
       "id": "tests_test_wake_word_detector_rationale_78"
     },
@@ -2669,7 +2705,7 @@
       "file_type": "rationale",
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L124",
-      "community": 7,
+      "community": 8,
       "norm_label": "loop must not crash on stream.read raising an exception.",
       "id": "tests_test_wake_word_detector_rationale_124"
     },
@@ -2685,7 +2721,7 @@
       "properties": {
         "description": "Screen capture (mss) + Tesseract OCR functions; generates ocr_debug images during test/debug mode"
       },
-      "community": 16,
+      "community": 17,
       "norm_label": "ocr module (backend)",
       "id": "backend_ocr_module"
     },
@@ -2698,7 +2734,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "sc2 helper",
       "id": "readme_sc2helper"
     },
@@ -2711,7 +2747,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "game history tab (readme)",
       "id": "readme_gamehistorytab"
     },
@@ -2724,7 +2760,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "backend (src/backend/)",
       "id": "architecture_backend"
     },
@@ -2737,7 +2773,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "frontend (src/frontend/)",
       "id": "architecture_frontend"
     },
@@ -2750,7 +2786,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 7,
       "norm_label": "index.py (backend entry point)",
       "id": "architecture_indexpy"
     },
@@ -2763,7 +2799,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 43,
+      "community": 44,
       "norm_label": "constants.py",
       "id": "architecture_constantspy"
     },
@@ -2776,7 +2812,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 44,
+      "community": 45,
       "norm_label": "utils.py",
       "id": "architecture_utilspy"
     },
@@ -2789,7 +2825,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 45,
+      "community": 46,
       "norm_label": "logger.py",
       "id": "architecture_loggerpy"
     },
@@ -2802,7 +2838,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 7,
       "norm_label": "ocr.py (screen capture + ocr)",
       "id": "architecture_ocrpy"
     },
@@ -2815,7 +2851,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 7,
       "norm_label": "game_api.py (sc2 api polling)",
       "id": "architecture_gameapipy"
     },
@@ -2828,7 +2864,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 7,
       "norm_label": "detectors.py",
       "id": "architecture_detectorspy"
     },
@@ -2841,7 +2877,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "service.py (service layer)",
       "id": "architecture_servicepy"
     },
@@ -2854,7 +2890,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 7,
       "norm_label": "classes/speech_queue.py (speechqueue)",
       "id": "architecture_speechqueuepy"
     },
@@ -2867,7 +2903,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 7,
       "norm_label": "classes/cooldown_tracker.py (cooldowntracker)",
       "id": "architecture_cooldowntrackerpy"
     },
@@ -2880,7 +2916,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "db/__init__.py (get_db context manager)",
       "id": "architecture_dbinitpy"
     },
@@ -2893,7 +2929,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 24,
+      "community": 25,
       "norm_label": "db/connector.py (db abstraction base)",
       "id": "architecture_dbconnectorpy"
     },
@@ -2906,7 +2942,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 24,
+      "community": 25,
       "norm_label": "db/sqlite_connector.py (aiosqlite impl)",
       "id": "architecture_sqliteconnectorpy"
     },
@@ -2919,7 +2955,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "db/collection.py (collection query api)",
       "id": "architecture_collectionpy"
     },
@@ -2932,7 +2968,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "db/schema.py (create table statements)",
       "id": "architecture_schemapy"
     },
@@ -2945,7 +2981,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 46,
+      "community": 47,
       "norm_label": "messages.py (warning message banks)",
       "id": "architecture_messagespy"
     },
@@ -2958,7 +2994,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "game_history.py (gamehistorymanager)",
       "id": "architecture_gamehistorypy"
     },
@@ -2971,7 +3007,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 21,
       "norm_label": "hud_elements.py (hudelement + hud_elements)",
       "id": "architecture_hudelemspy"
     },
@@ -2984,7 +3020,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 47,
+      "community": 48,
       "norm_label": "find_coords.py (calibration script)",
       "id": "architecture_findcoordspy"
     },
@@ -2997,7 +3033,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 7,
       "norm_label": "views/runner_view.py (runnerscreen)",
       "id": "architecture_runnerview"
     },
@@ -3010,7 +3046,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 48,
+      "community": 49,
       "norm_label": "views/settings_view.py (settingsscreen)",
       "id": "architecture_settingsview"
     },
@@ -3023,7 +3059,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 49,
+      "community": 50,
       "norm_label": "views/tabs/config_tab.py",
       "id": "architecture_configtab"
     },
@@ -3036,7 +3072,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "views/tabs/messages_tab.py",
       "id": "architecture_messagestab"
     },
@@ -3049,7 +3085,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 21,
       "norm_label": "views/tabs/coords_tab.py",
       "id": "architecture_coordstab"
     },
@@ -3062,7 +3098,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "views/tabs/game_history_tab.py",
       "id": "architecture_gamehistorytab"
     },
@@ -3075,7 +3111,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 7,
       "norm_label": "logic/runner_logic.py (runnercontroller)",
       "id": "architecture_runnerlogic"
     },
@@ -3088,7 +3124,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "logic/game_history_logic.py (gamehistoryloader)",
       "id": "architecture_gamehistorylogic"
     },
@@ -3101,7 +3137,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 25,
+      "community": 26,
       "norm_label": "sc2_ui.py (ui entry point)",
       "id": "architecture_sc2uipy"
     },
@@ -3114,7 +3150,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 25,
+      "community": 26,
       "norm_label": "app.py (sc2helperapp root window)",
       "id": "architecture_apppy"
     },
@@ -3127,7 +3163,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "config_manager.py (re-exports from service)",
       "id": "architecture_configmanagerpy"
     },
@@ -3140,7 +3176,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 27,
       "norm_label": "dev.py (hot-reload runner)",
       "id": "architecture_devpy"
     },
@@ -3153,7 +3189,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 7,
       "norm_label": "spike filter (ocr anomaly suppression)",
       "id": "architecture_spikefilter"
     },
@@ -3166,7 +3202,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "game lifecycle (start/end transitions)",
       "id": "architecture_gamelifecycle"
     },
@@ -3179,7 +3215,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 7,
       "norm_label": "tts priority queue (supply > minerals > idle > gas)",
       "id": "architecture_priorityqueue"
     },
@@ -3192,7 +3228,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "strict message mode",
       "id": "messages_strictmode"
     },
@@ -3205,7 +3241,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "funny message mode",
       "id": "messages_funnymode"
     },
@@ -3218,7 +3254,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "custom message mode",
       "id": "messages_custommode"
     },
@@ -3231,7 +3267,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 7,
       "norm_label": "tesseract ocr (external tool)",
       "id": "running_tesseract"
     },
@@ -3244,7 +3280,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 7,
       "norm_label": "--debug cli flag",
       "id": "running_debugmode"
     },
@@ -3257,7 +3293,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 7,
       "norm_label": "--test-ocr cli flag",
       "id": "running_testocrmode"
     },
@@ -3270,7 +3306,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 27,
       "norm_label": "dev mode (hot-reload via dev.py)",
       "id": "running_devmode"
     },
@@ -3283,7 +3319,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 7,
       "norm_label": "sc2 client api (port 6119)",
       "id": "running_sc2api"
     },
@@ -3296,7 +3332,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "gamehistorymanager",
       "id": "gamehistory_gamehistorymanager"
     },
@@ -3309,7 +3345,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "game_stats sqlite table",
       "id": "gamehistory_gamestats_table"
     },
@@ -3322,7 +3358,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "service layer record schema (get_stats_history)",
       "id": "gamehistory_servicerecord"
     },
@@ -3335,7 +3371,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 6,
       "norm_label": "config sqlite table",
       "id": "config_configtable"
     },
@@ -3348,7 +3384,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 7,
       "norm_label": "supply warning tiers",
       "id": "config_supplytiers"
     },
@@ -3361,7 +3397,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 21,
       "norm_label": "screen capture regions config",
       "id": "config_screencapture"
     },
@@ -3374,7 +3410,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 7,
       "norm_label": "anomaly filter config",
       "id": "config_anomalyfilter"
     },
@@ -3387,7 +3423,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 7,
       "norm_label": "debug hud prints implementation plan",
       "id": "plan_debughuds"
     },
@@ -3401,7 +3437,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Replace one-shot /game API dump with full loop + per-interval HUD state print. Avoids stopping the loop for debug inspection and gives real visibility into OCR output.",
-      "community": 10,
+      "community": 7,
       "norm_label": "--debug flag repurpose (plan)",
       "id": "plan_debugflag"
     },
@@ -3414,7 +3450,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 7,
       "norm_label": "debug mode checkbox (runnerscreen)",
       "id": "plan_debugcheckbox"
     },
@@ -3427,7 +3463,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 7,
       "norm_label": "debug hud prints design spec",
       "id": "spec_debughuds"
     },
@@ -3441,7 +3477,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Stdout is already piped to the log textbox in RunnerScreen, so debug output flows into the UI automatically without additional plumbing.",
-      "community": 10,
+      "community": 7,
       "norm_label": "debug output format ([debug] lines)",
       "id": "spec_debugoutputformat"
     },
@@ -3454,7 +3490,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 17,
+      "community": 18,
       "norm_label": "supply hud crop (raw)",
       "id": "supply_raw_hud_crop"
     },
@@ -3467,7 +3503,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 17,
+      "community": 18,
       "norm_label": "idle workers hud crop (processed)",
       "id": "idle_workers_processed_hud_crop"
     },
@@ -3480,7 +3516,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 17,
+      "community": 18,
       "norm_label": "supply hud crop (processed)",
       "id": "supply_processed_hud_crop"
     },
@@ -3493,7 +3529,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 17,
+      "community": 18,
       "norm_label": "gas hud crop (raw)",
       "id": "gas_raw_hud_crop"
     },
@@ -3506,7 +3542,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 17,
+      "community": 18,
       "norm_label": "minerals hud crop (processed)",
       "id": "minerals_processed_hud_crop"
     },
@@ -3519,7 +3555,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 17,
+      "community": 18,
       "norm_label": "gas hud crop (processed)",
       "id": "gas_processed_hud_crop"
     },
@@ -3532,7 +3568,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 17,
+      "community": 18,
       "norm_label": "idle workers hud crop (raw)",
       "id": "idle_workers_raw_hud_crop"
     },
@@ -3545,7 +3581,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 17,
+      "community": 18,
       "norm_label": "minerals hud crop (raw)",
       "id": "minerals_raw_hud_crop"
     },
@@ -3564,7 +3600,7 @@
         "ocr_content": "12/15",
         "description": "Raw crop of SC2 HUD supply counter showing 12/15 in dark/low-contrast style"
       },
-      "community": 16,
+      "community": 17,
       "norm_label": "supply hud crop raw (backend)",
       "id": "backend_supply_raw_hud_crop"
     },
@@ -3583,7 +3619,7 @@
         "ocr_content": "0",
         "description": "Processed (binarized/contrast-enhanced) crop of SC2 HUD idle workers indicator showing 0 in white on black"
       },
-      "community": 16,
+      "community": 17,
       "norm_label": "idle workers hud crop processed (backend)",
       "id": "backend_idle_workers_processed_hud_crop"
     },
@@ -3602,7 +3638,7 @@
         "ocr_content": "12/15",
         "description": "Processed (binarized/contrast-enhanced) crop of SC2 HUD supply counter showing 12/15 in white on black"
       },
-      "community": 16,
+      "community": 17,
       "norm_label": "supply hud crop processed (backend)",
       "id": "backend_supply_processed_hud_crop"
     },
@@ -3621,7 +3657,7 @@
         "ocr_content": "0",
         "description": "Raw crop of SC2 HUD gas counter showing 0 (icon visible) in dark/low-contrast style"
       },
-      "community": 16,
+      "community": 17,
       "norm_label": "gas hud crop raw (backend)",
       "id": "backend_gas_raw_hud_crop"
     },
@@ -3640,7 +3676,7 @@
         "ocr_content": "50",
         "description": "Processed (binarized/contrast-enhanced) crop of SC2 HUD minerals counter showing 50 in white on black"
       },
-      "community": 16,
+      "community": 17,
       "norm_label": "minerals hud crop processed (backend)",
       "id": "backend_minerals_processed_hud_crop"
     },
@@ -3659,7 +3695,7 @@
         "ocr_content": "0",
         "description": "Processed (binarized/contrast-enhanced) crop of SC2 HUD gas counter showing 0 in white on black"
       },
-      "community": 16,
+      "community": 17,
       "norm_label": "gas hud crop processed (backend)",
       "id": "backend_gas_processed_hud_crop"
     },
@@ -3678,7 +3714,7 @@
         "ocr_content": "0",
         "description": "Raw crop of SC2 HUD idle workers indicator showing 0 workers idle (icon with small digit)"
       },
-      "community": 16,
+      "community": 17,
       "norm_label": "idle workers hud crop raw (backend)",
       "id": "backend_idle_workers_raw_hud_crop"
     },
@@ -3697,7 +3733,7 @@
         "ocr_content": "50",
         "description": "Raw crop of SC2 HUD minerals counter showing 50 in dark/low-contrast style"
       },
-      "community": 16,
+      "community": 17,
       "norm_label": "minerals hud crop raw (backend)",
       "id": "backend_minerals_raw_hud_crop"
     },
@@ -3736,7 +3772,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 22,
       "norm_label": "test_check_resources_no_speak_below_threshold",
       "id": "test_detectors_test_check_resources_no_speak_below_threshold"
     },
@@ -3749,7 +3785,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 22,
       "norm_label": "test_check_resources_speaks_when_over_threshold",
       "id": "test_detectors_test_check_resources_speaks_when_over_threshold"
     },
@@ -3762,7 +3798,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 22,
       "norm_label": "test_check_resources_cooldown_prevents_repeat",
       "id": "test_detectors_test_check_resources_cooldown_prevents_repeat"
     },
@@ -3775,7 +3811,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 28,
       "norm_label": "test_check_supply_speaks_when_capped",
       "id": "test_detectors_test_check_supply_speaks_when_capped"
     },
@@ -3788,7 +3824,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 28,
       "norm_label": "test_check_supply_silent_when_ok",
       "id": "test_detectors_test_check_supply_silent_when_ok"
     },
@@ -3801,7 +3837,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 28,
+      "community": 29,
       "norm_label": "test_check_idle_workers_speaks_when_idle",
       "id": "test_detectors_test_check_idle_workers_speaks_when_idle"
     },
@@ -3814,7 +3850,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 28,
+      "community": 29,
       "norm_label": "test_check_idle_workers_resets_on_zero",
       "id": "test_detectors_test_check_idle_workers_resets_on_zero"
     },
@@ -3827,7 +3863,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 29,
+      "community": 30,
       "norm_label": "test_debug_line_format",
       "id": "test_debug_test_debug_line_format"
     },
@@ -3840,7 +3876,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 29,
+      "community": 30,
       "norm_label": "test_debug_no_state_line_format",
       "id": "test_debug_test_debug_no_state_line_format"
     },
@@ -3853,7 +3889,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 31,
       "norm_label": "test_speak_enqueues_without_error",
       "id": "test_speech_queue_test_speak_enqueues_without_error"
     },
@@ -3866,7 +3902,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 31,
       "norm_label": "test_priority_ordering",
       "id": "test_speech_queue_test_priority_ordering"
     },
@@ -3879,7 +3915,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 50,
+      "community": 51,
       "norm_label": "test_counter_increments",
       "id": "test_speech_queue_test_counter_increments"
     },
@@ -3892,7 +3928,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 51,
+      "community": 52,
       "norm_label": "test_strict_mode_returns_exact_string",
       "id": "test_messages_test_strict_mode_returns_exact_string"
     },
@@ -3905,7 +3941,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 52,
+      "community": 53,
       "norm_label": "test_funny_mode_returns_non_empty",
       "id": "test_messages_test_funny_mode_returns_non_empty"
     },
@@ -3918,7 +3954,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 53,
+      "community": 54,
       "norm_label": "test_custom_mode_uses_custom_messages",
       "id": "test_messages_test_custom_mode_uses_custom_messages"
     },
@@ -3931,7 +3967,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 31,
+      "community": 32,
       "norm_label": "test_custom_mode_falls_back_to_strict_when_empty",
       "id": "test_messages_test_custom_mode_falls_back_to_strict_when_empty"
     },
@@ -3944,7 +3980,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 31,
+      "community": 32,
       "norm_label": "test_custom_mode_falls_back_when_category_missing",
       "id": "test_messages_test_custom_mode_falls_back_when_category_missing"
     },
@@ -3957,7 +3993,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 32,
+      "community": 33,
       "norm_label": "test_load_config_returns_defaults_on_missing_file",
       "id": "test_config_manager_test_load_config_returns_defaults_on_missing_file"
     },
@@ -3996,7 +4032,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 32,
+      "community": 33,
       "norm_label": "test_load_config_returns_default_on_empty_file",
       "id": "test_config_manager_test_load_config_returns_default_on_empty_file"
     },
@@ -4321,7 +4357,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 54,
+      "community": 55,
       "norm_label": "gamehistorymanager",
       "id": "game_history_gamehistorymanager"
     },
@@ -4542,7 +4578,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 55,
+      "community": 56,
       "norm_label": "hudelement",
       "id": "hud_elements_hudelement"
     },
@@ -4568,7 +4604,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 56,
+      "community": 57,
       "norm_label": "hud_element_keys",
       "id": "hud_elements_hudelementkeys"
     },
@@ -4633,7 +4669,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 57,
+      "community": 58,
       "norm_label": "strict_messages",
       "id": "messages_strictmessages"
     },
@@ -4646,7 +4682,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 58,
+      "community": 59,
       "norm_label": "supply_messages",
       "id": "messages_supplymessages"
     },
@@ -4659,7 +4695,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 59,
+      "community": 60,
       "norm_label": "mineral_messages",
       "id": "messages_mineralmessages"
     },
@@ -4672,7 +4708,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 60,
+      "community": 61,
       "norm_label": "idle_worker_messages",
       "id": "messages_idleworkermessages"
     },
@@ -4685,7 +4721,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 61,
+      "community": 62,
       "norm_label": "gas_messages",
       "id": "messages_gasmessages"
     },
@@ -4815,7 +4851,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 23,
       "norm_label": "cooldowntracker",
       "id": "cooldown_tracker_cooldowntracker"
     },
@@ -4841,7 +4877,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 62,
+      "community": 63,
       "norm_label": "cooldowntracker.remaining",
       "id": "cooldown_tracker_remaining"
     },
@@ -4854,7 +4890,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 23,
       "norm_label": "speechqueue",
       "id": "speech_queue_speechqueue"
     },
@@ -4893,7 +4929,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 19,
+      "community": 20,
       "norm_label": "voicecommand",
       "id": "voice_listener_voicecommand"
     },
@@ -4906,7 +4942,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 23,
       "norm_label": "voicelistener",
       "id": "voice_listener_voicelistener"
     },
@@ -4919,7 +4955,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 19,
+      "community": 20,
       "norm_label": "voicelistener._listen_loop",
       "id": "voice_listener_listenloop"
     },
@@ -4932,7 +4968,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 19,
+      "community": 20,
       "norm_label": "voicelistener._transcribe",
       "id": "voice_listener_transcribe"
     },
@@ -4945,7 +4981,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 19,
+      "community": 20,
       "norm_label": "voicelistener._parse_command",
       "id": "voice_listener_parsecommand"
     },
@@ -4971,7 +5007,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 63,
+      "community": 64,
       "norm_label": "db_path",
       "id": "db_init_dbpath"
     },
@@ -5010,7 +5046,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 33,
+      "community": 34,
       "norm_label": "dbconnector.collection",
       "id": "connector_collection"
     },
@@ -5023,7 +5059,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 33,
+      "community": 34,
       "norm_label": "collection",
       "id": "collection_collection"
     },
@@ -5036,7 +5072,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 34,
+      "community": 35,
       "norm_label": "collection.find",
       "id": "collection_find"
     },
@@ -5049,7 +5085,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 34,
+      "community": 35,
       "norm_label": "collection.findone",
       "id": "collection_findone"
     },
@@ -5062,7 +5098,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 64,
+      "community": 65,
       "norm_label": "collection.create",
       "id": "collection_create"
     },
@@ -5075,7 +5111,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 65,
+      "community": 66,
       "norm_label": "collection.updateone",
       "id": "collection_updateone"
     },
@@ -5101,7 +5137,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 66,
+      "community": 67,
       "norm_label": "_config_table",
       "id": "schema_configtable"
     },
@@ -5114,7 +5150,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 67,
+      "community": 68,
       "norm_label": "_game_stats_table",
       "id": "schema_gamestatstable"
     },
@@ -6258,6 +6294,66 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_config_manager.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "tests_test_config_manager_py",
+      "target": "tests_test_config_manager_isolated_db",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_config_manager.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "tests_test_config_manager_py",
+      "target": "tests_test_config_manager_test_get_config_returns_defaults_on_empty_db",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_config_manager.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "tests_test_config_manager_py",
+      "target": "tests_test_config_manager_test_save_and_get_roundtrip",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_config_manager.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_config_manager_py",
+      "target": "tests_test_config_manager_test_default_screen_capture_has_all_hud_elements"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_config_manager.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "tests_test_config_manager_py",
+      "target": "tests_test_config_manager_test_get_config_returns_defaults_on_fresh_db",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_config_manager.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_config_manager_rationale_1",
+      "target": "tests_test_config_manager_py"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_config_manager.py",
       "source_location": "L12",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -6278,16 +6374,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_config_manager.py",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_test_config_manager_py",
-      "target": "tests_test_config_manager_test_default_screen_capture_has_all_hud_elements"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/test_config_manager.py",
       "source_location": "L40",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -6295,14 +6381,15 @@
       "target": "tests_test_config_manager_test_load_config_returns_default_on_empty_file"
     },
     {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
       "source_file": "tests/test_config_manager.py",
-      "source_location": "L1",
+      "source_location": "L15",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_test_config_manager_rationale_1",
-      "target": "tests_test_config_manager_py"
+      "source": "tests_test_config_manager_test_get_config_returns_defaults_on_empty_db",
+      "target": "backend_service_get_config"
     },
     {
       "relation": "calls",
@@ -6310,10 +6397,32 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_config_manager.py",
-      "source_location": "L23",
+      "source_location": "L21",
       "weight": 1.0,
-      "source": "tests_test_config_manager_test_save_and_load_roundtrip",
+      "source": "tests_test_config_manager_test_save_and_get_roundtrip",
+      "target": "backend_service_get_config"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_config_manager.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "tests_test_config_manager_test_save_and_get_roundtrip",
       "target": "backend_service_save_config"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_config_manager.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "tests_test_config_manager_test_get_config_returns_defaults_on_fresh_db",
+      "target": "backend_service_get_config"
     },
     {
       "relation": "contains",
@@ -7903,6 +8012,17 @@
       "weight": 1.0,
       "source": "backend_index_main",
       "target": "backend_service_get_config"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_config_manager.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "tests_test_config_manager_test_save_and_load_roundtrip",
+      "target": "backend_service_save_config"
     },
     {
       "relation": "contains",
@@ -11603,5 +11723,5 @@
       "source_file": "src/backend/classes/voice_listener.py"
     }
   ],
-  "built_at_commit": "8c3ced94d6a9059165c6239b13c38e945ac5dbcd"
+  "built_at_commit": "5037a6681d82d4e9709f6f14d98bc9566a1dbe26"
 }

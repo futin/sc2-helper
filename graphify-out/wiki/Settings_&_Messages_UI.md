@@ -21,8 +21,8 @@
 
 ## Relationships
 
-- [[Database Query Layer]] (39 shared connections)
-- [[Frontend Composition]] (1 shared connections)
+- [[Game State Detectors]] (39 shared connections)
+- [[Game History Tracking]] (1 shared connections)
 - [[Message Banks & Tests]] (1 shared connections)
 - [[TTS Speech Queue]] (1 shared connections)
 

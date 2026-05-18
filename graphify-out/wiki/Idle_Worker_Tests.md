@@ -9,7 +9,7 @@
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Debug Format Tests]] (2 shared connections)
 
 ## Source Files
 

@@ -33,8 +33,8 @@
 
 ## Relationships
 
-- [[Project Architecture Docs]] (56 shared connections)
-- [[Database Query Layer]] (22 shared connections)
+- [[Config & Service Layer]] (56 shared connections)
+- [[Game State Detectors]] (22 shared connections)
 
 ## Source Files
 

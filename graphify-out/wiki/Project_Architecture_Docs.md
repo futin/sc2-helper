@@ -33,8 +33,8 @@
 
 ## Relationships
 
-- [[Config & Service Layer]] (50 shared connections)
-- [[Game History Tracking]] (1 shared connections)
+- [[Game API & HUD Capture]] (41 shared connections)
+- [[Config UI Tab]] (10 shared connections)
 
 ## Source Files
 

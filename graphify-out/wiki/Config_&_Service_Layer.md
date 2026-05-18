@@ -4,11 +4,11 @@
 
 ## Key Concepts
 
+- **test_config_manager.py** (9 connections) — `tests/test_config_manager.py`
 - **service.py** (9 connections) — `src/backend/service.py`
 - **CoordsTab** (8 connections) — `src/frontend/views/tabs/coords_tab.py`
-- **test_config_manager.py** (5 connections) — `tests/test_config_manager.py`
-- **save_config()** (5 connections) — `src/backend/service.py`
-- **get_config()** (4 connections) — `src/backend/service.py`
+- **get_config()** (7 connections) — `src/backend/service.py`
+- **save_config()** (6 connections) — `src/backend/service.py`
 - **._build()** (3 connections) — `src/frontend/views/tabs/coords_tab.py`
 - **._capture()** (3 connections) — `src/frontend/views/tabs/coords_tab.py`
 - **._countdown()** (3 connections) — `src/frontend/views/tabs/coords_tab.py`
@@ -21,7 +21,7 @@
 - **test_load_config_returns_defaults_on_missing_file()** (1 connections) — `tests/test_config_manager.py`
 - **test_default_screen_capture_has_all_hud_elements()** (1 connections) — `tests/test_config_manager.py`
 - **test_load_config_returns_default_on_empty_file()** (1 connections) — `tests/test_config_manager.py`
-- **Smoke tests for config load/save round-trips.** (1 connections) — `tests/test_config_manager.py`
+- **Smoke tests for config get/save round-trips.** (1 connections) — `tests/test_config_manager.py`
 - **coords_tab.py** (1 connections) — `src/frontend/views/tabs/coords_tab.py`
 - **.refresh()** (1 connections) — `src/frontend/views/tabs/coords_tab.py`
 - **_row_to_config()** (1 connections) — `src/backend/service.py`
@@ -33,11 +33,11 @@
 
 ## Relationships
 
-- [[Database Query Layer]] (37 shared connections)
-- [[Message Banks & Tests]] (25 shared connections)
+- [[Game State Detectors]] (43 shared connections)
+- [[Message Banks & Tests]] (27 shared connections)
 - [[TTS Speech Queue]] (1 shared connections)
-- [[Core Module Docs]] (1 shared connections)
-- [[Game State Detectors]] (1 shared connections)
+- [[Frontend Composition]] (1 shared connections)
+- [[Database Query Layer]] (1 shared connections)
 
 ## Source Files
 
@@ -49,8 +49,8 @@
 
 ## Audit Trail
 
-- EXTRACTED: 52 (80%)
-- INFERRED: 13 (20%)
+- EXTRACTED: 56 (77%)
+- INFERRED: 17 (23%)
 - AMBIGUOUS: 0 (0%)
 
 ---

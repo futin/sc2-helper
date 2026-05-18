@@ -33,12 +33,13 @@
 
 ## Relationships
 
-- [[Core Module Docs]] (5 shared connections)
+- [[Database Query Layer]] (122 shared connections)
+- [[Frontend Composition]] (5 shared connections)
+- [[Backend HUD Images]] (3 shared connections)
 - [[Voice Listener]] (2 shared connections)
-- [[Database Query Layer]] (1 shared connections)
 - [[History Dashboard]] (1 shared connections)
-- [[Game API & HUD Capture]] (1 shared connections)
-- [[Config UI Tab]] (1 shared connections)
+- [[Project Architecture Docs]] (1 shared connections)
+- [[Core Module Docs]] (1 shared connections)
 
 ## Source Files
 

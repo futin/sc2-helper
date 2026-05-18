@@ -10,7 +10,7 @@
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[HUD Element Model]] (4 shared connections)
 
 ## Source Files
 

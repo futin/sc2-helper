@@ -2,7 +2,7 @@
 
 > God node · 19 connections · `src/backend/index.py`
 
-**Community:** [[Game State Detectors]]
+**Community:** [[Database Query Layer]]
 
 ## Connections by Relation
 
@@ -13,11 +13,11 @@
 - [[VoiceListener]] `INFERRED`
 - [[SpeechQueue]] `INFERRED`
 - [[test_ocr_mode()]] `EXTRACTED`
+- [[get_config()]] `INFERRED`
 - [[_capture_hud()]] `INFERRED`
 - [[check_resources()]] `INFERRED`
 - [[check_idle_workers()]] `INFERRED`
 - [[check_supply()]] `INFERRED`
-- [[get_config()]] `INFERRED`
 - [[_poll_game()]] `INFERRED`
 - [[_extract_result()]] `INFERRED`
 - [[_extract_race()]] `INFERRED`

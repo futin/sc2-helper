@@ -24,8 +24,8 @@
 
 ## Relationships
 
-- [[Frontend Composition]] (96 shared connections)
-- [[Database Query Layer]] (1 shared connections)
+- [[Game History Tracking]] (96 shared connections)
+- [[Game State Detectors]] (1 shared connections)
 
 ## Source Files
 

@@ -9,7 +9,7 @@
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Dev Mode Docs]] (2 shared connections)
 
 ## Source Files
 

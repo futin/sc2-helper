@@ -49,6 +49,37 @@ Each region is `[left, top, width, height]` in screen pixels. Use the **Coords S
 }
 ```
 
+## Voice control
+
+Enable wake-word voice commands. Requires `openwakeword`, `pyaudio`, `numpy`, and `SpeechRecognition` installed.
+
+```json
+"voice_control": {
+  "enabled": false,
+  "wake_word_model": "alexa",
+  "wake_sensitivity": 0.5,
+  "stt_backend": "google",
+  "silence_duration": 120,
+  "pause_threshold": 1.2,
+  "phrase_time_limit": 8
+}
+```
+
+| Key | Default | Description |
+|-----|---------|-------------|
+| `enabled` | `false` | Enable/disable the voice system |
+| `wake_word_model` | `"alexa"` | openwakeword model name (downloads ~2 MB on first run) |
+| `wake_sensitivity` | `0.5` | Wake detection threshold 0.0–1.0 (higher = less sensitive) |
+| `stt_backend` | `"google"` | Command transcription: `"google"` or `"whisper"` |
+| `silence_duration` | `120` | Default seconds to silence warnings when "mute" command spoken |
+| `pause_threshold` | `1.2` | Seconds of silence that ends a voice command |
+| `phrase_time_limit` | `8` | Max seconds to listen for a command after wake |
+
+Supported voice commands (say the wake word first):
+- **"supply"** / **"supply status"** → reads current supply aloud
+- **"resources"** / **"minerals"** / **"gas"** → reads mineral and gas counts aloud
+- **"silence for N minutes"** / **"mute"** / **"quiet"** → suppresses warnings for N minutes (default 2)
+
 ## Anomaly filter
 
 Suppresses OCR misreads by clamping values that jump more than `max_delta` from the previous reading. Enabled by default.
