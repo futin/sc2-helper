@@ -1,5 +1,6 @@
 import logging
 import threading
+import time
 from typing import Callable
 
 logger = logging.getLogger(__name__)
@@ -12,11 +13,13 @@ class WakeWordDetector:
         sensitivity: float,
         on_wake: Callable[[], None],
         chunk_ms: int = 80,
+        refractory_s: float = 2.0,
     ):
         self._model_name = model_name
         self._sensitivity = sensitivity
         self._on_wake = on_wake
         self._chunk_ms = chunk_ms
+        self._refractory_s = refractory_s
         self._stop_event = threading.Event()
         self._thread: threading.Thread | None = None
 
@@ -53,18 +56,24 @@ class WakeWordDetector:
         )
 
         logger.info("WakeWordDetector listening for %r...", self._model_name)
+        last_wake_at = 0.0
         try:
             while not self._stop_event.is_set():
-                chunk = stream.read(chunk_size, exception_on_overflow=False)
-                audio_data = np.frombuffer(chunk, dtype=np.int16)
-                prediction = model.predict(audio_data)
-                score = prediction.get(self._model_name, 0.0)
-                if score >= self._sensitivity:
-                    logger.info(
-                        "WakeWordDetector: wake detected (model=%r, score=%.3f)",
-                        self._model_name, score,
-                    )
-                    self._on_wake()
+                try:
+                    chunk = stream.read(chunk_size, exception_on_overflow=False)
+                    audio_data = np.frombuffer(chunk, dtype=np.int16)
+                    prediction = model.predict(audio_data)
+                    score = prediction.get(self._model_name, 0.0)
+                    now = time.monotonic()
+                    if score >= self._sensitivity and now - last_wake_at > self._refractory_s:
+                        logger.info(
+                            "WakeWordDetector: wake detected (model=%r, score=%.3f)",
+                            self._model_name, score,
+                        )
+                        self._on_wake()
+                        last_wake_at = now
+                except Exception as exc:
+                    logger.warning("WakeWordDetector: audio read error: %s", exc)
         finally:
             stream.stop_stream()
             stream.close()

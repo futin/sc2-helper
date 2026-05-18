@@ -23,7 +23,7 @@
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Settings & Messages UI]] (32 shared connections)
 
 ## Source Files
 

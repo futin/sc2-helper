@@ -24,7 +24,8 @@
 
 ## Relationships
 
-- [[Game State Detectors]] (1 shared connections)
+- [[Game History Tracking]] (96 shared connections)
+- [[Project Architecture Docs]] (1 shared connections)
 
 ## Source Files
 

@@ -2,7 +2,7 @@
 
 > God node · 15 connections · `src/frontend/views/runner_view.py`
 
-**Community:** [[Project Architecture Docs]]
+**Community:** [[Game API & HUD Capture]]
 
 ## Connections by Relation
 

@@ -2,7 +2,7 @@
 
 > God node · 9 connections · `tests/test_detectors.py`
 
-**Community:** [[Database Query Layer]]
+**Community:** [[Frontend Application]]
 
 ## Connections by Relation
 

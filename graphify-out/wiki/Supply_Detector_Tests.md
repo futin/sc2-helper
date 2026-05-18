@@ -9,7 +9,7 @@
 
 ## Relationships
 
-- [[Idle Worker Tests]] (2 shared connections)
+- No strong cross-community connections detected
 
 ## Source Files
 

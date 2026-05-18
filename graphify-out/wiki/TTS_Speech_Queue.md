@@ -18,7 +18,9 @@
 
 ## Relationships
 
-- [[Database Query Layer]] (2 shared connections)
+- [[Voice Listener]] (24 shared connections)
+- [[Frontend Application]] (1 shared connections)
+- [[Game State Detectors]] (1 shared connections)
 
 ## Source Files
 

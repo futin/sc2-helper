@@ -16,8 +16,7 @@
 
 ## Relationships
 
-- [[Backend HUD Images]] (24 shared connections)
-- [[Database Query Layer]] (3 shared connections)
+- [[Frontend Application]] (27 shared connections)
 
 ## Source Files
 

@@ -12,8 +12,8 @@
     "hash": "cd80490eabc8376fa7bcee4c4851c3b6"
   },
   "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/tests/test_wake_word_detector.py": {
-    "mtime": 1779134749.9756541,
-    "hash": "d39005f4d56524828c82a4d7594e39af"
+    "mtime": 1779134957.556741,
+    "hash": "f49f650100b672a61e4e704a32f92c6a"
   },
   "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/tests/test_speech_queue.py": {
     "mtime": 1779003697.2290325,
@@ -156,8 +156,8 @@
     "hash": "a031a8dfd05e177a82147055c6cae8ed"
   },
   "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/classes/wake_word_detector.py": {
-    "mtime": 1779134772.1189253,
-    "hash": "efd66dcbf405c7909572b1ab157108da"
+    "mtime": 1779134957.552532,
+    "hash": "94ebbc63860e41fe2ec49d3cfc078f94"
   },
   "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/db/__init__.py": {
     "mtime": 1779049376.923615,

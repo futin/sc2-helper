@@ -22,8 +22,9 @@
 
 ## Relationships
 
-- [[Frontend Application]] (2 shared connections)
-- [[Database Query Layer]] (1 shared connections)
+- [[History Dashboard]] (46 shared connections)
+- [[Database Query Layer]] (2 shared connections)
+- [[Game State Detectors]] (1 shared connections)
 
 ## Source Files
 

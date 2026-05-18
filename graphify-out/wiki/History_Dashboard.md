@@ -19,8 +19,9 @@
 
 ## Relationships
 
-- [[Settings & Messages UI]] (34 shared connections)
-- [[Game State Detectors]] (2 shared connections)
+- [[TTS Speech Queue]] (34 shared connections)
+- [[Project Architecture Docs]] (1 shared connections)
+- [[Config & Service Layer]] (1 shared connections)
 
 ## Source Files
 

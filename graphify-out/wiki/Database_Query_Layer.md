@@ -33,8 +33,7 @@
 
 ## Relationships
 
-- [[Frontend Application]] (98 shared connections)
-- [[Game History Tracking]] (2 shared connections)
+- [[History Dashboard]] (2 shared connections)
 
 ## Source Files
 

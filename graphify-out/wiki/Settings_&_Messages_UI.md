@@ -21,9 +21,10 @@
 
 ## Relationships
 
-- [[Game State Detectors]] (39 shared connections)
-- [[Config UI Tab]] (1 shared connections)
-- [[Voice Listener]] (1 shared connections)
+- [[Project Architecture Docs]] (38 shared connections)
+- [[Config & Service Layer]] (2 shared connections)
+- [[Game History Tracking]] (1 shared connections)
+- [[TTS Speech Queue]] (1 shared connections)
 
 ## Source Files
 

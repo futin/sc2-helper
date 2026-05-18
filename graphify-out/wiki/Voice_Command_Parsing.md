@@ -11,7 +11,7 @@
 
 ## Relationships
 
-- [[HUD Coordinate Config]] (6 shared connections)
+- No strong cross-community connections detected
 
 ## Source Files
 
