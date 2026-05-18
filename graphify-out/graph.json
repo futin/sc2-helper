@@ -6296,9 +6296,9 @@
       "source_file": "tests/test_config_manager.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_config_manager_py",
-      "target": "tests_test_config_manager_isolated_db",
-      "confidence_score": 1.0
+      "target": "tests_test_config_manager_isolated_db"
     },
     {
       "relation": "contains",
@@ -6306,9 +6306,9 @@
       "source_file": "tests/test_config_manager.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_config_manager_py",
-      "target": "tests_test_config_manager_test_get_config_returns_defaults_on_empty_db",
-      "confidence_score": 1.0
+      "target": "tests_test_config_manager_test_get_config_returns_defaults_on_empty_db"
     },
     {
       "relation": "contains",
@@ -6316,9 +6316,9 @@
       "source_file": "tests/test_config_manager.py",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_config_manager_py",
-      "target": "tests_test_config_manager_test_save_and_get_roundtrip",
-      "confidence_score": 1.0
+      "target": "tests_test_config_manager_test_save_and_get_roundtrip"
     },
     {
       "relation": "contains",
@@ -6336,9 +6336,9 @@
       "source_file": "tests/test_config_manager.py",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_config_manager_py",
-      "target": "tests_test_config_manager_test_get_config_returns_defaults_on_fresh_db",
-      "confidence_score": 1.0
+      "target": "tests_test_config_manager_test_get_config_returns_defaults_on_fresh_db"
     },
     {
       "relation": "rationale_for",
@@ -11723,5 +11723,5 @@
       "source_file": "src/backend/classes/voice_listener.py"
     }
   ],
-  "built_at_commit": "5037a6681d82d4e9709f6f14d98bc9566a1dbe26"
+  "built_at_commit": "3f35d9deb6907f6bac2855204ec2e2310dd1a555"
 }

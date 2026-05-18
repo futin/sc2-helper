@@ -42,7 +42,15 @@ class WakeWordDetector:
             )
             return
 
-        model = Model(wakeword_models=[self._model_name], inference_framework="onnx")
+        try:
+            model = Model(wakeword_models=[self._model_name], inference_framework="onnx")
+        except Exception as exc:
+            logger.error(
+                "WakeWordDetector: failed to load model %r: %s. "
+                "Download models with: python -c \"from openwakeword.utils import download_models; download_models()\"",
+                self._model_name, exc,
+            )
+            return
         audio = pyaudio.PyAudio()
         sample_rate = 16000
         chunk_size = int(sample_rate * self._chunk_ms / 1000)
@@ -74,7 +82,10 @@ class WakeWordDetector:
                         self._model_name, score,
                     )
                     self._on_wake()
-                    last_wake_at = now
+                    last_wake_at = time.monotonic()
+                    available = stream.get_read_available()
+                    if available > 0:
+                        stream.read(available, exception_on_overflow=False)
         finally:
             stream.stop_stream()
             stream.close()
