@@ -1,7 +1,7 @@
 # Graph Report - sc2-helper  (2026-05-18)
 
 ## Corpus Check
-- 43 files · ~12,816 words
+- 43 files · ~14,622 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `04a974c3`
+- Built from commit: `1273ffef`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
