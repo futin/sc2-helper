@@ -1264,7 +1264,7 @@
       "label": "_row_to_config()",
       "file_type": "code",
       "source_file": "src/backend/service.py",
-      "source_location": "L71",
+      "source_location": "L70",
       "id": "backend_service_row_to_config",
       "community": 4,
       "norm_label": "_row_to_config()"
@@ -1273,7 +1273,7 @@
       "label": "_config_to_row()",
       "file_type": "code",
       "source_file": "src/backend/service.py",
-      "source_location": "L81",
+      "source_location": "L80",
       "id": "backend_service_config_to_row",
       "community": 4,
       "norm_label": "_config_to_row()"
@@ -1282,7 +1282,7 @@
       "label": "get_config()",
       "file_type": "code",
       "source_file": "src/backend/service.py",
-      "source_location": "L94",
+      "source_location": "L93",
       "id": "backend_service_get_config",
       "community": 4,
       "norm_label": "get_config()"
@@ -1291,7 +1291,7 @@
       "label": "save_config()",
       "file_type": "code",
       "source_file": "src/backend/service.py",
-      "source_location": "L106",
+      "source_location": "L105",
       "id": "backend_service_save_config",
       "community": 4,
       "norm_label": "save_config()"
@@ -1300,7 +1300,7 @@
       "label": "_row_to_record()",
       "file_type": "code",
       "source_file": "src/backend/service.py",
-      "source_location": "L118",
+      "source_location": "L117",
       "id": "backend_service_row_to_record",
       "community": 4,
       "norm_label": "_row_to_record()"
@@ -1309,7 +1309,7 @@
       "label": "_row_to_live()",
       "file_type": "code",
       "source_file": "src/backend/service.py",
-      "source_location": "L134",
+      "source_location": "L133",
       "id": "backend_service_row_to_live",
       "community": 4,
       "norm_label": "_row_to_live()"
@@ -1318,7 +1318,7 @@
       "label": "get_stats_history()",
       "file_type": "code",
       "source_file": "src/backend/service.py",
-      "source_location": "L148",
+      "source_location": "L147",
       "id": "backend_service_get_stats_history",
       "community": 12,
       "norm_label": "get_stats_history()"
@@ -1327,7 +1327,7 @@
       "label": "get_live_stats()",
       "file_type": "code",
       "source_file": "src/backend/service.py",
-      "source_location": "L160",
+      "source_location": "L159",
       "id": "backend_service_get_live_stats",
       "community": 4,
       "norm_label": "get_live_stats()"
@@ -10824,5 +10824,5 @@
       "source_file": "src/backend/classes/voice_listener.py"
     }
   ],
-  "built_at_commit": "1273ffefac4d8c8014fccd052ed5553eeacad181"
+  "built_at_commit": "52a09562d9c0c0e42820bb6a9c151254092b7559"
 }

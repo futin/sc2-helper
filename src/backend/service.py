@@ -51,12 +51,11 @@ DEFAULT_CONFIG: dict = {
     },
     "voice_control": {
         "enabled": False,
-        "wake_word": "zag",
+        "wake_word_model": "alexa",
+        "wake_sensitivity": 0.5,
         "stt_backend": "google",
         "silence_duration": 120,
         "pause_threshold": 1.2,
-        "phrase_threshold": 0.3,
-        "non_speaking_duration": 0.4,
         "phrase_time_limit": 8,
     },
 }
