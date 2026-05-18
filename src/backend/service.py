@@ -49,9 +49,19 @@ DEFAULT_CONFIG: dict = {
         "supply": [],
         "idle_workers": [],
     },
+    "voice_control": {
+        "enabled": False,
+        "wake_word": "zag",
+        "stt_backend": "google",
+        "silence_duration": 120,
+        "pause_threshold": 1.2,
+        "phrase_threshold": 0.3,
+        "non_speaking_duration": 0.4,
+        "phrase_time_limit": 8,
+    },
 }
 
-_JSON_FIELDS = ("resources", "supply", "workers", "screen_capture", "anomaly_filter", "custom_messages")
+_JSON_FIELDS = ("resources", "supply", "workers", "screen_capture", "anomaly_filter", "custom_messages", "voice_control")
 
 
 # ---------------------------------------------------------------------------

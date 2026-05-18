@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS config (
     screen_capture  TEXT    NOT NULL,
     anomaly_filter  TEXT    NOT NULL,
     custom_messages TEXT    NOT NULL,
+    voice_control   TEXT    NOT NULL DEFAULT '{}',
     updated_at      TEXT    NOT NULL
 )
 """
@@ -36,4 +37,8 @@ CREATE TABLE IF NOT EXISTS game_stats (
 async def ensure_tables(conn) -> None:
     await conn.execute(_CONFIG_TABLE)
     await conn.execute(_GAME_STATS_TABLE)
+    try:
+        await conn.execute("ALTER TABLE config ADD COLUMN voice_control TEXT NOT NULL DEFAULT '{}'")
+    except Exception:
+        pass
     await conn.commit()

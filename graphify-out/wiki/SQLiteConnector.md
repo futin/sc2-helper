@@ -2,7 +2,7 @@
 
 > God node · 10 connections · `src/backend/db/sqlite_connector.py`
 
-**Community:** [[DB Collection Layer]]
+**Community:** [[Database Query Layer]]
 
 ## Connections by Relation
 

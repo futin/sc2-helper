@@ -18,12 +18,15 @@ Test OCR mode (saves crops and prints OCR results for each HUD region):
 """
 
 import logging
+import queue
 import sys
 import time
 from pathlib import Path
 from typing import Optional
 
 from backend.classes import CooldownTracker, SpeechQueue
+from backend.classes.voice_listener import VoiceListener
+from backend.constants import PRIORITY_VOICE_RESPONSE
 from backend.detectors import check_idle_workers, check_resources, check_supply
 from backend.game_api import _capture_hud, _filter_spikes, _poll_game
 from backend.logger import setup_logging
@@ -83,24 +86,53 @@ def main() -> None:
     voice: str = config.get("tts_voice", "")
     mode: str = config.get("message_mode", "strict")
     custom_messages: dict = config.get("custom_messages", {})
+    voice_cfg: dict = config.get("voice_control", {})
     cooldown = CooldownTracker()
     speech = SpeechQueue()
     stats = GameHistoryManager()
     idle_onset: Optional[float] = None
     game_active: bool = False
     prev_state: Optional[dict] = None
+    silence_until: float = 0.0
+    current_state: Optional[dict] = None
+
+    voice_queue: queue.Queue = queue.Queue()
+    voice_listener: Optional[VoiceListener] = None
+    if voice_cfg.get("enabled", False):
+        voice_listener = VoiceListener(
+            wake_word=voice_cfg.get("wake_word", "zag"),
+            stt_backend=voice_cfg.get("stt_backend", "google"),
+            command_queue=voice_queue,
+            pause_threshold=float(voice_cfg.get("pause_threshold", 1.2)),
+            phrase_threshold=float(voice_cfg.get("phrase_threshold", 0.3)),
+            non_speaking_duration=float(voice_cfg.get("non_speaking_duration", 0.4)),
+            phrase_time_limit=int(voice_cfg.get("phrase_time_limit", 8)),
+        )
+        voice_listener.start()
 
     label = ", debug" if debug else ""
     logging.info("SC2 Helper running [%s mode%s]. Press Ctrl+C to stop.", mode, label)
-    print("[STATE] game=idle", flush=True)
+    voice_on = "on" if voice_listener else "off"
+    print(f"[STATE] game=idle voice={voice_on}", flush=True)
     try:
         while True:
+            # --- drain voice commands ---
+            while not voice_queue.empty():
+                try:
+                    cmd = voice_queue.get_nowait()
+                except queue.Empty:
+                    break
+                _handle_voice_command(cmd, current_state, speech, voice, config, voice_cfg, cooldown)
+                if cmd.intent == "silence":
+                    silence_until = time.monotonic() + cmd.params.get("seconds", voice_cfg.get("silence_duration", 120))
+
             running, players = _poll_game()
 
             if running and not game_active:
                 game_active = True
                 idle_onset = None
                 prev_state = None
+                current_state = None
                 stats.on_game_start()
 
             elif not running and game_active:
@@ -111,13 +143,16 @@ def main() -> None:
                 game_active = False
                 idle_onset = None
                 prev_state = None
-                print("[STATE] game=idle", flush=True)
+                current_state = None
+                voice_on = "on" if voice_listener else "off"
+                print(f"[STATE] game=idle voice={voice_on}", flush=True)
 
             if running:
                 state = _capture_hud(config)
                 if state:
                     state = _filter_spikes(state, prev_state, config)
                     prev_state = state
+                    current_state = state
                 if debug:
                     if state:
                         print(_format_debug_state(state), flush=True)
@@ -127,6 +162,11 @@ def main() -> None:
                     def _v(val):
                         return '?' if val is None else str(val)
                     c = stats.counts
+                    res_cfg = config["resources"]
+                    sup_cfg = config["supply"]
+                    wkr_cfg = config["workers"]
+                    silence_remaining = max(0.0, silence_until - time.monotonic())
+                    voice_on = "on" if voice_listener else "off"
                     print(
                         f"[STATE] minerals={_v(state['minerals'])} gas={_v(state['gas'])}"
                         f" supply={_v(state['supply_used'])}/{_v(state['supply_max'])}"
@@ -134,18 +174,50 @@ def main() -> None:
                         f" mw={c.get('mineralWarningsCount', 0)}"
                         f" gw={c.get('gasWarningsCount', 0)}"
                         f" sw={c.get('supplyWarningsCount', 0)}"
-                        f" iw={c.get('idleWorkersWarningsCount', 0)}",
+                        f" iw={c.get('idleWorkersWarningsCount', 0)}"
+                        f" cd_minerals={int(cooldown.remaining('minerals', res_cfg['cooldown']))}"
+                        f" cd_gas={int(cooldown.remaining('gas', res_cfg['cooldown']))}"
+                        f" cd_supply={int(cooldown.remaining('supply', sup_cfg['cooldown']))}"
+                        f" cd_workers={int(cooldown.remaining('workers', wkr_cfg['cooldown']))}"
+                        f" voice={voice_on}"
+                        f" silence_remaining={int(silence_remaining)}",
                         flush=True,
                     )
-                    check_resources(state, config, cooldown, speech, voice, mode, custom_messages, stats)
-                    check_supply(state, config, cooldown, speech, voice, mode, custom_messages, stats)
-                    idle_onset = check_idle_workers(state, config, cooldown, speech, voice, idle_onset, mode, custom_messages, stats)
+                    silenced = time.monotonic() < silence_until
+                    if not silenced:
+                        check_resources(state, config, cooldown, speech, voice, mode, custom_messages, stats)
+                        check_supply(state, config, cooldown, speech, voice, mode, custom_messages, stats)
+                        idle_onset = check_idle_workers(state, config, cooldown, speech, voice, idle_onset, mode, custom_messages, stats)
             elif debug:
                 print("[DEBUG] no state (game not running)", flush=True)
 
             time.sleep(config["poll_interval"])
     except KeyboardInterrupt:
         print("Stopping.")
+    finally:
+        if voice_listener:
+            voice_listener.stop()
+
+
+def _handle_voice_command(cmd, state: Optional[dict], speech: SpeechQueue, voice: str, config: dict, voice_cfg: dict, cooldown: CooldownTracker) -> None:
+    if cmd.intent == "query_supply":
+        if state:
+            used = state.get("supply_used", "?")
+            max_ = state.get("supply_max", "?")
+            speech.speak(f"Supply is {used} of {max_}.", voice, PRIORITY_VOICE_RESPONSE)
+        else:
+            speech.speak("No game active.", voice, PRIORITY_VOICE_RESPONSE)
+    elif cmd.intent == "query_resources":
+        if state:
+            minerals = state.get("minerals", "?")
+            gas = state.get("gas", "?")
+            speech.speak(f"You have {minerals} minerals and {gas} gas.", voice, PRIORITY_VOICE_RESPONSE)
+        else:
+            speech.speak("No game active.", voice, PRIORITY_VOICE_RESPONSE)
+    elif cmd.intent == "silence":
+        seconds = cmd.params.get("seconds", voice_cfg.get("silence_duration", 120))
+        mins = seconds // 60
+        speech.speak(f"Going silent for {mins} minute{'s' if mins != 1 else ''}.", voice, PRIORITY_VOICE_RESPONSE)
 
 
 if __name__ == "__main__":

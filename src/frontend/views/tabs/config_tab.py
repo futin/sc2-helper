@@ -31,6 +31,7 @@ class ConfigTab(ctk.CTkScrollableFrame):
         row = self._build_resources_section(row)
         row = self._build_supply_section(row)
         row = self._build_workers_section(row)
+        row = self._build_voice_section(row)
         self._build_screen_capture_section(row)
 
     def _build_general_section(self, row: int) -> int:
@@ -117,6 +118,54 @@ class ConfigTab(ctk.CTkScrollableFrame):
 
         return self._spacer(row)
 
+    def _build_voice_section(self, row: int) -> int:
+        row = self._section_header("Voice Control", row)
+        vc = self._cfg.get("voice_control", {})
+
+        self._lbl("Enable Voice Control", row, 0)
+        self._voice_enabled_var = ctk.BooleanVar(value=vc.get("enabled", False))
+        ctk.CTkCheckBox(self, text="", variable=self._voice_enabled_var).grid(
+            row=row, column=1, sticky="w", padx=6, pady=3)
+        row += 1
+
+        self._lbl("Wake Word", row, 0)
+        self._voice_wake_word = self._entry(row, 1)
+        self._voice_wake_word.insert(0, vc.get("wake_word", "zag"))
+        row += 1
+
+        self._lbl("STT Backend", row, 0)
+        self._voice_stt_backend = ctk.CTkOptionMenu(self, values=["google", "whisper"], width=120)
+        self._voice_stt_backend.set(vc.get("stt_backend", "google"))
+        self._voice_stt_backend.grid(row=row, column=1, sticky="w", padx=6, pady=3)
+        row += 1
+
+        self._lbl("Silence Duration (s)", row, 0)
+        self._voice_silence_duration = self._entry(row, 1)
+        self._voice_silence_duration.insert(0, str(vc.get("silence_duration", 120)))
+        row += 1
+
+        self._lbl("Pause Threshold (s)", row, 0)
+        self._voice_pause_threshold = self._entry(row, 1)
+        self._voice_pause_threshold.insert(0, str(vc.get("pause_threshold", 1.2)))
+        row += 1
+
+        self._lbl("Phrase Threshold (s)", row, 0)
+        self._voice_phrase_threshold = self._entry(row, 1)
+        self._voice_phrase_threshold.insert(0, str(vc.get("phrase_threshold", 0.3)))
+        row += 1
+
+        self._lbl("Non-Speaking Duration (s)", row, 0)
+        self._voice_non_speaking_duration = self._entry(row, 1)
+        self._voice_non_speaking_duration.insert(0, str(vc.get("non_speaking_duration", 0.4)))
+        row += 1
+
+        self._lbl("Phrase Time Limit (s)", row, 0)
+        self._voice_phrase_time_limit = self._entry(row, 1)
+        self._voice_phrase_time_limit.insert(0, str(vc.get("phrase_time_limit", 8)))
+        row += 1
+
+        return self._spacer(row)
+
     def _build_screen_capture_section(self, row: int) -> int:
         row = self._section_header("Screen Capture", row)
         sc = self._cfg.get("screen_capture", {})
@@ -162,6 +211,11 @@ class ConfigTab(ctk.CTkScrollableFrame):
             idle_s = int(self._idle_seconds.get())
             w_cool = int(self._workers_cooldown.get())
             ocr_t = int(self._ocr_threshold.get())
+            silence_dur = int(self._voice_silence_duration.get())
+            pause_thr = float(self._voice_pause_threshold.get())
+            phrase_thr = float(self._voice_phrase_threshold.get())
+            non_speaking = float(self._voice_non_speaking_duration.get())
+            phrase_limit = int(self._voice_phrase_time_limit.get())
         except ValueError as e:
             raise ValueError(f"Invalid number: {e}") from e
 
@@ -190,4 +244,14 @@ class ConfigTab(ctk.CTkScrollableFrame):
             "supply": {"cooldown": s_cool, "tiers": tiers},
             "workers": {"idle_seconds": idle_s, "cooldown": w_cool},
             "screen_capture": sc,
+            "voice_control": {
+                "enabled": self._voice_enabled_var.get(),
+                "wake_word": self._voice_wake_word.get().strip().lower(),
+                "stt_backend": self._voice_stt_backend.get(),
+                "silence_duration": silence_dur,
+                "pause_threshold": pause_thr,
+                "phrase_threshold": phrase_thr,
+                "non_speaking_duration": non_speaking,
+                "phrase_time_limit": phrase_limit,
+            },
         }

@@ -6,3 +6,5 @@ watchdog
 customtkinter
 aiosqlite
 pytest
+SpeechRecognition
+pyaudio

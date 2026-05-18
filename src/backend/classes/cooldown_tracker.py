@@ -12,3 +12,10 @@ class CooldownTracker:
             self._last[key] = now
             return True
         return False
+
+    def remaining(self, key: str, seconds: float) -> float:
+        """Return seconds left on cooldown, or 0 if ready."""
+        if key not in self._last:
+            return 0
+        elapsed = time.monotonic() - self._last[key]
+        return max(0.0, seconds - elapsed)

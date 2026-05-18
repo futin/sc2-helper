@@ -1,8 +1,8 @@
 # CooldownTracker
 
-> God node · 11 connections · `src/backend/classes/cooldown_tracker.py`
+> God node · 12 connections · `src/backend/classes/cooldown_tracker.py`
 
-**Community:** [[Game Detectors & Alerts]]
+**Community:** [[Game State Detectors]]
 
 ## Connections by Relation
 
@@ -21,6 +21,7 @@
 
 ### method
 - [[.ready()]] `EXTRACTED`
+- [[.remaining()]] `EXTRACTED`
 - [[.__init__()]] `EXTRACTED`
 
 ---
