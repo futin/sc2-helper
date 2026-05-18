@@ -1,12 +1,13 @@
 # main()
 
-> God node · 18 connections · `src/backend/index.py`
+> God node · 19 connections · `src/backend/index.py`
 
 **Community:** [[Game State Detectors]]
 
 ## Connections by Relation
 
 ### calls
+- [[WakeWordDetector]] `INFERRED`
 - [[CooldownTracker]] `INFERRED`
 - [[GameHistoryManager]] `INFERRED`
 - [[VoiceListener]] `INFERRED`

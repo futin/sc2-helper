@@ -24,7 +24,7 @@ import time
 from pathlib import Path
 from typing import Optional
 
-from backend.classes import CooldownTracker, SpeechQueue
+from backend.classes import CooldownTracker, SpeechQueue, WakeWordDetector
 from backend.classes.voice_listener import VoiceListener
 from backend.constants import PRIORITY_VOICE_RESPONSE
 from backend.detectors import check_idle_workers, check_resources, check_supply
@@ -98,17 +98,20 @@ def main() -> None:
 
     voice_queue: queue.Queue = queue.Queue()
     voice_listener: Optional[VoiceListener] = None
+    detector: Optional[WakeWordDetector] = None
     if voice_cfg.get("enabled", False):
         voice_listener = VoiceListener(
-            wake_word=voice_cfg.get("wake_word", "zag"),
             stt_backend=voice_cfg.get("stt_backend", "google"),
             command_queue=voice_queue,
             pause_threshold=float(voice_cfg.get("pause_threshold", 1.2)),
-            phrase_threshold=float(voice_cfg.get("phrase_threshold", 0.3)),
-            non_speaking_duration=float(voice_cfg.get("non_speaking_duration", 0.4)),
             phrase_time_limit=int(voice_cfg.get("phrase_time_limit", 8)),
         )
-        voice_listener.start()
+        detector = WakeWordDetector(
+            model_name=voice_cfg.get("wake_word_model", "alexa"),
+            sensitivity=float(voice_cfg.get("wake_sensitivity", 0.5)),
+            on_wake=voice_listener.handle_wake,
+        )
+        detector.start()
 
     label = ", debug" if debug else ""
     logging.info("SC2 Helper running [%s mode%s]. Press Ctrl+C to stop.", mode, label)
@@ -195,8 +198,8 @@ def main() -> None:
     except KeyboardInterrupt:
         print("Stopping.")
     finally:
-        if voice_listener:
-            voice_listener.stop()
+        if detector:
+            detector.stop()
 
 
 def _handle_voice_command(cmd, state: Optional[dict], speech: SpeechQueue, voice: str, config: dict, voice_cfg: dict, cooldown: CooldownTracker) -> None:

@@ -1,16 +1,16 @@
 # Graph Report - sc2-helper  (2026-05-18)
 
 ## Corpus Check
-- 46 files · ~15,336 words
+- 46 files · ~15,344 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 472 nodes · 607 edges · 68 communities (30 shown, 38 thin omitted)
-- Extraction: 76% EXTRACTED · 24% INFERRED · 0% AMBIGUOUS · INFERRED: 145 edges (avg confidence: 0.82)
+- 472 nodes · 608 edges · 68 communities (30 shown, 38 thin omitted)
+- Extraction: 76% EXTRACTED · 24% INFERRED · 0% AMBIGUOUS · INFERRED: 146 edges (avg confidence: 0.82)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `af8b30eb`
+- Built from commit: `a2476490`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -77,13 +77,13 @@
 - [[_COMMUNITY_Game Stats Table Schema|Game Stats Table Schema]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `main()` - 18 edges
+1. `main()` - 19 edges
 2. `ConfigTab` - 17 edges
 3. `RunnerScreen` - 15 edges
 4. `main` - 14 edges
-5. `GameHistoryManager` - 12 edges
-6. `CooldownTracker` - 12 edges
-7. `WakeWordDetector` - 12 edges
+5. `WakeWordDetector` - 13 edges
+6. `GameHistoryManager` - 12 edges
+7. `CooldownTracker` - 12 edges
 8. `get_db` - 11 edges
 9. `_make_listener()` - 10 edges
 10. `VoiceListener` - 10 edges
@@ -209,17 +209,17 @@ Nodes (3): CooldownTracker, SpeechQueue, VoiceListener
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `main()` connect `Game State Detectors` to `Database Query Layer`, `Game API & HUD Capture`, `Core Module Docs`, `History Dashboard`, `Voice Listener`?**
-  _High betweenness centrality (0.195) - this node is a cross-community bridge._
+- **Why does `main()` connect `Game State Detectors` to `Database Query Layer`, `Game API & HUD Capture`, `Config UI Tab`, `Core Module Docs`, `History Dashboard`, `Voice Listener`?**
+  _High betweenness centrality (0.239) - this node is a cross-community bridge._
 - **Why does `get_config()` connect `Database Query Layer` to `Core Module Docs`, `Game State Detectors`?**
-  _High betweenness centrality (0.131) - this node is a cross-community bridge._
+  _High betweenness centrality (0.148) - this node is a cross-community bridge._
 - **Why does `GameHistoryManager` connect `History Dashboard` to `Game State Detectors`?**
-  _High betweenness centrality (0.085) - this node is a cross-community bridge._
-- **Are the 15 inferred relationships involving `main()` (e.g. with `setup_logging()` and `get_config()`) actually correct?**
-  _`main()` has 15 INFERRED edges - model-reasoned connections that need verification._
+  _High betweenness centrality (0.094) - this node is a cross-community bridge._
+- **Are the 16 inferred relationships involving `main()` (e.g. with `setup_logging()` and `get_config()`) actually correct?**
+  _`main()` has 16 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 3 inferred relationships involving `RunnerScreen` (e.g. with `SC2HelperApp` and `RunnerController`) actually correct?**
   _`RunnerScreen` has 3 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 8 inferred relationships involving `WakeWordDetector` (e.g. with `test_init_sets_attributes()` and `test_stop_sets_event()`) actually correct?**
+  _`WakeWordDetector` has 8 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `Dev runner: watches src/ for .py changes and auto-restarts the app.`, `Smoke tests for detector logic — no TTS subprocess spawned.`, `Return (detector, mock_pyaudio, mock_oww_model) configured for a single-pass loo` to the rest of the system?**
   _136 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Backend Core & Constants` be split into smaller, more focused modules?**
-  _Cohesion score 0.05 - nodes in this community are weakly interconnected._

@@ -4,7 +4,7 @@
 
 ## Key Concepts
 
-- **main()** (18 connections) — `src/backend/index.py`
+- **main()** (19 connections) — `src/backend/index.py`
 - **CooldownTracker** (12 connections) — `src/backend/classes/cooldown_tracker.py`
 - **test_detectors.py** (9 connections) — `tests/test_detectors.py`
 - **_make_speech()** (9 connections) — `tests/test_detectors.py`
@@ -38,6 +38,7 @@
 - [[Database Query Layer]] (1 shared connections)
 - [[History Dashboard]] (1 shared connections)
 - [[Game API & HUD Capture]] (1 shared connections)
+- [[Config UI Tab]] (1 shared connections)
 
 ## Source Files
 
@@ -51,8 +52,8 @@
 
 ## Audit Trail
 
-- EXTRACTED: 78 (58%)
-- INFERRED: 57 (42%)
+- EXTRACTED: 78 (57%)
+- INFERRED: 58 (43%)
 - AMBIGUOUS: 0 (0%)
 
 ---
