@@ -57,7 +57,6 @@ class VoiceListener:
 
     def _transcribe(self, recognizer, audio) -> str | None:
         try:
-            import speech_recognition as sr
             if self._stt_backend == "whisper":
                 return recognizer.recognize_whisper(audio, language="english")
             return recognizer.recognize_google(audio)

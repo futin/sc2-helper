@@ -427,7 +427,7 @@
       "label": "_make_listener()",
       "file_type": "code",
       "source_file": "tests/test_voice_listener.py",
-      "source_location": "L9",
+      "source_location": "L7",
       "id": "tests_test_voice_listener_make_listener",
       "community": 6,
       "norm_label": "_make_listener()"
@@ -436,7 +436,7 @@
       "label": "test_parse_supply()",
       "file_type": "code",
       "source_file": "tests/test_voice_listener.py",
-      "source_location": "L20",
+      "source_location": "L18",
       "id": "tests_test_voice_listener_test_parse_supply",
       "community": 6,
       "norm_label": "test_parse_supply()"
@@ -445,7 +445,7 @@
       "label": "test_parse_resources()",
       "file_type": "code",
       "source_file": "tests/test_voice_listener.py",
-      "source_location": "L27",
+      "source_location": "L25",
       "id": "tests_test_voice_listener_test_parse_resources",
       "community": 6,
       "norm_label": "test_parse_resources()"
@@ -454,7 +454,7 @@
       "label": "test_parse_silence_minutes()",
       "file_type": "code",
       "source_file": "tests/test_voice_listener.py",
-      "source_location": "L34",
+      "source_location": "L32",
       "id": "tests_test_voice_listener_test_parse_silence_minutes",
       "community": 6,
       "norm_label": "test_parse_silence_minutes()"
@@ -463,7 +463,7 @@
       "label": "test_parse_silence_seconds()",
       "file_type": "code",
       "source_file": "tests/test_voice_listener.py",
-      "source_location": "L42",
+      "source_location": "L40",
       "id": "tests_test_voice_listener_test_parse_silence_seconds",
       "community": 6,
       "norm_label": "test_parse_silence_seconds()"
@@ -472,7 +472,7 @@
       "label": "test_parse_unknown_returns_none()",
       "file_type": "code",
       "source_file": "tests/test_voice_listener.py",
-      "source_location": "L50",
+      "source_location": "L48",
       "id": "tests_test_voice_listener_test_parse_unknown_returns_none",
       "community": 6,
       "norm_label": "test_parse_unknown_returns_none()"
@@ -481,7 +481,7 @@
       "label": "test_handle_wake_enqueues_command()",
       "file_type": "code",
       "source_file": "tests/test_voice_listener.py",
-      "source_location": "L58",
+      "source_location": "L56",
       "id": "tests_test_voice_listener_test_handle_wake_enqueues_command",
       "community": 6,
       "norm_label": "test_handle_wake_enqueues_command()"
@@ -490,7 +490,7 @@
       "label": "test_handle_wake_timeout_does_not_enqueue()",
       "file_type": "code",
       "source_file": "tests/test_voice_listener.py",
-      "source_location": "L78",
+      "source_location": "L76",
       "id": "tests_test_voice_listener_test_handle_wake_timeout_does_not_enqueue",
       "community": 6,
       "norm_label": "test_handle_wake_timeout_does_not_enqueue()"
@@ -499,7 +499,7 @@
       "label": "test_handle_wake_missing_import_does_not_raise()",
       "file_type": "code",
       "source_file": "tests/test_voice_listener.py",
-      "source_location": "L96",
+      "source_location": "L94",
       "id": "tests_test_voice_listener_test_handle_wake_missing_import_does_not_raise",
       "community": 6,
       "norm_label": "test_handle_wake_missing_import_does_not_raise()"
@@ -2236,7 +2236,7 @@
       "label": "._parse_command()",
       "file_type": "code",
       "source_file": "src/backend/classes/voice_listener.py",
-      "source_location": "L68",
+      "source_location": "L67",
       "id": "classes_voice_listener_voicelistener_parse_command",
       "community": 6,
       "norm_label": "._parse_command()"
@@ -5873,9 +5873,9 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_voice_listener_py",
-      "target": "tests_test_voice_listener_make_listener",
-      "confidence_score": 1.0
+      "target": "tests_test_voice_listener_make_listener"
     },
     {
       "relation": "contains",
@@ -5883,9 +5883,9 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_voice_listener_py",
-      "target": "tests_test_voice_listener_test_parse_supply",
-      "confidence_score": 1.0
+      "target": "tests_test_voice_listener_test_parse_supply"
     },
     {
       "relation": "contains",
@@ -5893,9 +5893,9 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_voice_listener_py",
-      "target": "tests_test_voice_listener_test_parse_resources",
-      "confidence_score": 1.0
+      "target": "tests_test_voice_listener_test_parse_resources"
     },
     {
       "relation": "contains",
@@ -5903,9 +5903,9 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_voice_listener_py",
-      "target": "tests_test_voice_listener_test_parse_silence_minutes",
-      "confidence_score": 1.0
+      "target": "tests_test_voice_listener_test_parse_silence_minutes"
     },
     {
       "relation": "contains",
@@ -5913,9 +5913,9 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_voice_listener_py",
-      "target": "tests_test_voice_listener_test_parse_silence_seconds",
-      "confidence_score": 1.0
+      "target": "tests_test_voice_listener_test_parse_silence_seconds"
     },
     {
       "relation": "contains",
@@ -5923,9 +5923,9 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_voice_listener_py",
-      "target": "tests_test_voice_listener_test_parse_unknown_returns_none",
-      "confidence_score": 1.0
+      "target": "tests_test_voice_listener_test_parse_unknown_returns_none"
     },
     {
       "relation": "contains",
@@ -5933,9 +5933,9 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_voice_listener_py",
-      "target": "tests_test_voice_listener_test_handle_wake_enqueues_command",
-      "confidence_score": 1.0
+      "target": "tests_test_voice_listener_test_handle_wake_enqueues_command"
     },
     {
       "relation": "contains",
@@ -5943,9 +5943,9 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_voice_listener_py",
-      "target": "tests_test_voice_listener_test_handle_wake_timeout_does_not_enqueue",
-      "confidence_score": 1.0
+      "target": "tests_test_voice_listener_test_handle_wake_timeout_does_not_enqueue"
     },
     {
       "relation": "contains",
@@ -5953,9 +5953,9 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_voice_listener_py",
-      "target": "tests_test_voice_listener_test_handle_wake_missing_import_does_not_raise",
-      "confidence_score": 1.0
+      "target": "tests_test_voice_listener_test_handle_wake_missing_import_does_not_raise"
     },
     {
       "relation": "calls",
@@ -5964,9 +5964,9 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_voice_listener_test_parse_supply",
-      "target": "tests_test_voice_listener_make_listener",
-      "confidence_score": 1.0
+      "target": "tests_test_voice_listener_make_listener"
     },
     {
       "relation": "calls",
@@ -5975,9 +5975,9 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_voice_listener_test_parse_resources",
-      "target": "tests_test_voice_listener_make_listener",
-      "confidence_score": 1.0
+      "target": "tests_test_voice_listener_make_listener"
     },
     {
       "relation": "calls",
@@ -5986,9 +5986,9 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_voice_listener_test_parse_silence_minutes",
-      "target": "tests_test_voice_listener_make_listener",
-      "confidence_score": 1.0
+      "target": "tests_test_voice_listener_make_listener"
     },
     {
       "relation": "calls",
@@ -5997,9 +5997,9 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_voice_listener_test_parse_silence_seconds",
-      "target": "tests_test_voice_listener_make_listener",
-      "confidence_score": 1.0
+      "target": "tests_test_voice_listener_make_listener"
     },
     {
       "relation": "calls",
@@ -6008,9 +6008,9 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_voice_listener_test_parse_unknown_returns_none",
-      "target": "tests_test_voice_listener_make_listener",
-      "confidence_score": 1.0
+      "target": "tests_test_voice_listener_make_listener"
     },
     {
       "relation": "calls",
@@ -6019,9 +6019,9 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_voice_listener_test_handle_wake_enqueues_command",
-      "target": "tests_test_voice_listener_make_listener",
-      "confidence_score": 1.0
+      "target": "tests_test_voice_listener_make_listener"
     },
     {
       "relation": "calls",
@@ -6030,9 +6030,9 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_voice_listener_test_handle_wake_timeout_does_not_enqueue",
-      "target": "tests_test_voice_listener_make_listener",
-      "confidence_score": 1.0
+      "target": "tests_test_voice_listener_make_listener"
     },
     {
       "relation": "calls",
@@ -6041,9 +6041,9 @@
       "source_file": "tests/test_voice_listener.py",
       "source_location": "L97",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_voice_listener_test_handle_wake_missing_import_does_not_raise",
-      "target": "tests_test_voice_listener_make_listener",
-      "confidence_score": 1.0
+      "target": "tests_test_voice_listener_make_listener"
     },
     {
       "relation": "calls",
@@ -8992,9 +8992,9 @@
       "source_file": "src/backend/classes/voice_listener.py",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "classes_voice_listener_voicelistener",
-      "target": "classes_voice_listener_voicelistener_handle_wake",
-      "confidence_score": 1.0
+      "target": "classes_voice_listener_voicelistener_handle_wake"
     },
     {
       "relation": "method",
@@ -9053,9 +9053,9 @@
       "source_file": "src/backend/classes/voice_listener.py",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "classes_voice_listener_voicelistener_handle_wake",
-      "target": "classes_voice_listener_voicelistener_transcribe",
-      "confidence_score": 1.0
+      "target": "classes_voice_listener_voicelistener_transcribe"
     },
     {
       "relation": "calls",
@@ -9064,9 +9064,9 @@
       "source_file": "src/backend/classes/voice_listener.py",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "classes_voice_listener_voicelistener_handle_wake",
-      "target": "classes_voice_listener_voicelistener_parse_command",
-      "confidence_score": 1.0
+      "target": "classes_voice_listener_voicelistener_parse_command"
     },
     {
       "relation": "calls",
@@ -11592,5 +11592,5 @@
       "source_file": "src/backend/classes/voice_listener.py"
     }
   ],
-  "built_at_commit": "33fe5bf12f493ffb5910933b723072088b3d1587"
+  "built_at_commit": "a31ba67190f24ee974c7c0fcbc7a76188a69e8f6"
 }
