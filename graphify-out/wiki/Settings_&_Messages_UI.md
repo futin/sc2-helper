@@ -21,10 +21,10 @@
 
 ## Relationships
 
-- [[Project Architecture Docs]] (38 shared connections)
-- [[Config & Service Layer]] (2 shared connections)
-- [[Game History Tracking]] (1 shared connections)
-- [[TTS Speech Queue]] (1 shared connections)
+- [[Database Query Layer]] (39 shared connections)
+- [[Core Module Docs]] (1 shared connections)
+- [[Voice Listener]] (1 shared connections)
+- [[History Dashboard]] (1 shared connections)
 
 ## Source Files
 

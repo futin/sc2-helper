@@ -1,16 +1,16 @@
 # Graph Report - sc2-helper  (2026-05-18)
 
 ## Corpus Check
-- 45 files · ~15,229 words
+- 45 files · ~15,234 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 458 nodes · 583 edges · 68 communities (30 shown, 38 thin omitted)
+- 461 nodes · 586 edges · 68 communities (30 shown, 38 thin omitted)
 - Extraction: 75% EXTRACTED · 25% INFERRED · 0% AMBIGUOUS · INFERRED: 144 edges (avg confidence: 0.82)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `90d625fc`
+- Built from commit: `c42b8685`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -118,56 +118,56 @@ Cohesion: 0.05
 Nodes (55): DBConnector, PRIORITY_GAS, PRIORITY_IDLE_WORKERS, PRIORITY_MINERALS, PRIORITY_SUPPLY, PRIORITY_VOICE_RESPONSE, _RACE_MAP, REQUEST_TIMEOUT (+47 more)
 
 ### Community 1 - "Game State Detectors"
-Cohesion: 0.08
-Nodes (29): _capture_hud(), fetch_game_state(), _filter_spikes(), is_game_running(), _poll_game(), Return (is_running, players). Single API call reused by main loop., Return True if SC2 is running and a game is in progress., Capture HUD via screen OCR. Assumes game is already confirmed running. (+21 more)
+Cohesion: 0.07
+Nodes (33): check_idle_workers(), check_resources(), check_supply(), Track idle workers. Returns updated idle_onset (or None if busy)., _handle_voice_command(), main(), SC2 Helper — captures the StarCraft II HUD via screen OCR and speaks audio warni, setup_logging() (+25 more)
 
 ### Community 2 - "Database Query Layer"
+Cohesion: 0.06
+Nodes (10): get_config(), Service layer — the only entry point for frontend to access config and stats. Fr, save_config(), SC2HelperApp, main(), Entry point for the SC2 Helper UI., MessagesTab, Smoke tests for config load/save round-trips. (+2 more)
+
+### Community 3 - "Frontend Application"
 Cohesion: 0.09
 Nodes (8): ABC, _build_set(), _build_where(), Collection, DBConnector, ensure_tables(), SQLiteConnector, DBConnector
 
-### Community 3 - "Frontend Application"
-Cohesion: 0.12
-Nodes (23): check_idle_workers(), check_resources(), check_supply(), Track idle workers. Returns updated idle_onset (or None if busy)., get_message(), CooldownTracker, Return seconds left on cooldown, or 0 if ready., Return True (and record the time) if the cooldown has elapsed. (+15 more)
-
 ### Community 4 - "Config & Service Layer"
-Cohesion: 0.09
-Nodes (7): get_mouse_pos(), Move mouse over each SC2 HUD element. Press Enter in terminal to record position, Service layer — the only entry point for frontend to access config and stats. Fr, save_config(), CoordsTab, Smoke tests for config load/save round-trips., test_save_and_load_roundtrip()
+Cohesion: 0.08
+Nodes (26): Backend (src/backend/), db/collection.py (Collection Query API), config_manager.py (Re-exports from service), classes/cooldown_tracker.py (CooldownTracker), db/__init__.py (get_db context manager), detectors.py, Frontend (src/frontend/), logic/game_history_logic.py (GameHistoryLoader) (+18 more)
 
 ### Community 5 - "Project Architecture Docs"
-Cohesion: 0.12
-Nodes (5): SC2HelperApp, main(), Entry point for the SC2 Helper UI., MessagesTab, SettingsScreen
-
-### Community 6 - "Game API & HUD Capture"
 Cohesion: 0.13
 Nodes (3): Start the backend process. Returns False if already running., RunnerController, RunnerScreen
 
-### Community 7 - "Config UI Tab"
-Cohesion: 0.1
-Nodes (21): Backend (src/backend/), db/collection.py (Collection Query API), config_manager.py (Re-exports from service), db/__init__.py (get_db context manager), Frontend (src/frontend/), logic/game_history_logic.py (GameHistoryLoader), game_history.py (GameHistoryManager), views/tabs/game_history_tab.py (+13 more)
+### Community 6 - "Game API & HUD Capture"
+Cohesion: 0.14
+Nodes (14): WakeWordDetector, _make_detector_mocks(), Loop must not crash on stream.read raising an exception., Loop must not crash on stream.read raising an exception., Return (detector, mock_pyaudio, mock_oww_model) configured for a single-pass loo, Return (detector, mock_pyaudio, mock_oww_model) configured for a single-pass loo, Second above-threshold chunk within refractory_s must not trigger on_wake again., Second above-threshold chunk within refractory_s must not trigger on_wake again. (+6 more)
 
-### Community 8 - "Core Module Docs"
-Cohesion: 0.11
-Nodes (21): classes/cooldown_tracker.py (CooldownTracker), detectors.py, game_api.py (SC2 API Polling), index.py (Backend Entry Point), ocr.py (Screen Capture + OCR), TTS Priority Queue (supply > minerals > idle > gas), logic/runner_logic.py (RunnerController), views/runner_view.py (RunnerScreen) (+13 more)
+### Community 7 - "Config UI Tab"
+Cohesion: 0.15
+Nodes (18): _capture_hud(), fetch_game_state(), _filter_spikes(), is_game_running(), _poll_game(), Return (is_running, players). Single API call reused by main loop., Return True if SC2 is running and a game is in progress., Capture HUD via screen OCR. Assumes game is already confirmed running. (+10 more)
 
 ### Community 9 - "Frontend Composition"
-Cohesion: 0.17
-Nodes (11): WakeWordDetector, _make_detector_mocks(), Loop must not crash on stream.read raising an exception., Return (detector, mock_pyaudio, mock_oww_model) configured for a single-pass loo, Second above-threshold chunk within refractory_s must not trigger on_wake again., test_detect_loop_calls_on_wake_when_threshold_met(), test_detect_loop_logs_error_on_missing_import(), test_detect_loop_recovers_from_audio_read_error() (+3 more)
+Cohesion: 0.16
+Nodes (16): game_api.py (SC2 API Polling), index.py (Backend Entry Point), ocr.py (Screen Capture + OCR), logic/runner_logic.py (RunnerController), views/runner_view.py (RunnerScreen), Spike Filter (OCR Anomaly Suppression), Anomaly Filter Config, Debug Mode Checkbox (RunnerScreen) (+8 more)
 
-### Community 11 - "Settings & Messages UI"
+### Community 10 - "Game History Tracking"
 Cohesion: 0.13
 Nodes (16): SC2HelperApp, frontend/config_manager.py, ConfigTab, CoordsTab, dev.py __main__, RestartHandler, GameHistoryLoader, GameHistoryTab (+8 more)
 
-### Community 12 - "History Dashboard"
+### Community 11 - "Settings & Messages UI"
 Cohesion: 0.22
 Nodes (3): _format_duration(), GameHistoryManager, get_db()
 
-### Community 13 - "TTS Speech Queue"
+### Community 12 - "History Dashboard"
 Cohesion: 0.26
 Nodes (3): get_stats_history(), GameHistoryLoader, GameHistoryTab
 
-### Community 14 - "Voice Listener"
+### Community 13 - "TTS Speech Queue"
 Cohesion: 0.22
 Nodes (6): SpeechQueue, Smoke tests for SpeechQueue — no actual TTS subprocess spawned., Lower priority number = higher urgency = dequeued first., test_counter_increments(), test_priority_ordering(), test_speak_enqueues_without_error()
+
+### Community 14 - "Voice Listener"
+Cohesion: 0.27
+Nodes (3): get_mouse_pos(), Move mouse over each SC2 HUD element. Press Enter in terminal to record position, CoordsTab
 
 ### Community 15 - "Message Banks & Tests"
 Cohesion: 0.27
@@ -202,24 +202,24 @@ Cohesion: 0.67
 Nodes (3): CooldownTracker, SpeechQueue, VoiceListener
 
 ## Knowledge Gaps
-- **133 isolated node(s):** `Dev runner: watches src/ for .py changes and auto-restarts the app.`, `Smoke tests for detector logic — no TTS subprocess spawned.`, `Return (detector, mock_pyaudio, mock_oww_model) configured for a single-pass loo`, `Second above-threshold chunk within refractory_s must not trigger on_wake again.`, `Loop must not crash on stream.read raising an exception.` (+128 more)
+- **136 isolated node(s):** `Dev runner: watches src/ for .py changes and auto-restarts the app.`, `Smoke tests for detector logic — no TTS subprocess spawned.`, `Return (detector, mock_pyaudio, mock_oww_model) configured for a single-pass loo`, `Second above-threshold chunk within refractory_s must not trigger on_wake again.`, `Loop must not crash on stream.read raising an exception.` (+131 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **38 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `main()` connect `Game State Detectors` to `Frontend Application`, `History Dashboard`, `Voice Listener`, `Message Banks & Tests`?**
-  _High betweenness centrality (0.183) - this node is a cross-community bridge._
-- **Why does `get_config()` connect `Game State Detectors` to `Config & Service Layer`, `Project Architecture Docs`?**
-  _High betweenness centrality (0.128) - this node is a cross-community bridge._
-- **Why does `GameHistoryManager` connect `History Dashboard` to `Game State Detectors`?**
-  _High betweenness centrality (0.085) - this node is a cross-community bridge._
+- **Why does `main()` connect `Game State Detectors` to `Database Query Layer`, `Config UI Tab`, `Settings & Messages UI`, `TTS Speech Queue`, `Message Banks & Tests`?**
+  _High betweenness centrality (0.181) - this node is a cross-community bridge._
+- **Why does `get_config()` connect `Database Query Layer` to `Game State Detectors`, `Config UI Tab`?**
+  _High betweenness centrality (0.127) - this node is a cross-community bridge._
+- **Why does `GameHistoryManager` connect `Settings & Messages UI` to `Game State Detectors`?**
+  _High betweenness centrality (0.084) - this node is a cross-community bridge._
 - **Are the 15 inferred relationships involving `main()` (e.g. with `setup_logging()` and `get_config()`) actually correct?**
   _`main()` has 15 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 3 inferred relationships involving `RunnerScreen` (e.g. with `SC2HelperApp` and `RunnerController`) actually correct?**
   _`RunnerScreen` has 3 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `Dev runner: watches src/ for .py changes and auto-restarts the app.`, `Smoke tests for detector logic — no TTS subprocess spawned.`, `Return (detector, mock_pyaudio, mock_oww_model) configured for a single-pass loo` to the rest of the system?**
-  _133 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _136 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Backend Core & Constants` be split into smaller, more focused modules?**
   _Cohesion score 0.05 - nodes in this community are weakly interconnected._

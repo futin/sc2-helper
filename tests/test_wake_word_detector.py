@@ -17,6 +17,7 @@ def test_init_sets_attributes():
     assert detector._model_name == "alexa"
     assert detector._sensitivity == 0.7
     assert detector._chunk_ms == 80
+    assert detector._refractory_s == 2.0
     assert not detector._stop_event.is_set()
 
 

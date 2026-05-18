@@ -33,9 +33,11 @@
 
 ## Relationships
 
-- [[Project Architecture Docs]] (4 shared connections)
-- [[Game State Detectors]] (3 shared connections)
-- [[TTS Speech Queue]] (1 shared connections)
+- [[Database Query Layer]] (37 shared connections)
+- [[Voice Listener]] (25 shared connections)
+- [[History Dashboard]] (1 shared connections)
+- [[Config UI Tab]] (1 shared connections)
+- [[Game State Detectors]] (1 shared connections)
 
 ## Source Files
 

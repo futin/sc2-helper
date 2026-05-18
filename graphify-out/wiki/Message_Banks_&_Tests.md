@@ -16,7 +16,7 @@
 
 ## Relationships
 
-- [[Frontend Application]] (27 shared connections)
+- [[Game State Detectors]] (27 shared connections)
 
 ## Source Files
 

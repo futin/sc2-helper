@@ -33,10 +33,8 @@
 
 ## Relationships
 
-- [[Game API & HUD Capture]] (56 shared connections)
-- [[Project Architecture Docs]] (20 shared connections)
-- [[Config & Service Layer]] (1 shared connections)
-- [[Game State Detectors]] (1 shared connections)
+- [[Project Architecture Docs]] (56 shared connections)
+- [[Database Query Layer]] (22 shared connections)
 
 ## Source Files
 

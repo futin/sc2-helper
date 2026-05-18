@@ -2,7 +2,7 @@
 
 > God node · 12 connections · `src/backend/classes/cooldown_tracker.py`
 
-**Community:** [[Frontend Application]]
+**Community:** [[Game State Detectors]]
 
 ## Connections by Relation
 

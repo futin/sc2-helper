@@ -23,7 +23,8 @@
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Frontend Composition]] (38 shared connections)
+- [[Config & Service Layer]] (1 shared connections)
 
 ## Source Files
 

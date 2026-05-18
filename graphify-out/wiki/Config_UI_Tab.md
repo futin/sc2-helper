@@ -24,8 +24,8 @@
 
 ## Relationships
 
-- [[Game History Tracking]] (96 shared connections)
-- [[Project Architecture Docs]] (1 shared connections)
+- [[Core Module Docs]] (96 shared connections)
+- [[Database Query Layer]] (1 shared connections)
 
 ## Source Files
 

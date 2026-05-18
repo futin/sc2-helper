@@ -61,19 +61,20 @@ class WakeWordDetector:
             while not self._stop_event.is_set():
                 try:
                     chunk = stream.read(chunk_size, exception_on_overflow=False)
-                    audio_data = np.frombuffer(chunk, dtype=np.int16)
-                    prediction = model.predict(audio_data)
-                    score = prediction.get(self._model_name, 0.0)
-                    now = time.monotonic()
-                    if score >= self._sensitivity and now - last_wake_at > self._refractory_s:
-                        logger.info(
-                            "WakeWordDetector: wake detected (model=%r, score=%.3f)",
-                            self._model_name, score,
-                        )
-                        self._on_wake()
-                        last_wake_at = now
-                except Exception as exc:
+                except OSError as exc:
                     logger.warning("WakeWordDetector: audio read error: %s", exc)
+                    continue
+                audio_data = np.frombuffer(chunk, dtype=np.int16)
+                prediction = model.predict(audio_data)
+                score = prediction.get(self._model_name, 0.0)
+                now = time.monotonic()
+                if score >= self._sensitivity and now - last_wake_at > self._refractory_s:
+                    logger.info(
+                        "WakeWordDetector: wake detected (model=%r, score=%.3f)",
+                        self._model_name, score,
+                    )
+                    self._on_wake()
+                    last_wake_at = now
         finally:
             stream.stop_stream()
             stream.close()

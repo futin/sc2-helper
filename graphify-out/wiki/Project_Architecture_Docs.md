@@ -33,8 +33,8 @@
 
 ## Relationships
 
-- [[Config UI Tab]] (41 shared connections)
-- [[Core Module Docs]] (10 shared connections)
+- [[Config & Service Layer]] (50 shared connections)
+- [[Frontend Composition]] (1 shared connections)
 
 ## Source Files
 

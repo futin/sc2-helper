@@ -27,7 +27,9 @@
 
 ## Relationships
 
-- [[Game State Detectors]] (64 shared connections)
+- [[Config UI Tab]] (58 shared connections)
+- [[Game State Detectors]] (5 shared connections)
+- [[Database Query Layer]] (1 shared connections)
 
 ## Source Files
 
