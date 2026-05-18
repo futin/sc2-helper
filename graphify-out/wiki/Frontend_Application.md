@@ -33,8 +33,8 @@
 
 ## Relationships
 
-- [[Config & Service Layer]] (2 shared connections)
-- [[Settings & Messages UI]] (2 shared connections)
+- [[Project Architecture Docs]] (56 shared connections)
+- [[Game State Detectors]] (22 shared connections)
 
 ## Source Files
 

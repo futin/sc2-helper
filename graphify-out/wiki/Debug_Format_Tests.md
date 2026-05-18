@@ -9,7 +9,7 @@
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Speech Queue Tests]] (2 shared connections)
 
 ## Source Files
 

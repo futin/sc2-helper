@@ -16,7 +16,7 @@
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Frontend HUD Images]] (24 shared connections)
 
 ## Source Files
 

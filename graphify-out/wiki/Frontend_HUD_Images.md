@@ -15,7 +15,7 @@
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Dev Hot-reload Runner]] (28 shared connections)
 
 ## Source Files
 

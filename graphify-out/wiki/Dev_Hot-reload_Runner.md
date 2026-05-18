@@ -14,7 +14,7 @@
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Voice Command Parsing]] (16 shared connections)
 
 ## Source Files
 

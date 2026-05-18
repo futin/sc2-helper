@@ -19,8 +19,8 @@
 
 ## Relationships
 
-- [[Settings & Messages UI]] (1 shared connections)
-- [[Config & Service Layer]] (1 shared connections)
+- [[Settings & Messages UI]] (34 shared connections)
+- [[Game State Detectors]] (2 shared connections)
 
 ## Source Files
 

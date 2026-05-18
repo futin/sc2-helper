@@ -9,7 +9,7 @@
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Supply Detector Tests]] (2 shared connections)
 
 ## Source Files
 

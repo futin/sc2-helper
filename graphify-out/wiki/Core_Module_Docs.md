@@ -23,7 +23,7 @@
 
 ## Relationships
 
-- [[Project Architecture Docs]] (1 shared connections)
+- [[Config & Service Layer]] (1 shared connections)
 
 ## Source Files
 

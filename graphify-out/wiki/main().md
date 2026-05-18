@@ -2,7 +2,7 @@
 
 > God node · 18 connections · `src/backend/index.py`
 
-**Community:** [[Game State Detectors]]
+**Community:** [[Database Query Layer]]
 
 ## Connections by Relation
 

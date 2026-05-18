@@ -24,7 +24,7 @@
 
 ## Relationships
 
-- [[Settings & Messages UI]] (1 shared connections)
+- [[Game State Detectors]] (1 shared connections)
 
 ## Source Files
 

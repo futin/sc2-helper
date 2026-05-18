@@ -2,7 +2,7 @@
 
 > God node · 9 connections · `tests/test_detectors.py`
 
-**Community:** [[Game State Detectors]]
+**Community:** [[Database Query Layer]]
 
 ## Connections by Relation
 

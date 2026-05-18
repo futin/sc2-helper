@@ -10,7 +10,7 @@
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Background Thread Classes]] (4 shared connections)
 
 ## Source Files
 

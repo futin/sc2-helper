@@ -33,12 +33,12 @@
 
 ## Relationships
 
+- [[Database Query Layer]] (122 shared connections)
 - [[Game API & HUD Capture]] (5 shared connections)
-- [[Message Banks & Tests]] (3 shared connections)
+- [[Backend HUD Images]] (3 shared connections)
 - [[TTS Speech Queue]] (2 shared connections)
-- [[Config & Service Layer]] (1 shared connections)
 - [[Game History Tracking]] (1 shared connections)
-- [[Voice Listener]] (1 shared connections)
+- [[Message Banks & Tests]] (1 shared connections)
 
 ## Source Files
 

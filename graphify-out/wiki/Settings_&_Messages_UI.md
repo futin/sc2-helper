@@ -21,10 +21,9 @@
 
 ## Relationships
 
-- [[Frontend Application]] (2 shared connections)
-- [[Config & Service Layer]] (2 shared connections)
+- [[Game State Detectors]] (39 shared connections)
 - [[Config UI Tab]] (1 shared connections)
-- [[History Dashboard]] (1 shared connections)
+- [[Voice Listener]] (1 shared connections)
 
 ## Source Files
 

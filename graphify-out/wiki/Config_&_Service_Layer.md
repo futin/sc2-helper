@@ -33,11 +33,11 @@
 
 ## Relationships
 
-- [[Frontend Application]] (2 shared connections)
-- [[Settings & Messages UI]] (2 shared connections)
-- [[History Dashboard]] (1 shared connections)
+- [[Game State Detectors]] (37 shared connections)
+- [[Voice Listener]] (25 shared connections)
+- [[Settings & Messages UI]] (1 shared connections)
 - [[Game API & HUD Capture]] (1 shared connections)
-- [[Game State Detectors]] (1 shared connections)
+- [[Database Query Layer]] (1 shared connections)
 
 ## Source Files
 

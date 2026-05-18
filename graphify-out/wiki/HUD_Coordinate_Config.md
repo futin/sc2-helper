@@ -10,7 +10,7 @@
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[Resource Detector Tests]] (4 shared connections)
 
 ## Source Files
 

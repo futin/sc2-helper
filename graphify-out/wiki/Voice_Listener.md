@@ -17,7 +17,8 @@
 
 ## Relationships
 
-- [[Game State Detectors]] (1 shared connections)
+- [[Message Banks & Tests]] (24 shared connections)
+- [[Database Query Layer]] (1 shared connections)
 
 ## Source Files
 

@@ -16,7 +16,8 @@
 
 ## Relationships
 
-- [[Game State Detectors]] (3 shared connections)
+- [[Backend HUD Images]] (24 shared connections)
+- [[Database Query Layer]] (3 shared connections)
 
 ## Source Files
 

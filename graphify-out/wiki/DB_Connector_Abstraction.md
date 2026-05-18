@@ -9,7 +9,7 @@
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [[App Entry Point]] (2 shared connections)
 
 ## Source Files
 
