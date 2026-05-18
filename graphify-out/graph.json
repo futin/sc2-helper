@@ -1336,7 +1336,7 @@
       "label": "._build_screen_capture_section()",
       "file_type": "code",
       "source_file": "src/frontend/views/tabs/config_tab.py",
-      "source_location": "L169",
+      "source_location": "L164",
       "id": "tabs_config_tab_configtab_build_screen_capture_section",
       "community": 9,
       "norm_label": "._build_screen_capture_section()"
@@ -1345,7 +1345,7 @@
       "label": "._add_tier_row()",
       "file_type": "code",
       "source_file": "src/frontend/views/tabs/config_tab.py",
-      "source_location": "L180",
+      "source_location": "L175",
       "id": "tabs_config_tab_configtab_add_tier_row",
       "community": 9,
       "norm_label": "._add_tier_row()"
@@ -1354,7 +1354,7 @@
       "label": "._remove_tier_row()",
       "file_type": "code",
       "source_file": "src/frontend/views/tabs/config_tab.py",
-      "source_location": "L200",
+      "source_location": "L195",
       "id": "tabs_config_tab_configtab_remove_tier_row",
       "community": 9,
       "norm_label": "._remove_tier_row()"
@@ -1363,7 +1363,7 @@
       "label": ".collect()",
       "file_type": "code",
       "source_file": "src/frontend/views/tabs/config_tab.py",
-      "source_location": "L204",
+      "source_location": "L199",
       "id": "tabs_config_tab_configtab_collect",
       "community": 9,
       "norm_label": ".collect()"
@@ -11603,5 +11603,5 @@
       "source_file": "src/backend/classes/voice_listener.py"
     }
   ],
-  "built_at_commit": "a24764902f6402c7f203cae177bbabab03eb2d9e"
+  "built_at_commit": "8c3ced94d6a9059165c6239b13c38e945ac5dbcd"
 }

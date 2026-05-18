@@ -128,9 +128,14 @@ class ConfigTab(ctk.CTkScrollableFrame):
             row=row, column=1, sticky="w", padx=6, pady=3)
         row += 1
 
-        self._lbl("Wake Word", row, 0)
-        self._voice_wake_word = self._entry(row, 1)
-        self._voice_wake_word.insert(0, vc.get("wake_word", "zag"))
+        self._lbl("Wake Word Model", row, 0)
+        self._voice_wake_word_model = self._entry(row, 1)
+        self._voice_wake_word_model.insert(0, vc.get("wake_word_model", "alexa"))
+        row += 1
+
+        self._lbl("Wake Sensitivity (0.0–1.0)", row, 0)
+        self._voice_wake_sensitivity = self._entry(row, 1)
+        self._voice_wake_sensitivity.insert(0, str(vc.get("wake_sensitivity", 0.5)))
         row += 1
 
         self._lbl("STT Backend", row, 0)
@@ -147,16 +152,6 @@ class ConfigTab(ctk.CTkScrollableFrame):
         self._lbl("Pause Threshold (s)", row, 0)
         self._voice_pause_threshold = self._entry(row, 1)
         self._voice_pause_threshold.insert(0, str(vc.get("pause_threshold", 1.2)))
-        row += 1
-
-        self._lbl("Phrase Threshold (s)", row, 0)
-        self._voice_phrase_threshold = self._entry(row, 1)
-        self._voice_phrase_threshold.insert(0, str(vc.get("phrase_threshold", 0.3)))
-        row += 1
-
-        self._lbl("Non-Speaking Duration (s)", row, 0)
-        self._voice_non_speaking_duration = self._entry(row, 1)
-        self._voice_non_speaking_duration.insert(0, str(vc.get("non_speaking_duration", 0.4)))
         row += 1
 
         self._lbl("Phrase Time Limit (s)", row, 0)
@@ -213,8 +208,7 @@ class ConfigTab(ctk.CTkScrollableFrame):
             ocr_t = int(self._ocr_threshold.get())
             silence_dur = int(self._voice_silence_duration.get())
             pause_thr = float(self._voice_pause_threshold.get())
-            phrase_thr = float(self._voice_phrase_threshold.get())
-            non_speaking = float(self._voice_non_speaking_duration.get())
+            wake_sensitivity = float(self._voice_wake_sensitivity.get())
             phrase_limit = int(self._voice_phrase_time_limit.get())
         except ValueError as e:
             raise ValueError(f"Invalid number: {e}") from e
@@ -246,12 +240,11 @@ class ConfigTab(ctk.CTkScrollableFrame):
             "screen_capture": sc,
             "voice_control": {
                 "enabled": self._voice_enabled_var.get(),
-                "wake_word": self._voice_wake_word.get().strip().lower(),
+                "wake_word_model": self._voice_wake_word_model.get().strip().lower(),
+                "wake_sensitivity": wake_sensitivity,
                 "stt_backend": self._voice_stt_backend.get(),
                 "silence_duration": silence_dur,
                 "pause_threshold": pause_thr,
-                "phrase_threshold": phrase_thr,
-                "non_speaking_duration": non_speaking,
                 "phrase_time_limit": phrase_limit,
             },
         }

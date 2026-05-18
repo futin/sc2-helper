@@ -199,7 +199,7 @@ def main() -> None:
         print("Stopping.")
     finally:
         if detector:
-            detector.stop()
+            detector.stop()  # VoiceListener is stateless — no stop() needed
 
 
 def _handle_voice_command(cmd, state: Optional[dict], speech: SpeechQueue, voice: str, config: dict, voice_cfg: dict, cooldown: CooldownTracker) -> None:
