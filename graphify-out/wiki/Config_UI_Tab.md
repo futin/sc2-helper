@@ -24,7 +24,7 @@
 
 ## Relationships
 
-- [[Core Module Docs]] (96 shared connections)
+- [[Frontend Composition]] (96 shared connections)
 - [[Database Query Layer]] (1 shared connections)
 
 ## Source Files

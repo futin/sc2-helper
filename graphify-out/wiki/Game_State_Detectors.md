@@ -33,11 +33,11 @@
 
 ## Relationships
 
-- [[Config UI Tab]] (5 shared connections)
-- [[TTS Speech Queue]] (2 shared connections)
+- [[Core Module Docs]] (5 shared connections)
+- [[Voice Listener]] (2 shared connections)
 - [[Database Query Layer]] (1 shared connections)
-- [[Settings & Messages UI]] (1 shared connections)
-- [[Message Banks & Tests]] (1 shared connections)
+- [[History Dashboard]] (1 shared connections)
+- [[Game API & HUD Capture]] (1 shared connections)
 
 ## Source Files
 

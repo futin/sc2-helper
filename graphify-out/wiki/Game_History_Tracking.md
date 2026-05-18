@@ -22,7 +22,7 @@
 
 ## Relationships
 
-- [[Settings & Messages UI]] (46 shared connections)
+- [[History Dashboard]] (46 shared connections)
 - [[Frontend Application]] (2 shared connections)
 - [[Game State Detectors]] (1 shared connections)
 

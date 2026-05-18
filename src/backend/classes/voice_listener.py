@@ -1,15 +1,6 @@
-"""
-Voice listener — background thread that listens for a wake word then transcribes
-a follow-up command and enqueues a VoiceCommand for the main loop.
-
-Requires: pip install SpeechRecognition pyaudio
-Optional offline backend: pip install openai-whisper
-"""
-
 import logging
 import queue
 import re
-import threading
 from dataclasses import dataclass, field
 
 logger = logging.getLogger(__name__)
@@ -24,33 +15,17 @@ class VoiceCommand:
 class VoiceListener:
     def __init__(
         self,
-        wake_word: str,
         stt_backend: str,
         command_queue: queue.Queue,
         pause_threshold: float = 1.2,
-        phrase_threshold: float = 0.3,
-        non_speaking_duration: float = 0.4,
         phrase_time_limit: int = 8,
     ):
-        self._wake_word = wake_word.lower()
         self._stt_backend = stt_backend
         self._queue = command_queue
         self._pause_threshold = pause_threshold
-        self._phrase_threshold = phrase_threshold
-        self._non_speaking_duration = non_speaking_duration
         self._phrase_time_limit = phrase_time_limit
-        self._stop_event = threading.Event()
-        self._thread: threading.Thread | None = None
 
-    def start(self) -> None:
-        self._thread = threading.Thread(target=self._listen_loop, daemon=True, name="VoiceListener")
-        self._thread.start()
-        logger.info("VoiceListener started (wake_word=%r, backend=%s)", self._wake_word, self._stt_backend)
-
-    def stop(self) -> None:
-        self._stop_event.set()
-
-    def _listen_loop(self) -> None:
+    def handle_wake(self) -> None:
         try:
             import speech_recognition as sr
         except ImportError:
@@ -59,38 +34,26 @@ class VoiceListener:
 
         recognizer = sr.Recognizer()
         recognizer.pause_threshold = self._pause_threshold
-        recognizer.phrase_threshold = self._phrase_threshold
-        recognizer.non_speaking_duration = self._non_speaking_duration
 
         with sr.Microphone() as source:
-            recognizer.adjust_for_ambient_noise(source, duration=1)
-            logger.info(
-                "VoiceListener ready, listening for %r (pause=%.1fs, phrase_limit=%ds)...",
-                self._wake_word, self._pause_threshold, self._phrase_time_limit,
-            )
+            logger.info("VoiceListener: wake detected, listening for command...")
+            try:
+                audio = recognizer.listen(source, timeout=5, phrase_time_limit=self._phrase_time_limit)
+            except sr.WaitTimeoutError:
+                logger.info("VoiceListener: no command heard after wake word")
+                return
 
-            while not self._stop_event.is_set():
-                try:
-                    audio = recognizer.listen(source, timeout=5, phrase_time_limit=self._phrase_time_limit)
-                    logger.info("VoiceListener: audio captured, transcribing...")
-                    text = self._transcribe(recognizer, audio)
-                    if text:
-                        logger.info("VoiceListener heard: %r", text)
-                        if self._wake_word in text.lower():
-                            cmd = self._parse_command(text)
-                            if cmd:
-                                self._queue.put(cmd)
-                                logger.info("VoiceCommand queued: intent=%s params=%s", cmd.intent, cmd.params)
-                            else:
-                                logger.info("VoiceListener: wake word detected but no matching command in %r", text)
-                        else:
-                            logger.info("VoiceListener: no wake word %r in transcript", self._wake_word)
-                    else:
-                        logger.info("VoiceListener: transcription returned nothing")
-                except sr.WaitTimeoutError:
-                    pass
-                except Exception as exc:
-                    logger.warning("VoiceListener error: %s", exc)
+        text = self._transcribe(recognizer, audio)
+        if not text:
+            return
+
+        logger.info("VoiceListener heard: %r", text)
+        cmd = self._parse_command(text)
+        if cmd:
+            self._queue.put(cmd)
+            logger.info("VoiceCommand queued: intent=%s params=%s", cmd.intent, cmd.params)
+        else:
+            logger.info("VoiceListener: no matching command in %r", text)
 
     def _transcribe(self, recognizer, audio) -> str | None:
         try:
@@ -111,7 +74,7 @@ class VoiceListener:
         if any(kw in t for kw in ("resources", "minerals", "gas", "enough")):
             return VoiceCommand(intent="query_resources")
 
-        silence_match = re.search(r"silent?\s+(?:for\s+)?(?:next\s+)?(\d+)\s*(minute|min|second|sec)", t)
+        silence_match = re.search(r"silen(?:t|ce)\s+(?:for\s+)?(?:next\s+)?(\d+)\s*(minute|min|second|sec)", t)
         if silence_match or any(kw in t for kw in ("silent", "silence", "quiet", "mute")):
             seconds = 120
             if silence_match:

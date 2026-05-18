@@ -1,16 +1,16 @@
 # Graph Report - sc2-helper  (2026-05-18)
 
 ## Corpus Check
-- 45 files · ~15,234 words
+- 46 files · ~15,337 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 461 nodes · 586 edges · 68 communities (30 shown, 38 thin omitted)
-- Extraction: 75% EXTRACTED · 25% INFERRED · 0% AMBIGUOUS · INFERRED: 144 edges (avg confidence: 0.82)
+- 472 nodes · 607 edges · 68 communities (30 shown, 38 thin omitted)
+- Extraction: 76% EXTRACTED · 24% INFERRED · 0% AMBIGUOUS · INFERRED: 145 edges (avg confidence: 0.82)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c42b8685`
+- Built from commit: `33fe5bf1`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -85,8 +85,8 @@
 6. `CooldownTracker` - 12 edges
 7. `WakeWordDetector` - 12 edges
 8. `get_db` - 11 edges
-9. `SQLiteConnector` - 10 edges
-10. `Collection` - 10 edges
+9. `_make_listener()` - 10 edges
+10. `VoiceListener` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Smarter Contextual Detection` --semantically_similar_to--> `_filter_spikes`  [INFERRED] [semantically similar]
@@ -138,40 +138,40 @@ Cohesion: 0.13
 Nodes (3): Start the backend process. Returns False if already running., RunnerController, RunnerScreen
 
 ### Community 6 - "Game API & HUD Capture"
+Cohesion: 0.16
+Nodes (12): Voice listener — background thread that listens for a wake word then transcribes, VoiceCommand, VoiceListener, _make_listener(), test_handle_wake_enqueues_command(), test_handle_wake_missing_import_does_not_raise(), test_handle_wake_timeout_does_not_enqueue(), test_parse_resources() (+4 more)
+
+### Community 7 - "Config UI Tab"
 Cohesion: 0.14
 Nodes (14): WakeWordDetector, _make_detector_mocks(), Loop must not crash on stream.read raising an exception., Loop must not crash on stream.read raising an exception., Return (detector, mock_pyaudio, mock_oww_model) configured for a single-pass loo, Return (detector, mock_pyaudio, mock_oww_model) configured for a single-pass loo, Second above-threshold chunk within refractory_s must not trigger on_wake again., Second above-threshold chunk within refractory_s must not trigger on_wake again. (+6 more)
 
-### Community 7 - "Config UI Tab"
+### Community 8 - "Core Module Docs"
 Cohesion: 0.15
 Nodes (18): _capture_hud(), fetch_game_state(), _filter_spikes(), is_game_running(), _poll_game(), Return (is_running, players). Single API call reused by main loop., Return True if SC2 is running and a game is in progress., Capture HUD via screen OCR. Assumes game is already confirmed running. (+10 more)
 
-### Community 9 - "Frontend Composition"
+### Community 10 - "Game History Tracking"
 Cohesion: 0.16
 Nodes (16): game_api.py (SC2 API Polling), index.py (Backend Entry Point), ocr.py (Screen Capture + OCR), logic/runner_logic.py (RunnerController), views/runner_view.py (RunnerScreen), Spike Filter (OCR Anomaly Suppression), Anomaly Filter Config, Debug Mode Checkbox (RunnerScreen) (+8 more)
 
-### Community 10 - "Game History Tracking"
+### Community 11 - "Settings & Messages UI"
 Cohesion: 0.13
 Nodes (16): SC2HelperApp, frontend/config_manager.py, ConfigTab, CoordsTab, dev.py __main__, RestartHandler, GameHistoryLoader, GameHistoryTab (+8 more)
 
-### Community 11 - "Settings & Messages UI"
+### Community 12 - "History Dashboard"
 Cohesion: 0.22
 Nodes (3): _format_duration(), GameHistoryManager, get_db()
 
-### Community 12 - "History Dashboard"
+### Community 13 - "TTS Speech Queue"
 Cohesion: 0.26
 Nodes (3): get_stats_history(), GameHistoryLoader, GameHistoryTab
 
-### Community 13 - "TTS Speech Queue"
+### Community 14 - "Voice Listener"
 Cohesion: 0.22
 Nodes (6): SpeechQueue, Smoke tests for SpeechQueue — no actual TTS subprocess spawned., Lower priority number = higher urgency = dequeued first., test_counter_increments(), test_priority_ordering(), test_speak_enqueues_without_error()
 
-### Community 14 - "Voice Listener"
-Cohesion: 0.27
-Nodes (3): get_mouse_pos(), Move mouse over each SC2 HUD element. Press Enter in terminal to record position, CoordsTab
-
 ### Community 15 - "Message Banks & Tests"
 Cohesion: 0.27
-Nodes (3): Voice listener — background thread that listens for a wake word then transcribes, VoiceCommand, VoiceListener
+Nodes (3): get_mouse_pos(), Move mouse over each SC2 HUD element. Press Enter in terminal to record position, CoordsTab
 
 ### Community 16 - "Backend HUD Images"
 Cohesion: 0.33
@@ -209,12 +209,12 @@ Nodes (3): CooldownTracker, SpeechQueue, VoiceListener
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `main()` connect `Game State Detectors` to `Database Query Layer`, `Config UI Tab`, `Settings & Messages UI`, `TTS Speech Queue`, `Message Banks & Tests`?**
-  _High betweenness centrality (0.181) - this node is a cross-community bridge._
-- **Why does `get_config()` connect `Database Query Layer` to `Game State Detectors`, `Config UI Tab`?**
-  _High betweenness centrality (0.127) - this node is a cross-community bridge._
-- **Why does `GameHistoryManager` connect `Settings & Messages UI` to `Game State Detectors`?**
-  _High betweenness centrality (0.084) - this node is a cross-community bridge._
+- **Why does `main()` connect `Game State Detectors` to `Database Query Layer`, `Game API & HUD Capture`, `Core Module Docs`, `History Dashboard`, `Voice Listener`?**
+  _High betweenness centrality (0.195) - this node is a cross-community bridge._
+- **Why does `get_config()` connect `Database Query Layer` to `Core Module Docs`, `Game State Detectors`?**
+  _High betweenness centrality (0.131) - this node is a cross-community bridge._
+- **Why does `GameHistoryManager` connect `History Dashboard` to `Game State Detectors`?**
+  _High betweenness centrality (0.085) - this node is a cross-community bridge._
 - **Are the 15 inferred relationships involving `main()` (e.g. with `setup_logging()` and `get_config()`) actually correct?**
   _`main()` has 15 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 3 inferred relationships involving `RunnerScreen` (e.g. with `SC2HelperApp` and `RunnerController`) actually correct?**

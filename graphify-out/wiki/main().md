@@ -9,9 +9,9 @@
 ### calls
 - [[CooldownTracker]] `INFERRED`
 - [[GameHistoryManager]] `INFERRED`
+- [[VoiceListener]] `INFERRED`
 - [[SpeechQueue]] `INFERRED`
 - [[test_ocr_mode()]] `EXTRACTED`
-- [[VoiceListener]] `INFERRED`
 - [[_capture_hud()]] `INFERRED`
 - [[check_resources()]] `INFERRED`
 - [[check_idle_workers()]] `INFERRED`

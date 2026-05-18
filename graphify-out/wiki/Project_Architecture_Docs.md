@@ -34,7 +34,7 @@
 ## Relationships
 
 - [[Config & Service Layer]] (50 shared connections)
-- [[Frontend Composition]] (1 shared connections)
+- [[Game History Tracking]] (1 shared connections)
 
 ## Source Files
 

@@ -34,9 +34,9 @@
 ## Relationships
 
 - [[Database Query Layer]] (37 shared connections)
-- [[Voice Listener]] (25 shared connections)
-- [[History Dashboard]] (1 shared connections)
-- [[Config UI Tab]] (1 shared connections)
+- [[Message Banks & Tests]] (25 shared connections)
+- [[TTS Speech Queue]] (1 shared connections)
+- [[Core Module Docs]] (1 shared connections)
 - [[Game State Detectors]] (1 shared connections)
 
 ## Source Files

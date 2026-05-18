@@ -34,7 +34,7 @@
 ## Relationships
 
 - [[Frontend Application]] (98 shared connections)
-- [[Settings & Messages UI]] (2 shared connections)
+- [[History Dashboard]] (2 shared connections)
 
 ## Source Files
 

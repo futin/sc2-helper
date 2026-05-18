@@ -15,6 +15,10 @@
     "mtime": 1779135103.00726,
     "hash": "f53199248d26aafc25b00e3de345ad30"
   },
+  "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/tests/test_voice_listener.py": {
+    "mtime": 1779135208.5110693,
+    "hash": "eaf41e1901b6d5d73cfe56ce66031052"
+  },
   "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/tests/test_speech_queue.py": {
     "mtime": 1779003697.2290325,
     "hash": "817e836637c65f45b09a10a3f965f3bb"
@@ -148,8 +152,8 @@
     "hash": "66612cedfb72bb3de699a09619cdfaf1"
   },
   "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/classes/voice_listener.py": {
-    "mtime": 1779105661.098219,
-    "hash": "987544132d10dd78055e078633951e50"
+    "mtime": 1779135237.1657043,
+    "hash": "1da59bcdfb8e5df1cf3d079c3f0ebb23"
   },
   "/Users/andrejajevtic/Documents/custom-projects/sc2-helper/src/backend/classes/__init__.py": {
     "mtime": 1779003697.214866,

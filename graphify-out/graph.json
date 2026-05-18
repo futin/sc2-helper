@@ -321,7 +321,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L1",
       "id": "tests_test_wake_word_detector_py",
-      "community": 6,
+      "community": 7,
       "norm_label": "test_wake_word_detector.py"
     },
     {
@@ -330,7 +330,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L9",
       "id": "tests_test_wake_word_detector_test_init_sets_attributes",
-      "community": 6,
+      "community": 7,
       "norm_label": "test_init_sets_attributes()"
     },
     {
@@ -339,7 +339,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L24",
       "id": "tests_test_wake_word_detector_test_stop_sets_event",
-      "community": 6,
+      "community": 7,
       "norm_label": "test_stop_sets_event()"
     },
     {
@@ -348,7 +348,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L30",
       "id": "tests_test_wake_word_detector_test_detect_loop_logs_error_on_missing_import",
-      "community": 6,
+      "community": 7,
       "norm_label": "test_detect_loop_logs_error_on_missing_import()"
     },
     {
@@ -357,7 +357,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L37",
       "id": "tests_test_wake_word_detector_make_detector_mocks",
-      "community": 6,
+      "community": 7,
       "norm_label": "_make_detector_mocks()"
     },
     {
@@ -366,7 +366,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L62",
       "id": "tests_test_wake_word_detector_test_detect_loop_calls_on_wake_when_threshold_met",
-      "community": 6,
+      "community": 7,
       "norm_label": "test_detect_loop_calls_on_wake_when_threshold_met()"
     },
     {
@@ -375,7 +375,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L78",
       "id": "tests_test_wake_word_detector_test_detect_loop_refractory_suppresses_second_wake",
-      "community": 6,
+      "community": 7,
       "norm_label": "test_detect_loop_refractory_suppresses_second_wake()"
     },
     {
@@ -384,7 +384,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L124",
       "id": "tests_test_wake_word_detector_test_detect_loop_recovers_from_audio_read_error",
-      "community": 6,
+      "community": 7,
       "norm_label": "test_detect_loop_recovers_from_audio_read_error()"
     },
     {
@@ -393,7 +393,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L38",
       "id": "tests_test_wake_word_detector_rationale_38",
-      "community": 6,
+      "community": 7,
       "norm_label": "return (detector, mock_pyaudio, mock_oww_model) configured for a single-pass loo"
     },
     {
@@ -402,7 +402,7 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L79",
       "id": "tests_test_wake_word_detector_rationale_79",
-      "community": 6,
+      "community": 7,
       "norm_label": "second above-threshold chunk within refractory_s must not trigger on_wake again."
     },
     {
@@ -411,8 +411,98 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L125",
       "id": "tests_test_wake_word_detector_rationale_125",
-      "community": 6,
+      "community": 7,
       "norm_label": "loop must not crash on stream.read raising an exception."
+    },
+    {
+      "label": "test_voice_listener.py",
+      "file_type": "code",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L1",
+      "id": "tests_test_voice_listener_py",
+      "community": 6,
+      "norm_label": "test_voice_listener.py"
+    },
+    {
+      "label": "_make_listener()",
+      "file_type": "code",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L9",
+      "id": "tests_test_voice_listener_make_listener",
+      "community": 6,
+      "norm_label": "_make_listener()"
+    },
+    {
+      "label": "test_parse_supply()",
+      "file_type": "code",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L20",
+      "id": "tests_test_voice_listener_test_parse_supply",
+      "community": 6,
+      "norm_label": "test_parse_supply()"
+    },
+    {
+      "label": "test_parse_resources()",
+      "file_type": "code",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L27",
+      "id": "tests_test_voice_listener_test_parse_resources",
+      "community": 6,
+      "norm_label": "test_parse_resources()"
+    },
+    {
+      "label": "test_parse_silence_minutes()",
+      "file_type": "code",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L34",
+      "id": "tests_test_voice_listener_test_parse_silence_minutes",
+      "community": 6,
+      "norm_label": "test_parse_silence_minutes()"
+    },
+    {
+      "label": "test_parse_silence_seconds()",
+      "file_type": "code",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L42",
+      "id": "tests_test_voice_listener_test_parse_silence_seconds",
+      "community": 6,
+      "norm_label": "test_parse_silence_seconds()"
+    },
+    {
+      "label": "test_parse_unknown_returns_none()",
+      "file_type": "code",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L50",
+      "id": "tests_test_voice_listener_test_parse_unknown_returns_none",
+      "community": 6,
+      "norm_label": "test_parse_unknown_returns_none()"
+    },
+    {
+      "label": "test_handle_wake_enqueues_command()",
+      "file_type": "code",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L58",
+      "id": "tests_test_voice_listener_test_handle_wake_enqueues_command",
+      "community": 6,
+      "norm_label": "test_handle_wake_enqueues_command()"
+    },
+    {
+      "label": "test_handle_wake_timeout_does_not_enqueue()",
+      "file_type": "code",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L78",
+      "id": "tests_test_voice_listener_test_handle_wake_timeout_does_not_enqueue",
+      "community": 6,
+      "norm_label": "test_handle_wake_timeout_does_not_enqueue()"
+    },
+    {
+      "label": "test_handle_wake_missing_import_does_not_raise()",
+      "file_type": "code",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L96",
+      "id": "tests_test_voice_listener_test_handle_wake_missing_import_does_not_raise",
+      "community": 6,
+      "norm_label": "test_handle_wake_missing_import_does_not_raise()"
     },
     {
       "label": "test_speech_queue.py",
@@ -420,7 +510,7 @@
       "source_file": "tests/test_speech_queue.py",
       "source_location": "L1",
       "id": "tests_test_speech_queue_py",
-      "community": 13,
+      "community": 14,
       "norm_label": "test_speech_queue.py"
     },
     {
@@ -429,7 +519,7 @@
       "source_file": "tests/test_speech_queue.py",
       "source_location": "L12",
       "id": "tests_test_speech_queue_test_speak_enqueues_without_error",
-      "community": 13,
+      "community": 14,
       "norm_label": "test_speak_enqueues_without_error()"
     },
     {
@@ -438,7 +528,7 @@
       "source_file": "tests/test_speech_queue.py",
       "source_location": "L18",
       "id": "tests_test_speech_queue_test_priority_ordering",
-      "community": 13,
+      "community": 14,
       "norm_label": "test_priority_ordering()"
     },
     {
@@ -447,7 +537,7 @@
       "source_file": "tests/test_speech_queue.py",
       "source_location": "L40",
       "id": "tests_test_speech_queue_test_counter_increments",
-      "community": 13,
+      "community": 14,
       "norm_label": "test_counter_increments()"
     },
     {
@@ -456,7 +546,7 @@
       "source_file": "tests/test_speech_queue.py",
       "source_location": "L1",
       "id": "tests_test_speech_queue_rationale_1",
-      "community": 13,
+      "community": 14,
       "norm_label": "smoke tests for speechqueue \u2014 no actual tts subprocess spawned."
     },
     {
@@ -465,7 +555,7 @@
       "source_file": "tests/test_speech_queue.py",
       "source_location": "L19",
       "id": "tests_test_speech_queue_rationale_19",
-      "community": 13,
+      "community": 14,
       "norm_label": "lower priority number = higher urgency = dequeued first."
     },
     {
@@ -690,7 +780,7 @@
       "source_file": "src/frontend/logic/game_history_logic.py",
       "source_location": "L1",
       "id": "src_frontend_logic_game_history_logic_py",
-      "community": 12,
+      "community": 13,
       "norm_label": "game_history_logic.py"
     },
     {
@@ -699,7 +789,7 @@
       "source_file": "src/frontend/logic/game_history_logic.py",
       "source_location": "L4",
       "id": "logic_game_history_logic_gamehistoryloader",
-      "community": 12,
+      "community": 13,
       "norm_label": "gamehistoryloader"
     },
     {
@@ -708,7 +798,7 @@
       "source_file": "src/frontend/logic/game_history_logic.py",
       "source_location": "L5",
       "id": "logic_game_history_logic_gamehistoryloader_load_history",
-      "community": 12,
+      "community": 13,
       "norm_label": ".load_history()"
     },
     {
@@ -1059,7 +1149,7 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L1",
       "id": "src_frontend_views_tabs_coords_tab_py",
-      "community": 14,
+      "community": 15,
       "norm_label": "coords_tab.py"
     },
     {
@@ -1068,7 +1158,7 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L7",
       "id": "tabs_coords_tab_coordstab",
-      "community": 14,
+      "community": 15,
       "norm_label": "coordstab"
     },
     {
@@ -1077,7 +1167,7 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L8",
       "id": "tabs_coords_tab_coordstab_init",
-      "community": 14,
+      "community": 15,
       "norm_label": ".__init__()"
     },
     {
@@ -1086,7 +1176,7 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L16",
       "id": "tabs_coords_tab_coordstab_build",
-      "community": 14,
+      "community": 15,
       "norm_label": "._build()"
     },
     {
@@ -1095,7 +1185,7 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L50",
       "id": "tabs_coords_tab_coordstab_capture",
-      "community": 14,
+      "community": 15,
       "norm_label": "._capture()"
     },
     {
@@ -1104,7 +1194,7 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L54",
       "id": "tabs_coords_tab_coordstab_countdown",
-      "community": 14,
+      "community": 15,
       "norm_label": "._countdown()"
     },
     {
@@ -1122,7 +1212,7 @@
       "source_file": "src/frontend/views/tabs/coords_tab.py",
       "source_location": "L82",
       "id": "tabs_coords_tab_coordstab_refresh",
-      "community": 14,
+      "community": 15,
       "norm_label": ".refresh()"
     },
     {
@@ -1131,7 +1221,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L1",
       "id": "src_frontend_views_tabs_config_tab_py",
-      "community": 8,
+      "community": 9,
       "norm_label": "config_tab.py"
     },
     {
@@ -1140,7 +1230,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L4",
       "id": "tabs_config_tab_configtab",
-      "community": 8,
+      "community": 9,
       "norm_label": "configtab"
     },
     {
@@ -1149,7 +1239,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L5",
       "id": "tabs_config_tab_configtab_init",
-      "community": 8,
+      "community": 9,
       "norm_label": ".__init__()"
     },
     {
@@ -1158,7 +1248,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L11",
       "id": "tabs_config_tab_configtab_lbl",
-      "community": 8,
+      "community": 9,
       "norm_label": "._lbl()"
     },
     {
@@ -1167,7 +1257,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L14",
       "id": "tabs_config_tab_configtab_entry",
-      "community": 8,
+      "community": 9,
       "norm_label": "._entry()"
     },
     {
@@ -1176,7 +1266,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L19",
       "id": "tabs_config_tab_configtab_section_header",
-      "community": 8,
+      "community": 9,
       "norm_label": "._section_header()"
     },
     {
@@ -1185,7 +1275,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L24",
       "id": "tabs_config_tab_configtab_spacer",
-      "community": 8,
+      "community": 9,
       "norm_label": "._spacer()"
     },
     {
@@ -1194,7 +1284,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L28",
       "id": "tabs_config_tab_configtab_build",
-      "community": 8,
+      "community": 9,
       "norm_label": "._build()"
     },
     {
@@ -1203,7 +1293,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L37",
       "id": "tabs_config_tab_configtab_build_general_section",
-      "community": 8,
+      "community": 9,
       "norm_label": "._build_general_section()"
     },
     {
@@ -1212,7 +1302,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L52",
       "id": "tabs_config_tab_configtab_build_resources_section",
-      "community": 8,
+      "community": 9,
       "norm_label": "._build_resources_section()"
     },
     {
@@ -1221,7 +1311,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L73",
       "id": "tabs_config_tab_configtab_build_supply_section",
-      "community": 8,
+      "community": 9,
       "norm_label": "._build_supply_section()"
     },
     {
@@ -1230,7 +1320,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L105",
       "id": "tabs_config_tab_configtab_build_workers_section",
-      "community": 8,
+      "community": 9,
       "norm_label": "._build_workers_section()"
     },
     {
@@ -1239,7 +1329,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L121",
       "id": "tabs_config_tab_configtab_build_voice_section",
-      "community": 8,
+      "community": 9,
       "norm_label": "._build_voice_section()"
     },
     {
@@ -1248,7 +1338,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L169",
       "id": "tabs_config_tab_configtab_build_screen_capture_section",
-      "community": 8,
+      "community": 9,
       "norm_label": "._build_screen_capture_section()"
     },
     {
@@ -1257,7 +1347,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L180",
       "id": "tabs_config_tab_configtab_add_tier_row",
-      "community": 8,
+      "community": 9,
       "norm_label": "._add_tier_row()"
     },
     {
@@ -1266,7 +1356,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L200",
       "id": "tabs_config_tab_configtab_remove_tier_row",
-      "community": 8,
+      "community": 9,
       "norm_label": "._remove_tier_row()"
     },
     {
@@ -1275,7 +1365,7 @@
       "source_file": "src/frontend/views/tabs/config_tab.py",
       "source_location": "L204",
       "id": "tabs_config_tab_configtab_collect",
-      "community": 8,
+      "community": 9,
       "norm_label": ".collect()"
     },
     {
@@ -1284,7 +1374,7 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L1",
       "id": "src_frontend_views_tabs_game_history_tab_py",
-      "community": 12,
+      "community": 13,
       "norm_label": "game_history_tab.py"
     },
     {
@@ -1293,7 +1383,7 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L6",
       "id": "tabs_game_history_tab_gamehistorytab",
-      "community": 12,
+      "community": 13,
       "norm_label": "gamehistorytab"
     },
     {
@@ -1302,7 +1392,7 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L14",
       "id": "tabs_game_history_tab_gamehistorytab_init",
-      "community": 12,
+      "community": 13,
       "norm_label": ".__init__()"
     },
     {
@@ -1311,7 +1401,7 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L21",
       "id": "tabs_game_history_tab_gamehistorytab_build",
-      "community": 12,
+      "community": 13,
       "norm_label": "._build()"
     },
     {
@@ -1320,7 +1410,7 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L62",
       "id": "tabs_game_history_tab_gamehistorytab_render_list",
-      "community": 12,
+      "community": 13,
       "norm_label": "._render_list()"
     },
     {
@@ -1329,7 +1419,7 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L105",
       "id": "tabs_game_history_tab_gamehistorytab_show_detail",
-      "community": 12,
+      "community": 13,
       "norm_label": "._show_detail()"
     },
     {
@@ -1338,7 +1428,7 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L127",
       "id": "tabs_game_history_tab_gamehistorytab_hide_detail",
-      "community": 12,
+      "community": 13,
       "norm_label": "._hide_detail()"
     },
     {
@@ -1347,7 +1437,7 @@
       "source_file": "src/frontend/views/tabs/game_history_tab.py",
       "source_location": "L131",
       "id": "tabs_game_history_tab_gamehistorytab_refresh",
-      "community": 12,
+      "community": 13,
       "norm_label": ".refresh()"
     },
     {
@@ -1419,7 +1509,7 @@
       "source_file": "src/backend/service.py",
       "source_location": "L147",
       "id": "backend_service_get_stats_history",
-      "community": 12,
+      "community": 13,
       "norm_label": "get_stats_history()"
     },
     {
@@ -1455,7 +1545,7 @@
       "source_file": "src/backend/index.py",
       "source_location": "L43",
       "id": "backend_index_test_ocr_mode",
-      "community": 7,
+      "community": 8,
       "norm_label": "test_ocr_mode()"
     },
     {
@@ -1491,7 +1581,7 @@
       "source_file": "src/backend/index.py",
       "source_location": "L44",
       "id": "backend_index_rationale_44",
-      "community": 7,
+      "community": 8,
       "norm_label": "capture each configured region, save crops, print ocr results."
     },
     {
@@ -1500,7 +1590,7 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L1",
       "id": "src_backend_game_history_py",
-      "community": 11,
+      "community": 12,
       "norm_label": "game_history.py"
     },
     {
@@ -1509,7 +1599,7 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L9",
       "id": "backend_game_history_gamehistorymanager",
-      "community": 11,
+      "community": 12,
       "norm_label": "gamehistorymanager"
     },
     {
@@ -1518,7 +1608,7 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L10",
       "id": "backend_game_history_gamehistorymanager_init",
-      "community": 11,
+      "community": 12,
       "norm_label": ".__init__()"
     },
     {
@@ -1527,7 +1617,7 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L20",
       "id": "backend_game_history_counts",
-      "community": 11,
+      "community": 12,
       "norm_label": "counts()"
     },
     {
@@ -1536,7 +1626,7 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L28",
       "id": "backend_game_history_gamehistorymanager_on_game_start",
-      "community": 11,
+      "community": 12,
       "norm_label": ".on_game_start()"
     },
     {
@@ -1545,7 +1635,7 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L39",
       "id": "backend_game_history_gamehistorymanager_on_mineral_warning",
-      "community": 11,
+      "community": 12,
       "norm_label": ".on_mineral_warning()"
     },
     {
@@ -1554,7 +1644,7 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L44",
       "id": "backend_game_history_gamehistorymanager_on_gas_warning",
-      "community": 11,
+      "community": 12,
       "norm_label": ".on_gas_warning()"
     },
     {
@@ -1563,7 +1653,7 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L49",
       "id": "backend_game_history_gamehistorymanager_on_supply_warning",
-      "community": 11,
+      "community": 12,
       "norm_label": ".on_supply_warning()"
     },
     {
@@ -1572,7 +1662,7 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L54",
       "id": "backend_game_history_gamehistorymanager_on_idle_workers_warning",
-      "community": 11,
+      "community": 12,
       "norm_label": ".on_idle_workers_warning()"
     },
     {
@@ -1581,7 +1671,7 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L59",
       "id": "backend_game_history_gamehistorymanager_on_game_end",
-      "community": 11,
+      "community": 12,
       "norm_label": ".on_game_end()"
     },
     {
@@ -1590,7 +1680,7 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L73",
       "id": "backend_game_history_gamehistorymanager_db_create_game",
-      "community": 11,
+      "community": 12,
       "norm_label": "._db_create_game()"
     },
     {
@@ -1599,7 +1689,7 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L90",
       "id": "backend_game_history_gamehistorymanager_db_update_warnings",
-      "community": 11,
+      "community": 12,
       "norm_label": "._db_update_warnings()"
     },
     {
@@ -1608,7 +1698,7 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L104",
       "id": "backend_game_history_gamehistorymanager_db_end_game",
-      "community": 11,
+      "community": 12,
       "norm_label": "._db_end_game()"
     },
     {
@@ -1617,7 +1707,7 @@
       "source_file": "src/backend/game_history.py",
       "source_location": "L119",
       "id": "backend_game_history_format_duration",
-      "community": 11,
+      "community": 12,
       "norm_label": "_format_duration()"
     },
     {
@@ -1662,7 +1752,7 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L1",
       "id": "src_backend_ocr_py",
-      "community": 7,
+      "community": 8,
       "norm_label": "ocr.py"
     },
     {
@@ -1671,7 +1761,7 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L9",
       "id": "backend_ocr_capture_region",
-      "community": 7,
+      "community": 8,
       "norm_label": "capture_region()"
     },
     {
@@ -1680,7 +1770,7 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L18",
       "id": "backend_ocr_preprocess",
-      "community": 7,
+      "community": 8,
       "norm_label": "_preprocess()"
     },
     {
@@ -1689,7 +1779,7 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L24",
       "id": "backend_ocr_ocr_number",
-      "community": 7,
+      "community": 8,
       "norm_label": "ocr_number()"
     },
     {
@@ -1698,7 +1788,7 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L39",
       "id": "backend_ocr_ocr_supply",
-      "community": 7,
+      "community": 8,
       "norm_label": "ocr_supply()"
     },
     {
@@ -1707,7 +1797,7 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L10",
       "id": "backend_ocr_rationale_10",
-      "community": 7,
+      "community": 8,
       "norm_label": "capture a screen region. region = [left, top, width, height]."
     },
     {
@@ -1716,7 +1806,7 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L25",
       "id": "backend_ocr_rationale_25",
-      "community": 7,
+      "community": 8,
       "norm_label": "ocr a single integer from a hud region. returns none on failure."
     },
     {
@@ -1725,7 +1815,7 @@
       "source_file": "src/backend/ocr.py",
       "source_location": "L40",
       "id": "backend_ocr_rationale_40",
-      "community": 7,
+      "community": 8,
       "norm_label": "ocr supply region. returns (used, max) or (none, none) on failure."
     },
     {
@@ -1824,7 +1914,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L1",
       "id": "src_backend_game_api_py",
-      "community": 7,
+      "community": 8,
       "norm_label": "game_api.py"
     },
     {
@@ -1833,7 +1923,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L10",
       "id": "backend_game_api_poll_game",
-      "community": 7,
+      "community": 8,
       "norm_label": "_poll_game()"
     },
     {
@@ -1842,7 +1932,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L24",
       "id": "backend_game_api_is_game_running",
-      "community": 7,
+      "community": 8,
       "norm_label": "is_game_running()"
     },
     {
@@ -1851,7 +1941,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L30",
       "id": "backend_game_api_capture_hud",
-      "community": 7,
+      "community": 8,
       "norm_label": "_capture_hud()"
     },
     {
@@ -1860,7 +1950,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L49",
       "id": "backend_game_api_filter_spikes",
-      "community": 7,
+      "community": 8,
       "norm_label": "_filter_spikes()"
     },
     {
@@ -1869,7 +1959,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L66",
       "id": "backend_game_api_fetch_game_state",
-      "community": 7,
+      "community": 8,
       "norm_label": "fetch_game_state()"
     },
     {
@@ -1878,7 +1968,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L11",
       "id": "backend_game_api_rationale_11",
-      "community": 7,
+      "community": 8,
       "norm_label": "return (is_running, players). single api call reused by main loop."
     },
     {
@@ -1887,7 +1977,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L25",
       "id": "backend_game_api_rationale_25",
-      "community": 7,
+      "community": 8,
       "norm_label": "return true if sc2 is running and a game is in progress."
     },
     {
@@ -1896,7 +1986,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L31",
       "id": "backend_game_api_rationale_31",
-      "community": 7,
+      "community": 8,
       "norm_label": "capture hud via screen ocr. assumes game is already confirmed running."
     },
     {
@@ -1905,7 +1995,7 @@
       "source_file": "src/backend/game_api.py",
       "source_location": "L67",
       "id": "backend_game_api_rationale_67",
-      "community": 7,
+      "community": 8,
       "norm_label": "capture current game state via screen ocr. returns none if game not running."
     },
     {
@@ -1959,7 +2049,7 @@
       "source_file": "src/backend/find_coords.py",
       "source_location": "L1",
       "id": "src_backend_find_coords_py",
-      "community": 14,
+      "community": 15,
       "norm_label": "find_coords.py"
     },
     {
@@ -1968,7 +2058,7 @@
       "source_file": "src/backend/find_coords.py",
       "source_location": "L7",
       "id": "backend_find_coords_get_mouse_pos",
-      "community": 14,
+      "community": 15,
       "norm_label": "get_mouse_pos()"
     },
     {
@@ -1977,7 +2067,7 @@
       "source_file": "src/backend/find_coords.py",
       "source_location": "L1",
       "id": "backend_find_coords_rationale_1",
-      "community": 14,
+      "community": 15,
       "norm_label": "move mouse over each sc2 hud element. press enter in terminal to record position"
     },
     {
@@ -2049,7 +2139,7 @@
       "source_file": "src/backend/classes/speech_queue.py",
       "source_location": "L1",
       "id": "src_backend_classes_speech_queue_py",
-      "community": 13,
+      "community": 14,
       "norm_label": "speech_queue.py"
     },
     {
@@ -2058,7 +2148,7 @@
       "source_file": "src/backend/classes/speech_queue.py",
       "source_location": "L6",
       "id": "classes_speech_queue_speechqueue",
-      "community": 13,
+      "community": 14,
       "norm_label": "speechqueue"
     },
     {
@@ -2067,7 +2157,7 @@
       "source_file": "src/backend/classes/speech_queue.py",
       "source_location": "L7",
       "id": "classes_speech_queue_speechqueue_init",
-      "community": 13,
+      "community": 14,
       "norm_label": ".__init__()"
     },
     {
@@ -2076,7 +2166,7 @@
       "source_file": "src/backend/classes/speech_queue.py",
       "source_location": "L13",
       "id": "classes_speech_queue_speechqueue_worker",
-      "community": 13,
+      "community": 14,
       "norm_label": "._worker()"
     },
     {
@@ -2085,7 +2175,7 @@
       "source_file": "src/backend/classes/speech_queue.py",
       "source_location": "L20",
       "id": "classes_speech_queue_speechqueue_speak",
-      "community": 13,
+      "community": 14,
       "norm_label": ".speak()"
     },
     {
@@ -2094,89 +2184,62 @@
       "source_file": "src/backend/classes/voice_listener.py",
       "source_location": "L1",
       "id": "src_backend_classes_voice_listener_py",
-      "community": 15,
+      "community": 6,
       "norm_label": "voice_listener.py"
     },
     {
       "label": "VoiceCommand",
       "file_type": "code",
       "source_file": "src/backend/classes/voice_listener.py",
-      "source_location": "L19",
+      "source_location": "L10",
       "id": "classes_voice_listener_voicecommand",
-      "community": 15,
+      "community": 6,
       "norm_label": "voicecommand"
     },
     {
       "label": "VoiceListener",
       "file_type": "code",
       "source_file": "src/backend/classes/voice_listener.py",
-      "source_location": "L24",
+      "source_location": "L15",
       "id": "classes_voice_listener_voicelistener",
-      "community": 15,
+      "community": 6,
       "norm_label": "voicelistener"
     },
     {
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "src/backend/classes/voice_listener.py",
-      "source_location": "L25",
+      "source_location": "L16",
       "id": "classes_voice_listener_voicelistener_init",
-      "community": 15,
+      "community": 6,
       "norm_label": ".__init__()"
     },
     {
-      "label": ".start()",
+      "label": ".handle_wake()",
       "file_type": "code",
       "source_file": "src/backend/classes/voice_listener.py",
-      "source_location": "L45",
-      "id": "classes_voice_listener_voicelistener_start",
-      "community": 15,
-      "norm_label": ".start()"
-    },
-    {
-      "label": ".stop()",
-      "file_type": "code",
-      "source_file": "src/backend/classes/voice_listener.py",
-      "source_location": "L50",
-      "id": "classes_voice_listener_voicelistener_stop",
-      "community": 15,
-      "norm_label": ".stop()"
-    },
-    {
-      "label": "._listen_loop()",
-      "file_type": "code",
-      "source_file": "src/backend/classes/voice_listener.py",
-      "source_location": "L53",
-      "id": "classes_voice_listener_voicelistener_listen_loop",
-      "community": 15,
-      "norm_label": "._listen_loop()"
+      "source_location": "L28",
+      "id": "classes_voice_listener_voicelistener_handle_wake",
+      "community": 6,
+      "norm_label": ".handle_wake()"
     },
     {
       "label": "._transcribe()",
       "file_type": "code",
       "source_file": "src/backend/classes/voice_listener.py",
-      "source_location": "L95",
+      "source_location": "L58",
       "id": "classes_voice_listener_voicelistener_transcribe",
-      "community": 15,
+      "community": 6,
       "norm_label": "._transcribe()"
     },
     {
       "label": "._parse_command()",
       "file_type": "code",
       "source_file": "src/backend/classes/voice_listener.py",
-      "source_location": "L105",
+      "source_location": "L68",
       "id": "classes_voice_listener_voicelistener_parse_command",
-      "community": 15,
+      "community": 6,
       "norm_label": "._parse_command()"
-    },
-    {
-      "label": "Voice listener \u2014 background thread that listens for a wake word then transcribes",
-      "file_type": "rationale",
-      "source_file": "src/backend/classes/voice_listener.py",
-      "source_location": "L1",
-      "id": "classes_voice_listener_rationale_1",
-      "community": 15,
-      "norm_label": "voice listener \u2014 background thread that listens for a wake word then transcribes"
     },
     {
       "label": "__init__.py",
@@ -2193,7 +2256,7 @@
       "source_file": "src/backend/classes/wake_word_detector.py",
       "source_location": "L1",
       "id": "src_backend_classes_wake_word_detector_py",
-      "community": 6,
+      "community": 7,
       "norm_label": "wake_word_detector.py"
     },
     {
@@ -2202,7 +2265,7 @@
       "source_file": "src/backend/classes/wake_word_detector.py",
       "source_location": "L9",
       "id": "classes_wake_word_detector_wakeworddetector",
-      "community": 6,
+      "community": 7,
       "norm_label": "wakeworddetector"
     },
     {
@@ -2211,7 +2274,7 @@
       "source_file": "src/backend/classes/wake_word_detector.py",
       "source_location": "L10",
       "id": "classes_wake_word_detector_wakeworddetector_init",
-      "community": 6,
+      "community": 7,
       "norm_label": ".__init__()"
     },
     {
@@ -2220,7 +2283,7 @@
       "source_file": "src/backend/classes/wake_word_detector.py",
       "source_location": "L26",
       "id": "classes_wake_word_detector_wakeworddetector_start",
-      "community": 6,
+      "community": 7,
       "norm_label": ".start()"
     },
     {
@@ -2229,7 +2292,7 @@
       "source_file": "src/backend/classes/wake_word_detector.py",
       "source_location": "L31",
       "id": "classes_wake_word_detector_wakeworddetector_stop",
-      "community": 6,
+      "community": 7,
       "norm_label": ".stop()"
     },
     {
@@ -2238,7 +2301,7 @@
       "source_file": "src/backend/classes/wake_word_detector.py",
       "source_location": "L34",
       "id": "classes_wake_word_detector_wakeworddetector_detect_loop",
-      "community": 6,
+      "community": 7,
       "norm_label": "._detect_loop()"
     },
     {
@@ -2256,7 +2319,7 @@
       "source_file": "src/backend/db/__init__.py",
       "source_location": "L12",
       "id": "db_init_get_db",
-      "community": 11,
+      "community": 12,
       "norm_label": "get_db()"
     },
     {
@@ -2548,11 +2611,47 @@
       "norm_label": "ensure_tables()"
     },
     {
+      "label": ".start()",
+      "file_type": "code",
+      "source_file": "src/backend/classes/voice_listener.py",
+      "source_location": "L45",
+      "community": 6,
+      "norm_label": ".start()",
+      "id": "classes_voice_listener_voicelistener_start"
+    },
+    {
+      "label": ".stop()",
+      "file_type": "code",
+      "source_file": "src/backend/classes/voice_listener.py",
+      "source_location": "L50",
+      "community": 6,
+      "norm_label": ".stop()",
+      "id": "classes_voice_listener_voicelistener_stop"
+    },
+    {
+      "label": "._listen_loop()",
+      "file_type": "code",
+      "source_file": "src/backend/classes/voice_listener.py",
+      "source_location": "L53",
+      "community": 6,
+      "norm_label": "._listen_loop()",
+      "id": "classes_voice_listener_voicelistener_listen_loop"
+    },
+    {
+      "label": "Voice listener \u2014 background thread that listens for a wake word then transcribes",
+      "file_type": "rationale",
+      "source_file": "src/backend/classes/voice_listener.py",
+      "source_location": "L1",
+      "community": 6,
+      "norm_label": "voice listener \u2014 background thread that listens for a wake word then transcribes",
+      "id": "classes_voice_listener_rationale_1"
+    },
+    {
       "label": "Return (detector, mock_pyaudio, mock_oww_model) configured for a single-pass loo",
       "file_type": "rationale",
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L37",
-      "community": 6,
+      "community": 7,
       "norm_label": "return (detector, mock_pyaudio, mock_oww_model) configured for a single-pass loo",
       "id": "tests_test_wake_word_detector_rationale_37"
     },
@@ -2561,7 +2660,7 @@
       "file_type": "rationale",
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L78",
-      "community": 6,
+      "community": 7,
       "norm_label": "second above-threshold chunk within refractory_s must not trigger on_wake again.",
       "id": "tests_test_wake_word_detector_rationale_78"
     },
@@ -2570,7 +2669,7 @@
       "file_type": "rationale",
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L124",
-      "community": 6,
+      "community": 7,
       "norm_label": "loop must not crash on stream.read raising an exception.",
       "id": "tests_test_wake_word_detector_rationale_124"
     },
@@ -2651,7 +2750,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "index.py (backend entry point)",
       "id": "architecture_indexpy"
     },
@@ -2703,7 +2802,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "ocr.py (screen capture + ocr)",
       "id": "architecture_ocrpy"
     },
@@ -2716,7 +2815,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "game_api.py (sc2 api polling)",
       "id": "architecture_gameapipy"
     },
@@ -2898,7 +2997,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "views/runner_view.py (runnerscreen)",
       "id": "architecture_runnerview"
     },
@@ -2976,7 +3075,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "logic/runner_logic.py (runnercontroller)",
       "id": "architecture_runnerlogic"
     },
@@ -3054,7 +3153,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "spike filter (ocr anomaly suppression)",
       "id": "architecture_spikefilter"
     },
@@ -3132,7 +3231,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "tesseract ocr (external tool)",
       "id": "running_tesseract"
     },
@@ -3145,7 +3244,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "--debug cli flag",
       "id": "running_debugmode"
     },
@@ -3158,7 +3257,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "--test-ocr cli flag",
       "id": "running_testocrmode"
     },
@@ -3184,7 +3283,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "sc2 client api (port 6119)",
       "id": "running_sc2api"
     },
@@ -3275,7 +3374,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "anomaly filter config",
       "id": "config_anomalyfilter"
     },
@@ -3288,7 +3387,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "debug hud prints implementation plan",
       "id": "plan_debughuds"
     },
@@ -3302,7 +3401,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Replace one-shot /game API dump with full loop + per-interval HUD state print. Avoids stopping the loop for debug inspection and gives real visibility into OCR output.",
-      "community": 9,
+      "community": 10,
       "norm_label": "--debug flag repurpose (plan)",
       "id": "plan_debugflag"
     },
@@ -3315,7 +3414,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "debug mode checkbox (runnerscreen)",
       "id": "plan_debugcheckbox"
     },
@@ -3328,7 +3427,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 10,
       "norm_label": "debug hud prints design spec",
       "id": "spec_debughuds"
     },
@@ -3342,7 +3441,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Stdout is already piped to the log textbox in RunnerScreen, so debug output flows into the UI automatically without additional plumbing.",
-      "community": 9,
+      "community": 10,
       "norm_label": "debug output format ([debug] lines)",
       "id": "spec_debugoutputformat"
     },
@@ -3611,7 +3710,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 11,
       "norm_label": "restarthandler",
       "id": "dev_restarthandler"
     },
@@ -3624,7 +3723,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 11,
       "norm_label": "dev.py __main__",
       "id": "dev_main"
     },
@@ -3871,7 +3970,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 11,
       "norm_label": "test_save_and_load_roundtrip",
       "id": "test_config_manager_test_save_and_load_roundtrip"
     },
@@ -3884,7 +3983,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 11,
       "norm_label": "test_default_screen_capture_has_all_hud_elements",
       "id": "test_config_manager_test_default_screen_capture_has_all_hud_elements"
     },
@@ -3910,7 +4009,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 11,
       "norm_label": "frontend/config_manager.py",
       "id": "config_manager_module"
     },
@@ -3923,7 +4022,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 11,
       "norm_label": "sc2helperapp",
       "id": "app_sc2helperapp"
     },
@@ -3936,7 +4035,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 11,
       "norm_label": "sc2_ui main",
       "id": "sc2_ui_main"
     },
@@ -3949,7 +4048,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 11,
       "norm_label": "gamehistoryloader",
       "id": "game_history_logic_gamehistoryloader"
     },
@@ -3962,7 +4061,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 11,
       "norm_label": "runnercontroller",
       "id": "runner_logic_runnercontroller"
     },
@@ -3975,7 +4074,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 11,
       "norm_label": "runnerscreen",
       "id": "runner_view_runnerscreen"
     },
@@ -3988,7 +4087,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 11,
       "norm_label": "settingsscreen",
       "id": "settings_view_settingsscreen"
     },
@@ -4001,7 +4100,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 11,
       "norm_label": "messagestab",
       "id": "messages_tab_messagestab"
     },
@@ -4014,7 +4113,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 11,
       "norm_label": "coordstab",
       "id": "coords_tab_coordstab"
     },
@@ -4027,7 +4126,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 11,
       "norm_label": "configtab",
       "id": "config_tab_configtab"
     },
@@ -4040,7 +4139,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 11,
       "norm_label": "gamehistorytab",
       "id": "game_history_tab_gamehistorytab"
     },
@@ -4053,7 +4152,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 11,
       "norm_label": "voice control configuration design",
       "id": "voice_control_config_rationale"
     },
@@ -5670,9 +5769,9 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_wake_word_detector_rationale_38",
-      "target": "tests_test_wake_word_detector_make_detector_mocks",
-      "confidence_score": 1.0
+      "target": "tests_test_wake_word_detector_make_detector_mocks"
     },
     {
       "relation": "calls",
@@ -5712,9 +5811,9 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_wake_word_detector_rationale_79",
-      "target": "tests_test_wake_word_detector_test_detect_loop_refractory_suppresses_second_wake",
-      "confidence_score": 1.0
+      "target": "tests_test_wake_word_detector_test_detect_loop_refractory_suppresses_second_wake"
     },
     {
       "relation": "calls",
@@ -5743,9 +5842,9 @@
       "source_file": "tests/test_wake_word_detector.py",
       "source_location": "L125",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_wake_word_detector_rationale_125",
-      "target": "tests_test_wake_word_detector_test_detect_loop_recovers_from_audio_read_error",
-      "confidence_score": 1.0
+      "target": "tests_test_wake_word_detector_test_detect_loop_recovers_from_audio_read_error"
     },
     {
       "relation": "calls",
@@ -5767,6 +5866,195 @@
       "confidence_score": 1.0,
       "source": "tests_test_wake_word_detector_rationale_124",
       "target": "tests_test_wake_word_detector_test_detect_loop_recovers_from_audio_read_error"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_py",
+      "target": "tests_test_voice_listener_make_listener",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_py",
+      "target": "tests_test_voice_listener_test_parse_supply",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_py",
+      "target": "tests_test_voice_listener_test_parse_resources",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_py",
+      "target": "tests_test_voice_listener_test_parse_silence_minutes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_py",
+      "target": "tests_test_voice_listener_test_parse_silence_seconds",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_py",
+      "target": "tests_test_voice_listener_test_parse_unknown_returns_none",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_py",
+      "target": "tests_test_voice_listener_test_handle_wake_enqueues_command",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_py",
+      "target": "tests_test_voice_listener_test_handle_wake_timeout_does_not_enqueue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_py",
+      "target": "tests_test_voice_listener_test_handle_wake_missing_import_does_not_raise",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_test_parse_supply",
+      "target": "tests_test_voice_listener_make_listener",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_test_parse_resources",
+      "target": "tests_test_voice_listener_make_listener",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_test_parse_silence_minutes",
+      "target": "tests_test_voice_listener_make_listener",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_test_parse_silence_seconds",
+      "target": "tests_test_voice_listener_make_listener",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_test_parse_unknown_returns_none",
+      "target": "tests_test_voice_listener_make_listener",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_test_handle_wake_enqueues_command",
+      "target": "tests_test_voice_listener_make_listener",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_test_handle_wake_timeout_does_not_enqueue",
+      "target": "tests_test_voice_listener_make_listener",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_test_handle_wake_missing_import_does_not_raise",
+      "target": "tests_test_voice_listener_make_listener",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_voice_listener.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "tests_test_voice_listener_make_listener",
+      "target": "classes_voice_listener_voicelistener"
     },
     {
       "relation": "contains",
@@ -8702,6 +8990,36 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/backend/classes/voice_listener.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "classes_voice_listener_voicelistener",
+      "target": "classes_voice_listener_voicelistener_handle_wake",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/backend/classes/voice_listener.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classes_voice_listener_voicelistener",
+      "target": "classes_voice_listener_voicelistener_transcribe"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/backend/classes/voice_listener.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classes_voice_listener_voicelistener",
+      "target": "classes_voice_listener_voicelistener_parse_command"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/backend/classes/voice_listener.py",
       "source_location": "L45",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -8729,24 +9047,26 @@
       "target": "classes_voice_listener_voicelistener_listen_loop"
     },
     {
-      "relation": "method",
+      "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/backend/classes/voice_listener.py",
-      "source_location": "L95",
+      "source_location": "L46",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classes_voice_listener_voicelistener",
-      "target": "classes_voice_listener_voicelistener_transcribe"
+      "source": "classes_voice_listener_voicelistener_handle_wake",
+      "target": "classes_voice_listener_voicelistener_transcribe",
+      "confidence_score": 1.0
     },
     {
-      "relation": "method",
+      "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/backend/classes/voice_listener.py",
-      "source_location": "L105",
+      "source_location": "L51",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classes_voice_listener_voicelistener",
-      "target": "classes_voice_listener_voicelistener_parse_command"
+      "source": "classes_voice_listener_voicelistener_handle_wake",
+      "target": "classes_voice_listener_voicelistener_parse_command",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -11272,5 +11592,5 @@
       "source_file": "src/backend/classes/voice_listener.py"
     }
   ],
-  "built_at_commit": "c42b8685748c268552dba91bea8550c2caa817ee"
+  "built_at_commit": "33fe5bf12f493ffb5910933b723072088b3d1587"
 }

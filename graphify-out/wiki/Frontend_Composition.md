@@ -23,7 +23,7 @@
 
 ## Relationships
 
-- [[Game History Tracking]] (32 shared connections)
+- [[Settings & Messages UI]] (32 shared connections)
 
 ## Source Files
 

@@ -19,6 +19,7 @@
 
 ## Relationships
 
+- [[TTS Speech Queue]] (34 shared connections)
 - [[Database Query Layer]] (2 shared connections)
 
 ## Source Files

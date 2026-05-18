@@ -2,7 +2,7 @@
 
 > God node · 17 connections · `src/frontend/views/tabs/config_tab.py`
 
-**Community:** [[Core Module Docs]]
+**Community:** [[Frontend Composition]]
 
 ## Connections by Relation
 

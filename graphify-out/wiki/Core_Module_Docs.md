@@ -23,7 +23,7 @@
 
 ## Relationships
 
-- [[Frontend Composition]] (38 shared connections)
+- [[Game History Tracking]] (38 shared connections)
 - [[Config & Service Layer]] (1 shared connections)
 
 ## Source Files

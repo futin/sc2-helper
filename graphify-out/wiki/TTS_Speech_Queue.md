@@ -18,6 +18,7 @@
 
 ## Relationships
 
+- [[Voice Listener]] (24 shared connections)
 - [[Game State Detectors]] (2 shared connections)
 
 ## Source Files
