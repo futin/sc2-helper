@@ -33,6 +33,20 @@ Open **Settings**, configure screen capture regions via the **Coords Selection**
 
 ---
 
+## Developer tooling
+
+This project has a knowledge graph at `.understand-anything/knowledge-graph.json` — 101 nodes, 135 edges, 7 architectural layers, 15-step guided tour.
+
+**Explore architecture:** run `/understand-dashboard` in Claude Code to launch the interactive graph browser.
+
+**Regenerate after changes:** run `/understand` — incremental, only re-analyzes changed files.
+
+Requires Node.js ≥ 20 and pnpm ≥ 10 for the dashboard.
+
+See [docs/knowledge-graph.md](docs/knowledge-graph.md) for full details on how the tool works, node/edge types, layers, and ignore configuration.
+
+---
+
 ## Using game history to improve your gameplay
 
 The **Game History** tab tracks per-game warning counts (minerals, gas, supply, idle workers) across your match history. Use this data to identify your weakest habits over time — for example, consistently high idle-worker warnings point to a macro routine problem, while frequent supply warnings suggest build order practice. Review your history after sessions to spot patterns, set a target warning count to beat each week, and watch that number fall as the habits become natural.

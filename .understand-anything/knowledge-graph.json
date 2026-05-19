@@ -1,0 +1,2664 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "sc2-helper",
+    "languages": [
+      "json",
+      "markdown",
+      "python",
+      "toml",
+      "txt"
+    ],
+    "frameworks": [
+      "customtkinter",
+      "mss",
+      "pytesseract",
+      "Pillow",
+      "PyYAML",
+      "requests",
+      "watchdog",
+      "aiosqlite",
+      "pytest"
+    ],
+    "description": "Real-time StarCraft II assistant that monitors the HUD via screen OCR and fires spoken warnings when resources are floating, supply is capped, or workers are idle.",
+    "analyzedAt": "2026-05-19T11:04:39Z",
+    "gitCommitHash": "7f1cbb7312112e265766e89dc76cdbbc7ad714da"
+  },
+  "nodes": [
+    {
+      "id": "document:.claude/CLAUDE.md",
+      "type": "document",
+      "name": "CLAUDE.md",
+      "filePath": ".claude/CLAUDE.md",
+      "summary": "Project-level Claude Code instructions defining the SC2 Helper module structure, file responsibilities, and strict development guidelines (simplicity, surgical changes, goal-driven execution).",
+      "tags": [
+        "documentation",
+        "configuration",
+        "development",
+        "guidelines"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.claude/settings.json",
+      "type": "config",
+      "name": "settings.json",
+      "filePath": ".claude/settings.json",
+      "summary": "Claude Code project settings file controlling permissions and tool behavior for the sc2-helper workspace.",
+      "tags": [
+        "configuration",
+        "development"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Project overview for SC2 Helper with quick-start instructions, disclaimer on anti-cheat safety, links to detailed docs, and guidance on using game history for gameplay improvement.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:pyproject.toml",
+      "type": "config",
+      "name": "pyproject.toml",
+      "filePath": "pyproject.toml",
+      "summary": "Python project build configuration declaring sc2-helper package metadata, runtime dependencies (customtkinter, mss, pytesseract, Pillow, etc.), and the entry-point script pointing to the frontend.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "dependencies"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:requirements.txt",
+      "type": "config",
+      "name": "requirements.txt",
+      "filePath": "requirements.txt",
+      "summary": "Flat pip requirements file listing all runtime and development dependencies including aiosqlite, SpeechRecognition, and pytest.",
+      "tags": [
+        "configuration",
+        "dependencies",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:docs/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "docs/architecture.md",
+      "summary": "Explains the overall SC2 Helper architecture: how the frontend UI spawns a backend subprocess, how OCR reads the HUD, and how the speech queue fires warnings.",
+      "tags": [
+        "documentation",
+        "architecture",
+        "overview"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:docs/configuration.md",
+      "type": "document",
+      "name": "configuration.md",
+      "filePath": "docs/configuration.md",
+      "summary": "Detailed reference for all configuration options including resource thresholds, supply tiers, idle worker timing, voice settings, OCR screen capture regions, and anomaly filter.",
+      "tags": [
+        "documentation",
+        "configuration",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:docs/game_history.md",
+      "type": "document",
+      "name": "game_history.md",
+      "filePath": "docs/game_history.md",
+      "summary": "Documents the Game History feature: how per-game warning counts are tracked in SQLite, what the dashboard shows, and how to interpret the data for gameplay improvement.",
+      "tags": [
+        "documentation",
+        "database",
+        "feature"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:docs/messages.md",
+      "type": "document",
+      "name": "messages.md",
+      "filePath": "docs/messages.md",
+      "summary": "Short reference describing the three message modes (strict, funny, custom) used for spoken warnings in SC2 Helper.",
+      "tags": [
+        "documentation",
+        "feature",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:docs/running.md",
+      "type": "document",
+      "name": "running.md",
+      "filePath": "docs/running.md",
+      "summary": "Setup and running guide covering Python requirements, Tesseract OCR installation, dependency installation, and how to launch the app in normal or dev-watch mode.",
+      "tags": [
+        "documentation",
+        "setup",
+        "deployment"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:docs/plans/2026-05-18-wake-word-voice-control.md",
+      "type": "document",
+      "name": "2026-05-18-wake-word-voice-control.md",
+      "filePath": "docs/plans/2026-05-18-wake-word-voice-control.md",
+      "summary": "Comprehensive implementation plan for adding wake-word voice control to SC2 Helper, covering architecture, phased rollout, testing strategy, and detailed task breakdown across 660 lines.",
+      "tags": [
+        "documentation",
+        "planning",
+        "feature"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:docs/specs/2026-05-18-wake-word-voice-control-design.md",
+      "type": "document",
+      "name": "2026-05-18-wake-word-voice-control-design.md",
+      "filePath": "docs/specs/2026-05-18-wake-word-voice-control-design.md",
+      "summary": "Design specification for the wake-word voice control system, detailing the listener thread architecture, model integration, config schema changes, and UI requirements.",
+      "tags": [
+        "documentation",
+        "design",
+        "feature"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:ideas/improvement-ideas.md",
+      "type": "document",
+      "name": "improvement-ideas.md",
+      "filePath": "ideas/improvement-ideas.md",
+      "summary": "Backlog of potential improvements and future feature ideas for SC2 Helper, organized by category.",
+      "tags": [
+        "documentation",
+        "planning",
+        "backlog"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:dev.py",
+      "type": "file",
+      "name": "dev.py",
+      "filePath": "dev.py",
+      "summary": "Development runner that watches the src/ directory for Python file changes using watchdog and auto-restarts the frontend app process, providing a hot-reload workflow.",
+      "tags": [
+        "entry-point",
+        "development",
+        "script",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:dev.py:RestartHandler",
+      "type": "class",
+      "name": "RestartHandler",
+      "filePath": "dev.py",
+      "lineRange": [
+        14,
+        37
+      ],
+      "summary": "Watchdog event handler that terminates and restarts the frontend subprocess whenever a .py file is modified, with a debounce of 0.5 seconds.",
+      "tags": [
+        "event-handler",
+        "utility",
+        "development"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/backend/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/backend/__init__.py",
+      "summary": "Empty package initializer for the backend module.",
+      "tags": [
+        "entry-point",
+        "barrel"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/backend/constants.py",
+      "type": "file",
+      "name": "constants.py",
+      "filePath": "src/backend/constants.py",
+      "summary": "Defines all shared constants for the backend: SC2 API base URL, request timeout, TTS priority levels, and lookup maps for game result and race normalization.",
+      "tags": [
+        "utility",
+        "configuration",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/backend/logger.py",
+      "type": "file",
+      "name": "logger.py",
+      "filePath": "src/backend/logger.py",
+      "summary": "Provides a single setup_logging() function that configures the root logger to stream timestamped messages to stdout.",
+      "tags": [
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/backend/utils.py",
+      "type": "file",
+      "name": "utils.py",
+      "filePath": "src/backend/utils.py",
+      "summary": "Helper functions for extracting and normalizing game result and race data from the SC2 API players list, plus a debug state formatter.",
+      "tags": [
+        "utility",
+        "serialization",
+        "tested"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/backend/utils.py:_extract_result",
+      "type": "function",
+      "name": "_extract_result",
+      "filePath": "src/backend/utils.py",
+      "lineRange": [
+        4,
+        15
+      ],
+      "summary": "Looks up the Win/Loss/Tie result for a specific player from the SC2 API players list, falling back to any player's result if the indexed lookup fails.",
+      "tags": [
+        "utility",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/backend/utils.py:_extract_race",
+      "type": "function",
+      "name": "_extract_race",
+      "filePath": "src/backend/utils.py",
+      "lineRange": [
+        18,
+        23
+      ],
+      "summary": "Normalizes the player's race string (e.g., 'Prot' \u2192 'Protoss') from the SC2 API players list.",
+      "tags": [
+        "utility",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/backend/utils.py:_format_debug_state",
+      "type": "function",
+      "name": "_format_debug_state",
+      "filePath": "src/backend/utils.py",
+      "lineRange": [
+        26,
+        34
+      ],
+      "summary": "Formats a game state dict into a human-readable debug string showing minerals, gas, supply, and idle workers.",
+      "tags": [
+        "utility",
+        "debugging"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/backend/hud_elements.py",
+      "type": "file",
+      "name": "hud_elements.py",
+      "filePath": "src/backend/hud_elements.py",
+      "summary": "Defines the HudElement frozen dataclass and the canonical HUD_ELEMENTS list used to identify which screen regions to OCR for minerals, gas, supply, and idle workers.",
+      "tags": [
+        "data-model",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/backend/hud_elements.py:HudElement",
+      "type": "class",
+      "name": "HudElement",
+      "filePath": "src/backend/hud_elements.py",
+      "lineRange": [
+        4,
+        9
+      ],
+      "summary": "Frozen dataclass representing a single SC2 HUD element with its key, display label, and default OCR capture region size.",
+      "tags": [
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/backend/messages.py",
+      "type": "file",
+      "name": "messages.py",
+      "filePath": "src/backend/messages.py",
+      "summary": "Stores all spoken warning message banks (strict, funny variants for supply, minerals, gas, idle workers) and the get_message() dispatcher that selects messages by mode.",
+      "tags": [
+        "utility",
+        "service",
+        "data-model",
+        "tested"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/backend/messages.py:get_message",
+      "type": "function",
+      "name": "get_message",
+      "filePath": "src/backend/messages.py",
+      "lineRange": [
+        63,
+        77
+      ],
+      "summary": "Selects and returns a warning message string for a given category and mode (strict, funny, or custom), falling back gracefully when custom messages are missing.",
+      "tags": [
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/backend/ocr.py",
+      "type": "file",
+      "name": "ocr.py",
+      "filePath": "src/backend/ocr.py",
+      "summary": "Provides screen capture via mss and Tesseract OCR functions for reading integer HUD values and the supply fraction (used/max) from captured screen regions.",
+      "tags": [
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/backend/ocr.py:capture_region",
+      "type": "function",
+      "name": "capture_region",
+      "filePath": "src/backend/ocr.py",
+      "lineRange": [
+        9,
+        15
+      ],
+      "summary": "Captures a rectangular screen region using mss and returns it as a PIL Image.",
+      "tags": [
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/backend/ocr.py:ocr_number",
+      "type": "function",
+      "name": "ocr_number",
+      "filePath": "src/backend/ocr.py",
+      "lineRange": [
+        24,
+        36
+      ],
+      "summary": "Runs Tesseract OCR on a preprocessed HUD region image to extract a single integer, returning None on parse failure.",
+      "tags": [
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/backend/ocr.py:ocr_supply",
+      "type": "function",
+      "name": "ocr_supply",
+      "filePath": "src/backend/ocr.py",
+      "lineRange": [
+        39,
+        53
+      ],
+      "summary": "Runs Tesseract OCR on the supply HUD region to extract a 'used/max' tuple, logging a warning and returning (None, None) on failure.",
+      "tags": [
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/backend/find_coords.py",
+      "type": "file",
+      "name": "find_coords.py",
+      "filePath": "src/backend/find_coords.py",
+      "summary": "Standalone macOS calibration script that prompts the user to hover over each SC2 HUD element and records the mouse coordinates using Quartz, then prints the region config values.",
+      "tags": [
+        "script",
+        "utility",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/backend/find_coords.py:get_mouse_pos",
+      "type": "function",
+      "name": "get_mouse_pos",
+      "filePath": "src/backend/find_coords.py",
+      "lineRange": [
+        7,
+        11
+      ],
+      "summary": "Returns the current macOS mouse cursor position as (x, y) integers using the Quartz CoreGraphics API.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/backend/detectors.py",
+      "type": "file",
+      "name": "detectors.py",
+      "filePath": "src/backend/detectors.py",
+      "summary": "Core warning detector functions that evaluate the current game state against configured thresholds and fire TTS warnings via the speech queue for resources, supply, and idle workers.",
+      "tags": [
+        "service",
+        "api-handler",
+        "event-handler",
+        "tested"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/backend/detectors.py:check_resources",
+      "type": "function",
+      "name": "check_resources",
+      "filePath": "src/backend/detectors.py",
+      "lineRange": [
+        11,
+        27
+      ],
+      "summary": "Checks minerals and gas levels against configured thresholds and triggers spoken warnings with cooldown gating, optionally recording to game history.",
+      "tags": [
+        "service",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/backend/detectors.py:check_supply",
+      "type": "function",
+      "name": "check_supply",
+      "filePath": "src/backend/detectors.py",
+      "lineRange": [
+        30,
+        53
+      ],
+      "summary": "Evaluates supply gap against tiered thresholds and fires a spoken supply warning when capped or near-capped, respecting cooldown and recording to game history.",
+      "tags": [
+        "service",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/backend/detectors.py:check_idle_workers",
+      "type": "function",
+      "name": "check_idle_workers",
+      "filePath": "src/backend/detectors.py",
+      "lineRange": [
+        56,
+        83
+      ],
+      "summary": "Tracks idle worker onset time and fires a spoken warning after the configured idle_seconds duration, returning the onset timestamp for stateful tracking.",
+      "tags": [
+        "service",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/backend/game_api.py",
+      "type": "file",
+      "name": "game_api.py",
+      "filePath": "src/backend/game_api.py",
+      "summary": "Interfaces with the SC2 local API to detect game running state and captures the HUD via screen OCR, including a spike filter to suppress anomalous OCR readings between frames.",
+      "tags": [
+        "service",
+        "api-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/backend/game_api.py:fetch_game_state",
+      "type": "function",
+      "name": "fetch_game_state",
+      "filePath": "src/backend/game_api.py",
+      "lineRange": [
+        66,
+        70
+      ],
+      "summary": "Public entry point that checks whether SC2 is running and returns the current HUD state dict captured via OCR, or None if no game is in progress.",
+      "tags": [
+        "service",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/backend/game_api.py:_capture_hud",
+      "type": "function",
+      "name": "_capture_hud",
+      "filePath": "src/backend/game_api.py",
+      "lineRange": [
+        30,
+        46
+      ],
+      "summary": "Captures all four HUD regions (minerals, gas, supply, idle workers) via screen OCR and assembles a state dict using configured screen capture coordinates.",
+      "tags": [
+        "service",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/backend/game_api.py:_filter_spikes",
+      "type": "function",
+      "name": "_filter_spikes",
+      "filePath": "src/backend/game_api.py",
+      "lineRange": [
+        49,
+        63
+      ],
+      "summary": "Applies a configurable anomaly filter that replaces values with the previous frame's value when the delta exceeds a per-key maximum, suppressing OCR noise spikes.",
+      "tags": [
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/backend/game_history.py",
+      "type": "file",
+      "name": "game_history.py",
+      "filePath": "src/backend/game_history.py",
+      "summary": "GameHistoryManager class that tracks per-game warning counts in memory and persists them to SQLite via async DB calls, managing game lifecycle from start to end.",
+      "tags": [
+        "service",
+        "data-model",
+        "database"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/backend/game_history.py:GameHistoryManager",
+      "type": "class",
+      "name": "GameHistoryManager",
+      "filePath": "src/backend/game_history.py",
+      "lineRange": [
+        9,
+        122
+      ],
+      "summary": "Stateful manager that tracks warning events across a single game session and synchronizes counts to the game_stats SQLite table on each warning and on game end.",
+      "tags": [
+        "service",
+        "data-model",
+        "database"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/backend/classes/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/backend/classes/__init__.py",
+      "summary": "Package barrel for the backend classes package, re-exporting SpeechQueue, CooldownTracker, and WakeWordDetector for convenient import by consumers.",
+      "tags": [
+        "entry-point",
+        "barrel",
+        "exports"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/backend/classes/cooldown_tracker.py",
+      "type": "file",
+      "name": "cooldown_tracker.py",
+      "filePath": "src/backend/classes/cooldown_tracker.py",
+      "summary": "Provides CooldownTracker, a lightweight per-key rate-limiter that tracks elapsed time to gate repeated warning emissions.",
+      "tags": [
+        "utility",
+        "service",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/backend/classes/cooldown_tracker.py:CooldownTracker",
+      "type": "class",
+      "name": "CooldownTracker",
+      "filePath": "src/backend/classes/cooldown_tracker.py",
+      "lineRange": [
+        4,
+        21
+      ],
+      "summary": "Tracks per-key cooldown state using monotonic time, exposing ready() to check-and-reset and remaining() to query time left.",
+      "tags": [
+        "utility",
+        "rate-limiting"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/backend/classes/speech_queue.py",
+      "type": "file",
+      "name": "speech_queue.py",
+      "filePath": "src/backend/classes/speech_queue.py",
+      "summary": "Provides SpeechQueue, a thread-safe priority TTS daemon that serializes spoken warnings through macOS's say command.",
+      "tags": [
+        "service",
+        "singleton",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/backend/classes/speech_queue.py:SpeechQueue",
+      "type": "class",
+      "name": "SpeechQueue",
+      "filePath": "src/backend/classes/speech_queue.py",
+      "lineRange": [
+        6,
+        24
+      ],
+      "summary": "Priority queue backed by a daemon worker thread that invokes the macOS say command; accepts message, voice, and priority arguments.",
+      "tags": [
+        "service",
+        "singleton",
+        "tts"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses a (priority, counter) tuple in PriorityQueue to maintain FIFO ordering within the same priority level."
+    },
+    {
+      "id": "file:src/backend/classes/voice_listener.py",
+      "type": "file",
+      "name": "voice_listener.py",
+      "filePath": "src/backend/classes/voice_listener.py",
+      "summary": "Provides VoiceListener, which captures a microphone phrase after a wake-word event, transcribes it via Google or Whisper STT, and parses it into structured VoiceCommand intents.",
+      "tags": [
+        "service",
+        "event-handler",
+        "voice-control"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/backend/classes/voice_listener.py:VoiceListener",
+      "type": "class",
+      "name": "VoiceListener",
+      "filePath": "src/backend/classes/voice_listener.py",
+      "lineRange": [
+        15,
+        86
+      ],
+      "summary": "Listens for a spoken command after wake-word detection, transcribes with a configurable STT backend, and enqueues a VoiceCommand for the main loop to act on.",
+      "tags": [
+        "service",
+        "voice-control",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/backend/classes/wake_word_detector.py",
+      "type": "file",
+      "name": "wake_word_detector.py",
+      "filePath": "src/backend/classes/wake_word_detector.py",
+      "summary": "Provides WakeWordDetector, which runs a background audio loop using openwakeword/ONNX to detect a configurable wake phrase and invoke a callback.",
+      "tags": [
+        "service",
+        "event-handler",
+        "voice-control"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/backend/classes/wake_word_detector.py:WakeWordDetector",
+      "type": "class",
+      "name": "WakeWordDetector",
+      "filePath": "src/backend/classes/wake_word_detector.py",
+      "lineRange": [
+        9,
+        92
+      ],
+      "summary": "Daemon thread that streams 16 kHz audio chunks through an openwakeword ONNX model; fires on_wake callback when score exceeds sensitivity threshold, with refractory period to avoid double-triggers.",
+      "tags": [
+        "service",
+        "voice-control",
+        "event-handler"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Drains remaining buffered audio after a wake event to prevent immediate re-trigger from residual audio in the stream buffer."
+    },
+    {
+      "id": "file:src/backend/db/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/backend/db/__init__.py",
+      "summary": "Package entry point for the database layer, exposing get_db() async context manager and re-exporting DBConnector, Collection, and DB_PATH.",
+      "tags": [
+        "entry-point",
+        "barrel",
+        "database"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/backend/db/__init__.py:get_db",
+      "type": "function",
+      "name": "get_db",
+      "filePath": "src/backend/db/__init__.py",
+      "lineRange": [
+        12,
+        18
+      ],
+      "summary": "Async context manager that opens a SQLiteConnector to the project database, yields it, and closes on exit.",
+      "tags": [
+        "database",
+        "factory"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/backend/db/collection.py",
+      "type": "file",
+      "name": "collection.py",
+      "filePath": "src/backend/db/collection.py",
+      "summary": "Implements the Collection class providing a MongoDB-style async query API (find, findOne, create, updateOne, delete, count) over a SQLite table.",
+      "tags": [
+        "database",
+        "service",
+        "data-model"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/backend/db/collection.py:Collection",
+      "type": "class",
+      "name": "Collection",
+      "filePath": "src/backend/db/collection.py",
+      "lineRange": [
+        21,
+        80
+      ],
+      "summary": "Table-scoped query object wrapping a DBConnector, building parameterized SQL from dict filters and dispatching via the connector's fetch/execute methods.",
+      "tags": [
+        "database",
+        "data-model"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/backend/db/connector.py",
+      "type": "file",
+      "name": "connector.py",
+      "filePath": "src/backend/db/connector.py",
+      "summary": "Defines the abstract DBConnector base class specifying the async interface (connect, close, fetch, execute, execute_returning_rowid) that all database backends must implement.",
+      "tags": [
+        "database",
+        "type-definition",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/backend/db/connector.py:DBConnector",
+      "type": "class",
+      "name": "DBConnector",
+      "filePath": "src/backend/db/connector.py",
+      "lineRange": [
+        10,
+        28
+      ],
+      "summary": "Abstract base class for database connectors, defining the async protocol and providing a convenience collection() factory method.",
+      "tags": [
+        "database",
+        "type-definition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/backend/db/schema.py",
+      "type": "file",
+      "name": "schema.py",
+      "filePath": "src/backend/db/schema.py",
+      "summary": "Defines the SQLite schema for config and game_stats tables and the ensure_tables() migration function that creates them on first run.",
+      "tags": [
+        "database",
+        "schema-definition",
+        "migration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/backend/db/schema.py:ensure_tables",
+      "type": "function",
+      "name": "ensure_tables",
+      "filePath": "src/backend/db/schema.py",
+      "lineRange": [
+        37,
+        44
+      ],
+      "summary": "Idempotent async function that creates config and game_stats tables and applies the voice_control column migration if it doesn't exist.",
+      "tags": [
+        "database",
+        "migration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/backend/db/sqlite_connector.py",
+      "type": "file",
+      "name": "sqlite_connector.py",
+      "filePath": "src/backend/db/sqlite_connector.py",
+      "summary": "Implements DBConnector using aiosqlite, configuring WAL journal mode and running schema migrations on connect.",
+      "tags": [
+        "database",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/backend/db/sqlite_connector.py:SQLiteConnector",
+      "type": "class",
+      "name": "SQLiteConnector",
+      "filePath": "src/backend/db/sqlite_connector.py",
+      "lineRange": [
+        11,
+        41
+      ],
+      "summary": "aiosqlite-backed DBConnector that opens a WAL-mode SQLite connection, runs ensure_tables on connect, and exposes fetch/execute primitives.",
+      "tags": [
+        "database",
+        "service"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses aiosqlite.Row as row_factory so rows are accessible by column name, then converts to plain dicts before returning."
+    },
+    {
+      "id": "file:src/backend/index.py",
+      "type": "file",
+      "name": "index.py",
+      "filePath": "src/backend/index.py",
+      "summary": "Main entry point for the SC2 Helper backend: runs the polling loop that reads the HUD via OCR, fires spoken warnings through the detector functions, manages game lifecycle via GameHistoryManager, and handles voice commands from WakeWordDetector/VoiceListener.",
+      "tags": [
+        "entry-point",
+        "service",
+        "event-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/backend/index.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/backend/index.py",
+      "lineRange": [
+        77,
+        203
+      ],
+      "summary": "Primary polling loop: initialises voice control if configured, iterates game state via SC2 API and OCR, invokes detector checks, and manages game start/end transitions.",
+      "tags": [
+        "entry-point",
+        "event-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/backend/index.py:test_ocr_mode",
+      "type": "function",
+      "name": "test_ocr_mode",
+      "filePath": "src/backend/index.py",
+      "lineRange": [
+        43,
+        71
+      ],
+      "summary": "Debug utility that captures each configured HUD region, saves raw and preprocessed crops to disk, and prints OCR results for calibration.",
+      "tags": [
+        "utility",
+        "debug"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/backend/index.py:_handle_voice_command",
+      "type": "function",
+      "name": "_handle_voice_command",
+      "filePath": "src/backend/index.py",
+      "lineRange": [
+        205,
+        224
+      ],
+      "summary": "Dispatches VoiceCommand intents to spoken responses: announces supply/resource stats or acknowledges a silence request.",
+      "tags": [
+        "event-handler",
+        "voice-control"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/backend/service.py",
+      "type": "file",
+      "name": "service.py",
+      "filePath": "src/backend/service.py",
+      "summary": "Service layer providing synchronous get_config(), save_config(), get_stats_history(), and get_live_stats() functions that wrap async DB operations; also defines DEFAULT_CONFIG.",
+      "tags": [
+        "service",
+        "data-model",
+        "api-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/backend/service.py:get_config",
+      "type": "function",
+      "name": "get_config",
+      "filePath": "src/backend/service.py",
+      "lineRange": [
+        93,
+        102
+      ],
+      "summary": "Returns the current config dict from SQLite, seeding DEFAULT_CONFIG on first run.",
+      "tags": [
+        "service",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/backend/service.py:save_config",
+      "type": "function",
+      "name": "save_config",
+      "filePath": "src/backend/service.py",
+      "lineRange": [
+        105,
+        110
+      ],
+      "summary": "Persists a config dict to the SQLite config row via updateOne.",
+      "tags": [
+        "service",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/backend/service.py:get_stats_history",
+      "type": "function",
+      "name": "get_stats_history",
+      "filePath": "src/backend/service.py",
+      "lineRange": [
+        147,
+        156
+      ],
+      "summary": "Returns a list of completed game records sorted by match date, mapping DB rows to the frontend's camelCase dict shape.",
+      "tags": [
+        "service",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/backend/service.py:get_live_stats",
+      "type": "function",
+      "name": "get_live_stats",
+      "filePath": "src/backend/service.py",
+      "lineRange": [
+        159,
+        168
+      ],
+      "summary": "Returns live warning counts for the currently active game, or None if no game is in progress.",
+      "tags": [
+        "service",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/frontend/__init__.py",
+      "summary": "Empty package marker for the frontend package.",
+      "tags": [
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/app.py",
+      "type": "file",
+      "name": "app.py",
+      "filePath": "src/frontend/app.py",
+      "summary": "Defines SC2HelperApp, the root customtkinter window that embeds SettingsScreen and launches RunnerScreen on demand.",
+      "tags": [
+        "component",
+        "entry-point",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/frontend/app.py:SC2HelperApp",
+      "type": "class",
+      "name": "SC2HelperApp",
+      "filePath": "src/frontend/app.py",
+      "lineRange": [
+        12,
+        46
+      ],
+      "summary": "Root application window: loads config on init, renders a title bar with a Run button, embeds SettingsScreen, and opens RunnerScreen as a secondary window.",
+      "tags": [
+        "component",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/config_manager.py",
+      "type": "file",
+      "name": "config_manager.py",
+      "filePath": "src/frontend/config_manager.py",
+      "summary": "Thin re-export shim exposing get_config, save_config, and DEFAULT_CONFIG from backend.service to the frontend package namespace.",
+      "tags": [
+        "barrel",
+        "utility",
+        "tested"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/sc2_ui.py",
+      "type": "file",
+      "name": "sc2_ui.py",
+      "filePath": "src/frontend/sc2_ui.py",
+      "summary": "UI entry point that instantiates SC2HelperApp and calls mainloop() to start the Tkinter event loop.",
+      "tags": [
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/logic/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/frontend/logic/__init__.py",
+      "summary": "Package barrel for the frontend logic layer, re-exporting RunnerController and GameHistoryLoader.",
+      "tags": [
+        "entry-point",
+        "barrel"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/logic/game_history_logic.py",
+      "type": "file",
+      "name": "game_history_logic.py",
+      "filePath": "src/frontend/logic/game_history_logic.py",
+      "summary": "Provides GameHistoryLoader, a minimal class that delegates to service.get_stats_history() to fetch completed game records for the UI.",
+      "tags": [
+        "service",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/frontend/logic/game_history_logic.py:GameHistoryLoader",
+      "type": "class",
+      "name": "GameHistoryLoader",
+      "filePath": "src/frontend/logic/game_history_logic.py",
+      "lineRange": [
+        4,
+        6
+      ],
+      "summary": "Single-method class that wraps get_stats_history() to separate data-fetching concern from the view layer.",
+      "tags": [
+        "service",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/logic/runner_logic.py",
+      "type": "file",
+      "name": "runner_logic.py",
+      "filePath": "src/frontend/logic/runner_logic.py",
+      "summary": "Implements RunnerController, which spawns the backend as a subprocess, reads its stdout on a daemon thread, and forwards log lines and STATE updates to the UI via callbacks.",
+      "tags": [
+        "service",
+        "event-handler",
+        "middleware"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/frontend/logic/runner_logic.py:RunnerController",
+      "type": "class",
+      "name": "RunnerController",
+      "filePath": "src/frontend/logic/runner_logic.py",
+      "lineRange": [
+        12,
+        83
+      ],
+      "summary": "Manages backend.index subprocess lifecycle: starts with optional --debug flag, polls stdout via a queue/schedule pattern, dispatches [STATE] lines to on_state callback and other output to on_log.",
+      "tags": [
+        "service",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/views/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/frontend/views/__init__.py",
+      "summary": "Package barrel for the frontend views, re-exporting RunnerScreen and SettingsScreen.",
+      "tags": [
+        "entry-point",
+        "barrel"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/views/runner_view.py",
+      "type": "file",
+      "name": "runner_view.py",
+      "filePath": "src/frontend/views/runner_view.py",
+      "summary": "Provides the RunnerScreen top-level window that wires Start/Stop controls and a live HUD tracking panel to the RunnerController, displaying game state (minerals, gas, supply, idle workers, cooldowns, voice status) in real time.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/frontend/views/runner_view.py:RunnerScreen",
+      "type": "class",
+      "name": "RunnerScreen",
+      "filePath": "src/frontend/views/runner_view.py",
+      "lineRange": [
+        8,
+        184
+      ],
+      "summary": "CTkToplevel subclass that builds the runner UI, delegates process lifecycle to RunnerController, and updates live HUD labels from serialized state strings.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/views/settings_view.py",
+      "type": "file",
+      "name": "settings_view.py",
+      "filePath": "src/frontend/views/settings_view.py",
+      "summary": "Provides the SettingsScreen frame that assembles the four settings tabs (Configuration, Messages, Coords, Game History) into a tab view and exposes a Save All button that collects and persists configuration.",
+      "tags": [
+        "component",
+        "ui",
+        "settings"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/frontend/views/settings_view.py:SettingsScreen",
+      "type": "class",
+      "name": "SettingsScreen",
+      "filePath": "src/frontend/views/settings_view.py",
+      "lineRange": [
+        8,
+        59
+      ],
+      "summary": "CTkFrame subclass that composes ConfigTab, MessagesTab, CoordsTab and GameHistoryTab and routes save/refresh operations to the correct sub-tabs.",
+      "tags": [
+        "component",
+        "ui",
+        "settings"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/views/tabs/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/frontend/views/tabs/__init__.py",
+      "summary": "Package barrel that re-exports ConfigTab, MessagesTab, CoordsTab, and GameHistoryTab for convenient import by SettingsScreen.",
+      "tags": [
+        "barrel",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/views/tabs/config_tab.py",
+      "type": "file",
+      "name": "config_tab.py",
+      "filePath": "src/frontend/views/tabs/config_tab.py",
+      "summary": "Provides the ConfigTab scrollable form that renders all threshold, cooldown, supply-tier, voice-control, and screen-capture settings as labelled entry fields, validating and collecting values on demand.",
+      "tags": [
+        "component",
+        "ui",
+        "settings",
+        "validation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/frontend/views/tabs/config_tab.py:ConfigTab",
+      "type": "class",
+      "name": "ConfigTab",
+      "filePath": "src/frontend/views/tabs/config_tab.py",
+      "lineRange": [
+        4,
+        250
+      ],
+      "summary": "CTkScrollableFrame subclass that builds sectioned settings form with dynamic supply-tier rows; collect() validates all inputs and returns a structured config dict.",
+      "tags": [
+        "component",
+        "ui",
+        "settings",
+        "validation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/views/tabs/coords_tab.py",
+      "type": "file",
+      "name": "coords_tab.py",
+      "filePath": "src/frontend/views/tabs/coords_tab.py",
+      "summary": "Provides CoordsTab, a scrollable UI panel that lets the user capture screen coordinates for each HUD element via a 3-second countdown mouse-position grab, then saves them to config.",
+      "tags": [
+        "component",
+        "ui",
+        "settings"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/frontend/views/tabs/coords_tab.py:CoordsTab",
+      "type": "class",
+      "name": "CoordsTab",
+      "filePath": "src/frontend/views/tabs/coords_tab.py",
+      "lineRange": [
+        7,
+        89
+      ],
+      "summary": "CTkScrollableFrame that renders a capture button per HUD element, runs a countdown timer, records mouse position, and persists coordinates through save_config.",
+      "tags": [
+        "component",
+        "ui",
+        "settings"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/views/tabs/game_history_tab.py",
+      "type": "file",
+      "name": "game_history_tab.py",
+      "filePath": "src/frontend/views/tabs/game_history_tab.py",
+      "summary": "Provides GameHistoryTab, a read-only dashboard that renders a scrollable list of past SC2 matches with result-colored rows and an expandable detail panel showing per-game warning counts.",
+      "tags": [
+        "component",
+        "ui",
+        "data-model"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/frontend/views/tabs/game_history_tab.py:GameHistoryTab",
+      "type": "class",
+      "name": "GameHistoryTab",
+      "filePath": "src/frontend/views/tabs/game_history_tab.py",
+      "lineRange": [
+        6,
+        134
+      ],
+      "summary": "CTkFrame subclass that loads game history through GameHistoryLoader and dynamically builds a scrollable list with clickable rows that expand a detail panel.",
+      "tags": [
+        "component",
+        "ui",
+        "data-model"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/views/tabs/messages_tab.py",
+      "type": "file",
+      "name": "messages_tab.py",
+      "filePath": "src/frontend/views/tabs/messages_tab.py",
+      "summary": "Provides MessagesTab, a compact settings tab for selecting the TTS message mode (strict/funny/custom) and editing per-HUD-element custom message lists.",
+      "tags": [
+        "component",
+        "ui",
+        "settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/frontend/views/tabs/messages_tab.py:MessagesTab",
+      "type": "class",
+      "name": "MessagesTab",
+      "filePath": "src/frontend/views/tabs/messages_tab.py",
+      "lineRange": [
+        7,
+        61
+      ],
+      "summary": "CTkFrame subclass with a radio-button mode selector and per-channel text boxes for custom messages; collect() returns the chosen mode and custom message dict.",
+      "tags": [
+        "component",
+        "ui",
+        "settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_config_manager.py",
+      "type": "file",
+      "name": "test_config_manager.py",
+      "filePath": "tests/test_config_manager.py",
+      "summary": "Smoke tests for the config get/save round-trip, verifying default values on an empty database, persistence after save, and that all HUD element keys are present with correct region sizes in the default config.",
+      "tags": [
+        "test",
+        "config",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_debug.py",
+      "type": "file",
+      "name": "test_debug.py",
+      "filePath": "tests/test_debug.py",
+      "summary": "Minimal unit tests for _format_debug_state, confirming the formatted debug string layout and the static no-state sentinel string.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_detectors.py",
+      "type": "file",
+      "name": "test_detectors.py",
+      "filePath": "tests/test_detectors.py",
+      "summary": "Smoke tests for the three detector functions (check_resources, check_supply, check_idle_workers), verifying that TTS is triggered above thresholds, suppressed below them, and blocked by the cooldown tracker.",
+      "tags": [
+        "test",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:tests/test_messages.py",
+      "type": "file",
+      "name": "test_messages.py",
+      "filePath": "tests/test_messages.py",
+      "summary": "Unit tests for get_message covering all three modes (strict, funny, custom) and verifying fallback to strict messages when custom message lists are empty or missing.",
+      "tags": [
+        "test",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_speech_queue.py",
+      "type": "file",
+      "name": "test_speech_queue.py",
+      "filePath": "tests/test_speech_queue.py",
+      "summary": "Smoke tests for SpeechQueue ensuring enqueue without error, correct priority ordering (lower number dequeued first), and that the internal counter increments with each speak call.",
+      "tags": [
+        "test",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_voice_listener.py",
+      "type": "file",
+      "name": "test_voice_listener.py",
+      "filePath": "tests/test_voice_listener.py",
+      "summary": "Unit tests for VoiceListener covering intent parsing (_parse_command) for supply, resource, and silence intents, and wake-word handling scenarios including successful recognition, timeout, and missing speech_recognition import.",
+      "tags": [
+        "test",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:tests/test_wake_word_detector.py",
+      "type": "file",
+      "name": "test_wake_word_detector.py",
+      "filePath": "tests/test_wake_word_detector.py",
+      "summary": "Unit tests for WakeWordDetector covering attribute initialization, stop event, missing-import graceful degradation, on_wake callback triggering when threshold is met, refractory suppression of repeated triggers, and recovery from audio read errors.",
+      "tags": [
+        "test",
+        "service"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:README.md",
+      "target": "document:docs/architecture.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:docs/running.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:docs/configuration.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:docs/game_history.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:docs/messages.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:pyproject.toml",
+      "target": "file:dev.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:pyproject.toml",
+      "target": "file:src/backend/__init__.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:requirements.txt",
+      "target": "file:src/backend/__init__.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:docs/architecture.md",
+      "target": "file:src/backend/game_api.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/architecture.md",
+      "target": "file:src/backend/detectors.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/configuration.md",
+      "target": "file:src/backend/constants.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/configuration.md",
+      "target": "file:src/backend/detectors.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/game_history.md",
+      "target": "file:src/backend/game_history.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/messages.md",
+      "target": "file:src/backend/messages.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/running.md",
+      "target": "file:dev.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:dev.py",
+      "target": "class:dev.py:RestartHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/utils.py",
+      "target": "file:src/backend/constants.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/utils.py",
+      "target": "function:src/backend/utils.py:_extract_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/utils.py",
+      "target": "function:src/backend/utils.py:_extract_race",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/utils.py",
+      "target": "function:src/backend/utils.py:_format_debug_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/hud_elements.py",
+      "target": "class:src/backend/hud_elements.py:HudElement",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/hud_elements.py",
+      "target": "class:src/backend/hud_elements.py:HudElement",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/messages.py",
+      "target": "function:src/backend/messages.py:get_message",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/messages.py",
+      "target": "function:src/backend/messages.py:get_message",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/ocr.py",
+      "target": "function:src/backend/ocr.py:capture_region",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/ocr.py",
+      "target": "function:src/backend/ocr.py:ocr_number",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/ocr.py",
+      "target": "function:src/backend/ocr.py:ocr_supply",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/ocr.py",
+      "target": "function:src/backend/ocr.py:capture_region",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/ocr.py",
+      "target": "function:src/backend/ocr.py:ocr_number",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/ocr.py",
+      "target": "function:src/backend/ocr.py:ocr_supply",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/find_coords.py",
+      "target": "function:src/backend/find_coords.py:get_mouse_pos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/detectors.py",
+      "target": "file:src/backend/messages.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/detectors.py",
+      "target": "function:src/backend/detectors.py:check_resources",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/detectors.py",
+      "target": "function:src/backend/detectors.py:check_supply",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/detectors.py",
+      "target": "function:src/backend/detectors.py:check_idle_workers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/detectors.py",
+      "target": "function:src/backend/detectors.py:check_resources",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/detectors.py",
+      "target": "function:src/backend/detectors.py:check_supply",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/detectors.py",
+      "target": "function:src/backend/detectors.py:check_idle_workers",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/game_api.py",
+      "target": "file:src/backend/ocr.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/game_api.py",
+      "target": "function:src/backend/game_api.py:fetch_game_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/game_api.py",
+      "target": "function:src/backend/game_api.py:_capture_hud",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/game_api.py",
+      "target": "function:src/backend/game_api.py:_filter_spikes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/game_api.py",
+      "target": "function:src/backend/game_api.py:fetch_game_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/game_history.py",
+      "target": "class:src/backend/game_history.py:GameHistoryManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/game_history.py",
+      "target": "class:src/backend/game_history.py:GameHistoryManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/classes/__init__.py",
+      "target": "file:src/backend/classes/speech_queue.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/classes/__init__.py",
+      "target": "file:src/backend/classes/wake_word_detector.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/classes/__init__.py",
+      "target": "class:src/backend/classes/speech_queue.py:SpeechQueue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/classes/__init__.py",
+      "target": "class:src/backend/classes/cooldown_tracker.py:CooldownTracker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/classes/__init__.py",
+      "target": "class:src/backend/classes/wake_word_detector.py:WakeWordDetector",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/classes/cooldown_tracker.py",
+      "target": "class:src/backend/classes/cooldown_tracker.py:CooldownTracker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/classes/cooldown_tracker.py",
+      "target": "class:src/backend/classes/cooldown_tracker.py:CooldownTracker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/classes/speech_queue.py",
+      "target": "class:src/backend/classes/speech_queue.py:SpeechQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/classes/speech_queue.py",
+      "target": "class:src/backend/classes/speech_queue.py:SpeechQueue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/classes/voice_listener.py",
+      "target": "class:src/backend/classes/voice_listener.py:VoiceListener",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/classes/voice_listener.py",
+      "target": "class:src/backend/classes/voice_listener.py:VoiceListener",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/classes/wake_word_detector.py",
+      "target": "class:src/backend/classes/wake_word_detector.py:WakeWordDetector",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/classes/wake_word_detector.py",
+      "target": "class:src/backend/classes/wake_word_detector.py:WakeWordDetector",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/db/__init__.py",
+      "target": "file:src/backend/db/collection.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/db/__init__.py",
+      "target": "file:src/backend/db/sqlite_connector.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/db/__init__.py",
+      "target": "function:src/backend/db/__init__.py:get_db",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/db/__init__.py",
+      "target": "function:src/backend/db/__init__.py:get_db",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/db/collection.py",
+      "target": "file:src/backend/db/connector.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/db/collection.py",
+      "target": "class:src/backend/db/collection.py:Collection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/db/collection.py",
+      "target": "class:src/backend/db/collection.py:Collection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/db/connector.py",
+      "target": "file:src/backend/db/collection.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/db/connector.py",
+      "target": "class:src/backend/db/connector.py:DBConnector",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/db/connector.py",
+      "target": "class:src/backend/db/connector.py:DBConnector",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/db/sqlite_connector.py",
+      "target": "file:src/backend/db/connector.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/db/sqlite_connector.py",
+      "target": "class:src/backend/db/sqlite_connector.py:SQLiteConnector",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/db/sqlite_connector.py",
+      "target": "class:src/backend/db/sqlite_connector.py:SQLiteConnector",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/backend/db/sqlite_connector.py:SQLiteConnector",
+      "target": "class:src/backend/db/connector.py:DBConnector",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:src/backend/db/schema.py",
+      "target": "function:src/backend/db/schema.py:ensure_tables",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/db/schema.py",
+      "target": "function:src/backend/db/schema.py:ensure_tables",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/index.py",
+      "target": "file:src/backend/classes/voice_listener.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/index.py",
+      "target": "file:src/backend/detectors.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/index.py",
+      "target": "file:src/backend/game_history.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/index.py",
+      "target": "file:src/backend/logger.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/index.py",
+      "target": "file:src/backend/utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/index.py",
+      "target": "function:src/backend/index.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/index.py",
+      "target": "function:src/backend/index.py:test_ocr_mode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/index.py",
+      "target": "function:src/backend/index.py:_handle_voice_command",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/service.py",
+      "target": "file:src/backend/hud_elements.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/service.py",
+      "target": "function:src/backend/service.py:get_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/service.py",
+      "target": "function:src/backend/service.py:get_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/service.py",
+      "target": "function:src/backend/service.py:save_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/service.py",
+      "target": "function:src/backend/service.py:save_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/service.py",
+      "target": "function:src/backend/service.py:get_stats_history",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/service.py",
+      "target": "function:src/backend/service.py:get_stats_history",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/backend/service.py",
+      "target": "function:src/backend/service.py:get_live_stats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/backend/service.py",
+      "target": "function:src/backend/service.py:get_live_stats",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/app.py",
+      "target": "file:src/frontend/views/runner_view.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/app.py",
+      "target": "class:src/frontend/app.py:SC2HelperApp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/app.py",
+      "target": "class:src/frontend/app.py:SC2HelperApp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/config_manager.py",
+      "target": "file:src/backend/service.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/sc2_ui.py",
+      "target": "file:src/frontend/app.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/logic/__init__.py",
+      "target": "file:src/frontend/logic/runner_logic.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/logic/__init__.py",
+      "target": "class:src/frontend/logic/runner_logic.py:RunnerController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/logic/__init__.py",
+      "target": "class:src/frontend/logic/game_history_logic.py:GameHistoryLoader",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/logic/game_history_logic.py",
+      "target": "file:src/backend/service.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/logic/game_history_logic.py",
+      "target": "class:src/frontend/logic/game_history_logic.py:GameHistoryLoader",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/logic/game_history_logic.py",
+      "target": "class:src/frontend/logic/game_history_logic.py:GameHistoryLoader",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/logic/runner_logic.py",
+      "target": "class:src/frontend/logic/runner_logic.py:RunnerController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/logic/runner_logic.py",
+      "target": "class:src/frontend/logic/runner_logic.py:RunnerController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/views/__init__.py",
+      "target": "file:src/frontend/views/runner_view.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/views/__init__.py",
+      "target": "class:src/frontend/views/runner_view.py:RunnerScreen",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/views/__init__.py",
+      "target": "file:src/frontend/views/settings_view.py",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/logic/runner_logic.py",
+      "target": "file:src/backend/index.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/frontend/views/runner_view.py",
+      "target": "class:src/frontend/views/runner_view.py:RunnerScreen",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/views/runner_view.py",
+      "target": "class:src/frontend/views/runner_view.py:RunnerScreen",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/views/runner_view.py",
+      "target": "file:src/frontend/logic/runner_logic.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/views/settings_view.py",
+      "target": "class:src/frontend/views/settings_view.py:SettingsScreen",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/views/settings_view.py",
+      "target": "class:src/frontend/views/settings_view.py:SettingsScreen",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/views/tabs/__init__.py",
+      "target": "file:src/frontend/views/tabs/config_tab.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/views/tabs/__init__.py",
+      "target": "file:src/frontend/views/tabs/coords_tab.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/views/tabs/config_tab.py",
+      "target": "class:src/frontend/views/tabs/config_tab.py:ConfigTab",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/views/tabs/config_tab.py",
+      "target": "class:src/frontend/views/tabs/config_tab.py:ConfigTab",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/views/tabs/coords_tab.py",
+      "target": "class:src/frontend/views/tabs/coords_tab.py:CoordsTab",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/views/tabs/coords_tab.py",
+      "target": "class:src/frontend/views/tabs/coords_tab.py:CoordsTab",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/views/tabs/game_history_tab.py",
+      "target": "class:src/frontend/views/tabs/game_history_tab.py:GameHistoryTab",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/views/tabs/game_history_tab.py",
+      "target": "class:src/frontend/views/tabs/game_history_tab.py:GameHistoryTab",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/views/tabs/game_history_tab.py",
+      "target": "file:src/frontend/logic/game_history_logic.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/views/tabs/messages_tab.py",
+      "target": "class:src/frontend/views/tabs/messages_tab.py:MessagesTab",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/views/tabs/messages_tab.py",
+      "target": "class:src/frontend/views/tabs/messages_tab.py:MessagesTab",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/views/tabs/messages_tab.py",
+      "target": "file:src/backend/hud_elements.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/test_config_manager.py",
+      "target": "file:src/backend/db/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/test_config_manager.py",
+      "target": "file:src/frontend/config_manager.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/config_manager.py",
+      "target": "file:tests/test_config_manager.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/test_debug.py",
+      "target": "file:src/backend/utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/utils.py",
+      "target": "file:tests/test_debug.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/test_detectors.py",
+      "target": "file:src/backend/detectors.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/detectors.py",
+      "target": "file:tests/test_detectors.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/test_messages.py",
+      "target": "file:src/backend/messages.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/backend/messages.py",
+      "target": "file:tests/test_messages.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/test_speech_queue.py",
+      "target": "file:src/backend/constants.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:ui",
+      "name": "UI Layer",
+      "description": "customtkinter screens, tabs, and controls that render the SC2 Helper interface and capture user input for settings, HUD coordinates, and game history display.",
+      "nodeIds": [
+        "file:src/frontend/sc2_ui.py",
+        "file:src/frontend/app.py",
+        "file:src/frontend/__init__.py",
+        "file:src/frontend/views/__init__.py",
+        "file:src/frontend/views/runner_view.py",
+        "file:src/frontend/views/settings_view.py",
+        "file:src/frontend/views/tabs/__init__.py",
+        "file:src/frontend/views/tabs/config_tab.py",
+        "file:src/frontend/views/tabs/coords_tab.py",
+        "file:src/frontend/views/tabs/game_history_tab.py",
+        "file:src/frontend/views/tabs/messages_tab.py"
+      ]
+    },
+    {
+      "id": "layer:frontend-logic",
+      "name": "Frontend Logic Layer",
+      "description": "Controller classes that bridge the UI to the backend: spawning the backend subprocess, streaming its stdout to the UI, and fetching game history records via the service layer.",
+      "nodeIds": [
+        "file:src/frontend/logic/__init__.py",
+        "file:src/frontend/logic/runner_logic.py",
+        "file:src/frontend/logic/game_history_logic.py",
+        "file:src/frontend/config_manager.py"
+      ]
+    },
+    {
+      "id": "layer:backend-core",
+      "name": "Backend Core",
+      "description": "The backend subprocess entry point and all game-monitoring components: HUD OCR reading, SC2 API polling, warning detectors, game history tracking, spoken message banks, shared constants, and the synchronous service API used by the frontend.",
+      "nodeIds": [
+        "file:src/backend/index.py",
+        "file:src/backend/__init__.py",
+        "file:src/backend/constants.py",
+        "file:src/backend/logger.py",
+        "file:src/backend/utils.py",
+        "file:src/backend/hud_elements.py",
+        "file:src/backend/messages.py",
+        "file:src/backend/ocr.py",
+        "file:src/backend/find_coords.py",
+        "file:src/backend/detectors.py",
+        "file:src/backend/game_api.py",
+        "file:src/backend/game_history.py",
+        "file:src/backend/service.py"
+      ]
+    },
+    {
+      "id": "layer:voice-audio",
+      "name": "Voice & Audio Layer",
+      "description": "Background audio components handling TTS output (SpeechQueue), wake-word detection (WakeWordDetector), microphone capture and intent parsing (VoiceListener), and per-warning rate-limiting (CooldownTracker).",
+      "nodeIds": [
+        "file:src/backend/classes/__init__.py",
+        "file:src/backend/classes/speech_queue.py",
+        "file:src/backend/classes/cooldown_tracker.py",
+        "file:src/backend/classes/voice_listener.py",
+        "file:src/backend/classes/wake_word_detector.py"
+      ]
+    },
+    {
+      "id": "layer:data",
+      "name": "Data Layer",
+      "description": "SQLite persistence layer including the abstract connector interface, aiosqlite implementation, MongoDB-style Collection query API, and schema definitions with migration logic for config and game_stats tables.",
+      "nodeIds": [
+        "file:src/backend/db/__init__.py",
+        "file:src/backend/db/connector.py",
+        "file:src/backend/db/sqlite_connector.py",
+        "file:src/backend/db/collection.py",
+        "file:src/backend/db/schema.py"
+      ]
+    },
+    {
+      "id": "layer:tests",
+      "name": "Tests",
+      "description": "pytest unit and smoke tests covering detectors, message dispatch, SpeechQueue priority ordering, VoiceListener intent parsing, WakeWordDetector lifecycle, config round-trip, and debug utilities.",
+      "nodeIds": [
+        "file:tests/test_config_manager.py",
+        "file:tests/test_debug.py",
+        "file:tests/test_detectors.py",
+        "file:tests/test_messages.py",
+        "file:tests/test_speech_queue.py",
+        "file:tests/test_voice_listener.py",
+        "file:tests/test_wake_word_detector.py"
+      ]
+    },
+    {
+      "id": "layer:project-support",
+      "name": "Project Support",
+      "description": "Project documentation, build configuration, and developer tooling including the hot-reload dev runner, dependency manifests, Claude Code settings, and all reference docs and planning specs.",
+      "nodeIds": [
+        "document:.claude/CLAUDE.md",
+        "config:.claude/settings.json",
+        "document:README.md",
+        "config:pyproject.toml",
+        "config:requirements.txt",
+        "file:dev.py",
+        "document:docs/architecture.md",
+        "document:docs/configuration.md",
+        "document:docs/game_history.md",
+        "document:docs/messages.md",
+        "document:docs/running.md",
+        "document:docs/plans/2026-05-18-wake-word-voice-control.md",
+        "document:docs/specs/2026-05-18-wake-word-voice-control-design.md",
+        "document:ideas/improvement-ideas.md"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Project Overview",
+      "description": "README.md establishes what SC2 Helper is and why it exists: a real-time coaching assistant that reads your StarCraft II HUD via screen OCR and speaks warnings aloud when you are floating resources, supply-capped, or leaving workers idle. Reading it first gives you the mental model and vocabulary you will need for every subsequent step in this tour.",
+      "nodeIds": [
+        "document:README.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Architecture Overview",
+      "description": "The architecture document explains the two-process design that is the defining structural decision of this codebase: a customtkinter frontend process spawns the backend as a child subprocess. This separation keeps the UI responsive while the backend runs its tight OCR-polling loop independently. Understanding this boundary is essential before reading any code.",
+      "nodeIds": [
+        "document:docs/architecture.md"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "UI Entry Point",
+      "description": "sc2_ui.py is the executable entry point for the entire application. It instantiates SC2HelperApp and calls mainloop(), which hands control to the customtkinter event loop. This single-file entry point follows the Python convention of keeping the launch bootstrapping minimal and delegating all real setup to the root window class.",
+      "nodeIds": [
+        "file:src/frontend/sc2_ui.py",
+        "file:src/frontend/app.py"
+      ],
+      "languageLesson": "Python GUI applications use mainloop() to start the Tkinter event loop, which blocks until the window is closed. Keeping the entry point thin (just instantiate + mainloop) separates process startup from application logic."
+    },
+    {
+      "order": 4,
+      "title": "Runner Screen & Process Bridge",
+      "description": "RunnerScreen (runner_view.py) is the Start/Stop control panel shown to the user. When the user clicks Start, it delegates to RunnerController (runner_logic.py), which is the critical process bridge: it launches the backend as a subprocess using Python's subprocess module and pipes stdout back to the UI via callbacks. This is where the two-process architecture from Step 2 is actually implemented.",
+      "nodeIds": [
+        "file:src/frontend/views/runner_view.py",
+        "file:src/frontend/logic/runner_logic.py"
+      ],
+      "languageLesson": "Python's subprocess module can stream a child process's stdout line-by-line using iter(proc.stdout.readline, b''). Running this in a daemon thread prevents it from blocking the GUI's mainloop while still delivering live output to the UI."
+    },
+    {
+      "order": 5,
+      "title": "Backend Entry Point",
+      "description": "index.py is the backend process's entry point and its main polling loop. It orchestrates the entire game-monitoring cycle: it polls the SC2 local API to detect when a game is live, then continuously reads HUD values, runs the warning detectors, and manages voice command listening. With a fan-out of 3 it is the most connected node in the backend, importing detectors, game_history, and voice_listener \u2014 making it the hub that ties all backend subsystems together.",
+      "nodeIds": [
+        "file:src/backend/index.py"
+      ]
+    },
+    {
+      "order": 6,
+      "title": "HUD Data Pipeline",
+      "description": "Before warnings can fire, the application needs numbers from the screen. ocr.py captures the relevant screen regions using the mss library and feeds the screenshots to Tesseract OCR to extract integer values. game_api.py sits above ocr.py: it calls the SC2 local HTTP API to detect game state, invokes the OCR pipeline to read HUD values, and applies a spike filter to discard transient OCR noise before returning clean readings to the main loop.",
+      "nodeIds": [
+        "file:src/backend/game_api.py",
+        "file:src/backend/ocr.py"
+      ],
+      "languageLesson": "A spike filter discards readings that deviate dramatically from the previous value \u2014 for example, rejecting a parsed value of 9999 when the previous reading was 450. This guards against Tesseract misreading a single frame without requiring expensive multi-frame averaging."
+    },
+    {
+      "order": 7,
+      "title": "Shared Constants & HUD Layout",
+      "description": "constants.py and hud_elements.py define the vocabulary shared across the entire backend. constants.py holds the SC2 API base URL, TTS priority levels, and lookup maps for normalizing race and result strings. hud_elements.py defines HudElement dataclass instances for the four screen regions the application monitors \u2014 resources, supply, workers, and army \u2014 establishing the fixed coordinate system the OCR pipeline reads.",
+      "nodeIds": [
+        "file:src/backend/constants.py",
+        "file:src/backend/hud_elements.py"
+      ]
+    },
+    {
+      "order": 8,
+      "title": "Warning Detectors",
+      "description": "detectors.py contains the three core check functions \u2014 check_resources, check_supply, and check_idle_workers \u2014 that implement the domain logic of the assistant. Each function compares the latest OCR-extracted HUD values against configurable thresholds and, when a threshold is breached, dispatches a spoken warning through the speech queue. These are the functions that turn raw screen data into actionable coaching feedback.",
+      "nodeIds": [
+        "file:src/backend/detectors.py",
+        "file:src/backend/messages.py"
+      ],
+      "languageLesson": "Separating the warning message content (messages.py) from the detection logic (detectors.py) makes it easy to add new message tones \u2014 strict, funny, or custom \u2014 without touching the threshold comparison code. get_message() acts as a strategy dispatcher selecting the right bank at runtime."
+    },
+    {
+      "order": 9,
+      "title": "Voice Output & Rate Limiting",
+      "description": "speech_queue.py implements a thread-safe priority queue that serializes all TTS output through macOS's say command. Because multiple detectors may trigger simultaneously, the queue ensures warnings are spoken one at a time in priority order and never overlap. cooldown_tracker.py adds a per-key rate limiter on top: once a warning fires for a given detector, that detector is silenced for a configurable cooldown window, preventing the same warning from repeating every poll cycle.",
+      "nodeIds": [
+        "file:src/backend/classes/speech_queue.py",
+        "file:src/backend/classes/cooldown_tracker.py"
+      ],
+      "languageLesson": "A daemon thread (daemon=True) in Python terminates automatically when the main process exits, making it ideal for background workers like a TTS queue that should not keep the process alive after the user closes the application."
+    },
+    {
+      "order": 10,
+      "title": "Voice Control Pipeline",
+      "description": "SC2 Helper can also accept spoken commands from the user. wake_word_detector.py runs a background audio loop using OpenWakeWord and an ONNX model to listen for a configurable wake phrase without occupying the main thread. Once the wake phrase is detected, voice_listener.py captures the follow-up microphone audio, transcribes it via speech-to-text, and parses the transcript into a VoiceCommand intent that the main loop in index.py can act on.",
+      "nodeIds": [
+        "file:src/backend/classes/wake_word_detector.py",
+        "file:src/backend/classes/voice_listener.py"
+      ],
+      "languageLesson": "Wake-word detection using ONNX runs entirely on-device with no network round-trips, keeping latency low and avoiding the privacy concerns of cloud speech APIs. The two-stage pipeline (wake word then full transcription) saves resources by only activating the heavier STT model after the lightweight wake detector fires."
+    },
+    {
+      "order": 11,
+      "title": "Configuration & Service Layer",
+      "description": "service.py is the single authoritative interface for reading and writing application state: get_config, save_config, get_stats_history, and get_live_stats all wrap the async SQLite operations behind synchronous-friendly call sites. config_manager.py in the frontend is a thin re-export shim that lets UI code call these functions without directly importing from the backend package, preserving the process boundary established in Step 4.",
+      "nodeIds": [
+        "file:src/backend/service.py",
+        "file:src/frontend/config_manager.py"
+      ]
+    },
+    {
+      "order": 12,
+      "title": "Data Layer",
+      "description": "The persistence layer consists of two files. db/__init__.py exposes get_db(), an async context manager that yields a database connection, hiding the aiosqlite implementation details from the rest of the backend. db/schema.py defines the CREATE TABLE statements for the config and game_stats tables and provides ensure_tables() which applies the schema on first run \u2014 acting as a lightweight migration system.",
+      "nodeIds": [
+        "file:src/backend/db/__init__.py",
+        "file:src/backend/db/schema.py"
+      ],
+      "languageLesson": "An async context manager (async with get_db() as db) ensures the database connection is properly opened and closed even if an exception occurs mid-operation. Using aiosqlite allows the I/O-bound database calls to yield control back to the event loop rather than blocking it."
+    },
+    {
+      "order": 13,
+      "title": "Game History",
+      "description": "game_history.py provides GameHistoryManager, which accumulates per-game warning counts in memory while a match is in progress, then flushes the final tally to the game_stats SQLite table when the game ends. This bridges the real-time warning loop from Step 8 with the persistent data layer from Step 12, and feeds the game history dashboard in the UI.",
+      "nodeIds": [
+        "file:src/backend/game_history.py",
+        "file:src/frontend/views/tabs/game_history_tab.py"
+      ]
+    },
+    {
+      "order": 14,
+      "title": "Settings UI",
+      "description": "SettingsScreen (settings_view.py) assembles four tabs into a single configuration panel: ConfigTab exposes every threshold, cooldown, supply-tier, voice, and OCR setting as a scrollable form; CoordsTab provides the countdown mouse-grab flow for capturing HUD screen coordinates. Together they give users full control over the parameters that drive the detectors, OCR pipeline, and voice system explored in previous steps.",
+      "nodeIds": [
+        "file:src/frontend/views/settings_view.py",
+        "file:src/frontend/views/tabs/config_tab.py",
+        "file:src/frontend/views/tabs/coords_tab.py"
+      ]
+    },
+    {
+      "order": 15,
+      "title": "Tests & Dev Tooling",
+      "description": "test_detectors.py contains smoke tests that verify the three detector functions fire TTS warnings when thresholds are crossed and remain silent when cooldowns suppress them, giving fast regression coverage for the core domain logic. dev.py complements the tests with a hot-reload runner that watches src/ for file changes and automatically restarts the frontend, shortening the feedback loop during development.",
+      "nodeIds": [
+        "file:tests/test_detectors.py",
+        "file:dev.py"
+      ]
+    }
+  ]
+}

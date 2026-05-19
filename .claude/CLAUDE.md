@@ -1,5 +1,21 @@
 # SC2 Helper — Claude Context
 
+## Knowledge Graph (prefer over grep)
+
+A knowledge graph for this project lives at `.understand-anything/knowledge-graph.json`.
+
+**Always query the knowledge graph first** when answering questions about code structure, file relationships, imports, layers, or architecture. Use grep/Read only for:
+- Specific line-level details not in the graph (exact implementation, runtime values)
+- Verifying a graph claim before acting on it
+
+To query the graph conversationally, use skill `understand-anything:understand-chat` — **not** `understand-anything:understand-knowledge` (that is for Karpathy-pattern wikis, not codebases).
+
+To explore the graph interactively, run `/understand-dashboard` to launch the Vite dashboard. The graph contains 101 nodes, 135 edges, 7 architectural layers, and a 15-step guided tour. See [docs/knowledge-graph.md](../docs/knowledge-graph.md) for full tool documentation.
+
+To regenerate after code changes: `/understand`
+
+---
+
 ## Project Docs
 
 - [Architecture & How it works](../docs/architecture.md)
