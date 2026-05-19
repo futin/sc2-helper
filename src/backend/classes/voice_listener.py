@@ -2,6 +2,7 @@ import logging
 import queue
 import re
 from dataclasses import dataclass, field
+from backend.sounds import play_boop
 
 logger = logging.getLogger(__name__)
 
@@ -43,10 +44,12 @@ class VoiceListener:
                 audio = recognizer.listen(source, timeout=5, phrase_time_limit=self._phrase_time_limit)
             except sr.WaitTimeoutError:
                 logger.info("VoiceListener: no command heard after wake word")
+                play_boop()
                 return
 
         text = self._transcribe(recognizer, audio)
         if not text:
+            play_boop()
             return
 
         logger.info("VoiceListener heard: %r", text)
@@ -56,6 +59,7 @@ class VoiceListener:
             logger.info("VoiceCommand queued: intent=%s params=%s", cmd.intent, cmd.params)
         else:
             logger.info("VoiceListener: no matching command in %r", text)
+            play_boop()
 
     def _transcribe(self, recognizer, audio) -> str | None:
         try:
