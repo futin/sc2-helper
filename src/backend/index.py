@@ -105,10 +105,11 @@ def main() -> None:
             command_queue=voice_queue,
             pause_threshold=float(voice_cfg.get("pause_threshold", 1.2)),
             phrase_time_limit=int(voice_cfg.get("phrase_time_limit", 8)),
+            silence_default=int(voice_cfg.get("silence_duration", 120)),
         )
         detector = WakeWordDetector(
             model_name=voice_cfg.get("wake_word_model", "alexa"),
-            sensitivity=float(voice_cfg.get("wake_sensitivity", 0.5)),
+            sensitivity=float(voice_cfg.get("wake_sensitivity", 0.6)),
             on_wake=voice_listener.handle_wake,
         )
         detector.start()
@@ -125,9 +126,9 @@ def main() -> None:
                     cmd = voice_queue.get_nowait()
                 except queue.Empty:
                     break
-                _handle_voice_command(cmd, current_state, speech, voice, config, voice_cfg, cooldown)
+                _handle_voice_command(cmd, current_state, speech, voice, config, cooldown)
                 if cmd.intent == "silence":
-                    silence_until = time.monotonic() + cmd.params.get("seconds", voice_cfg.get("silence_duration", 120))
+                    silence_until = time.monotonic() + cmd.params["seconds"]
 
             running, players = _poll_game()
 
@@ -198,11 +199,12 @@ def main() -> None:
     except KeyboardInterrupt:
         print("Stopping.")
     finally:
+        speech.stop()
         if detector:
             detector.stop()  # VoiceListener is stateless — no stop() needed
 
 
-def _handle_voice_command(cmd, state: Optional[dict], speech: SpeechQueue, voice: str, config: dict, voice_cfg: dict, cooldown: CooldownTracker) -> None:
+def _handle_voice_command(cmd, state: Optional[dict], speech: SpeechQueue, voice: str, config: dict, cooldown: CooldownTracker) -> None:
     if cmd.intent == "query_supply":
         if state:
             used = state.get("supply_used", "?")
@@ -218,7 +220,7 @@ def _handle_voice_command(cmd, state: Optional[dict], speech: SpeechQueue, voice
         else:
             speech.speak("No game active.", voice, PRIORITY_VOICE_RESPONSE)
     elif cmd.intent == "silence":
-        seconds = cmd.params.get("seconds", voice_cfg.get("silence_duration", 120))
+        seconds = cmd.params["seconds"]
         mins = seconds // 60
         speech.speak(f"Going silent for {mins} minute{'s' if mins != 1 else ''}.", voice, PRIORITY_VOICE_RESPONSE)
 

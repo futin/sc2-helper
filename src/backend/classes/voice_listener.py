@@ -19,11 +19,13 @@ class VoiceListener:
         command_queue: queue.Queue,
         pause_threshold: float = 1.2,
         phrase_time_limit: int = 8,
+        silence_default: int = 120,
     ):
         self._stt_backend = stt_backend
         self._queue = command_queue
         self._pause_threshold = pause_threshold
         self._phrase_time_limit = phrase_time_limit
+        self._silence_default = silence_default
 
     def handle_wake(self) -> None:
         try:
@@ -67,15 +69,15 @@ class VoiceListener:
     def _parse_command(self, text: str) -> VoiceCommand | None:
         t = text.lower()
 
-        if any(kw in t for kw in ("supply", "supply status", "supply cap")):
+        if re.search(r"\bsupply\b", t):
             return VoiceCommand(intent="query_supply")
 
-        if any(kw in t for kw in ("resources", "minerals", "gas", "enough")):
+        if re.search(r"\b(resources|minerals|gas|enough)\b", t):
             return VoiceCommand(intent="query_resources")
 
-        silence_match = re.search(r"silen(?:t|ce)\s+(?:for\s+)?(?:next\s+)?(\d+)\s*(minute|min|second|sec)", t)
-        if silence_match or any(kw in t for kw in ("silent", "silence", "quiet", "mute")):
-            seconds = 120
+        silence_match = re.search(r"\bsilen(?:t|ce)\s+(?:for\s+)?(?:next\s+)?(\d+)\s*(minute|min|second|sec)", t)
+        if silence_match or re.search(r"\b(silent|silence|quiet|mute)\b", t):
+            seconds = self._silence_default
             if silence_match:
                 amount = int(silence_match.group(1))
                 unit = silence_match.group(2)

@@ -135,7 +135,7 @@ class ConfigTab(ctk.CTkScrollableFrame):
 
         self._lbl("Wake Sensitivity (0.0–1.0)", row, 0)
         self._voice_wake_sensitivity = self._entry(row, 1)
-        self._voice_wake_sensitivity.insert(0, str(vc.get("wake_sensitivity", 0.5)))
+        self._voice_wake_sensitivity.insert(0, str(vc.get("wake_sensitivity", 0.6)))
         row += 1
 
         self._lbl("STT Backend", row, 0)

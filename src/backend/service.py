@@ -52,7 +52,7 @@ DEFAULT_CONFIG: dict = {
     "voice_control": {
         "enabled": False,
         "wake_word_model": "alexa",
-        "wake_sensitivity": 0.5,
+        "wake_sensitivity": 0.6,
         "stt_backend": "google",
         "silence_duration": 120,
         "pause_threshold": 1.2,
