@@ -2,7 +2,7 @@
 
 > God node · 12 connections · `src/backend/game_history.py`
 
-**Community:** [[History Dashboard]]
+**Community:** [[Community 1]]
 
 ## Connections by Relation
 

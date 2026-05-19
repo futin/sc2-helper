@@ -2,7 +2,7 @@
 
 > God node · 17 connections · `src/frontend/views/tabs/config_tab.py`
 
-**Community:** [[Game History Tracking]]
+**Community:** [[Community 7]]
 
 ## Connections by Relation
 

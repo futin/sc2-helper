@@ -2,7 +2,7 @@
 
 > God node · 10 connections · `src/backend/db/collection.py`
 
-**Community:** [[Frontend Application]]
+**Community:** [[Community 4]]
 
 ## Connections by Relation
 

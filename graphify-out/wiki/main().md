@@ -2,18 +2,18 @@
 
 > God node · 19 connections · `src/backend/index.py`
 
-**Community:** [[Database Query Layer]]
+**Community:** [[Community 0]]
 
 ## Connections by Relation
 
 ### calls
-- [[WakeWordDetector]] `INFERRED`
 - [[CooldownTracker]] `INFERRED`
 - [[GameHistoryManager]] `INFERRED`
-- [[VoiceListener]] `INFERRED`
+- [[WakeWordDetector]] `INFERRED`
 - [[SpeechQueue]] `INFERRED`
 - [[test_ocr_mode()]] `EXTRACTED`
 - [[get_config()]] `INFERRED`
+- [[VoiceListener]] `INFERRED`
 - [[_capture_hud()]] `INFERRED`
 - [[check_resources()]] `INFERRED`
 - [[check_idle_workers()]] `INFERRED`
