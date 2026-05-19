@@ -130,6 +130,8 @@ def main() -> None:
                 _handle_voice_command(cmd, current_state, speech, voice, config, cooldown)
                 if cmd.intent == "silence":
                     silence_until = time.monotonic() + cmd.params["seconds"]
+                elif cmd.intent == "unmute":
+                    silence_until = 0.0
 
             running, players = _poll_game()
 
@@ -230,6 +232,8 @@ def _handle_voice_command(cmd, state: Optional[dict], speech: SpeechQueue, voice
         seconds = cmd.params["seconds"]
         mins = seconds // 60
         speech.speak(f"Going silent for {mins} minute{'s' if mins != 1 else ''}.", voice, PRIORITY_VOICE_RESPONSE)
+    elif cmd.intent == "unmute":
+        speech.speak("Sound enabled.", voice, PRIORITY_VOICE_RESPONSE)
 
 
 if __name__ == "__main__":

@@ -137,6 +137,9 @@ class VoiceListener:
         if re.search(r"\b(work|workers|idle workers)\b", t):
             return VoiceCommand(intent="query_workers")
 
+        if re.search(r"\b(unmute|speak|enable sound)\b", t):
+            return VoiceCommand(intent="unmute")
+
         silence_match = re.search(r"\bsilen(?:t|ce)\s+(?:for\s+)?(?:next\s+)?(\d+)\s*(minute|min|second|sec)", t)
         if silence_match or re.search(r"\b(silent|silence|quiet|mute)\b", t):
             seconds = self._silence_default
