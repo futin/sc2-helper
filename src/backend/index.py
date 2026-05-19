@@ -107,6 +107,7 @@ def main() -> None:
             phrase_time_limit=int(voice_cfg.get("phrase_time_limit", 8)),
             silence_default=int(voice_cfg.get("silence_duration", 120)),
         )
+        voice_listener.start()
         detector = WakeWordDetector(
             model_name=voice_cfg.get("wake_word_model", "alexa"),
             sensitivity=float(voice_cfg.get("wake_sensitivity", 0.6)),
@@ -217,6 +218,12 @@ def _handle_voice_command(cmd, state: Optional[dict], speech: SpeechQueue, voice
             minerals = state.get("minerals", "?")
             gas = state.get("gas", "?")
             speech.speak(f"You have {minerals} minerals and {gas} gas.", voice, PRIORITY_VOICE_RESPONSE)
+        else:
+            speech.speak("No game active.", voice, PRIORITY_VOICE_RESPONSE)
+    elif cmd.intent == "query_workers":
+        if state:
+            idle_workers = state.get("idle_workers", "?")
+            speech.speak(f"You have {idle_workers} idle workers.", voice, PRIORITY_VOICE_RESPONSE)
         else:
             speech.speak("No game active.", voice, PRIORITY_VOICE_RESPONSE)
     elif cmd.intent == "silence":

@@ -82,7 +82,7 @@ class WakeWordDetector:
                         "WakeWordDetector: wake detected (model=%r, score=%.3f)",
                         self._model_name, score,
                     )
-                    play_beep()
+                    threading.Thread(target=play_beep, daemon=True).start()
                     self._on_wake()
                     last_wake_at = time.monotonic()
                     available = stream.get_read_available()
