@@ -45,6 +45,7 @@ def _make_detector_mocks(model_name="alexa", sensitivity=0.5, on_wake=None, scor
 
     mock_stream = MagicMock()
     mock_stream.read.return_value = np.zeros(1280, dtype=np.int16).tobytes()
+    mock_stream.get_read_available.return_value = 0
 
     mock_audio = MagicMock()
     mock_audio.open.return_value = mock_stream
@@ -102,6 +103,7 @@ def test_detect_loop_refractory_suppresses_second_wake():
 
     mock_stream = MagicMock()
     mock_stream.read.side_effect = read_side_effect
+    mock_stream.get_read_available.return_value = 0
 
     mock_audio = MagicMock()
     mock_audio.open.return_value = mock_stream
@@ -144,6 +146,7 @@ def test_detect_loop_recovers_from_audio_read_error():
 
     mock_stream = MagicMock()
     mock_stream.read.side_effect = read_side_effect
+    mock_stream.get_read_available.return_value = 0
 
     mock_audio = MagicMock()
     mock_audio.open.return_value = mock_stream
