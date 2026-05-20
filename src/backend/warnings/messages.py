@@ -30,7 +30,7 @@ MINERAL_MESSAGES = [
     "Rich and doing nothing. Very impressive. Very bad.",
     "That's a lot of blue crystals just sitting there judging you.",
     "Spend the minerals. Your workers mined them for a reason.",
-    "Mineral surplus detected. Your macro just rolled its eye.",
+    "Mineral surplus detected. Your macro just rolled its eyes.",
     "You're swimming in minerals. Build something before you drown.",
 ]
 
