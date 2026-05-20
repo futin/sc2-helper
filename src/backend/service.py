@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 from backend.db import get_db
-from backend.hud_elements import HUD_ELEMENTS
+from backend.hud.elements import HUD_ELEMENTS
 
 _DEFAULT_COORDS: dict[str, tuple[int, int]] = {
     "minerals":     (2026, 30),

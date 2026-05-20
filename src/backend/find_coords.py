@@ -12,7 +12,7 @@ def get_mouse_pos() -> tuple[int, int]:
 
 
 if __name__ == "__main__":
-    from backend.hud_elements import HUD_ELEMENTS
+    from backend.hud.elements import HUD_ELEMENTS
 
     positions: list[tuple[int, int]] = []
     print("Move mouse to the TOP-LEFT of each HUD number, then press Enter.")
