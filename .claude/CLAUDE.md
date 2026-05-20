@@ -32,14 +32,24 @@ To regenerate after code changes: `/understand`
 
 | File | Responsibility |
 |------|---------------|
-| `index.py` | Entry point — `test_ocr_mode()` + `main()` loop only |
+| `index.py` | Entry point — parse args, call `GameRunner.run()` |
+| `runner.py` | `GameRunner` class — owns all game loop state |
 | `constants.py` | `SC2_BASE`, `REQUEST_TIMEOUT`, `PRIORITY_*`, `_RESULT_MAP`, `_RACE_MAP` |
 | `utils.py` | `_extract_result`, `_extract_race`, `_format_debug_state` |
 | `logger.py` | `setup_logging()` |
-| `ocr.py` | Screen capture (`mss`) + Tesseract OCR functions |
-| `game_api.py` | SC2 API polling, HUD capture, spike filter |
-| `detectors.py` | `check_resources`, `check_supply`, `check_idle_workers` |
 | `service.py` | Service layer — `get_config`, `save_config`, `get_stats_history`, `get_live_stats` |
+| `game_history.py` | `GameHistoryManager` — per-game warning counts → SQLite |
+| `sounds.py` | Audio cue helpers |
+| `find_coords.py` | Standalone calibration script (macOS, `__main__` block) |
+| `hud/elements.py` | `HudElement` dataclass + `HUD_ELEMENTS` list |
+| `hud/ocr.py` | Screen capture (`mss`) + Tesseract OCR functions |
+| `hud/api.py` | SC2 API polling, HUD capture, spike filter |
+| `hud/debug.py` | `test_ocr_mode()` — OCR debug helper |
+| `warnings/detectors.py` | `check_resources`, `check_supply`, `check_idle_workers` |
+| `warnings/messages.py` | Warning message banks + `get_message()` |
+| `voice/listener.py` | `VoiceListener` + `VoiceCommand` |
+| `voice/wake_word.py` | `WakeWordDetector` |
+| `voice/commands.py` | `handle_command()` — voice intent → TTS response |
 | `classes/speech_queue.py` | `SpeechQueue` — priority TTS daemon thread |
 | `classes/cooldown_tracker.py` | `CooldownTracker` |
 | `db/__init__.py` | `get_db()` context manager, `DB_PATH` |
@@ -47,10 +57,6 @@ To regenerate after code changes: `/understand`
 | `db/sqlite_connector.py` | `aiosqlite` implementation |
 | `db/collection.py` | Collection query API (`find`/`findOne`/`create`/`updateOne`) |
 | `db/schema.py` | `CREATE TABLE` statements for `config` + `game_stats` |
-| `messages.py` | Warning message banks + `get_message()` |
-| `game_history.py` | `GameHistoryManager` — per-game warning counts → SQLite |
-| `hud_elements.py` | `HudElement` dataclass + `HUD_ELEMENTS` list |
-| `find_coords.py` | Standalone calibration script (macOS, `__main__` block) |
 
 ### Frontend (`src/frontend/`)
 
