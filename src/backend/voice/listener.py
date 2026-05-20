@@ -69,7 +69,7 @@ class VoiceListener:
                     self._recognizer.adjust_for_ambient_noise(
                         source, duration=self._calibration_duration_s
                     )
-                logger.info(
+                logger.debug(
                     "VoiceListener: calibrated energy_threshold=%.1f",
                     self._recognizer.energy_threshold,
                 )
@@ -93,13 +93,13 @@ class VoiceListener:
 
         with self._mic_lock:
             with sr.Microphone() as source:
-                logger.info("VoiceListener: wake detected, listening for command...")
+                logger.debug("VoiceListener: wake detected, listening for command...")
                 try:
                     audio = self._recognizer.listen(
                         source, timeout=5, phrase_time_limit=self._phrase_time_limit
                     )
                 except sr.WaitTimeoutError:
-                    logger.info("VoiceListener: no command heard after wake word")
+                    logger.debug("VoiceListener: no command heard after wake word")
                     play_boop()
                     return
 
@@ -108,13 +108,13 @@ class VoiceListener:
             play_boop()
             return
 
-        logger.info("VoiceListener heard: %r", text)
+        logger.debug("VoiceListener heard: %r", text)
         cmd = self._parse_command(text)
         if cmd:
             self._queue.put(cmd)
-            logger.info("VoiceCommand queued: intent=%s params=%s", cmd.intent, cmd.params)
+            logger.debug("VoiceCommand queued: intent=%s params=%s", cmd.intent, cmd.params)
         else:
-            logger.info("VoiceListener: no matching command in %r", text)
+            logger.debug("VoiceListener: no matching command in %r", text)
             play_boop()
 
     def _transcribe(self, recognizer, audio) -> str | None:

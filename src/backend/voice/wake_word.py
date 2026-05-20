@@ -28,7 +28,7 @@ class WakeWordDetector:
     def start(self) -> None:
         self._thread = threading.Thread(target=self._detect_loop, daemon=True, name="WakeWordDetector")
         self._thread.start()
-        logger.info("WakeWordDetector started (model=%r, sensitivity=%.2f)", self._model_name, self._sensitivity)
+        logger.debug("WakeWordDetector started (model=%r, sensitivity=%.2f)", self._model_name, self._sensitivity)
 
     def stop(self) -> None:
         self._stop_event.set()
@@ -65,7 +65,7 @@ class WakeWordDetector:
             frames_per_buffer=chunk_size,
         )
 
-        logger.info("WakeWordDetector listening for %r...", self._model_name)
+        logger.debug("WakeWordDetector listening for %r...", self._model_name)
         last_wake_at = 0.0
         try:
             while not self._stop_event.is_set():
@@ -79,7 +79,7 @@ class WakeWordDetector:
                 score = prediction.get(self._model_name, 0.0)
                 now = time.monotonic()
                 if score >= self._sensitivity and now - last_wake_at > self._refractory_s:
-                    logger.info(
+                    logger.debug(
                         "WakeWordDetector: wake detected (model=%r, score=%.3f)",
                         self._model_name, score,
                     )

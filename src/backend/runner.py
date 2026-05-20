@@ -143,7 +143,7 @@ class GameRunner:
         self.setup_voice()
         mode = self.config.get("message_mode", "strict")
         label = ", debug" if self.debug else ""
-        logging.info("SC2 Helper running [%s mode%s]. Press Ctrl+C to stop.", mode, label)
+        logging.debug("SC2 Helper running [%s mode%s]. Press Ctrl+C to stop.", mode, label)
         voice_on = "on" if self.voice_listener else "off"
         print(f"[STATE] game=idle voice={voice_on}", flush=True)
         try:
