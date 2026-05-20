@@ -28,5 +28,4 @@ Thumbs.db
 
 # Project-specific
 ocr_debug/
-docs/superpowers
 src/backend/db/sc2helper.db
