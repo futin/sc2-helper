@@ -9,8 +9,8 @@ def handle_command(
     state: Optional[dict],
     speech: SpeechQueue,
     voice: str,
-    config: dict,
-    cooldown: CooldownTracker,
+    config: dict,  # reserved — available for future per-command config
+    cooldown: CooldownTracker,  # reserved — available for future per-command cooldowns
 ) -> None:
     if cmd.intent == "query_supply":
         if state:
