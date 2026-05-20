@@ -80,6 +80,10 @@ class GameRunner:
         voice_on = "on" if self.voice_listener else "off"
         print(f"[STATE] game=idle voice={voice_on}", flush=True)
 
+    @staticmethod
+    def _v(val) -> str:
+        return '?' if val is None else str(val)
+
     def _tick(self, running: bool) -> None:
         if not running:
             if self.debug:
@@ -101,9 +105,6 @@ class GameRunner:
         if not state:
             return
 
-        def _v(val):
-            return '?' if val is None else str(val)
-
         c = self.stats.counts
         res_cfg = self.config["resources"]
         sup_cfg = self.config["supply"]
@@ -111,9 +112,9 @@ class GameRunner:
         silence_remaining = max(0.0, self.silence_until - time.monotonic())
         voice_on = "on" if self.voice_listener else "off"
         print(
-            f"[STATE] minerals={_v(state['minerals'])} gas={_v(state['gas'])}"
-            f" supply={_v(state['supply_used'])}/{_v(state['supply_max'])}"
-            f" idle={_v(state['idle_workers'])}"
+            f"[STATE] minerals={self._v(state['minerals'])} gas={self._v(state['gas'])}"
+            f" supply={self._v(state['supply_used'])}/{self._v(state['supply_max'])}"
+            f" idle={self._v(state['idle_workers'])}"
             f" mw={c.get('mineralWarningsCount', 0)}"
             f" gw={c.get('gasWarningsCount', 0)}"
             f" sw={c.get('supplyWarningsCount', 0)}"
@@ -162,5 +163,7 @@ class GameRunner:
 
     def stop(self) -> None:
         self.speech.stop()
+        if self.voice_listener:
+            self.voice_listener.stop()
         if self.detector:
             self.detector.stop()
