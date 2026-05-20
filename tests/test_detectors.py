@@ -7,7 +7,7 @@ from backend.classes import CooldownTracker, SpeechQueue
 from backend.constants import (
     PRIORITY_SUPPLY, PRIORITY_MINERALS, PRIORITY_GAS, PRIORITY_IDLE_WORKERS,
 )
-from backend.detectors import check_resources, check_supply, check_idle_workers
+from backend.warnings.detectors import check_resources, check_supply, check_idle_workers
 
 BASE_CONFIG = {
     "resources": {"mineral_threshold": 600, "gas_threshold": 600, "cooldown": 30},

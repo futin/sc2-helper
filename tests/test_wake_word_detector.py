@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, patch
 
 import numpy as np
 
-from backend.classes.wake_word_detector import WakeWordDetector
+from backend.voice.wake_word import WakeWordDetector
 
 
 def test_init_sets_attributes():

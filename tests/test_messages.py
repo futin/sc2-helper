@@ -1,7 +1,7 @@
 """Smoke tests for message selection logic."""
 import pytest
 
-from backend.messages import get_message, STRICT_MESSAGES
+from backend.warnings.messages import get_message, STRICT_MESSAGES
 
 
 def test_strict_mode_returns_exact_string():

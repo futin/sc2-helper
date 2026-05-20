@@ -3,7 +3,7 @@ import pytest
 
 import backend.db as db_module
 from frontend.config_manager import get_config, save_config, DEFAULT_CONFIG
-from backend.hud_elements import HUD_ELEMENTS
+from backend.hud.elements import HUD_ELEMENTS
 
 
 @pytest.fixture(autouse=True)

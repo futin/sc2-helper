@@ -1,7 +1,7 @@
 import queue
 from unittest.mock import MagicMock, patch
 
-from backend.classes.voice_listener import VoiceCommand, VoiceListener
+from backend.voice.listener import VoiceCommand, VoiceListener
 
 
 def _make_listener(q=None):
@@ -64,6 +64,7 @@ def test_handle_wake_enqueues_command():
     mock_sr.Microphone.return_value.__enter__ = MagicMock(return_value=MagicMock())
     mock_sr.Microphone.return_value.__exit__ = MagicMock(return_value=False)
     mock_sr.WaitTimeoutError = TimeoutError
+    listener._recognizer = mock_recognizer
 
     with patch.dict("sys.modules", {"speech_recognition": mock_sr}):
         listener.handle_wake()
