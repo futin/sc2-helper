@@ -1,7 +1,7 @@
 import customtkinter as ctk
 from tkinter import messagebox
 
-from backend.hud_elements import HUD_ELEMENTS
+from backend.hud import HUD_ELEMENTS
 
 
 class CoordsTab(ctk.CTkScrollableFrame):

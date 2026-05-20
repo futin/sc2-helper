@@ -1,7 +1,7 @@
 import tkinter as tk
 import customtkinter as ctk
 
-from backend.hud_elements import HUD_ELEMENTS
+from backend.hud import HUD_ELEMENTS
 
 
 class MessagesTab(ctk.CTkFrame):
