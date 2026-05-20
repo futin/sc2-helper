@@ -7,5 +7,5 @@ from backend.hud.api import (
 __all__ = [
     "HudElement", "HUD_ELEMENTS", "HUD_ELEMENT_KEYS",
     "capture_region", "ocr_number", "ocr_supply",
-    "_poll_game", "is_game_running", "_capture_hud", "_filter_spikes", "fetch_game_state",
+    "is_game_running", "fetch_game_state",
 ]

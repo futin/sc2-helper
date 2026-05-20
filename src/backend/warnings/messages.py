@@ -74,5 +74,8 @@ def get_message(category: str, mode: str = "strict", custom_messages: dict | Non
             "idle_workers": IDLE_WORKER_MESSAGES,
             "gas":          GAS_MESSAGES,
         }
-        return random.choice(messages[category])
+        pool = messages.get(category)
+        if pool is None:
+            return STRICT_MESSAGES.get(category, "")
+        return random.choice(pool)
     return STRICT_MESSAGES[category]
